@@ -6,7 +6,7 @@ Creating project gaimification on django
 git                          
 git add -A .                 
 git commit -m 'comment'      
-git push -u origin readme    
+git push -u origin 'branch'    
 
 
 _______________________________________________________________________________________________________________
