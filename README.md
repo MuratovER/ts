@@ -3,10 +3,10 @@ Creating project gaimification on django
 
 ## pushing
 
-git                          .
-git add -A .                 .
-git commit -m 'comment'      .
-git push -u origin readme    .
+git                          
+git add -A .                 
+git commit -m 'comment'      
+git push -u origin readme    
 
 
 _______________________________________________________________________________________________________________
