@@ -72,7 +72,7 @@ ________________________________________________________________________________
 
 ## or you can use SQL shell
 
-![SQL Shell](https://ibb.co/Qp9cQXn)
+![SQL Shell](https://github.com/MuratovER/my-first-blog1/blob/master/Снимок.PNG)
 
 ### and repeat all steps
 :# CREATE USER name;
