@@ -72,6 +72,7 @@ ________________________________________________________________________________
 
 ## or you can use SQL shell
 
+<<<<<<< HEAD
 
 
 ## and repeat all steps
@@ -88,7 +89,11 @@ pip install psycopg2
 ## and at the end we need to create superuser
 
 python manage.py createsuperuser --username name
+=======
+open app "psql shell"
+>>>>>>> master
 
+and repeat all steps 
 _______________________________________________________________________________________________________________
 
 # requirements.txt
