@@ -115,3 +115,18 @@ Open the mysite/wsgi.py file and add these lines at the end:
 
 from whitenoise.django import DjangoWhiteNoise
 application = DjangoWhiteNoise(application)
+
+
+# deploy on HEROKU
+
+(venv) C:\ts>heroku create djangogirlsblog
+
+(venv) C:\ts>git push heroku master
+
+(venv) C:\ts>heroku ps:scale web=1
+
+(venv) C:\ts>heroku open
+
+(venv) C:\ts>heroku run python manage.py migrate
+
+(venv) C:\ts>heroku run python manage.py createsuperuser
