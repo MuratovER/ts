@@ -50,7 +50,6 @@ http://www.postgresqltutorial.com/install-postgresql/
 (venv) C:\ts> psql
 ###Our > now changed into #, which means that we're now sending commands to PostgreSQL. Let's create a user with CREATE USER name;
 
-_______________________________________________________________________________________________________________
 
 ## (remember to use the semicolon)
 
@@ -72,10 +71,9 @@ ________________________________________________________________________________
 
 ## or you can use SQL shell
 
-<<<<<<< HEAD
 
 
-## and repeat all steps
+## open sql shell  and repeat all steps
 :# CREATE USER name;
 
 :# CREATE DATABASE ts OWNER name;
@@ -89,9 +87,6 @@ pip install psycopg2
 ## and at the end we need to create superuser
 
 python manage.py createsuperuser --username name
-=======
-open app "psql shell"
->>>>>>> master
 
 and repeat all steps 
 _______________________________________________________________________________________________________________
