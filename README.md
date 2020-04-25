@@ -72,23 +72,9 @@ ________________________________________________________________________________
 
 ## or you can use SQL shell
 
-![SQL Shell](https://i.ibb.co/sbjPRtQ/image.png)
+open app "psql shell"
 
-### and repeat all steps
-:# CREATE USER name;
-
-:# CREATE DATABASE ts OWNER name;
-
-### after this you need to download psycopg2.exe
-
-pip install psycopg2
-
-### after installing we need to applay migrations 
-
-### and at the end we need to create superuser
-
-python manage.py createsuperuser --username name
-
+and repeat all steps 
 _______________________________________________________________________________________________________________
 
 ## requirements.txt
