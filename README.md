@@ -72,7 +72,7 @@ ________________________________________________________________________________
 
 ## or you can use SQL shell
 
-![SQL Shell](https://ibb.co/Qp9cQXn)
+
 
 ### and repeat all steps
 :# CREATE USER name;
@@ -100,3 +100,12 @@ ________________________________________________________________________________
 ### Open this file and add the following line at the bottom:
 
 psycopg2==2.7.2
+
+
+## Procfile 
+
+web: gunicorn mysite.wsgi --log-file -
+
+## runtime.txt
+
+python-3.6.4
