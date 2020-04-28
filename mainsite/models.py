@@ -17,6 +17,7 @@ from django.utils import timezone
 # model for Post 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
 
@@ -27,15 +28,14 @@ class Skill(models.Model):
     
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     skill_name = models.TextField()
-    level = PositiveIntegerField(blank=True, null=True)
+    level = models.PositiveIntegerField(default=0)
 
 
 #model of userSKill
 class UserSkill(models.Model): 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     skill = models.ForeignKey(Skill, on_delete=models.CASCADE, related_name="skill", default=0)
-    
-    level = PositiveIntegerField(blank=True, null=True)
+    level = models.PositiveIntegerField(default=0)
 
 
 class Profile(models.Model):
