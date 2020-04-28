@@ -24,6 +24,7 @@ class Post(models.Model):
 
 #model Skills 
 class Skill(models.Model): 
+    
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     skill_name = models.TextField()
     level = PositiveIntegerField(blank=True, null=True)
@@ -33,6 +34,7 @@ class Skill(models.Model):
 class UserSkill(models.Model): 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     skill = models.ForeignKey(Skill, on_delete=models.CASCADE, related_name="skill", default=0)
+    
     level = PositiveIntegerField(blank=True, null=True)
 
 
