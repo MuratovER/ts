@@ -28,7 +28,7 @@ class Skill(models.Model):
     
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     skill_name = models.TextField()
-    level = models.PositiveIntegerField(default=0)
+   
 
 
 #model of userSKill
