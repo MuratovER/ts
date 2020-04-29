@@ -25,10 +25,8 @@ class Post(models.Model):
 
 #model Skills 
 class Skill(models.Model): 
-    
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     skill_name = models.TextField()
-   
+    skill_description = models.TextField()
 
 
 #model of userSKill
