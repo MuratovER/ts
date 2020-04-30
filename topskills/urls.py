@@ -22,6 +22,7 @@ from mainsite import views as core_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('mainsite.urls')),
     
     
     
