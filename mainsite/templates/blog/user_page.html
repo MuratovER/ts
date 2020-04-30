@@ -19,12 +19,14 @@
     </div>
     {% endfor %}
     <p></p>
+    {% for skill in skills %}
     <div>
         <h2>skills</h2>
         <p>Name of the skill : {{ skill.skill_name }} </p>
         <p>Description of the skill: {{ skill.skill_description }}</p>
 
     </div>
+    {% endfor %}
     <p></p>
     {% for post in posts %}
     <div>

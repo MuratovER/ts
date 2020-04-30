@@ -6,7 +6,7 @@ from mainsite.forms import SignUpForm
 
 def user_page(request):
     
-    return render(request, 'blog/user_page.html', {'posts': posts})
+    return render(request, 'blog/user_page.html')
 
 
 
