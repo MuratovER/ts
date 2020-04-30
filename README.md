@@ -1,11 +1,10 @@
-# ts
-Creating project gaimification on django
 
 # pushing
 
 git status 
 
 git add -A .  
+
 git status  
 
 git commit -m 'comment'
@@ -13,9 +12,20 @@ git commit -m 'comment'
 git push -u origin 'branch'    
 _______________________________________________________________________________________________________________
 
+
 # virtual environment
+
 venv
 
+#### установка
+python -m venv myvenv
+
+#### запуск
+C:\ts venv\scripts\sctivate
+
+(venv) C:\ts>
+
+_______________________________________________________________________________________________________________
 
 # pip
 
@@ -28,6 +38,7 @@ whitenoise
 
 
 
+_______________________________________________________________________________________________________________
 
 # migrations
 
@@ -37,58 +48,45 @@ python manage.py migrate "module"
 
 # PostgreSQL installation
 
-###here you need to download PostgreSQL
+#### here you need to download PostgreSQL
 
 http://www.enterprisedb.com/products-services-training/pgdownload#windows
 
-## Instruction for installing
+#### Instruction for installing
 
 http://www.postgresqltutorial.com/install-postgresql/
 
-## Creating the database
-
-(venv) C:\ts> psql
-###Our > now changed into #, which means that we're now sending commands to PostgreSQL. Let's create a user with CREATE USER name;
-
-
-## (remember to use the semicolon)
-
-:# CREATE USER name;
-
-:# CREATE DATABASE ts OWNER name;
-
-## after this you need to download psycopg2.exe
-
-pip install psycopg2
-
-## after installing we need to applay migrations 
-
-## and at the end we need to create superuser
-
-python manage.py createsuperuser --username name
-
 _______________________________________________________________________________________________________________
 
-## or you can use SQL shell
+
+# Creating the database
+
+(venv) C:\ts> psql
+#### Our > now changed into #, which means that we're now sending commands to PostgreSQL. Let's create a user with CREATE USER name;
 
 
+### (remember to use the semicolon)
 
-## open sql shell  and repeat all steps
 :# CREATE USER name;
 
 :# CREATE DATABASE ts OWNER name;
 
-## after this you need to download psycopg2.exe
+### after this you need to download psycopg2.exe
 
 pip install psycopg2
 
-## after installing we need to applay migrations 
+### after installing we need to applay migrations 
 
-## and at the end we need to create superuser
+python manage.py migrate "module"
+
+### and at the end we need to create superuser
 
 python manage.py createsuperuser --username name
 
-and repeat all steps 
+
+## Or you can use SQL shell and repeat al steps with them
+
+
 _______________________________________________________________________________________________________________
 
 # requirements.txt
