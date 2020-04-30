@@ -4,5 +4,5 @@ from django.shortcuts import render
 
 urlpatterns = [
     path('', views.user_page, name='user_page'),
-    
+    path(r'^signup/$', views.signup, name='signup'),
 ]
