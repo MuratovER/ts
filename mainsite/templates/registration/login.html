@@ -1,4 +1,4 @@
-blog/templates/registration and a file inside named login.html: {% extends "blog/base.html" %} {% block content %} {% if form.errors %}
+ {% block content %} {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
 
@@ -18,4 +18,7 @@ blog/templates/registration and a file inside named login.html: {% extends "blog
     <input type="submit" value="login" />
     <input type="hidden" name="next" value="{{ next }}" />
 </form>
+
+
+
 {% endblock %}
