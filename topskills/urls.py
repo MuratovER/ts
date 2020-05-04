@@ -19,9 +19,13 @@ from django.urls import path
 from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
 from mainsite import views as core_views
+from mainsite import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/login/', views.LoginView.as_view(), name='login'),
+    path('accounts/logout/', views.LogoutView.as_view(next_page='/'), name='logout'),
     path('', include('mainsite.urls')),
     
     

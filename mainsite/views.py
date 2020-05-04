@@ -1,12 +1,12 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 from mainsite.forms import SignUpForm
-
+from django.contrib.auth.views import LoginView, LogoutView
 
 
 def user_page(request):
-    
-    return render(request, 'blog/user_page.html',)
+    return render(request, 'mainsite/base.html',)
+ #   return render(request, 'blog/user_page.html',)
 
 
 
