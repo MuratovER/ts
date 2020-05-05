@@ -11,7 +11,6 @@ def user_page(request):
 
 
 
-
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
