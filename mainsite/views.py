@@ -2,6 +2,11 @@ from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 from mainsite.forms import SignUpForm
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.forms import UserCreationForm
+
+
+
+
 
 
 def user_page(request):
@@ -20,8 +25,8 @@ def signup_view(request):
         return redirect('home')
     else:
         form = SignUpForm()
-    return render(request, 'registration/signup.html', {'form': form})
-
+    return render(request, 'signup.html', {'form': form})
+'''
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -40,3 +45,4 @@ def signup(request):
         form = SignUpForm()
         
     return render(request, 'registration/signup.html', {'form': form})
+'''

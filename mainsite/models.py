@@ -4,9 +4,16 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.conf import settings
 from django.utils import timezone
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
 
+class SignUpForm(UserCreationForm):
+    username = forms.CharField(max_length=30)
+    email = forms.EmailField(max_length=200)
 
-
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password1', 'password2', )
 
 
 
@@ -34,6 +41,7 @@ class UserSkill(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     skill = models.ForeignKey(Skill, on_delete=models.CASCADE, related_name="skill", default=0)
     level = models.PositiveIntegerField(default=0)
+
 
 
 class Profile(models.Model):
