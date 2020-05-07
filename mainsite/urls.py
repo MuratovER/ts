@@ -13,7 +13,7 @@ urlpatterns = [
    
  
     path(r'^signup/$', views.signup_view, name='signup'),
-    path('', views.user_page, name='user_page'),
-    
+    path('', views.home_page, name='user_page'),
+   
     
 ]

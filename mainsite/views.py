@@ -3,14 +3,14 @@ from django.shortcuts import render, redirect
 from mainsite.forms import SignUpForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
+from django.template import RequestContext
 
 
 
 
 
-
-def user_page(request):
-    return render(request, 'mainsite/base.html',)
+def home_page(request):
+    return render(request, 'mainsite/home.html',)
  #   return render(request, 'blog/user_page.html',)
 
 
@@ -22,9 +22,10 @@ def signup_view(request):
         password = form.cleaned_data.get('password1')
         user = authenticate(username=username, password=password)
         login(request, user)
-        return redirect('home')
+        return redirect('mainsite/home.html')
     else:
         form = SignUpForm()
+    
     return render(request, 'registration/signup.html', {'form': form})
 '''
 def signup(request):
