@@ -22,7 +22,7 @@ def signup_view(request):
         password = form.cleaned_data.get('password1')
         user = authenticate(username=username, password=password)
         login(request, user)
-        return redirect('mainsite/home.html')
+        return redirect('home')
     else:
         form = SignUpForm()
     
