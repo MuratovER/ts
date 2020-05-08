@@ -18,6 +18,8 @@ def signup_view(request):
     form = SignUpForm(request.POST)
     if form.is_valid():
         form.save()
+        first_name = form.cleaned_data.get('first_name')
+        last_name = form.cleaned_data.get('last_name')
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password1')
         user = authenticate(username=username, password=password)
