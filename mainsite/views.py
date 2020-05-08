@@ -17,9 +17,12 @@ def home_page(request):
 def signup_view(request):
     form = SignUpForm(request.POST)
     if form.is_valid():
-        form.save()
-        first_name = form.cleaned_data.get('first_name')
-        last_name = form.cleaned_data.get('last_name')
+        user = form.save()
+        user.refresh_from_db()
+        user.profile.first_name = form.cleaned_data.get('first_name')
+        user.profile.last_name = form.cleaned_data.get('last_name')
+        user.profile.email = form.cleaned_data.get('email')
+        user.save()
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password1')
         user = authenticate(username=username, password=password)
@@ -27,25 +30,5 @@ def signup_view(request):
         return redirect('home_page')
     else:
         form = SignUpForm()
-    
-    return render(request, 'registration/signup.html', {'form': form})
-'''
-def signup(request):
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            username = form.cleaned_data.get('username')
-            user.refresh_from_db()  # load the profile instance created by the signal
-            user.profile.birth_date = form.cleaned_data.get('birth_date')
-            user.save()
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=user.username, password=raw_password)
-            login(request, user)
-            
-            return redirect('home')
-    else:
-        form = SignUpForm()
-        
-    return render(request, 'registratio/nsignup.html', {'form': form})
-'''
+    return render(request, 'registration/signup.html', {'form': form})  
+ 

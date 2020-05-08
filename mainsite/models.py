@@ -7,16 +7,6 @@ from django.utils import timezone
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-class SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30)
-    last_name = forms.CharField(max_length=30)
-    username = forms.CharField(max_length=30)
-    email = forms.EmailField(max_length=200)
-   
-    class Meta:
-        model = User
-        fields = ('first_name','last_name','username', 'email', 'password1', 'password2', )
-
 
 
 
@@ -26,7 +16,7 @@ class SignUpForm(UserCreationForm):
 # model for Post 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
+    #title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
 
@@ -48,12 +38,16 @@ class UserSkill(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    bio = models.TextField(max_length=500, blank=True)
-    location = models.CharField(max_length=30, blank=True)
-    birth_date = models.DateField(null=True, blank=True)
+    first_name = models.CharField(max_length=100, blank=True)
+    last_name = models.CharField(max_length=100, blank=True)
+    email = models.EmailField(max_length=150)
+    bio = models.TextField()
+
+    def __str__(self):
+        return self.user.username
 
 @receiver(post_save, sender=User)
-def update_user_profile(sender, instance, created, **kwargs):
+def update_profile_signal(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
     instance.profile.save()
