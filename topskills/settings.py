@@ -25,7 +25,7 @@ SECRET_KEY = 'lrdxap=5ty@6s%!qny5xiidm4jje^czh^a*z8$4m#4)@%57xp8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 
 # Application definition
@@ -130,3 +130,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 #login
 LOGIN_REDIRECT_URL = '/'
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
