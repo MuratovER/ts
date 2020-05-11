@@ -124,12 +124,29 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 
 #login
 LOGIN_REDIRECT_URL = '/'
 
+
+
+
+3333333333333333
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATIC_URL = '/static/'
+
 db_from_env = dj_database_url.config(conn_max_age=500)
+
+
+DATABASES['default'].update(db_from_env)
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+
+
 DATABASES['default'].update(db_from_env)
