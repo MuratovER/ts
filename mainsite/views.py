@@ -13,6 +13,9 @@ def home_page(request):
     return render(request, 'mainsite/home.html',)
  #   return render(request, 'blog/user_page.html',)
 
+def user_page(request):
+    return render(request, 'mainsite/user_page.html',)
+
 
 def signup_view(request):
     form = SignUpForm(request.POST)
@@ -27,7 +30,7 @@ def signup_view(request):
         password = form.cleaned_data.get('password1')
         user = authenticate(username=username, password=password)
         login(request, user)
-        return redirect('home_page')
+        return redirect('user_page')
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})  
