@@ -1,15 +1,25 @@
- {% block content %} {% if form.errors %}
+{% load static %} {% block content %}
+
+<head>
+    <title>Topskills</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+{% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
+<h1 class="login-header">TopSkills</h1>
 
-<form method="post" action="{% url 'login' %}">
+<form method="post" action="{% url 'login' %}" class="login">
     {% csrf_token %}
     <table>
-        <tr>
+        <tr class="login">
             <td>{{ form.username.label_tag }}</td>
             <td>{{ form.username }}</td>
         </tr>
-        <tr>
+        <tr class="password">
             <td>{{ form.password.label_tag }}</td>
             <td>{{ form.password }}</td>
         </tr>
