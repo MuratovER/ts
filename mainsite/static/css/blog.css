@@ -1,0 +1,23 @@
+.user-page {
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+.left-table {
+    background-color: #0000FF;
+}
+
+.login-header {
+    text-align: center;
+}
+
+.page-header h1 {
+    text-align: center;
+}
+
+.top-menu {
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 20px;
+    font-size: 26pt;
+}

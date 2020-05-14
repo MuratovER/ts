@@ -10,10 +10,11 @@ from django.conf.urls import include, url
 
 
 urlpatterns = [
-   
- 
-    path(r'^signup/$', views.signup_view, name='signup'),
     path('', views.home_page, name='home_page'),
+    path('signup/', views.signup_view, name='signup'),
+    path('user_page/', views.user_page, name='user_page')
+    
+    
    
     
 ]
