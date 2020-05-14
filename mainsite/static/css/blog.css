@@ -10,3 +10,14 @@
 .login-header {
     text-align: center;
 }
+
+.page-header h1 {
+    text-align: center;
+}
+
+.top-menu {
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 20px;
+    font-size: 26pt;
+}
