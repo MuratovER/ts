@@ -1,0 +1,8 @@
+.user-page {
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+.left-table {
+    background-color: #0000FF;
+}

@@ -1,40 +1,44 @@
 {% extends 'mainsite/base.html' %}
-<div>
-    <ul>
-        <li>name</li>
-        <li>Profile</li>
-        <li>Home page</li>
-        <li>Achivements</li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-</div>
+<div class="user-page">
+    <div class="left-table">
+        <ul>
+            <li><img src="" alt="photo"></li>
+            <li>name</li>
+            <li>Profile</li>
+            <li>Home page</li>
+            <li>Achivements</li>
+            <li>To Do list</li>
+            <li>Blog</li>
+            <li>Messages</li>
+            <li>Help</li>
+        </ul>
+    </div>
+
+    <div class="right-table">
+
+        {% block content %} {% for userskill in userskills %}
+        <div>
 
 
+            <p>user : {{ userskill.user }} </p>
+            <p>Name of the skill: {{ userskill.skill_name }}</p>
+            <p>lvl : {{ userskill.level }}</p>
 
-{% block content %} {% for userskill in userskills %}
-<div>
+        </div>
+        {% endfor %} {% for skill in skills %}
+        <div>
+            <h2>skills</h2>
+            <p>Name of the skill : {{ skill.skill_name }} </p>
+            <p>Description of the skill: {{ skill.skill_description }}</p>
 
-
-    <p>user : {{ userskill.user }} </p>
-    <p>Name of the skill: {{ userskill.skill_name }}</p>
-    <p>lvl : {{ userskill.level }}</p>
-
-</div>
-{% endfor %} {% for skill in skills %}
-<div>
-    <h2>skills</h2>
-    <p>Name of the skill : {{ skill.skill_name }} </p>
-    <p>Description of the skill: {{ skill.skill_description }}</p>
-
-</div>
-{% endfor %} {% for post in posts %}
-<div>
-    <p>author: {{ post.author }} </p>
-    <p>published: {{ post.created_date }}</p>
-    <h1><a href="">{{ post.title }}</a></h1>
-    <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+        {% endfor %} {% for post in posts %}
+        <div>
+            <p>author: {{ post.author }} </p>
+            <p>published: {{ post.created_date }}</p>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    </div>
 </div>
 {% endfor %} {% endblock %}
