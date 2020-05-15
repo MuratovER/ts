@@ -4,7 +4,7 @@
 
     <div class="right-table">
 
-        {% for userskill in userskills %}
+        {% for user in userskills %}
         <div>
 
 
@@ -13,14 +13,14 @@
             <p>lvl : {{ userskill.level }}</p>
 
         </div>
-        {% endfor %} {% for skill in skills %}
+
         <div>
             <h2>skills</h2>
             <p>Name of the skill : {{ skill.skill_name }} </p>
             <p>Description of the skill: {{ skill.skill_description }}</p>
 
         </div>
-        {% endfor %} {% for post in posts %}
+
         <div>
             <p>author: {{ post.author }} </p>
             <p>published: {{ post.created_date }}</p>

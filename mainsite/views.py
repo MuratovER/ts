@@ -17,6 +17,17 @@ def user_page(request):
     return render(request, 'mainsite/user_page.html',)
 
 
+
+
+
+
+
+def get_user_profile(request, username):
+    user = User.objects.get(username=username)
+    return render(request, 'mainsite/user_page.html', {"user":user})
+
+
+
 def signup_view(request):
     form = SignUpForm(request.POST)
     if form.is_valid():
