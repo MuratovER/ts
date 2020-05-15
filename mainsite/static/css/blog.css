@@ -7,6 +7,14 @@ body {
     grid-template-columns: 30% 70%;
 }
 
+.content-container {
+    background-color: cadetblue;
+}
+
+ul {
+    list-style-type: none;
+}
+
 .left-table {
     background-color: #0000FF;
     position: fixed;
