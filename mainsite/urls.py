@@ -14,7 +14,7 @@ urlpatterns = [
     
     path('signup/', views.signup_view, name='signup'),
     path('user_page/', views.user_page, name='user_page')
-    re_path(r'^profile/(?P<username>[\w.@+-]+)/$', views.user_page, name='profile'),
+    
     
    
     

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path, include
 from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
 from mainsite import views as core_views
@@ -28,7 +28,7 @@ urlpatterns = [
     path('accounts/logout/', views.LogoutView.as_view(next_page='/'), name='logout'),
     path('', include('mainsite.urls')),
     path(r'^user/', include('mainsite.urls')),
-    
+    re_path(r'^profile/(?P<username>[\w.@+-]+)/$', views.user_page, name='profile')
     
     
 
