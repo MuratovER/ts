@@ -16,7 +16,7 @@
             {% if user.is_authenticated %}
             <div class="activated">
                 <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
-
+                <a href="{% url 'user_page' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>
             </div>
 
             {% else %}

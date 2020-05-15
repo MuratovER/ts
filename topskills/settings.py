@@ -128,7 +128,7 @@ USE_TZ = True
 
 
 #login
-LOGIN_REDIRECT_URL = '/'
+
 
 
 
