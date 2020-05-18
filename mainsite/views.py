@@ -4,7 +4,7 @@ from mainsite.forms import SignUpForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
-
+from .models import Post, Skill, UserSkill, Profile
 
 
 

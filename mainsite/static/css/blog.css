@@ -1,18 +1,19 @@
 body {
-    height: 100%;
-}
-
-.user-page {
+    height: 100vh;
     display: grid;
     grid-template-columns: 30% 70%;
 }
 
 .content-container {
-    background-color: cadetblue;
+    background-color: blue;
 }
 
 ul {
     list-style-type: none;
+}
+
+.activated {
+    background-color: red;
 }
 
 .left-table {
@@ -24,9 +25,7 @@ ul {
     height: 100%;
 }
 
-.right-table {
-    background-color: aqua;
-}
+.right-table {}
 
 .login-header {
     text-align: center;
@@ -37,13 +36,10 @@ ul {
 }
 
 .top-menu p {
-    background-color: aqua;
     float: right;
 }
 
-.activated {
-    background-color: aqua;
-}
+.activated {}
 
 .top-menu {
     margin: 0 auto;
