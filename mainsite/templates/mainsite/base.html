@@ -18,10 +18,9 @@
                 <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
                 <ul>
                     <li><img src="" alt="photo"></li>
-                    <li><a href="{% url 'user_page' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span></a></li>
-                    <li>Profile</li>
-                    <li>Home page</li>
-                    <li>Achivements</li>
+                    <li><a href="{% url 'user_page' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>Profile</li>
+                    <li><a href="{% url 'home_page' %}" class="top-menu"><span class="glyphicon glyphicon-home"></span></a>Home page</li>
+                    <li><a href="{% url 'achivements' %}" class="top-menu"><span class="glyphicon glyphicon-star"></span></a>Achivements</li>
                     <li>To Do list</li>
                     <li>Blog</li>
                     <li>Messages</li>

@@ -16,6 +16,8 @@ def home_page(request):
 def user_page(request):
     return render(request, 'mainsite/user_page.html',)
 
+def achivement_view(request):
+    return render(request, 'mainsite/achivements.html',)
 
 
 def skill_list(request):

@@ -15,7 +15,7 @@ urlpatterns = [
     path('signup/', views.signup_view, name='signup'),
     path('user_page/', views.user_page, name='user_page')
     
-    
+    path('achivements/', views.achivement_view, name='achivements')
    
     
 ]
