@@ -18,9 +18,9 @@ def user_page(request):
 
 
 
-
-
-
+def skill_list(request):
+    skills = Post.objects.order_by('skill_name')
+    return render(request, 'mainsite/user_page.html', {'skills': skills})
 
 def get_user_profile(request, username):
     user = User.objects.get(username=username)

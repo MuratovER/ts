@@ -1,5 +1,14 @@
 {% extends 'mainsite/base.html' %}{% block content %}
 <div class="user-page">
+    <div class="container">
+        <h1>Profile</h1>
+        <p>Username: {{ user }}</p>
+        <p>First name: {{ user.first_name }}</p>
+        <p>Last name: {{ user.last_name }}</p>
+        <p>Email: {{ user.email }}</p>
+    </div>
+    {{skills}}
+
 
 
     <div class="right-table">

@@ -26,6 +26,9 @@ class Post(models.Model):
 class Skill(models.Model): 
     skill_name = models.TextField()
     skill_description = models.TextField()
+    
+    def __str__(self):
+        return self.skill_name
 
 
 #model of userSKill
@@ -33,9 +36,10 @@ class UserSkill(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     skill = models.ForeignKey(Skill, on_delete=models.CASCADE, related_name="skill", default=0)
     level = models.PositiveIntegerField(default=0)
+    
 
 
-
+#model for Profile
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100, blank=True)
