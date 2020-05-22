@@ -7,7 +7,13 @@
         <p>Last name: {{ user.last_name }}</p>
         <p>Email: {{ user.email }}</p>
     </div>
-    {{skills}}
+    <div class="skills">
+        {% for skill in skills %}
+        <p>Name of the skill : {{ skill.skill.skill_name }} </p>
+        <p>Description of the skill: {{ skill.skill.skill_description }}</p>
+        <p>Level : {{ skill.level }} </p>
+        {% endfor %}
+    </div>
 
 
 

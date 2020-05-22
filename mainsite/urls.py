@@ -13,9 +13,8 @@ urlpatterns = [
     path('', views.home_page, name='home_page'),
     
     path('signup/', views.signup_view, name='signup'),
-    path('user_page/', views.user_page, name='user_page')
-    
-    path('achivements/', views.achivement_view, name='achivements')
+    path('user_page/', views.user_page, name='user_page'), 
+    path('achivements/', views.achivement_view, name='achivements'),
    
     
 ]
