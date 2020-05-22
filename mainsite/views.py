@@ -5,6 +5,8 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
 from .models import Post, Skill, UserSkill, Profile
+from django.utils import timezone
+
 
 
 #Basic views begin
@@ -35,6 +37,17 @@ def help_view(request):
 
 #Basic views end
 
+
+
+#blog view begin
+def post_list(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'mainsite/blog.html', {'posts': posts})
+
+#blog view end
+
+
+
 def skill_list(request):
     skills = Post.objects.order_by('skill_name')
     return render(request, 'mainsite/user_page.html', {'skills': skills})
@@ -48,6 +61,12 @@ def get_user_profile(request, username):
 
 
 
+
+
+
+
+
+#signup view
 def signup_view(request):
     form = SignUpForm(request.POST)
     if form.is_valid():

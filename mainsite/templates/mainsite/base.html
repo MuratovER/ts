@@ -16,6 +16,7 @@
         <div class="page-header">
             {% if user.is_authenticated %}
             <div class="activated">
+                <h1><a href="/">Topskills</a></h1>
                 <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
                 <ul>
                     <li><img src="" alt="photo"></li>
@@ -32,14 +33,14 @@
 
             {% else %}
 
-
+            <h1><a href="/">Topskills</a></h1>
             <a href="{% url 'signup' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span>Signup</a>
             <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span>Login</a> {% endif %}
         </div>
         <div class="content-container">
             <div class="row">
                 <div class="col-md-8">
-                    <h1><a href="/">Topskills</a></h1>
+
                     {% block content %} {% endblock %}
                 </div>
             </div>
