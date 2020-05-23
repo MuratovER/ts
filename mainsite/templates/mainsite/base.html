@@ -6,8 +6,29 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
 </head>
+
+<header>
+    <nav>
+        {% if user.is_authenticated %}
+        <div class="btn-group " role="group" aria-label="Basic example">
+
+            <button type="button" class="btn btn-secondary"><a href="{% url 'home_page' %}" class="top-menu"><span class="glyphicon glyphicon-home"></span></a>Topskills</button>
+            <button type="button" class="btn btn-secondary"><a href="{% url 'user_page' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>Profile</button>
+
+            <button type="button" class="btn btn-secondary"><a href="{% url 'achivements' %}" class="top-menu"><span class="glyphicon glyphicon-star"></span></a>Achivements</button>
+            <button type="button" class="btn btn-secondary"><a href="{% url 'to_do_list' %}" class="top-menu"><span class="glyphicon glyphicon-list-alt"></span></a>To Do list</button>
+            <button type="button" class="btn btn-secondary"><a href="{% url 'blog' %}" class="top-menu"><span class="glyphicon glyphicon-star"></span></a>Blog</button>
+            <button type="button" class="btn btn-secondary"><a href="{% url 'messages' %}" class="top-menu"><span class="glyphicon glyphicon-comment"></span></a>Messages</button>
+            <button type="button" class="btn btn-secondary"><a href="{% url 'help' %}" class="top-menu"><span class="glyphicon glyphicon-globe"></span></a>Help</button>
+            <button type="button" class="btn btn-secondary"><p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p></button>
+        </div>
+        {% endif %}
+
+    </nav>
+</header>
 
 <body>
 
@@ -16,18 +37,10 @@
         <div class="page-header">
             {% if user.is_authenticated %}
             <div class="activated">
-                <h1><a href="/">Topskills</a></h1>
-                <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
-                <ul>
-                    <li><img src="" alt="photo"></li>
-                    <li><a href="{% url 'user_page' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>Profile</li>
-                    <li><a href="{% url 'home_page' %}" class="top-menu"><span class="glyphicon glyphicon-home"></span></a>Home page</li>
-                    <li><a href="{% url 'achivements' %}" class="top-menu"><span class="glyphicon glyphicon-star"></span></a>Achivements</li>
-                    <li><a href="{% url 'to_do_list' %}" class="top-menu"><span class="glyphicon glyphicon-list-alt"></span></a>To Do list</li>
-                    <li><a href="{% url 'blog' %}" class="top-menu"><span class="glyphicon glyphicon-star"></span></a>Blog</li>
-                    <li><a href="{% url 'messages' %}" class="top-menu"><span class="glyphicon glyphicon-comment"></span></a>Messages</li>
-                    <li><a href="{% url 'help' %}" class="top-menu"><span class="glyphicon glyphicon-globe"></span></a>Help</li>
-                </ul>
+
+
+
+
             </div>
 
 

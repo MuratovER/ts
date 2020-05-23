@@ -1,7 +1,10 @@
 body {
     height: 100vh;
     display: grid;
-    grid-template-columns: 30% 70%;
+}
+
+nav {
+    background-color: aqua;
 }
 
 .content-container {
@@ -25,8 +28,6 @@ ul {
     height: 100%;
 }
 
-.right-table {}
-
 .login-header {
     text-align: center;
 }
@@ -38,8 +39,6 @@ ul {
 .top-menu p {
     float: right;
 }
-
-.activated {}
 
 .top-menu {
     margin: 0 auto;
