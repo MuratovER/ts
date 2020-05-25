@@ -3,12 +3,13 @@
 {% block content %}
     {% for post in posts %}
         <div class="post">
-            <p>Author {{  post.author }}</p>
+            <p>Автор: {{  post.author }}</p>
             <div class="date">
-                <p>Published: {{ post.published_date }}</p> 
+                <p>Опубликовано: {{ post.published_date }}</p> 
             </div>
             <h2><a</a></h2>
             <p>{{ post.text|linebreaksbr }}</p>
+            <hr>
         </div>
     {% endfor %}
 {% endblock %}

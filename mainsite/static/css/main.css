@@ -54,3 +54,13 @@ h1, h2, h3, h4 {
 h1 a, h2 a {
     font-family: 'Noto Serif SC';
 }
+
+.date {
+    color: #828282;
+}
+
+.post {
+    margin-bottom: 70px;
+    width: 100%;
+    font-family: 'Noto Serif SC', cursive;
+}
