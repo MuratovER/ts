@@ -3,18 +3,18 @@
 {% block content %}
 <div class="user-page">
     <div class="container">
-        <h1>User Profile</h1>
+        <h1>Профиль пользователя</h1>
         <p>Username: {{ user }}</p>
-        <p>First name: {{ user.first_name }}</p>
-        <p>Last name: {{ user.last_name }}</p>
-        <p>Email: {{ user.email }}</p>
+        <p>Имя: {{ user.first_name }}</p>
+        <p>Фамилия: {{ user.last_name }}</p>
+        <p>E-mail: {{ user.email }}</p>
     </div>
     <div class="skills">
-        <h2>Skills</h2>
+        <h2>Навыки</h2>
                 {% for skill in skills %}
-                    <p>Name of the skill : {{ skill.skill.skill_name }} </p>
-                    <p>Description of the skill: {{ skill.skill.skill_description }}</p>
-                    <p>Level : {{ skill.level }} </p>
+                    <p>Название навыка : {{ skill.skill.skill_name }} </p>
+                    <p>Описание навыка: {{ skill.skill.skill_description }}</p>
+                    <p>Уровень : {{ skill.level }} </p>
                     <br>
                 {% endfor %}
     </div>
