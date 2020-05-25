@@ -6,6 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
 from .models import Post, Skill, UserSkill, Profile
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 
@@ -15,8 +16,8 @@ def home_page(request):
     return render(request, 'mainsite/home.html',)
  #   return render(request, 'blog/user_page.html',)
 
-def user_page(request):
-    return render(request, 'mainsite/user_page.html',)
+# def user_page(request):
+#     return render(request, 'mainsite/user_page.html',)
 
 def achivement_view(request):
     return render(request, 'mainsite/achivements.html',)
@@ -45,22 +46,16 @@ def post_list(request):
     return render(request, 'mainsite/blog.html', {'posts': posts})
 
 #blog view end
+# def user_page(request, username):
+#     user = User.objects.get(username=username)
+#     skills = UserSkill.objects.filter(user=user)
+#     return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills})
 
 
-
-def skill_list(request):
-    skills = Post.objects.order_by('skill_name')
-    return render(request, 'mainsite/user_page.html', {'skills': skills})
-
-
-
-def get_user_profile(request, username):
-    user = User.objects.get(username=username)
+def user_page(request):
+    user = User.objects.get(username = request.user)
     skills = UserSkill.objects.filter(user=user)
-    return render(request, 'mainsite/user_page.html', {"user":user})
-
-
-
+    return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills})
 
 
 

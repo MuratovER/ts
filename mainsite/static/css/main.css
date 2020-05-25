@@ -1,5 +1,5 @@
 body {
-    height: 100vh;
+    height: 10vh;
     display: grid;
 }
 
@@ -8,7 +8,7 @@ nav {
 }
 
 .content-container {
-    background-color: blue;
+    background-color: orange;
 }
 
 ul {
@@ -44,5 +44,13 @@ ul {
     margin: 0 auto;
     max-width: 500px;
     padding: 20px;
-    font-size: 26pt;
+    font-size: 24pt;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Noto Serif SC', cursive;
+}
+
+h1 a, h2 a {
+    font-family: 'Noto Serif SC';
 }

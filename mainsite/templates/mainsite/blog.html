@@ -1,5 +1,14 @@
-{% extends 'mainsite/base.html' %} {% block content %}
-<div class="blog">
-    {{ posts }}
-</div>
+{% extends 'mainsite/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <p>Author {{  post.author }}</p>
+            <div class="date">
+                <p>Published: {{ post.published_date }}</p> 
+            </div>
+            <h2><a</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
 {% endblock %}

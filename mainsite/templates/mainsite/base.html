@@ -5,13 +5,14 @@
     <title>Topskills</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
 </head>
 
 <header>
     <nav>
+        <h1><a href="/">Topskills</a></h1>
         {% if user.is_authenticated %}
         <div class="btn-group " role="group" aria-label="Basic example">
 
@@ -35,6 +36,7 @@
     <body>
 
         <div class="page-header">
+            
             {% if user.is_authenticated %}
             <div class="activated">
 
@@ -46,7 +48,7 @@
 
             {% else %}
 
-            <h1><a href="/">Topskills</a></h1>
+            
             <a href="{% url 'signup' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span>Signup</a>
             <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span>Login</a> {% endif %}
         </div>

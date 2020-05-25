@@ -1,18 +1,22 @@
-{% extends 'mainsite/base.html' %}{% block content %}
+{% extends 'mainsite/base.html' %}
+
+{% block content %}
 <div class="user-page">
     <div class="container">
-        <h1>Profile</h1>
+        <h1>User Profile</h1>
         <p>Username: {{ user }}</p>
         <p>First name: {{ user.first_name }}</p>
         <p>Last name: {{ user.last_name }}</p>
         <p>Email: {{ user.email }}</p>
     </div>
     <div class="skills">
-        {% for userskill in userskills %}
-        <p>Name of the skill : {{ skill.skill.skill_name }} </p>
-        <p>Description of the skill: {{ skill.skill.skill_description }}</p>
-        <p>Level : {{ skill.level }} </p>
-        {% endfor %}
+        <h2>Skills</h2>
+                {% for skill in skills %}
+                    <p>Name of the skill : {{ skill.skill.skill_name }} </p>
+                    <p>Description of the skill: {{ skill.skill.skill_description }}</p>
+                    <p>Level : {{ skill.level }} </p>
+                    <br>
+                {% endfor %}
     </div>
 
 
@@ -47,4 +51,5 @@
         {% endfor %}
     </div>
 </div>
+
 {% endblock %}
