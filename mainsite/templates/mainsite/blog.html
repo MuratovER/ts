@@ -3,7 +3,9 @@
 {% block content %}
     {% for post in posts %}
         <div class="post">
-            <p>Автор: {{  post.author }}</p>
+            <div class="author">
+                <p>Автор: {{  post.author }}</p>
+            </div>
             <div class="date">
                 <p>Опубликовано: {{ post.published_date }}</p> 
             </div>

@@ -57,6 +57,12 @@ h1 a, h2 a {
 
 .date {
     color: #828282;
+    font-style: oblique;
+}
+
+.author {
+    font-family: 'Noto Serif SC', bold;
+    font-style: oblique;
 }
 
 .post {
