@@ -34,6 +34,8 @@ def messages_view(request):
 def help_view(request):
     return render(request, 'mainsite/help.html',)
 
+def skills(request):
+    return render(request, 'mainsite/skills.html',)
 
 
 #Basic views end

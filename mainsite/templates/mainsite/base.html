@@ -18,7 +18,7 @@
 
             <button type="button" class="btn btn-secondary"><a href="{% url 'home_page' %}" class="top-menu"><span class="glyphicon glyphicon-home"></span></a>Topskills</button>
             <button type="button" class="btn btn-secondary"><a href="{% url 'user_page' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>Profile</button>
-
+            <button type="button" class="btn btn-secondary"><a href="{% url 'skills' %}" class="top-menu"><span class="glyphicon glyphicon-star"></span></a>Skills</button>
             <button type="button" class="btn btn-secondary"><a href="{% url 'achivements' %}" class="top-menu"><span class="glyphicon glyphicon-star"></span></a>Achivements</button>
             <button type="button" class="btn btn-secondary"><a href="{% url 'to_do_list' %}" class="top-menu"><span class="glyphicon glyphicon-list-alt"></span></a>To Do list</button>
             <button type="button" class="btn btn-secondary"><a href="{% url 'blog' %}" class="top-menu"><span class="glyphicon glyphicon-star"></span></a>Blog</button>
@@ -27,7 +27,9 @@
             <button type="button" class="btn btn-secondary"><p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p></button>
         </div>
         {% endif %}
-
+        <div class="profile">
+            <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fpaomedia%2Fsmall-n-flat%2F1024%2Fuser-male-icon.png&f=1&nofb=1" alt="photo" class="image">
+        </div>
     </nav>
 </header>
 
@@ -36,6 +38,7 @@
     <body>
 
         <div class="page-header">
+<<<<<<< HEAD
             
             {% if user.is_authenticated %}
             <div class="activated">
@@ -47,6 +50,9 @@
 
 
             {% else %}
+=======
+            {% if user.is_authenticated %} {% else %}
+>>>>>>> added user pic and skills button
 
             
             <a href="{% url 'signup' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span>Signup</a>

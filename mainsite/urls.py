@@ -18,6 +18,7 @@ urlpatterns = [
     path('blog/', views.post_list, name='blog'),
     path('messages/', views.messages_view, name='messages'),
     path('help/', views.help_view, name='help'),
+    path('skills/', views.skills, name='skills'),
     
   
     

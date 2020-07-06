@@ -44,6 +44,7 @@ ul {
     margin: 0 auto;
     max-width: 500px;
     padding: 20px;
+<<<<<<< HEAD
     font-size: 24pt;
 }
 
@@ -70,4 +71,11 @@ h1 a, h2 a {
     width: 100%;
     font-family: 'Noto Serif SC', cursive;
     font-style: italic;
+=======
+    font-size: 26pt;
+}
+
+.profile {
+    height: 100px;
+>>>>>>> added user pic and skills button
 }
