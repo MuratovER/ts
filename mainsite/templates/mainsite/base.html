@@ -38,8 +38,7 @@
     <body>
 
         <div class="page-header">
-<<<<<<< HEAD
-            
+
             {% if user.is_authenticated %}
             <div class="activated">
 
@@ -50,11 +49,8 @@
 
 
             {% else %}
-=======
-            {% if user.is_authenticated %} {% else %}
->>>>>>> added user pic and skills button
 
-            
+
             <a href="{% url 'signup' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span>Signup</a>
             <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span>Login</a> {% endif %}
         </div>
