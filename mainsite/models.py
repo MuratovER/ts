@@ -6,6 +6,10 @@ from django.conf import settings
 from django.utils import timezone
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from .forms import UploadFileForm
+from django.db import models
 
 #an extended version of the posts
 class Post(models.Model):
@@ -37,7 +41,8 @@ class Post(models.Model):
 class Skill(models.Model): 
     skill_name = models.TextField()
     skill_description = models.TextField()
-    
+    skill_ico = models.ImageField()
+
     def __str__(self):
         return self.skill_name
 
