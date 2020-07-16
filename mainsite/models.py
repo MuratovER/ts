@@ -50,7 +50,7 @@ class Skill(models.Model):
     skill_name = models.TextField()
     skill_description = models.TextField()
     skill_ico = models.ImageField()#form of ico image located in forms.py
-    difficulty = models.ForeignKey(Difficulty, on_delete=models.CASCADE, related_name="difficulty", null=True)
+    diffictatlty = models.ForeignKey(Difficulty, on_delete=models.CASCADE, related_name="difficulty", null=True)
 
 
     def __str__(self):
