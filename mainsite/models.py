@@ -35,13 +35,23 @@ class Post(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
 '''
+# model of Loylity system
+from django.db import models
 
+class Difficulty(models.Model):
+    '''System of digiculty for all other models'''
+    level = models.CharField(max_length=20)
+    reward = models.PositiveIntegerField(default=0)
+    def __str__(self):
+        return self.level
 
 #model Skills 
 class Skill(models.Model): 
     skill_name = models.TextField()
     skill_description = models.TextField()
-    skill_ico = models.ImageField()
+    skill_ico = models.ImageField()#form of ico image located in forms.py
+    difficulty = models.ForeignKey(Difficulty, on_delete=models.CASCADE, related_name="difficulty")
+
 
     def __str__(self):
         return self.skill_name
@@ -71,6 +81,5 @@ def update_profile_signal(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
     instance.profile.save()
-
 
 
