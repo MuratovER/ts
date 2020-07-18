@@ -39,6 +39,12 @@ def skills(request):
 
 def introduction_view(request):
     return  render(request, 'mainsite/tree/introduction/introduction_chapters.html',)
+
+def introduction_chapter_lider(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider.html',)
+
+
+
 #Basic views end
 
 
