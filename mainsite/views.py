@@ -28,8 +28,8 @@ def to_do_list_view(request):
 def blog_view(request):
     return render(request, 'mainsite/blog.html',)
 
-def messages_view(request):
-    return render(request, 'mainsite/messages.html',)
+def tree_view(request):
+    return render(request, 'mainsite/tree.html', )
 
 def help_view(request):
     return render(request, 'mainsite/help.html',)
@@ -37,7 +37,8 @@ def help_view(request):
 def skills(request):
     return render(request, 'mainsite/skills.html',)
 
-
+def introduction_view(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapters.html',)
 #Basic views end
 
 

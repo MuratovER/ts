@@ -16,10 +16,10 @@ urlpatterns = [
     path('achivements/', views.achivement_view, name='achivements'),
     path('to_do_list/', views.to_do_list_view, name='to_do_list'),
     path('blog/', views.post_list, name='blog'),
-    path('messages/', views.messages_view, name='messages'),
+    path('tree/', views.tree_view, name='tree'),
     path('help/', views.help_view, name='help'),
     path('skills/', views.skills, name='skills'),
-    
+    path('introduction/', views.introduction_view, name='introduction'),
   
     
 ]
