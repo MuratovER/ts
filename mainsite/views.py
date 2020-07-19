@@ -7,6 +7,8 @@ from django.template import RequestContext
 from .models import Post, Skill, UserSkill, Profile
 
 
+#test
+
 
 
 def home_page(request):
