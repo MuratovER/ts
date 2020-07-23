@@ -148,3 +148,15 @@ DATABASES['default'].update(db_from_env)
 
 # reduce size of static files
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
+
+
+
+MEDIA_ROOT = (
+BASE_DIR
+)
+
+
+MEDIA_URL = '/media/'

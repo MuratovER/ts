@@ -20,6 +20,7 @@ from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
 from mainsite import views as core_views
 from mainsite import views
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -27,9 +28,10 @@ urlpatterns = [
     path('accounts/login/', views.LoginView.as_view(), name='login'),
     path('accounts/logout/', views.LogoutView.as_view(next_page='/'), name='logout'),
     path('', include('mainsite.urls')),
-    #path(r'^user/', include('mainsite.urls')),
-    re_path(r'^profile/(?P<username>[\w.@+-]+)/$', views.user_page, name='profile')
-    
+    re_path(r'^profile/(?P<username>[\w.@+-]+)/$', views.user_page, name='profile'),
+
+
     
 
 ]
+urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

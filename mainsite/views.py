@@ -54,6 +54,13 @@ def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'mainsite/blog.html', {'posts': posts})
 
+
+def skills(request):
+    skills = Skill.objects.all()
+    return render(request, 'mainsite/skills.html', {'skills': skills})
+
+
+
 #blog view end
 # def user_page(request, username):
 #     user = User.objects.get(username=username)
@@ -88,4 +95,7 @@ def signup_view(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})  
- 
+
+
+
+

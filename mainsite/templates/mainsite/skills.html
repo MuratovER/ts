@@ -1,5 +1,23 @@
-{% extends 'mainsite/base.html' %} {% block content %}
+{% extends 'mainsite/base.html' %}
+{% block content %}
+
 <div class="skills">
+
+    {% for skill in skills %}
+        <div class="post">
+            <div class="author">
+                <p>Название скила: {{ skill.skill_name }}</p>
+            </div>
+            <div class="date">
+                <p>Опубликовано: {{ skill.skill_ico }}</p>
+                <img src="{{ skill.skill_ico.url }}" alt="img">
+            </div>
+            <h2>{{ skill.skill_description }}</h2>
+            <p>{{ skill.difficulty.level }}</p>
+            <p>{{ skill.difficulty.reward }}</p>
+            <hr>
+        </div>
+    {% endfor %}
 
 </div>
 {% endblock %}
