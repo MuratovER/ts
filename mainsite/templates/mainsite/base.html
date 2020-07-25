@@ -12,6 +12,7 @@
 <body>
 
     <body>
+
         <div class="page-header">
             {% if user.is_authenticated %}
             <div class="activated">
@@ -21,23 +22,24 @@
                     <li><a href="{% url 'user_page' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>Profile</li>
                     <li><a href="{% url 'home_page' %}" class="top-menu"><span class="glyphicon glyphicon-home"></span></a>Home page</li>
                     <li><a href="{% url 'achivements' %}" class="top-menu"><span class="glyphicon glyphicon-star"></span></a>Achivements</li>
-                    <li>To Do list</li>
-                    <li>Blog</li>
-                    <li>Messages</li>
-                    <li>Help</li>
+                    <li><a href="{% url 'to_do_list' %}" class="top-menu"><span class="glyphicon glyphicon-list-alt"></span></a>To Do list</li>
+                    <li><a href="{% url 'achivements' %}" class="top-menu"><span class="glyphicon glyphicon-star"></span></a>Blog</li>
+                    <li><a href="{% url 'achivements' %}" class="top-menu"><span class="glyphicon glyphicon-comment"></span></a>Messages</li>
+                    <li><a href="{% url 'achivements' %}" class="top-menu"><span class="glyphicon glyphicon-globe"></span></a>Help</li>
                 </ul>
             </div>
 
 
             {% else %}
 
-            <h1><a href="/">Topskills</a></h1>
+
             <a href="{% url 'signup' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span>Signup</a>
             <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span>Login</a> {% endif %}
         </div>
         <div class="content-container">
             <div class="row">
                 <div class="col-md-8">
+                    <h1><a href="/">Topskills</a></h1>
                     {% block content %} {% endblock %}
                 </div>
             </div>

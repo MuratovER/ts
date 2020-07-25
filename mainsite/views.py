@@ -7,9 +7,7 @@ from django.template import RequestContext
 from .models import Post, Skill, UserSkill, Profile
 
 
-#test
-
-
+#Basic views begin
 
 def home_page(request):
     return render(request, 'mainsite/home.html',)
@@ -21,10 +19,26 @@ def user_page(request):
 def achivement_view(request):
     return render(request, 'mainsite/achivements.html',)
 
+def to_do_list_view(request):
+    return render(request, 'mainsite/to_do_list.html',)
+
+def blog_view(request):
+    return render(request, 'mainsite/blog.html',)
+
+def messages_view(request):
+    return render(request, 'mainsite/messages.html',)
+
+def help_view(request):
+    return render(request, 'mainsite/help.html',)
+
+
+
+#Basic views end
 
 def skill_list(request):
     skills = Post.objects.order_by('skill_name')
     return render(request, 'mainsite/user_page.html', {'skills': skills})
+
 
 
 def get_user_profile(request, username):
