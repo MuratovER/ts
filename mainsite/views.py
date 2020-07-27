@@ -33,10 +33,23 @@ def help_view(request):
     return render(request, 'mainsite/help.html',)
 
 
+def skills(request):
+    return  render(request, 'mainsite/skills.html')
 
 #Basic views end
 
+#tree view begin
+def tree_view(request):
+    return  render(request, 'mainsite/tree.html')
 
+def introduction_view(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapters.html')
+
+def introduction_chapter_lider(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider.html')
+
+
+#tree view end
 
 #blog view begin
 def post_list(request):
