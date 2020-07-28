@@ -5,5 +5,3 @@ env
 __pycache__
 .vscode
 local_settings.py
-.idea
-static/

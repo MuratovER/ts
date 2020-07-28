@@ -31,7 +31,20 @@
 
         </div>
 
+        <div>
+            <h2>skills</h2>
+            <p>Name of the skill : {{ skill.skill_name }} </p>
+            <p>Description of the skill: {{ skill.skill_description }}</p>
+
+        </div>
+
+        <div>
+            <p>author: {{ post.author }} </p>
+            <p>published: {{ post.created_date }}</p>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+        {% endfor %}
     </div>
 </div>
-
 {% endblock %}

@@ -7,7 +7,6 @@ from django.template import RequestContext
 from .models import Post, Skill, UserSkill, Profile
 
 
-
 #Basic views begin
 
 def home_page(request):
@@ -33,57 +32,22 @@ def help_view(request):
     return render(request, 'mainsite/help.html',)
 
 
-def skills(request):
-    return  render(request, 'mainsite/skills.html')
 
 #Basic views end
 
-#tree view begin
-def tree_view(request):
-    return  render(request, 'mainsite/tree.html')
-
-def introduction_view(request):
-    return  render(request, 'mainsite/tree/introduction/introduction_chapters.html')
-
-def introduction_chapter_lider(request):
-    return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider.html')
-
-
-#tree view end
-
-#blog view begin
-def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'mainsite/blog.html', {'posts': posts})
-
-#blog view end
+def skill_list(request):
+    skills = Post.objects.order_by('skill_name')
+    return render(request, 'mainsite/user_page.html', {'skills': skills})
 
 
 
-
-#blog view end
-# def user_page(request, username):
-#     user = User.objects.get(username=username)
-#     skills = UserSkill.objects.filter(user=user)
-#     return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills})
-
-
-def user_page(request):
-    user = User.objects.get(username = request.user)
+def get_user_profile(request, username):
+    user = User.objects.get(username=username)
     skills = UserSkill.objects.filter(user=user)
-    return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills})
+    return render(request, 'mainsite/user_page.html', {"user":user})
 
 
 
-
-
-#signup view
-
-
-
-
-
-#signup view
 def signup_view(request):
     form = SignUpForm(request.POST)
     if form.is_valid():
@@ -101,7 +65,4 @@ def signup_view(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})  
-
-
-
-
+ 
