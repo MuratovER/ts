@@ -5,6 +5,9 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
 from .models import Post, Skill, UserSkill, Profile
+from django.utils import timezone
+from django.contrib.auth.models import User
+
 
 
 #Basic views begin
@@ -13,8 +16,8 @@ def home_page(request):
     return render(request, 'mainsite/home.html',)
  #   return render(request, 'blog/user_page.html',)
 
-def user_page(request):
-    return render(request, 'mainsite/user_page.html',)
+# def user_page(request):
+#     return render(request, 'mainsite/user_page.html',)
 
 def achivement_view(request):
     return render(request, 'mainsite/achivements.html',)
@@ -25,29 +28,56 @@ def to_do_list_view(request):
 def blog_view(request):
     return render(request, 'mainsite/blog.html',)
 
-def messages_view(request):
-    return render(request, 'mainsite/messages.html',)
+def tree_view(request):
+    return render(request, 'mainsite/tree.html', )
 
 def help_view(request):
     return render(request, 'mainsite/help.html',)
+
+def skills(request):
+    return render(request, 'mainsite/skills.html',)
+
+def introduction_view(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapters.html',)
+
+def introduction_chapter_lider(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider.html',)
 
 
 
 #Basic views end
 
-def skill_list(request):
-    skills = Post.objects.order_by('skill_name')
-    return render(request, 'mainsite/user_page.html', {'skills': skills})
+
+
+#blog view begin
+def post_list(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'mainsite/blog.html', {'posts': posts})
+
+
+def skills(request):
+    skills = Skill.objects.all()
+    return render(request, 'mainsite/skills.html', {'skills': skills})
 
 
 
-def get_user_profile(request, username):
-    user = User.objects.get(username=username)
+#blog view end
+# def user_page(request, username):
+#     user = User.objects.get(username=username)
+#     skills = UserSkill.objects.filter(user=user)
+#     return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills})
+
+
+def user_page(request):
+    user = User.objects.get(username = request.user)
     skills = UserSkill.objects.filter(user=user)
-    return render(request, 'mainsite/user_page.html', {"user":user})
+    return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills})
 
 
 
+
+
+#signup view
 def signup_view(request):
     form = SignUpForm(request.POST)
     if form.is_valid():
@@ -65,4 +95,7 @@ def signup_view(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})  
- 
+
+
+
+

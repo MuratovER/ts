@@ -6,12 +6,27 @@ from django.conf import settings
 from django.utils import timezone
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from .forms import UploadFileForm
+from django.db import models
 
+#an extended version of the posts
+class Post(models.Model):
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
+    published_date = models.DateTimeField(blank=True, null=True)
 
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
 
+    def __str__(self):
+        return self.title
 
-
-
+'''
 # Create your models here.
 # model for Post 
 class Post(models.Model):
@@ -19,14 +34,25 @@ class Post(models.Model):
     #title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
+'''
+# model of Loylity system
+from django.db import models
 
-
+class Difficulty(models.Model):
+    '''System of dificulty for all other models'''
+    level = models.CharField(max_length=20)
+    reward = models.PositiveIntegerField(default=0)
+    def __str__(self):
+        return self.level
 
 #model Skills 
 class Skill(models.Model): 
     skill_name = models.TextField()
     skill_description = models.TextField()
-    
+    skill_ico = models.ImageField(upload_to='img')#form of ico image located in forms.py
+    difficulty = models.ForeignKey(Difficulty, on_delete=models.CASCADE, related_name="difficulty", null=True)
+
+
     def __str__(self):
         return self.skill_name
 
@@ -55,6 +81,5 @@ def update_profile_signal(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
     instance.profile.save()
-
 
 
