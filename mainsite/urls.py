@@ -20,9 +20,9 @@ urlpatterns = [
     path('help/', views.help_view, name='help'),
     path('skills/', views.skills, name='skills'),
     path('introduction/', views.introduction_view, name='introduction'),
-    path('introduction_chapter_lider/', views.introduction_chapter_lider, name='introduction_chapter_lider'),
-    path('introduction_chapter_spheres_life/', views.introduction_chapter_spheres_life, name='introduction_chapter_spheres_life'),
-    path('introduction_chapter_lider_task/', views.introduction_chapter_lider_task, name='introduction_chapter_lider_task'),
-    path('introduction_chapter_spheres_life_task/', views.introduction_chapter_spheres_life_task, name='introduction_chapter_spheres_life_task'),
+    path('introduction/introduction_chapter_lider/', views.introduction_chapter_lider, name='introduction_chapter_lider'),
+    path('introduction/introduction_chapter_spheres_life/', views.introduction_chapter_spheres_life, name='introduction_chapter_spheres_life'),
+    path('introduction/introduction_chapter_lider_task/', views.introduction_chapter_lider_task, name='introduction_chapter_lider_task'),
+    path('introduction/introduction_chapter_spheres_life_task/', views.introduction_chapter_spheres_life_task, name='introduction_chapter_spheres_life_task'),
 
 ]
