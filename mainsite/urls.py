@@ -21,6 +21,7 @@ urlpatterns = [
     path('skills/', views.skills, name='skills'),
     path('introduction/', views.introduction_view, name='introduction'),
     path('introduction_chapter_lider/', views.introduction_chapter_lider, name='introduction_chapter_lider'),
+    path('introduction_chapter_spheres_life/', views.introduction_chapter_spheres_life, name='introduction_chapter_spheres_life'),
   
 
 ]
