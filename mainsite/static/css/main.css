@@ -2,7 +2,7 @@
 
 .user-info {
     display: grid;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: 1fr 3fr;
 }
 
 .user-info > div  {
@@ -11,6 +11,67 @@
 
 }
 
+.user-page-skill-progress {
+    background-color: #cc1111;
+}
+
+.user-page-achivements {
+    background-color: #ff01ec;
+}
+
+.user-page-max-skill {
+    background-color: #005dff;
+}
+
+.user-page-tables {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: purple;
+
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.nav-ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr 1fr 1fr 1fr 1fr;
+    background-color: #EFEFEF;
+
+}
+
+
+nav li{
+    display: inline;
+}
+
+
+.logo {
+    background-color: #081CD1;
+    width: 100%;
+    height: 65px;
+    padding: 8px 0px 12px 21px;
+}
+
+.home {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.main-page-n-login {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr;
+}
+
+
+.img-user-page {
+
+}
 
 .image {
     background-color: #0000FF;

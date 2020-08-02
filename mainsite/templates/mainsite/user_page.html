@@ -4,31 +4,32 @@
 <div class="user-page">
          <div class="user-info">
          <div class="img-user-page">
-                <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fpaomedia%2Fsmall-n-flat%2F1024%2Fuser-male-icon.png&f=1&nofb=1" width="200" height="222" alt="photo" class="image">
+             <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fpaomedia%2Fsmall-n-flat%2F1024%2Fuser-male-icon.png&f=1&nofb=1" width="200" height="222" alt="photo" class="image">
          </div>
-
-                <div class="container">
-                    <h1>Профиль пользователя</h1>
-                     <p>Username: {{ user }}</p>
-                     <p>Имя: {{ user.first_name }}</p>
-                     <p>Фамилия: {{ user.last_name }}</p>
-                     <p>E-mail: {{ user.email }}</p>
-                 </div>
-                 <div class="achivements">
-                     <h2>Достижения</h2>
-                 </div>
-                 <div class="skills">
-                 <h2>Навыки</h2>
-                     {% for skill in skills %}
-                            <p>Название навыка : {{ skill.skill.skill_name }} </p>
-                            <p>Описание навыка: {{ skill.skill.skill_description }}</p>
-                            <p>Уровень : {{ skill.level }} </p>
-                            <br>
-                     {% endfor %}
-                 </div>
+         <div class="container">
+               <h1>Профиль пользователя</h1>
+               <p>Username: {{ user }}</p>
+                <p>Имя: {{ user.first_name }}</p>
+                <p>Фамилия: {{ user.last_name }}</p>
+                <p>E-mail: {{ user.email }}</p>
          </div>
+         </div>
+         <div class="user-page-tables">
 
-    </div>
+             <div class="user-page-skill-progress">
+                 <p>Навыки в прогрессе</p>
+             </div>
+             <div class="user-page-achivements">
+                <p>Достижения</p>
+             </div>
+             <div class="user-page-max-skill">
+                <h2>Навыки</h2>
+                {% for skill in skills %}
+                        <p>Название навыка : {{ skill.skill.skill_name }} </p>
+                        <p>Описание навыка: {{ skill.skill.skill_description }}</p>
+                        <p>Уровень : {{ skill.level }} </p>
+                {% endfor %}
+             </div>
+         </div>
 </div>
-
 {% endblock %}
