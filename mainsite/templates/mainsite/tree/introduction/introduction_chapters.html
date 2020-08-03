@@ -4,11 +4,26 @@
 
 <div class="introduction_chapters">
 
-<button type="button" class="btn btn-secondary"><a href="{% url 'introduction_chapter_lider' %}" class="top-menu"><span class="glyphicon glyphicon-comment"></span></a>introduction chapter lider</button>
-<button type="button" class="btn btn-secondary"><a href="{% url 'introduction' %}" class="top-menu"><span class="glyphicon glyphicon-comment"></span></a>introduction</button>
+<div class="introduction_chapter_circle_1">
+
+
+<svg height="600" width="600">
+
+  <circle cx="300" cy="300" r="220" stroke="black" stroke-width="3" fill="green" />
+  <text fill="white" font-size="28" font-family="Noto Serif SC" x="300" y="300" text-anchor='middle'><a href="{% url 'introduction_chapter_lider' %}" class="top-menu">Кто такой лидер</a></text>
+</svg>
+</div>
+
+<svg height="600" width="600">
+
+  <circle cx="300" cy="300" r="220" stroke="black" stroke-width="3" fill="green" />
+  <text fill="white" font-size="28" font-family="Noto Serif SC" x="300" y="300" text-anchor='middle'><a href="{% url 'introduction' %}" class="top-menu">Сферы жизни</a></text>
+</svg>
+</div>
+
+
 
 
 </div>
-
 
 {% endblock %}
