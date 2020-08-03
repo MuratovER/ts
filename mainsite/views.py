@@ -44,6 +44,18 @@ def introduction_chapter_lider(request):
     return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider.html',)
 
 
+def introduction_chapter_spheres_life(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html',)
+
+
+def introduction_chapter_lider_task(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider_task.html',)
+
+
+def introduction_chapter_spheres_life_task(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life_task.html',)
+
+
 
 #Basic views end
 
