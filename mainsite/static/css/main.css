@@ -127,3 +127,10 @@ h1 a, h2 a {
     font-style: oblique;
 }
 
+.introduction_chapters {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+}
+
