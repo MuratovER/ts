@@ -11,6 +11,7 @@
 <header>
     <nav>
         <div class="logo"><a href="/"><h1>Topskills</h1></a></div>
+
         {% if user.is_authenticated %}
         <ul class="nav-ul">
             <li class="left-li"> <button type="button" class="btn btn-secondary"><a href="{% url 'home_page' %}" class="top-menu"><span class="glyphicon glyphicon-home"></span>Главная</a></button></li>
@@ -39,9 +40,9 @@
             </div>
             {% endif %}
         </div>
-        <div class="content-container">
+        <div class="content-container" style="width: 100%;">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-8" style="padding: 0 55px; width: 100%;">
                     {% block content %}
                         <!-- Try to delete invisible column-->
                     {% endblock %}
