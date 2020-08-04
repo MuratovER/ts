@@ -1,4 +1,8 @@
 
+
+
+
+
 # pushing
 
 git status 
@@ -11,8 +15,11 @@ git commit -m 'comment'
 
 git push -u origin 'branch'    
 _______________________________________________________________________________________________________________
+#How to add new branch
 
+git branch <branch name>
 
+git checkout <branch name> 
 # virtual environment
 
 venv
