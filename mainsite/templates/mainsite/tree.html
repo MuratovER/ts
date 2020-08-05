@@ -2,14 +2,16 @@
 
 {% block content %}
 
+{% load staticfiles%}
 <div class="introduction">
-
-
+    <img src="{% static "mainsite/static/mainsite/introduction.svg" %}" alt="2">
 <svg height="600" width="600">
 
   <circle cx="300" cy="300" r="220" stroke="black" stroke-width="3" fill="#00FF29" />
   <text fill="white" font-size="28" font-family="Noto Serif SC" x="300" y="300" text-anchor='middle'><a href="{% url 'introduction' %}" class="top-menu">Введение</a></text>
 </svg>
+
+<a href="{% url 'introduction' %}" target="_blank"><img src="introduction.png" alt="Svg introduction button" onerror="this.removeAttribute('onerror'); this.src='introduction.png'"/></a>
 
 </div>
 <div class="chapters"></div>
