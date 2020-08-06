@@ -2,23 +2,16 @@
 
 {% block content %}
 
+{% load staticfiles%}
 
-<div class="introduction_chapter_circle_1">
+<div class="introductions_chapters">
+    <a href="{% url 'introduction_chapter_lider' %}" target="_blank">
+        <img src="{% static "mainsite/lider_button.svg" %}" alt="2">
+    </a>
 
-
-<svg height="600" width="600">
-
-  <circle cx="300" cy="300" r="220" stroke="black" stroke-width="3" fill="#00FF29" />
-  <text fill="white" font-size="28" style="font-weight: bold;" font-family="Noto Serif SC" x="300" y="300" text-anchor='middle'><a href="{% url 'introduction_chapter_lider' %}" class="top-menu">Кто такой лидер</a></text>
-</svg>
-</div>
-
-<svg height="600" width="600">
-
-  <circle cx="300" cy="300" r="220" stroke="black" stroke-width="3" fill="#00FF29" />
-  <text fill="white" font-size="28" style="font-weight: bold;" font-family="Noto Serif SC" x="300" y="300" text-anchor='middle'><a href="{% url 'introduction' %}" class="top-menu">Сферы жизни</a></text>
-</svg>
-</div>
+    <a href="{% url 'introduction_chapter_spheres_life' %}" target="_blank">
+        <img src="{% static "mainsite/spheres_of_life_button.svg" %}" alt="2">
+    </a>
 
 
 
