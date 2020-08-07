@@ -7,7 +7,7 @@ from django.template import RequestContext
 from .models import Post, Skill, UserSkill, Profile
 from django.utils import timezone
 from django.contrib.auth.models import User
-
+from .forms import Sphere_of_life_Form
 
 
 #Basic views begin
@@ -108,5 +108,7 @@ def signup_view(request):
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})  
 
-
+def sphere_of_life_view(request):
+    form = Sphere_of_life_Form(request.POST)
+    return render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html', {'form': form})
 

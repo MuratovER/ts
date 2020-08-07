@@ -9,8 +9,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .forms import UploadFileForm
-from django.db import models
-from django import forms
+
+
 
 
 #an extended version of the posts
@@ -39,7 +39,7 @@ class Difficulty(models.Model):
 
 class Skill(models.Model):
     '''
-        Skyll logic with changable difficulty description ico an name
+        Skill logic with changable difficulty description ico an name
     '''
     skill_name = models.TextField()
     skill_description = models.TextField()
