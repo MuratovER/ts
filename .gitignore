@@ -5,5 +5,5 @@ env
 __pycache__
 .vscode
 local_settings.py
-static/
+/static/
 .vscode
