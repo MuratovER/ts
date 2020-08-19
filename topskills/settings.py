@@ -84,6 +84,7 @@ DATABASES = {
         'PASSWORD': 'tkmlfhvehfnjd',
         'HOST': 'localhost',
         'PORT': '',
+        
     }
 }
 

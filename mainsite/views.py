@@ -5,6 +5,9 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
 from .models import Post, Skill, UserSkill, Profile
+from django.utils import timezone
+from django.contrib.auth.models import User
+
 
 
 
@@ -14,8 +17,8 @@ def home_page(request):
     return render(request, 'mainsite/home.html',)
  #   return render(request, 'blog/user_page.html',)
 
-def user_page(request):
-    return render(request, 'mainsite/user_page.html',)
+# def user_page(request):
+#     return render(request, 'mainsite/user_page.html',)
 
 def achivement_view(request):
     return render(request, 'mainsite/achivements.html',)
@@ -26,38 +29,48 @@ def to_do_list_view(request):
 def blog_view(request):
     return render(request, 'mainsite/blog.html',)
 
-def messages_view(request):
-    return render(request, 'mainsite/messages.html',)
+def tree_view(request):
+    return render(request, 'mainsite/tree.html', )
 
 def help_view(request):
     return render(request, 'mainsite/help.html',)
 
-
 def skills(request):
-    return  render(request, 'mainsite/skills.html')
+    return render(request, 'mainsite/skills.html',)
+
+def introduction_view(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapters.html',)
+
+def introduction_chapter_lider(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider.html',)
+
+
+def introduction_chapter_spheres_life(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html',)
+
+
+def introduction_chapter_lider_task(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider_task.html',)
+
+
+def introduction_chapter_spheres_life_task(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life_task.html',)
+
+
 
 #Basic views end
 
-#tree view begin
-def tree_view(request):
-    return  render(request, 'mainsite/tree.html')
 
-def introduction_view(request):
-    return  render(request, 'mainsite/tree/introduction/introduction_chapters.html')
-
-def introduction_chapter_lider(request):
-    return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider.html')
-
-
-#tree view end
 
 #blog view begin
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'mainsite/blog.html', {'posts': posts})
 
-#blog view end
 
+def skills(request):
+    skills = Skill.objects.all()
+    return render(request, 'mainsite/skills.html', {'skills': skills})
 
 
 
@@ -72,12 +85,6 @@ def user_page(request):
     user = User.objects.get(username = request.user)
     skills = UserSkill.objects.filter(user=user)
     return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills})
-
-
-
-
-
-#signup view
 
 
 

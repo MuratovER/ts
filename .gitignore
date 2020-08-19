@@ -1,9 +1,10 @@
 *.pyc
 db.sqlite3
-venv
+myvenv
 env
+virtual environment
 __pycache__
 .vscode
 local_settings.py
-.idea
 static/
+.DS_Store
