@@ -2,7 +2,6 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 30% 70%;
-    
 }
 
 .content-container {
@@ -25,12 +24,6 @@ ul {
     width: 100%;
     height: 100%;
 }
-.login-table {
-    display: grid;
-    grid-column-gap: 20px;
-  grid-template-columns: auto auto ;
-
-}
 
 .right-table {}
 
@@ -38,11 +31,9 @@ ul {
     text-align: center;
 }
 
-
 .page-header h1 {
     text-align: center;
 }
-
 
 .top-menu p {
     float: right;
@@ -57,6 +48,3 @@ ul {
     font-size: 25pt;
 }
 
-.col-md-8 {
-    
-}

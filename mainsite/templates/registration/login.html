@@ -1,10 +1,10 @@
-{% extends 'mainsite/base.html' %} {% if form.errors %}
+{% extends 'mainsite/base.html' %} {% block content %} {% if form.errors %}
 
 
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
 
-<!--
+
 <form method="post" action="{% url 'login' %}" class="login-tables">
     {% csrf_token %}
     <table>
@@ -21,7 +21,7 @@
     <input type="submit" value="login" />
     <input type="hidden" name="next" value="{{ next }}" />
 </form>
- 
--->
 
 
+
+{% endblock %}

@@ -6,5 +6,5 @@ virtual environment
 __pycache__
 .vscode
 local_settings.py
-static/
+/static/
 .DS_Store
