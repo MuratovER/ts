@@ -2,10 +2,11 @@
 
 {% block content %}
 
+{% load staticfiles%}
 <div class="introduction">
-    <button type="button" class="btn btn-secondary"><a href="{% url 'introduction' %}" class="top-menu"><span class="glyphicon glyphicon-comment"></span></a>introduction</button>
-
-
+    <a href="{% url 'introduction' %}" target="_blank">
+        <img src="{% static "mainsite/introduction.svg" %}" alt="2">
+    </a>
 </div>
 <div class="chapters"></div>
 

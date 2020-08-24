@@ -6,7 +6,10 @@
          <div class="img-user-page">
              <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fpaomedia%2Fsmall-n-flat%2F1024%2Fuser-male-icon.png&f=1&nofb=1" width="200" height="222" alt="photo" class="image">
          </div>
-         <div class="container">
+
+         <div class="container" style="width: 100%;">
+
+
                <h1>Профиль пользователя</h1>
                <p>Username: {{ user }}</p>
                 <p>Имя: {{ user.first_name }}</p>
@@ -14,14 +17,19 @@
                 <p>E-mail: {{ user.email }}</p>
          </div>
          </div>
-         <div class="user-page-tables">
+
+
+         <div class="user-page-tables" style="width: 100%;">
 
              <div class="user-page-skill-progress">
-                 <p>Навыки в прогрессе</p>
+                <h2>Навыки в прогрессе</h2>
              </div>
+
              <div class="user-page-achivements">
-                <p>Достижения</p>
+                <h2>Достижения</h2>
              </div>
+             
+
              <div class="user-page-max-skill">
                 <h2>Навыки</h2>
                 {% for skill in skills %}
@@ -30,6 +38,15 @@
                         <p>Уровень : {{ skill.level }} </p>
                 {% endfor %}
              </div>
-         </div>
+
+
+            <div class = "user-page-tables">
+                <h2>Test</h2>
+
+
+            </div>
+
+    </div>
+
 </div>
 {% endblock %}

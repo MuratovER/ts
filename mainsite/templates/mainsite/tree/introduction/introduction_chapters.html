@@ -2,13 +2,21 @@
 
 {% block content %}
 
-<div class="introduction_chapters">
+{% load staticfiles%}
 
-<button type="button" class="btn btn-secondary"><a href="{% url 'introduction_chapter_lider' %}" class="top-menu"><span class="glyphicon glyphicon-comment"></span>Кто такой лидер и что такое личностное развитие?</a></button>
-<button type="button" class="btn btn-secondary"><a href="{% url 'introduction_chapter_spheres_life' %}" class="top-menu"><span class="glyphicon glyphicon-comment"></span>Сферы Жизни</a></button>
+
+<div class="introductions_chapters">
+    <a href="{% url 'introduction_chapter_lider' %}" target="_blank">
+        <img src="{% static "mainsite/lider_button.svg" %}" alt="2">
+    </a>
+
+    <a href="{% url 'introduction_chapter_spheres_life' %}" target="_blank">
+        <img src="{% static "mainsite/spheres_of_life_button.svg" %}" alt="2">
+    </a>
+
+
 
 
 </div>
-
 
 {% endblock %}
