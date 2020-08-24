@@ -9,6 +9,7 @@
 
          <div class="container" style="width: 100%;">
 
+
                <h1>Профиль пользователя</h1>
                <p>Username: {{ user }}</p>
                 <p>Имя: {{ user.first_name }}</p>
@@ -16,6 +17,7 @@
                 <p>E-mail: {{ user.email }}</p>
          </div>
          </div>
+
 
          <div class="user-page-tables" style="width: 100%;">
 
@@ -27,6 +29,7 @@
                 <h2>Достижения</h2>
              </div>
              
+
              <div class="user-page-max-skill">
                 <h2>Навыки</h2>
                 {% for skill in skills %}
@@ -36,6 +39,7 @@
                 {% endfor %}
              </div>
 
+
             <div class = "user-page-tables">
                 <h2>Test</h2>
 
@@ -43,6 +47,6 @@
             </div>
 
     </div>
-</div>
 
+</div>
 {% endblock %}

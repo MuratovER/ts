@@ -10,7 +10,16 @@
 </head>
 <header>
     <nav>
-        <div class="logo"><a href="/"><h1>Topskills</h1></a></div>
+
+        <div class="logo">
+            <a href="/">
+            <img src="https://media.discordapp.net/attachments/698260986880065546/744777298011619378/2.jpg" style="width: 60;" alt="Topskills">
+                <span style="color: #f6d4d2; font-size: 25px; font-weight: 550;">
+                Topskills
+                </span>
+            </a>    
+        </div>
+
 
         {% if user.is_authenticated %}
         <ul class="nav-ul">
@@ -34,11 +43,38 @@
             <div class="activated">
             </div>
             {% else %}
-            <div class="main-page-n-login">
-                <a href="{% url 'signup' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span>Signup</a>
-                <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span>Login</a>
+            <div class="item1">
+                <div>
+                    <img src="https://cdn.discordapp.com/attachments/650954813550624778/659785442111127582/lis-lisa-doroga-les-iolki-gory-zakat-rassvet-nebo-zvezdy.jpg"  alt="Your Future" width="100%" height="600">
+                </div> 
+            </div> 
+             <div class="item2"> 
+            <div clas="main-page-n-login" style="padding: 50% 55px; width: 100%;">
+                <form method="post" action="/accounts/login/" class="login-tables">
+                        {% csrf_token %}
+                        <table>
+                        <tbody><tr class="login">
+                            <td><label for="id_username">Логин:</label></td>
+                            <td><input type="text" name="username" autofocus="" required="" id="id_username"></td>
+                        </tr>
+                        <tr class="password">
+                            <td><label for="id_password">Пароль:</label></td>
+                            <td><input type="password" name="password" required="" id="id_password"></td>
+                        </tr>
+                    </tbody></table>
+                        <input  type="submit" class="button1" value="Вход" >
+                        <input type="hidden" name="next" value="">
+                </form>
+                {% if form.errors %}
+
+                <p>Your username and password didn't match. Please try again.</p>
+                {% endif %}
+
+<!-- Переход в Регистрацию -->
+                    <a href="{% url 'signup' %}" class="button2"> Регистрация </a>
+                {% endif %}
             </div>
-            {% endif %}
+
         </div>
         <div class="content-container" style="width: 100%;">
             <div class="row">

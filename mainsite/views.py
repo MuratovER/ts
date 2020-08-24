@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 
 
 
+
 #Basic views begin
 
 def home_page(request):

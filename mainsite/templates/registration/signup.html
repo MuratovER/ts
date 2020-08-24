@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h2>Sign up Form</h2>
+<h2>Регистрация</h2>
 <form method="post">
     {% csrf_token %} {% for field in form %}
     <p>
@@ -12,7 +12,8 @@
         {% endfor %}
     </p>
     {% endfor %}
-    <button type="submit">Sign up</button>
+    <button type="submit" class="button button1">Sign up</button>
 </form>
 
-{% endblock %}
+{% endblock %} 
+ 
