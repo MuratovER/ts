@@ -1,11 +1,13 @@
+  
 {% extends 'mainsite/base.html' %} 
 
 {% block content %}
 
 {% load staticfiles%}
+
 <div class="introduction">
-    <a href="{% url 'introduction' %}" target="_blank">
-        <img src="{% static "mainsite/introduction.svg" %}" alt="2">
+     <a href="{% url 'introduction' %}" target="_blank">
+        <img src="{% static "mainsite/introductions.svg" %}" alt="2">
     </a>
 </div>
 <div class="chapters"></div>
