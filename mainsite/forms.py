@@ -24,4 +24,10 @@ class UploadFileForm(forms.Form):
 class Sphere_of_life_Form(forms.ModelForm):
     class Meta:
         model = Sphere_of_life
-        fields = ('inside_world','career','health','relationships',)
+        fields = ('inside_world', 'career', 'health', 'relationships',)
+
+        INTEGER_CHOICES = [tuple([x, x]) for x in range(1, 11)]
+        inside_world = forms.IntegerField(label="Внутренний мир", widget=forms.Select(choices=INTEGER_CHOICES))
+        career = forms.IntegerField(label="Учеба\Карьера", widget=forms.Select(choices=INTEGER_CHOICES))
+        health = forms.IntegerField(label="Здоровье", widget=forms.Select(choices=INTEGER_CHOICES))
+        relationships = forms.IntegerField(label="Отношения", widget=forms.Select(choices=INTEGER_CHOICES))

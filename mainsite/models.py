@@ -8,7 +8,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from .forms import UploadFileForm
+#from .forms import UploadFileForm
 
 
 
@@ -76,8 +76,9 @@ def update_profile_signal(sender, instance, created, **kwargs):
 
 class Sphere_of_life(models.Model):
     INTEGER_CHOICES = [tuple([x, x]) for x in range(1, 11)]
-    inside_world = forms.IntegerField(label="Внутренний мир", widget=forms.Select(choices=INTEGER_CHOICES))
-    career = forms.IntegerField(label="Учеба\Карьера", widget=forms.Select(choices=INTEGER_CHOICES))
-    health = forms.IntegerField(label="Здоровье", widget=forms.Select(choices=INTEGER_CHOICES))
-    relationships = forms.IntegerField(label="Отношения", widget=forms.Select(choices=INTEGER_CHOICES))
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
+    inside_world = models.IntegerField(verbose_name="Внутренний мир", choices=INTEGER_CHOICES, blank=True, null=True)
+    career = models.IntegerField(verbose_name="Учеба\Карьера", choices=INTEGER_CHOICES, blank=True, null=True)
+    health = models.IntegerField(verbose_name="Здоровье", choices=INTEGER_CHOICES, blank=True, null=True)
+    relationships = models.IntegerField(verbose_name="Отношения", choices=INTEGER_CHOICES, blank=True, null=True)
 
