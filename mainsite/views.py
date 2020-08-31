@@ -4,10 +4,10 @@ from mainsite.forms import SignUpForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
-from .models import Post, Skill, UserSkill, Profile
+from .models import Post, Skill, UserSkill, Profile, Sphere_of_life
 from django.utils import timezone
 from django.contrib.auth.models import User
-
+from .forms import Sphere_of_life_Form
 
 
 
@@ -46,8 +46,33 @@ def introduction_chapter_lider(request):
 
 
 def introduction_chapter_spheres_life(request):
-    return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html',)
-
+    # checks whether sphere already exists or not. Returns true or false
+    if Sphere_of_life.objects.filter(user=request.user).exists():
+        # if already exist - edit existing
+        sphere = Sphere_of_life.objects.get(user=request.user)
+        if request.method == "POST":
+            form = Sphere_of_life_Form(request.POST, instance=sphere)
+            if form.is_valid():
+                sphere = form.save(commit=False)
+                sphere.save()
+        else:
+            form = Sphere_of_life_Form()
+        return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html', {'form': form})
+    else:
+        # if not exist - create new
+        if request.method == "POST":
+            form = Sphere_of_life_Form(request.POST)
+            if form.is_valid():
+                sphere = form.save(commit=False)
+                sphere.user = request.user
+                sphere.save()
+        else:
+            form = Sphere_of_life_Form()
+        return  render(request, 
+        'mainsite/tree/introduction/introduction_chapter_spheres_life.html',
+        {'form': form})
+    
+    
 
 def introduction_chapter_lider_task(request):
     return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider_task.html',)
@@ -59,8 +84,6 @@ def introduction_chapter_spheres_life_task(request):
 
 
 #Basic views end
-
-
 
 #blog view begin
 def post_list(request):
@@ -87,9 +110,6 @@ def user_page(request):
     return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills})
 
 
-
-
-
 #signup view
 def signup_view(request):
     form = SignUpForm(request.POST)
@@ -108,7 +128,4 @@ def signup_view(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})  
-
-
-
 
