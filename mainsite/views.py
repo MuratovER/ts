@@ -8,6 +8,7 @@ from .models import Post, Skill, UserSkill, Profile, Sphere_of_life
 from django.utils import timezone
 from django.contrib.auth.models import User
 from .forms import Sphere_of_life_Form
+from django.contrib.auth.decorators import login_required
 
 
 
