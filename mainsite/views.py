@@ -15,36 +15,40 @@ from .forms import Sphere_of_life_Form
 
 def home_page(request):
     return render(request, 'mainsite/home.html',)
- #   return render(request, 'blog/user_page.html',)
 
-# def user_page(request):
-#     return render(request, 'mainsite/user_page.html',)
-
+@login_required
 def achivement_view(request):
     return render(request, 'mainsite/achivements.html',)
 
+@login_required
 def to_do_list_view(request):
     return render(request, 'mainsite/to_do_list.html',)
 
+@login_required
 def blog_view(request):
     return render(request, 'mainsite/blog.html',)
 
+@login_required
 def tree_view(request):
     return render(request, 'mainsite/tree.html', )
 
+@login_required
 def help_view(request):
     return render(request, 'mainsite/help.html',)
 
+@login_required
 def skills(request):
     return render(request, 'mainsite/skills.html',)
 
+@login_required
 def introduction_view(request):
     return  render(request, 'mainsite/tree/introduction/introduction_chapters.html',)
 
+@login_required
 def introduction_chapter_lider(request):
     return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider.html',)
 
-
+@login_required
 def introduction_chapter_spheres_life(request):
     # checks whether sphere already exists or not. Returns true or false
     if Sphere_of_life.objects.filter(user=request.user).exists():
@@ -73,11 +77,11 @@ def introduction_chapter_spheres_life(request):
         {'form': form})
     
     
-
+@login_required
 def introduction_chapter_lider_task(request):
     return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider_task.html',)
 
-
+@login_required
 def introduction_chapter_spheres_life_task(request):
     return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life_task.html',)
 
@@ -86,11 +90,12 @@ def introduction_chapter_spheres_life_task(request):
 #Basic views end
 
 #blog view begin
+@login_required
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'mainsite/blog.html', {'posts': posts})
 
-
+@login_required
 def skills(request):
     skills = Skill.objects.all()
     return render(request, 'mainsite/skills.html', {'skills': skills})
@@ -103,7 +108,7 @@ def skills(request):
 #     skills = UserSkill.objects.filter(user=user)
 #     return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills})
 
-
+@login_required
 def user_page(request):
     user = User.objects.get(username = request.user)
     skills = UserSkill.objects.filter(user=user)
