@@ -56,7 +56,23 @@ def introduction_chapter_lider_task(request):
 def introduction_chapter_spheres_life_task(request):
     return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life_task.html',)
 
+def first_view(request):
+    return  render(request, 'mainsite/tree/first/first_chapters.html',)
 
+def first_chapters_what_is_it(request):
+    return  render(request, 'mainsite/tree/first/first_chapters_what_is_it.html',)
+
+def first_chapters_edit(request):
+    return  render(request, 'mainsite/tree/first/first_chapters_edit.html',)
+
+def first_chapters_self_assessment(request):
+    return  render(request, 'mainsite/tree/first/first_chapters_self_assessment.html',)
+
+def first_chapters_self_discipline(request):
+    return  render(request, 'mainsite/tree/first/first_chapters_self_discipline.html',)
+
+def first_chapters_aims_in_life(request):
+    return  render(request, 'mainsite/tree/first/first_chapters_aims_in_life.html',)
 
 #Basic views end
 
