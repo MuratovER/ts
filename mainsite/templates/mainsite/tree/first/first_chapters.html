@@ -1,0 +1,26 @@
+{% extends 'mainsite/base.html' %}
+
+{% block content %}
+
+{% load staticfiles%}
+
+
+<div class="first_chapters">
+    <a href="{% url 'first_chapters_what_is_it' %}" target="_self">
+        <img src="{% static "mainsite/what_is_it.svg" %}" alt="2">
+    </a>
+    <a href="{% url 'first_chapters_edit' %}" target="_self">
+        <img src="{% static "mainsite/edit.svg" %}" alt="2">
+    </a>
+    <a href="{% url 'first_chapters_self_assessment' %}" target="_self">
+        <img src="{% static "mainsite/self_assessment.svg" %}" alt="2">
+    </a>
+    <a href="{% url 'first_chapters_self_discipline' %}" target="_self">
+        <img src="{% static "mainsite/self_discipline.svg" %}" alt="2">
+    </a>
+    <a href="{% url 'first_chapters_aims_in_life' %}" target="_self">
+        <img src="{% static "mainsite/aims_in_life.svg" %}" alt="2">
+    </a>
+</div>
+
+{% endblock %}

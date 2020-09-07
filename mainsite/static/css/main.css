@@ -159,12 +159,8 @@ h1 a, h2 a {
     font-family: 'Noto Serif SC', bold;
     font-style: oblique;
 }
-.introduction {
-  height: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-content: center;
-}
+
+
 .introduction_chapters {
     height: 100%;
     display: grid;
