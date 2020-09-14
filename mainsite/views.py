@@ -129,7 +129,10 @@ def skills(request):
 def user_page(request):
     user = User.objects.get(username = request.user)
     skills = UserSkill.objects.filter(user=user)
-    return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills})
+    sphere = None
+    if  Sphere_of_life.objects.filter(user=request.user).exists():
+        sphere = Sphere_of_life.objects.get(user=request.user)
+    return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills, 'sphere' : sphere})
 
 
 #signup view
