@@ -41,7 +41,19 @@
 
 
             <div class = "user-page-tables">
-                <h2>Test</h2>
+                <h2> 
+
+                {% if sphere == None %}
+                    <p> -- </p>
+                {% else %}
+                    <p>внутренний мир: {{ sphere.inside_world }}</p>  
+                    <p>карьера : {{ sphere.career}}</p>
+                    <p>Здоровье : {{ sphere.health}}</p>
+                    <p>Отношения : {{ sphere.relationships}}</p>
+                {% endif%}    
+   
+
+                </h2>
 
 
             </div>
