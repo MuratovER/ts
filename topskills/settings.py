@@ -75,16 +75,10 @@ WSGI_APPLICATION = 'topskills.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'topskills',
-        'USER': 'eldar',
-        'PASSWORD': 'tkmlfhvehfnjd',
-        'HOST': 'localhost',
-        'PORT': '',
-        
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -145,6 +139,7 @@ LOGIN_REDIRECT_URL = '/'
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
+print(db_from_env)
 DATABASES['default'].update(db_from_env)
 
 # reduce size of static files

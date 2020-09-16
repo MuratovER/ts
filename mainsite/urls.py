@@ -25,4 +25,5 @@ urlpatterns = [
     path('introduction/introduction_chapter_lider_task/', views.introduction_chapter_lider_task, name='introduction_chapter_lider_task'),
     path('introduction/introduction_chapter_spheres_life_task/', views.introduction_chapter_spheres_life_task, name='introduction_chapter_spheres_life_task'),
 
+
 ]

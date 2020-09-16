@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 from .forms import Sphere_of_life_Form
 from django.contrib.auth.decorators import login_required
 
+from .useful_lib import WheelOfLife
 
 
 #Basic views begin
@@ -113,7 +114,11 @@ def skills(request):
 def user_page(request):
     user = User.objects.get(username = request.user)
     skills = UserSkill.objects.filter(user=user)
-    return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills})
+
+    WheelOfLife_vars = Sphere_of_life.objects.get(user=request.user)
+
+    img = WheelOfLife.getImageSkills([WheelOfLife_vars.inside_world, WheelOfLife_vars.career, WheelOfLife_vars.health, WheelOfLife_vars.relationships  ])
+    return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills, 'path': img})
 
 
 #signup view
