@@ -45,7 +45,9 @@
 
             <div class = "user-page-tables">
                 <!-- <img src="{% static 'mainsite/images/wheeloflife/png/9698.png' %}"> -->
+                {% if path %}
                 <img src="{{ STATIC_PREFIX }}mainsite/images/wheeloflife/png/{{ path }}.png">
+                {% endif %}
                 <!-- <img src="{% static ''|add:path %}'"> -->
 
 

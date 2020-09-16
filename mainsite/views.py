@@ -63,7 +63,10 @@ def introduction_chapter_spheres_life(request):
                 sphere.save()
         else:
             form = Sphere_of_life_Form()
-        return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html', {'form': form})
+        WheelOfLife_vars = Sphere_of_life.objects.get(user=request.user)
+        img = WheelOfLife.getImageSkills([WheelOfLife_vars.inside_world, WheelOfLife_vars.career, WheelOfLife_vars.health, WheelOfLife_vars.relationships  ])
+
+        return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html', {'form': form, 'path': img})
     else:
         # if not exist - create new
         if request.method == "POST":
@@ -74,9 +77,11 @@ def introduction_chapter_spheres_life(request):
                 sphere.save()
         else:
             form = Sphere_of_life_Form()
-        return  render(request, 
-        'mainsite/tree/introduction/introduction_chapter_spheres_life.html',
-        {'form': form})
+
+        # WheelOfLife_vars = Sphere_of_life.objects.get(user=request.user)
+        # img = WheelOfLife.getImageSkills([WheelOfLife_vars.inside_world, WheelOfLife_vars.career, WheelOfLife_vars.health, WheelOfLife_vars.relationships  ])
+
+        return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html', {'form': form})
     
     
 @login_required
@@ -115,9 +120,13 @@ def user_page(request):
     user = User.objects.get(username = request.user)
     skills = UserSkill.objects.filter(user=user)
 
-    WheelOfLife_vars = Sphere_of_life.objects.get(user=request.user)
+    if Sphere_of_life.objects.filter(user=request.user).exists():
 
-    img = WheelOfLife.getImageSkills([WheelOfLife_vars.inside_world, WheelOfLife_vars.career, WheelOfLife_vars.health, WheelOfLife_vars.relationships  ])
+        WheelOfLife_vars = Sphere_of_life.objects.get(user=request.user)
+    
+        img = WheelOfLife.getImageSkills([WheelOfLife_vars.inside_world, WheelOfLife_vars.career, WheelOfLife_vars.health, WheelOfLife_vars.relationships  ])
+    else:
+        img = False
     return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills, 'path': img})
 
 
