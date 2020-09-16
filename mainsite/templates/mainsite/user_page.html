@@ -44,11 +44,27 @@
 
 
             <div class = "user-page-tables">
+<<<<<<< HEAD
                 <!-- <img src="{% static 'mainsite/images/wheeloflife/png/9698.png' %}"> -->
                 {% if path %}
                 <img src="{{ STATIC_PREFIX }}mainsite/images/wheeloflife/png/{{ path }}.png">
                 {% endif %}
                 <!-- <img src="{% static ''|add:path %}'"> -->
+=======
+                <h2> 
+
+                {% if sphere == None %}
+                    <p> -- </p>
+                {% else %}
+                    <p>внутренний мир: {{ sphere.inside_world }}</p>  
+                    <p>карьера : {{ sphere.career}}</p>
+                    <p>Здоровье : {{ sphere.health}}</p>
+                    <p>Отношения : {{ sphere.relationships}}</p>
+                {% endif%}    
+   
+
+                </h2>
+>>>>>>> 41b9bf3ac52298e8561da1939be71149720626e6
 
 
             </div>

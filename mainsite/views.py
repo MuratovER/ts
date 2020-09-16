@@ -92,7 +92,23 @@ def introduction_chapter_lider_task(request):
 def introduction_chapter_spheres_life_task(request):
     return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life_task.html',)
 
+def first_view(request):
+    return  render(request, 'mainsite/tree/first/first_chapters.html',)
 
+def first_chapters_what_is_it(request):
+    return  render(request, 'mainsite/tree/first/first_chapters_what_is_it.html',)
+
+def first_chapters_edit(request):
+    return  render(request, 'mainsite/tree/first/first_chapters_edit.html',)
+
+def first_chapters_self_assessment(request):
+    return  render(request, 'mainsite/tree/first/first_chapters_self_assessment.html',)
+
+def first_chapters_self_discipline(request):
+    return  render(request, 'mainsite/tree/first/first_chapters_self_discipline.html',)
+
+def first_chapters_aims_in_life(request):
+    return  render(request, 'mainsite/tree/first/first_chapters_aims_in_life.html',)
 
 #Basic views end
 
@@ -119,6 +135,7 @@ def skills(request):
 def user_page(request):
     user = User.objects.get(username = request.user)
     skills = UserSkill.objects.filter(user=user)
+<<<<<<< HEAD
 
     if Sphere_of_life.objects.filter(user=request.user).exists():
 
@@ -128,6 +145,12 @@ def user_page(request):
     else:
         img = False
     return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills, 'path': img})
+=======
+    sphere = None
+    if  Sphere_of_life.objects.filter(user=request.user).exists():
+        sphere = Sphere_of_life.objects.get(user=request.user)
+    return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills, 'sphere' : sphere})
+>>>>>>> 41b9bf3ac52298e8561da1939be71149720626e6
 
 
 #signup view
