@@ -24,15 +24,12 @@ urlpatterns = [
     path('introduction/introduction_chapter_spheres_life/', views.introduction_chapter_spheres_life, name='introduction_chapter_spheres_life'),
     path('introduction/introduction_chapter_lider_task/', views.introduction_chapter_lider_task, name='introduction_chapter_lider_task'),
     path('introduction/introduction_chapter_spheres_life_task/', views.introduction_chapter_spheres_life_task, name='introduction_chapter_spheres_life_task'),
-<<<<<<< HEAD
 
 
-=======
     path('first/', views.first_view, name='first'),
     path('first/first_chapters_what_is_it/', views.first_chapters_what_is_it, name='first_chapters_what_is_it'),
     path('first/first_chapters_edit/', views.first_chapters_edit, name='first_chapters_edit'),
     path('first/first_chapters_self_assessment/', views.first_chapters_self_assessment, name='first_chapters_self_assessment'),
     path('first/first_chapters_self_discipline/', views.first_chapters_self_discipline, name='first_chapters_self_discipline'),
     path('firstr/first_chapters_aims_in_life/', views.first_chapters_aims_in_life, name='first_chapters_aims_in_life'),
->>>>>>> 41b9bf3ac52298e8561da1939be71149720626e6
 ]

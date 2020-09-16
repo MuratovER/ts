@@ -135,7 +135,6 @@ def skills(request):
 def user_page(request):
     user = User.objects.get(username = request.user)
     skills = UserSkill.objects.filter(user=user)
-<<<<<<< HEAD
 
     if Sphere_of_life.objects.filter(user=request.user).exists():
 
@@ -145,12 +144,10 @@ def user_page(request):
     else:
         img = False
     return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills, 'path': img})
-=======
     sphere = None
     if  Sphere_of_life.objects.filter(user=request.user).exists():
         sphere = Sphere_of_life.objects.get(user=request.user)
     return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills, 'sphere' : sphere})
->>>>>>> 41b9bf3ac52298e8561da1939be71149720626e6
 
 
 #signup view
