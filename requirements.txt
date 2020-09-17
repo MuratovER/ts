@@ -28,4 +28,3 @@ whitenoise==5.0.1
 wrapt==1.11.2
 matplotlib
 numpy
-os
