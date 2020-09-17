@@ -4,7 +4,7 @@ import numpy as np
 
 def save(name='', fmt='png'):
     pwd = os.getcwd()
-    iPath = '/home/ilya/projects/topskills/ts/mainsite/static/mainsite/images/wheeloflife/{}'.format(fmt)
+    iPath = 'mainsite/static/mainsite/images/wheeloflife/{}'.format(fmt)
     if not os.path.exists(iPath):
         os.mkdir(iPath)
     os.chdir(iPath)
