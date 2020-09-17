@@ -13,21 +13,21 @@
 }
 
 .user-page-skill-progress {
-    background-color: #cc1111;
+    background-color: grey;
 }
 
 .user-page-achivements {
-    background-color: #ff01ec;
+    background-color: grey;
 }
-
+  
 .user-page-max-skill {
-    background-color: #005dff;
+    background-color: grey;
 }
 
 .user-page-tables {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    background-color: purple;
+  /*  background-color: purple;*/ 
 
 }
 
@@ -69,28 +69,28 @@ nav li{
 .page-header {
   display: grid;
   grid-template-columns:auto auto; 
-  grid-gap: 0px;
+
   background-color: white;
   padding: 0px;
 }
 .grid-container {
-  
-  grid-gap: 10px;
-  background-color: white;
-  padding: 10px;
-}
+/*
+  grid-gap: 10px; */
+  background-color: white;/*
+  padding: 10px; */
+}/*
 .grid-container > div {
   background-color: rgba(255, 255, 255, 0.8);
   text-align: center;
-  padding: 20px 0;
+  padding: 20px 0; 
   border-style: solid;
   border-color: coral;
   font-size: 30px;
 }
-
+*/
 .item1 {
   grid-row-start: 1;
-  grid-row-end: 2;
+  grid-row-end: 2; 
 }
 
 .main-page-n-login {
@@ -111,24 +111,25 @@ nav li{
     border:2px solid white;
     border-radius: 20px;
 }
+/*
 .container {
     background-color: #5897fb;
 }
-
+*/
 .skills {
     background-color: purple;
     grid-column: auto;
 }
 
 
-
+/*
 
 .content-container {
     background-color: #aaaaaa;
 
 }
 
-
+*/
 
 
 

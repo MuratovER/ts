@@ -4,19 +4,16 @@
 
 {% load staticfiles%}
 
-
 <div class="introductions_chapters">
-    <a href="{% url 'introduction_chapter_lider' %}" target="_blank">
+
+    <a href="{% url 'introduction_chapter_lider' %}" target="_self">
         <img src="{% static "mainsite/lider_button.svg" %}" alt="2">
     </a>
 
-    <a href="{% url 'introduction_chapter_spheres_life' %}" target="_blank">
+    <a href="{% url 'introduction_chapter_spheres_life' %}" target="_self">
         <img src="{% static "mainsite/spheres_of_life_button.svg" %}" alt="2">
     </a>
-
-
-
-
+    
 </div>
 
 {% endblock %}
