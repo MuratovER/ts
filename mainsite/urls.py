@@ -52,8 +52,4 @@ urlpatterns = [
     path('fourth/fourth_chapters_Conflicts/', views.fourth_chapters_Conflicts, name='fourth_chapters_Conflicts'),
     path('fourth/fourth_chapters_RelationshipsintheFamily/', views.fourth_chapters_RelationshipsintheFamily, name='fourth_chapters_RelationshipsintheFamily'),
     path('fourth/fourth_chapters_Friends/', views.fourth_chapters_Friends, name='fourth_chapters_Friends'),
-
-
-
-
 ]

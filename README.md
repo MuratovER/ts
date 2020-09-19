@@ -1,67 +1,40 @@
 
 
+## Требования для начала работы с проектом
+
+- Python 3, pip, Visual Studio Code
+- Аккаунт Github
+- Скинуть Эльдару почту от аккаунта GitHub для добавление в контрибуторов проекта
+
+## Начало работы с проектом
+
+Команды для для локальной установки среды разработки:
+
+### Клонирования проекта
+
+git clone https://github.com/MuratovER/ts.git
 
 
+### Virtual environment
 
-# pushing
-
-git status 
-
-git add -A .  
-
-git status  
-
-git commit -m 'comment'
-
-git push -u origin 'branch'    
-_______________________________________________________________________________________________________________
-#How to add new branch
-
-git branch <branch name>
-
-git checkout <branch name> 
-# virtual environment
-
-venv
-
-#### установка
+#### Установка
 python -m venv myvenv
 
-#### запуск
+#### Запуск
 C:\ts venv\scripts\sctivate
 
 (venv) C:\ts>
 
-_______________________________________________________________________________________________________________
 
-# pip
-
-Django
-django-extensions
-psycopg2
-dj-database-url
-gunicorn 
-whitenoise
+- Установка зависимостей
 
 
+- Требования к базе данных
+## Установка PostgresSQL и pgadmin
+- [How to install PostreSQL](https://www.enterprisedb.com/node/16#windows)
 
-_______________________________________________________________________________________________________________
-
-# migrations
-
-python manage.py makemigrations "module"
-
-python manage.py migrate "module"
-
-# PostgreSQL installation
-
-#### here you need to download PostgreSQL
-
-http://www.enterprisedb.com/products-services-training/pgdownload#windows
-
-#### Instruction for installing
-
-http://www.postgresqltutorial.com/install-postgresql/
+login-eldar
+password-tkmlfhvehfnjd
 
 _______________________________________________________________________________________________________________
 
@@ -78,15 +51,15 @@ ________________________________________________________________________________
 
 :# CREATE DATABASE ts OWNER name;
 
-### after this you need to download psycopg2.exe
+### After this you need to download psycopg2.exe
 
 pip install psycopg2
 
-### after installing we need to applay migrations 
+### After installing we need to applay migrations 
 
 python manage.py migrate "module"
 
-### and at the end we need to create superuser
+### And at the end we need to create superuser
 
 python manage.py createsuperuser --username name
 
@@ -96,7 +69,18 @@ python manage.py createsuperuser --username name
 
 _______________________________________________________________________________________________________________
 
-# requirements.txt
+
+# How to work with Django
+
+# Migrations
+
+python manage.py makemigrations "module"
+
+python manage.py migrate "module"
+
+
+
+# Freeze requirements.txt
 
 (venv) C:\ts> pip install dj-database-url gunicorn whitenoise
 
@@ -111,18 +95,18 @@ psycopg2==2.7.2
 
 web: gunicorn mysite.wsgi --log-file -
 
-# runtime.txt
+# Create runtime.txt
 
 python-3.6.4
 
-# mysite/wsgi.py
+# Change mysite/wsgi.py
 Open the mysite/wsgi.py file and add these lines at the end:
 
 from whitenoise.django import DjangoWhiteNoise
 application = DjangoWhiteNoise(application)
 
 
-# deploy on HEROKU
+# Deploy on HEROKU
 
 (venv) C:\ts>heroku create djangogirlsblog
 
@@ -135,3 +119,63 @@ application = DjangoWhiteNoise(application)
 (venv) C:\ts>heroku run python manage.py migrate
 
 (venv) C:\ts>heroku run python manage.py createsuperuser
+
+
+## Как контрибутить в проект
+
+### Pushing
+
+git status 
+
+git add -A .  
+
+git status  
+
+git commit -m 'comment'
+
+git push -u origin 'branch'    
+_______________________________________________________________________________________________________________
+### How to add new branch
+
+git branch <branch name>
+
+git checkout <branch name> 
+
+
+### How to make pull rquest
+
+после пуша заходим в Github на свою ветку и нажимаем pull request
+_______________________________________________________________________________________________________________
+
+## Структура проекта
+
+### Описать каждый файл
+
+Как называется проект, что в нём хранится
+
+Как называется приложение, что в нём хранится
+
+model.py
+
+Типовой источник информации о ваших данных. Он содержит основные поля и поведение данных, которые вы храните. Как правило, каждая модель отображается в одну таблицу базы данных.
+
+url.py
+Четкая и элегантная схема URL-адресов - важная деталь высококачественного веб-приложения. Django позволяет создавать URL-адреса по своему усмотрению, без ограничений фреймворка.И в этом файле как раз таки и хранаться эти адреса
+
+view.py
+
+Вьюхи - это вызываемый объект, который принимает запрос и возвращает ответ. Это может быть больше, чем просто функция, и Django предоставляет пример некоторых классов, которые можно использовать как представления. Это позволяет вам структурировать представления и повторно использовать код, используя наследование.
+
+# Pip
+
+Django
+django-extensions
+psycopg2
+dj-database-url
+gunicorn 
+whitenoise
+
+
+
+_______________________________________________________________________________________________________________
+

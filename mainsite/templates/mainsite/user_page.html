@@ -1,6 +1,9 @@
 {% extends 'mainsite/base.html' %}
-
+{% load static %}
 {% block content %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+
 <div class="user-page">
          <div class="user-info">
          <div class="img-user-page">
@@ -41,7 +44,24 @@
 
 
             <div class = "user-page-tables">
-                <h2>Test</h2>
+                <!-- <img src="{% static 'mainsite/images/wheeloflife/png/9698.png' %}"> -->
+                {% if path %}
+                <img src="{{ STATIC_PREFIX }}mainsite/images/wheeloflife/png/{{ path }}.png">
+                {% endif %}
+                <!-- <img src="{% static ''|add:path %}'"> -->
+                <h2> 
+
+                {% if sphere == None %}
+                    <p> -- </p>
+                {% else %}
+                    <p>внутренний мир: {{ sphere.inside_world }}</p>  
+                    <p>карьера : {{ sphere.career}}</p>
+                    <p>Здоровье : {{ sphere.health}}</p>
+                    <p>Отношения : {{ sphere.relationships}}</p>
+                {% endif%}    
+   
+
+                </h2>
 
 
             </div>
