@@ -72,6 +72,14 @@ ________________________________________________________________________________
 
 # How to work with Django
 
+# Migrations
+
+python manage.py makemigrations "module"
+
+python manage.py migrate "module"
+
+
+
 # Freeze requirements.txt
 
 (venv) C:\ts> pip install dj-database-url gunicorn whitenoise
@@ -147,6 +155,16 @@ ________________________________________________________________________________
 
 Как называется приложение, что в нём хранится
 
+model.py
+
+Типовой источник информации о ваших данных. Он содержит основные поля и поведение данных, которые вы храните. Как правило, каждая модель отображается в одну таблицу базы данных.
+
+url.py
+Четкая и элегантная схема URL-адресов - важная деталь высококачественного веб-приложения. Django позволяет создавать URL-адреса по своему усмотрению, без ограничений фреймворка.И в этом файле как раз таки и хранаться эти адреса
+
+view.py
+
+Вьюхи - это вызываемый объект, который принимает запрос и возвращает ответ. Это может быть больше, чем просто функция, и Django предоставляет пример некоторых классов, которые можно использовать как представления. Это позволяет вам структурировать представления и повторно использовать код, используя наследование.
 
 # Pip
 
@@ -160,20 +178,4 @@ whitenoise
 
 
 _______________________________________________________________________________________________________________
-
-# Migrations
-
-python manage.py makemigrations "module"
-
-python manage.py migrate "module"
-
-# PostgreSQL installation
-
-#### Here you need to download PostgreSQL
-
-http://www.enterprisedb.com/products-services-training/pgdownload#windows
-
-#### Instruction for installing
-
-http://www.postgresqltutorial.com/install-postgresql/
 
