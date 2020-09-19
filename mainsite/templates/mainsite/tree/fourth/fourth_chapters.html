@@ -1,0 +1,24 @@
+{% extends 'mainsite/base.html' %}
+
+{% block content %}
+
+{% load staticfiles%}
+
+
+<div class="first_chapters" style="width: 50%; padding: 40px; ">
+    <a href="{% url 'fourth_chapters_AbilitytoCommunicate' %}" target="_self">
+        <img src="{% static "mainsite/AbilitytoCommunicate.svg" %}" alt="2">
+    </a>
+    <a href="{% url 'fourth_chapters_Conflicts' %}" target="_self">
+        <img src="{% static "mainsite/Conflicts.svg" %}" alt="2">
+    </a>
+    <a href="{% url 'fourth_chapters_RelationshipsintheFamily' %}" target="_self">
+        <img src="{% static "mainsite/RelationshipsintheFamily.svg" %}" alt="2">
+    </a>
+    <a href="{% url 'fourth_chapters_Friends' %}" target="_self">
+        <img src="{% static "mainsite/Friends.svg" %}" alt="2">
+    </a>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'mainsite/base.html' %}
+
+{% block content %}
+
+{% load staticfiles%}
+
+
+<div class="first_chapters" style="width: 50%; padding: 40px; ">
+    <a href="{% url 'second_chapters_AimofLearning' %}" target="_self">
+        <img src="{% static "mainsite/AimofLearning.svg" %}" alt="2">
+    </a>
+    <a href="{% url 'second_chapters_ControlofTime' %}" target="_self">
+        <img src="{% static "mainsite/ControlofTime.svg" %}" alt="2">
+    </a>
+    <a href="{% url 'second_chapters_ControlofTimeEfficiency' %}" target="_self">
+        <img src="{% static "mainsite/ControlofTimeEfficiency.svg" %}" alt="2">
+    </a>
+    <a href="{% url 'second_chapters_EfficientСommunications' %}" target="_self">
+        <img src="{% static "mainsite/EfficientСommunications.svg" %}" alt="2">
+    </a>
+    <a href="{% url 'second_chapters_ForeignLanguage' %}" target="_self">
+        <img src="{% static "mainsite/ForeignLanguage.svg" %}" alt="2">
+    </a>
+    <a href="{% url 'second_chapters_Thoughts' %}" target="_self">
+        <img src="{% static "mainsite/Thoughts.svg" %}" alt="2">
+    </a>
+</div>
+
+{% endblock %}

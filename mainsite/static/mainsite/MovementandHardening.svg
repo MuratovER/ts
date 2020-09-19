@@ -5,8 +5,9 @@
 <style type="text/css">
 	.st0{fill:#09C404;stroke:#000000;stroke-miterlimit:10;}
 	.st1{font-family:'MyriadPro-Regular';}
-	.st2{font-size:23.4715px;}
+	.st2{font-size:18px;}
 </style>
 <circle class="st0" cx="100" cy="100" r="85"/>
-<text transform="matrix(1 0 0 1 54.6636 105.6944)" class="st1 st2">Введение</text>
+<text transform="matrix(1 0 0 1 60.6 105.6944)" class="st1 st2">Движение</text>
+<text transform="matrix(1 0 0 1 50.6 120.6944)" class="st1 st2">и закаливание</text>
 </svg>

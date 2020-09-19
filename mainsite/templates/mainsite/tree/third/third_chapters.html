@@ -1,0 +1,22 @@
+{% extends 'mainsite/base.html' %}
+
+{% block content %}
+
+{% load staticfiles%}
+
+
+<div class="first_chapters" style="width: 50%; padding: 40px; ">
+    <a href="{% url 'third_chapters_HealthySleep' %}" target="_self">
+        <img src="{% static "mainsite/HealthySleep.svg" %}" alt="2">
+    </a>
+    <a href="{% url 'third_chapters_GoodNutrition' %}" target="_self">
+        <img src="{% static "mainsite/GoodNutrition.svg" %}" alt="2">
+    </a>
+    <a href="{% url 'third_chapters_MovementandHardening' %}" target="_self">
+        <img src="{% static "mainsite/MovementandHardening.svg" %}" alt="2">
+    </a>
+    <a href="{% url 'third_chapters_LadieswithStress' %}" target="_self">
+        <img src="{% static "mainsite/LadieswithStress.svg" %}" alt="2">
+    </a>
+
+{% endblock %}
