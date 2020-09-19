@@ -56,6 +56,8 @@ def introduction_chapter_lider_task(request):
 def introduction_chapter_spheres_life_task(request):
     return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life_task.html',)
 
+# First
+
 def first_view(request):
     return  render(request, 'mainsite/tree/first/first_chapters.html',)
 
@@ -73,6 +75,64 @@ def first_chapters_self_discipline(request):
 
 def first_chapters_aims_in_life(request):
     return  render(request, 'mainsite/tree/first/first_chapters_aims_in_life.html',)
+
+#Second
+
+def second_view(request):
+    return  render(request, 'mainsite/tree/second/second_chapters.html',)
+
+def second_chapters_AimofLearning(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_AimofLearning.html',)
+
+def second_chapters_ControlofTime(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_ControlofTime.html',) 
+
+def second_chapters_ControlofTimeEfficiency(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_ControlofTimeEfficiency.html',)
+
+def second_chapters_EfficientСommunications(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_EfficientСommunications.html',)
+
+def second_chapters_ForeignLanguage(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_ForeignLanguage.html',)
+
+def second_chapters_Thoughts(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_Thoughts.html',)      
+
+#Third
+
+def third_view(request):
+    return  render(request, 'mainsite/tree/third/third_chapters.html',)
+
+def third_chapters_HealthySleep(request):
+    return  render(request, 'mainsite/tree/third/third_chapters_HealthySleep.html',)   
+
+def third_chapters_GoodNutrition(request):
+    return  render(request, 'mainsite/tree/third/third_chapters_GoodNutrition.html',)   
+
+def third_chapters_MovementandHardening(request):
+    return  render(request, 'mainsite/tree/third/third_chapters_MovementandHardening.html',)   
+    
+def third_chapters_LadieswithStress(request):
+    return  render(request, 'mainsite/tree/third/third_chapters_LadieswithStress.html',)   
+
+#Fourth
+
+def fourth_view(request):
+    return  render(request, 'mainsite/tree/fourth/fourth_chapters.html',)
+
+def fourth_chapters_AbilitytoCommunicate(request):
+    return  render(request, 'mainsite/tree/fourth/fourth_chapters_AbilitytoCommunicate.html',)
+
+def fourth_chapters_Conflicts(request):
+    return  render(request, 'mainsite/tree/fourth/fourth_chapters_Conflicts.html',)
+
+def fourth_chapters_RelationshipsintheFamily(request):
+    return  render(request, 'mainsite/tree/fourth/fourth_chapters_RelationshipsintheFamily.html',) 
+
+def fourth_chapters_Friends(request):
+    return  render(request, 'mainsite/tree/fourth/fourth_chapters_Friends.html',)        
+
 
 #Basic views end
 
