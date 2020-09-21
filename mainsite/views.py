@@ -44,6 +44,11 @@ def introduction_view(request):
 def introduction_chapter_lider(request):
     return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider.html',)
 
+def introduction_chapter_pritch(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapter_pritch.html',)
+
+def introduction_chapter_koliso(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapter_koliso.html',)
 
 def introduction_chapter_spheres_life(request):
     return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html',)
@@ -64,8 +69,17 @@ def first_view(request):
 def first_chapters_what_is_it(request):
     return  render(request, 'mainsite/tree/first/first_chapters_what_is_it.html',)
 
+def first_chapters_what_is_it_task(request):
+    return  render(request, 'mainsite/tree/first/first_chapters_what_is_it_task.html',)
+
 def first_chapters_edit(request):
     return  render(request, 'mainsite/tree/first/first_chapters_edit.html',)
+
+def first_chapters_EditTask(request):
+    return  render(request, 'mainsite/tree/first/first_chapters_EditTask.html',)
+
+def first_chapters_self_assessment_list  (request):
+    return  render(request, 'mainsite/tree/first/first_chapters_self_assessment_list  .html',)
 
 def first_chapters_self_assessment(request):
     return  render(request, 'mainsite/tree/first/first_chapters_self_assessment.html',)

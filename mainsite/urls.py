@@ -22,14 +22,19 @@ urlpatterns = [
     #Introduction
     path('introduction/', views.introduction_view, name='introduction'),
     path('introduction/introduction_chapter_lider/', views.introduction_chapter_lider, name='introduction_chapter_lider'),
+    path('introduction/introduction_chapter_pritch/', views.introduction_chapter_pritch, name='introduction_chapter_pritch'),
+    path('introduction/introduction_chapter_koliso/', views.introduction_chapter_koliso, name='introduction_chapter_koliso'),
     path('introduction/introduction_chapter_spheres_life/', views.introduction_chapter_spheres_life, name='introduction_chapter_spheres_life'),
     path('introduction/introduction_chapter_lider_task/', views.introduction_chapter_lider_task, name='introduction_chapter_lider_task'),
     path('introduction/introduction_chapter_spheres_life_task/', views.introduction_chapter_spheres_life_task, name='introduction_chapter_spheres_life_task'),
     #First
     path('first/', views.first_view, name='first'),
     path('first/first_chapters_what_is_it/', views.first_chapters_what_is_it, name='first_chapters_what_is_it'),
+    path('first/first_chapters_what_is_it_task/', views.first_chapters_what_is_it_task, name='first_chapters_what_is_it_task'),
     path('first/first_chapters_edit/', views.first_chapters_edit, name='first_chapters_edit'),
+    path('first/first_chapters_EditTask/', views.first_chapters_EditTask, name='first_chapters_EditTask'),
     path('first/first_chapters_self_assessment/', views.first_chapters_self_assessment, name='first_chapters_self_assessment'),
+    path('first/ first_chapters_self_assessment_list/', views. first_chapters_self_assessment_list, name=' first_chapters_self_assessment_list'),
     path('first/first_chapters_self_discipline/', views.first_chapters_self_discipline, name='first_chapters_self_discipline'),
     path('firstr/first_chapters_aims_in_life/', views.first_chapters_aims_in_life, name='first_chapters_aims_in_life'),
     #Second
