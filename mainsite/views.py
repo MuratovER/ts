@@ -14,7 +14,7 @@ from .useful_lib import WheelOfLife
 
 
 #Basic views begin
-
+#отправляет расположение разметки страницы в файл url
 def home_page(request):
     return render(request, 'mainsite/home.html',)
 
@@ -51,6 +51,15 @@ def introduction_chapter_lider(request):
     return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider.html',)
 
 @login_required
+def introduction_chapter_lider_task(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider_task.html',)
+
+@login_required
+def introduction_chapter_spheres_life_task(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life_task.html',)
+
+
+@login_required
 def introduction_chapter_spheres_life(request):
     # checks whether sphere already exists or not. Returns true or false
     if Sphere_of_life.objects.filter(user=request.user).exists():
@@ -84,16 +93,9 @@ def introduction_chapter_spheres_life(request):
         return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html', {'form': form})
     
     
-@login_required
-def introduction_chapter_lider_task(request):
-    return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider_task.html',)
-
-@login_required
-def introduction_chapter_spheres_life_task(request):
-    return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life_task.html',)
 
 # First
-
+#подключение первой главы
 def first_view(request):
     return  render(request, 'mainsite/tree/first/first_chapters.html',)
 
@@ -113,7 +115,7 @@ def first_chapters_aims_in_life(request):
     return  render(request, 'mainsite/tree/first/first_chapters_aims_in_life.html',)
 
 #Second
-
+#подключение второй главы
 def second_view(request):
     return  render(request, 'mainsite/tree/second/second_chapters.html',)
 
@@ -136,7 +138,7 @@ def second_chapters_Thoughts(request):
     return  render(request, 'mainsite/tree/second/second_chapters_Thoughts.html',)      
 
 #Third
-
+#подключение тертей главы
 def third_view(request):
     return  render(request, 'mainsite/tree/third/third_chapters.html',)
 
@@ -153,7 +155,7 @@ def third_chapters_LadieswithStress(request):
     return  render(request, 'mainsite/tree/third/third_chapters_LadieswithStress.html',)   
 
 #Fourth
-
+#подключение четвертой главы
 def fourth_view(request):
     return  render(request, 'mainsite/tree/fourth/fourth_chapters.html',)
 
@@ -183,16 +185,16 @@ def skills(request):
     skills = Skill.objects.all()
     return render(request, 'mainsite/skills.html', {'skills': skills})
 
-
-
 #blog view end
-# def user_page(request, username):
-#     user = User.objects.get(username=username)
-#     skills = UserSkill.objects.filter(user=user)
-#     return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills})
+
 
 @login_required
 def user_page(request):
+
+    '''
+    отображает на странице профиля скилы и фичи для конкретных пользователей
+    '''
+
     user = User.objects.get(username = request.user)
     skills = UserSkill.objects.filter(user=user)
 
@@ -210,6 +212,9 @@ def user_page(request):
 
 #signup view
 def signup_view(request):
+
+    '''вьюха с логикой регистрации'''
+
     form = SignUpForm(request.POST)
     if form.is_valid():
         user = form.save()

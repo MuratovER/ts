@@ -8,7 +8,7 @@ from django.conf.urls import include, url
 
 
 
-
+#адреса которые ссылаются на вьюхи
 urlpatterns = [
     path('', views.home_page, name='home_page'),
     path('signup/', views.signup_view, name='signup'),
