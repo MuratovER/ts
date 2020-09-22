@@ -9,7 +9,6 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from .forms import Sphere_of_life_Form
 from django.contrib.auth.decorators import login_required
-
 from .useful_lib import WheelOfLife
 
 
@@ -49,6 +48,13 @@ def introduction_view(request):
 @login_required
 def introduction_chapter_lider(request):
     return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider.html',)
+
+
+def introduction_chapter_pritch(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapter_pritch.html',)
+
+def introduction_chapter_koliso(request):
+    return  render(request, 'mainsite/tree/introduction/introduction_chapter_koliso.html',)
 
 @login_required
 def introduction_chapter_lider_task(request):
@@ -102,8 +108,17 @@ def first_view(request):
 def first_chapters_what_is_it(request):
     return  render(request, 'mainsite/tree/first/first_chapters_what_is_it.html',)
 
+def first_chapters_what_is_it_task(request):
+    return  render(request, 'mainsite/tree/first/first_chapters_what_is_it_task.html',)
+
 def first_chapters_edit(request):
     return  render(request, 'mainsite/tree/first/first_chapters_edit.html',)
+
+def first_chapters_EditTask(request):
+    return  render(request, 'mainsite/tree/first/first_chapters_EditTask.html',)
+
+def first_chapters_self_assessment_list  (request):
+    return  render(request, 'mainsite/tree/first/first_chapters_self_assessment_list  .html',)
 
 def first_chapters_self_assessment(request):
     return  render(request, 'mainsite/tree/first/first_chapters_self_assessment.html',)
