@@ -34,7 +34,7 @@ urlpatterns = [
     path('first/first_chapters_edit/', views.first_chapters_edit, name='first_chapters_edit'),
     path('first/first_chapters_EditTask/', views.first_chapters_EditTask, name='first_chapters_EditTask'),
     path('first/first_chapters_self_assessment/', views.first_chapters_self_assessment, name='first_chapters_self_assessment'),
-    path('first/ first_chapters_self_assessment_list/', views. first_chapters_self_assessment_list, name=' first_chapters_self_assessment_list'),
+    path('first/first_chapters_self_assessment_list/', views. first_chapters_self_assessment_list, name='first_chapters_self_assessment_list'),
     path('first/first_chapters_self_discipline/', views.first_chapters_self_discipline, name='first_chapters_self_discipline'),
     path('firstr/first_chapters_aims_in_life/', views.first_chapters_aims_in_life, name='first_chapters_aims_in_life'),
     #Second

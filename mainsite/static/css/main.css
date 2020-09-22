@@ -178,7 +178,7 @@ h1 a, h2 a {
 }
 .second_chapters {
   display: grid;
-  grid-template-columns: auto auto auto; 
+  grid-template-columns: auto auto auto auto auto auto; 
   grid-column-gap: 20px ; 
 }
 .third_chapters {
