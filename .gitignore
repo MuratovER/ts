@@ -7,4 +7,4 @@ __pycache__
 .vscode
 local_settings.py
 /static/
-
+topskills/settings.py
