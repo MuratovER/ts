@@ -2,30 +2,7 @@
 
 {% block content %}
 {% load static %}
-<!doctype html>
-<html lang="ru">
-  <head>
 
-   
-    
-    
-    <title>TS</title>
-  </head>
-  <body>
-<header id='header'>
-  <p class="name">TopSkills</p>
-  <p class="nameDescripton">Фабрика твоих успехов</p>
-  <nav class='menu'>
-    <a href="#" class="header-a">Главная</a>
-    <a href="#" class="header-a">Новости</a>
-    <a href="" class="header-a">О нас</a>
-  </nav>
-  
-    <button class='headerEnter'>Войти</button>
-    <button class='headerBtn headerBtnUser'></button>
-    <button class='headerBtn headerBtnMenu'></button>
-    <button class='headerBtn headerBtnTimer'></button>
-</header>
 <section id='mainPage'>
 
 </section>
@@ -44,7 +21,7 @@
         Сейчас мы занимаемся геймификацией этой книге в удобной для полльзователей
         среде.
       </p>
-      <button class='aboutArrow'><img src='{% static "img/img/short_down.png" %}' alt=""></button>
+      <button class='aboutArrow'><img src='{% static "img/short_down.png" %}' alt=""></button>
     </div>
     <div class="aboutCol">
       <img class='aboutBook'src='{% static "img/book.png" %}' alt="">
@@ -131,71 +108,6 @@
     </div>
   </div>
 </section>
-<footer id='footer'>
-  <div class="footerGrid">
-    <div class="footerCol">
-      <p class="footerPhone">+7 (777) 777-77-77</p>
-      <img class='footerLogo'src='{% static "img/logo.png" %}' alt="">
-      <div class="row footerFirstRow">
-        <a href="#" class='footerSocial'><img src='{% static "img/vk.png" %}' alt=""></a>
-        <a href="#" class='footerSocial'><img src='{% static "img/instagram.png" %}' alt=""></a>
-        <a href="#" class='footerSocial'><img src='{% static "img/facebook.png" %}' alt=""></a>
-        <a href="#" class='footerSocial'><img src='{% static "img/youtube.png" %}' alt=""></a>
-        <a href="#" class='footerSocial'><img src='{% static "img/google.png" %}' alt=""></a>
-      </div>
-      <p class="footerSupport">При поддержке КНИТУ-КАИ</p>
-      <img src='{% static "img/kaiLogo.png" %}' alt="" class="footerKaiIcon">
-    </div>
-    <div class="footerCol">
-      <p class="footerColTitle">ОБУЧЕНИЕ</p>
-      <a href="#" class='footera'>Процесс</a>
-      <a href="#" class='footera'>Игры</a>
-      <a href="#" class='footera'>Вопрос-ответ</a>
-      <a href="#" class='footera'>Другие услуги</a>
-    </div>
-    <div class="footerCol footerColSupport">
-      <p class="footerColTitle">ПОДДЕРЖКА</p>
-      <a href="#" class='footera'>Процесс</a>
-      <a href="#"class='footera'>Игры</a>
-      <a href="#" class='footera'>Вопрос-ответ</a>
-      <a href="#" class='footera'>Другие услуги</a>
-    </div>
-    <div class="footerCol footerColProducts">
-      <p class="footerColTitle">ПРОДУКТЫ</p>
-      <a href="#" class='footera'>Процесс</a>
-      <a href="#" class='footera'>Игры</a>
-      <a href="#" class='footera'>Вопрос-ответ</a>
-      <a href="#" class='footera'>Другие услуги</a>
-    </div>
-    <div class="footerCol footerColContact">
-      <p class="footerColTitle">КОНТАКТЫ</p>
-      <a href="#" class='footera'>Процесс</a>
-      <a href="#" class='footera'>Игры</a>
-      <a href="#" class='footera'>Вопрос-ответ</a>
-      <a href="#"class='footera'>Другие услуги</a>
-    </div>
-  </div>
-  <div class="footerLine"></div>
-  <div class="row footerSecondRow">
-    <p class="footerAllRights">Соглашение о конфидециальности Договор-оферта
-      бла бла бла бла бла бла Все права защищены</p>
-    <p class="footerAllRights  footerAllRights2 ">Соглашение о конфидециальности Договор-оферта
-      бла бла бла бла бла бла Все права защищены</p>
-    <p class="conf">Соглашение о конфидециальности</p>
-  </div>
-</footer>
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src='{% static "https://code.jquery.com/jquery-3.3.1.slim.min.js" %}'  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src='{% static "js/bootstrap.min.js" %}'></script>
-    <!--FONTS-->
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-  </body>
-</html>
 
 
 {% endblock %}
