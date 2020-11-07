@@ -1,113 +1,187 @@
 
+# Проект TopSkills
 
-## Требования для начала работы с проектом
+## Требования для начала работы
 
-- Python 3, pip, Visual Studio Code
+- Python 3, pip, git, Visual Studio Code
 - Аккаунт Github
 - Скинуть Эльдару почту от аккаунта GitHub для добавление в контрибуторов проекта
 
+## Как контрибутить в проект
+
+### Как пушить код
+
+Проверка изменённых файлов. Делать перед каждым пушем!
+```
+git status 
+```
+
+Если все файлы можно добавить, то добавить их этой команндой. Или добавлять файлы по отдельности.
+```
+git add -A .
+```
+
+Снова проверить, что все нужные файлы добавлены в коммит.
+```
+git status
+```
+
+После, написать комментарий коммита. Стандарт сообщения коммита такой: начинать с глагола, и писать, чтобы было добавлено или изменено.
+Если это промежуточный коммит, то разрешается оставлять комментарий "wit". Что значит work-in-progress.
+```
+git commit -m 'Added new comment'
+
+git push -u origin branch_name
+```
+
+### Мердж в мастер. Создание pull request
+1. Делаются все коммиты в ветку
+2. Создается pull request через github.com. После пуша заходим в Github на свою ветку и нажимаем "pull request"
+3. Желательно, чтобы кто-нибудь другой посмотрел код pull request'a
+4. Убирается конфлиты, если они есть
+5. Ветка мерджится с мастером
+6. Ветка удаляется
+
+
+### Как создавать ветки
+Пушить в мастер разрешается в очень редких случаях.
+Ветка называется по названии фичи, надо которой будут работать в ней.
+
+```
+git checkout -b branch name
+```
+
+### Переключение на ветку
+```
+git checkout branch_name
+```
 ## Начало работы с проектом
 
-Команды для для локальной установки среды разработки:
-
 ### Клонирования проекта
-
+```
 git clone https://github.com/MuratovER/ts.git
+```
 
+### Проверка наличия Python
+```
+python3 --version
+```
 
-### Virtual environment
+## Virtual environment (venv)
+Обязательное условие для работы с Python проектами это виртуальная среда для избежания конфликта зависимостей.
 
-#### Установка
-python -m venv myvenv
+#### Cоздание venv
+Linux
+```
+python3 -m venv venv
+```
+
+Windows
+```
+C:\topskills> python -m venv venv
+```
 
 #### Запуск
-C:\ts venv\scripts\sctivate
+```
+C:\topskills venv\scripts\activate
+```
 
 (venv) C:\ts>
 
 
-- Установка зависимостей
+### Установка зависимостей проекта
+```
+pip install -r requirements.txt
+```
 
+## База данных
 
-- Требования к базе данных
-## Установка PostgresSQL и pgadmin
-- [How to install PostreSQL](https://www.enterprisedb.com/node/16#windows)
+### Требования к базе данных
+Возможно использование SQLite. Это не требует установки, однако если ты занимаешься backend разработкой, то рекомендуется установить PostgreSQL.
 
-login-eldar
-password-tkmlfhvehfnjd
+Поменяй database backend ```settings.py```
 
-_______________________________________________________________________________________________________________
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+```
 
+### Установка PostgresSQL и pgadmin
+- [How to install PostreSQL](https://www.postgresqltutorial.com/install-postgresql/)
 
-# Creating the database
+Для работы с базой данных можно использовать встроенную консоль ```psql``` или установить [pgAdmin 4](https://www.pgadmin.org/download/pgadmin-4-windows/)
 
+Пользователь, которого нужно создать:
+
+login: ```eldar```
+
+password: ```tkmlfhvehfnjd```
+
+### Создание базы данных
+
+Открыть консоль
+
+Windows
+```
 (venv) C:\ts> psql
-#### Our > now changed into #, which means that we're now sending commands to PostgreSQL. Let's create a user with CREATE USER name;
+```
+
+Linux
+```
+psql
+```
 
 
-### (remember to use the semicolon)
+Ввести команды для создания пользователя и содания базы данных
+```
+CREATE USER eldar;
 
-:# CREATE USER name;
+ALTER USER eldar WITH PASSWORD 'tkmlfhvehfnjd';
 
-:# CREATE DATABASE ts OWNER name;
-
-### After this you need to download psycopg2.exe
-
-pip install psycopg2
-
-### After installing we need to applay migrations 
-
-python manage.py migrate "module"
-
-### And at the end we need to create superuser
-
-python manage.py createsuperuser --username name
+CREATE DATABASE ts OWNER eldar;
+```
 
 
-## Or you can use SQL shell and repeat al steps with them
+### Команды для создания таблиц в базе данных
+После установки и создания базы данных, нужно указать команду Django для создания таблиц
+
+```
+python manage.py migrate
+```
 
 
-_______________________________________________________________________________________________________________
+## Работа с Django
 
+### Migrations
+```
 
-# How to work with Django
+python manage.py makemigrations
 
-# Migrations
+python manage.py migrate
+```
 
-python manage.py makemigrations "module"
+### Создание суперпользователя Django
+```
+python manage.py createsuperuser
+```
 
-python manage.py migrate "module"
-
-
-
-# Freeze requirements.txt
+# Сохранение зависимостей в requirements.txt
+```
+(venv) C:\ts> pip freeze > requirements.txt
+```
+## Установка зависимостей с добавлением названия зависимости и её версии
 
 (venv) C:\ts> pip install dj-database-url gunicorn whitenoise
 
-(venv) C:\ts> pip freeze > requirements.txt
-
-## Open this file and add the following line at the bottom:
-
 psycopg2==2.7.2
 
+## Deploy on HEROKU
 
-# Procfile 
-
-web: gunicorn mysite.wsgi --log-file -
-
-# Create runtime.txt
-
-python-3.6.4
-
-# Change mysite/wsgi.py
-Open the mysite/wsgi.py file and add these lines at the end:
-
-from whitenoise.django import DjangoWhiteNoise
-application = DjangoWhiteNoise(application)
-
-
-# Deploy on HEROKU
-
+```
 (venv) C:\ts>heroku create djangogirlsblog
 
 (venv) C:\ts>git push heroku master
@@ -119,76 +193,45 @@ application = DjangoWhiteNoise(application)
 (venv) C:\ts>heroku run python manage.py migrate
 
 (venv) C:\ts>heroku run python manage.py createsuperuser
+```
+
+## Команды Django
+```
+# сбор статик файлов
+python manage.py collectstatic
 
 
-## Как контрибутить в проект
+```
 
-### Pushing
-
-git status 
-
-git add -A .  
-
-git status  
-
-git commit -m 'comment'
-
-git push -u origin 'branch'    
-_______________________________________________________________________________________________________________
-### How to add new branch
-
-git branch <branch name>
-
-git checkout <branch name> 
-
-
-### How to make pull rquest
-
-после пуша заходим в Github на свою ветку и нажимаем pull request
-_______________________________________________________________________________________________________________
 
 ## Структура проекта
 
-### Описать каждый файл
 
-Как называется проект, что в нём хранится
+**model.py**
 
-Как называется приложение, что в нём хранится
+> Типовой источник информации о ваших данных. Он содержит основные поля и поведение данных, которые вы храните. Как правило, каждая модель отображается в одну таблицу базы данных.
 
-model.py
+**url.py**
+>Четкая и элегантная схема URL-адресов - важная деталь высококачественного веб-приложения. Django позволяет создавать URL-адреса по своему усмотрению, без ограничений фреймворка.И в этом файле как раз таки и хранаться эти адреса
 
-Типовой источник информации о ваших данных. Он содержит основные поля и поведение данных, которые вы храните. Как правило, каждая модель отображается в одну таблицу базы данных.
+**view.py**
 
-url.py
-Четкая и элегантная схема URL-адресов - важная деталь высококачественного веб-приложения. Django позволяет создавать URL-адреса по своему усмотрению, без ограничений фреймворка.И в этом файле как раз таки и хранаться эти адреса
+> Вьюхи - это вызываемый объект, который принимает запрос и возвращает ответ. Это может быть больше, чем просто функция, и Django предоставляет пример некоторых классов, которые можно использовать как представления. Это позволяет вам структурировать представления и повторно использовать код, используя наследование.
 
-view.py
-
-Вьюхи - это вызываемый объект, который принимает запрос и возвращает ответ. Это может быть больше, чем просто функция, и Django предоставляет пример некоторых классов, которые можно использовать как представления. Это позволяет вам структурировать представления и повторно использовать код, используя наследование.
-
-# Pip
-
-Django
-django-extensions
-psycopg2
-dj-database-url
-gunicorn 
-whitenoise
+## Шаблоны
+Шаблоны работают по принципу 2-ух шаблонов
+Основной base.html и к нему прикручиваются другие шаблоны
 
 
-
-_______________________________________________________________________________________________________________
-
-Шаблоны работают по принципу 2ух шаблонов
-Основной base.html и к нему прикручиваются другие шаблоны 
-Шаблоны распологаются в mainsite/templates
-
+Шаблоны распологаются в ```mainsite/templates```
 Для того чтобы шаблон успешно отправил данные в base.html необходимо прописать данные строки 
 
+```
 {% extends 'mainsite/base.html' %} 
 {% block content %}
 здесь пишеться ваша разметка
 {% endblock %}
+```
 
-_______________________________________________________________________________________________________________
-Статические файлы храняться в папке mainsite/static
+## Статические файлы
+Статические файлы храняться в папке ```ts/mainsite/static```
