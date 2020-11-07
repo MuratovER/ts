@@ -164,6 +164,10 @@ python manage.py migrate
 
 
 ## Работа с Django
+### Запуск сервера Django
+```
+python manage.py runserver
+```
 
 ### Миграции
 ```
@@ -182,7 +186,7 @@ python manage.py createsuperuser
 pip freeze > requirements.txt
 ```
 
-Установка зависимостей с добавлением названия зависимости и её версии ```requiremetns.txt```
+Установка зависимостей с добавлением названия зависимости и её версии в ```requiremetns.txt```
 ```
 psycopg2==2.7.2
 ```
