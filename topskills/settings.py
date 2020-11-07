@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     'mainsite'
 ]
 
@@ -130,9 +130,9 @@ USE_TZ = True
 
 
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
 # required for login
 LOGIN_REDIRECT_URL = '/'
 
@@ -150,9 +150,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 
-MEDIA_ROOT = (
-BASE_DIR
-)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 MEDIA_URL = '/media/'

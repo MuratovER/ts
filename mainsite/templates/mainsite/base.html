@@ -1,16 +1,60 @@
 {% load static %}
-<html>
-<head>
-    <title>Topskills</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-</head>
-<header>
-    <nav>
+<!doctype html>
 
+<html lang="ru">
+
+  <head>
+
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+      <script src='{% static "mainsite/js/bootstrap.min.js" %}'></script>
+
+      <!-- Style sheets -->
+      <link rel="stylesheet" href="{% static 'css/main.css' %}">
+      <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+      <!--FONTS-->
+      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">      
+      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC&display=swap" rel="stylesheet">
+      
+
+      <title>TopSkills</title>
+
+  </head>
+
+  <body>
+    <header id='header'>
+      <p class="name">TopSkills</p>
+      <p class="nameDescripton">Фабрика твоих успехов</p>
+      <nav class='menu'>
+        <a href="{% url 'home_page' %}" class="header-a">Главная</a>
+        <a href="#" class="header-a">Новости</a>
+        <a href="#" class="header-a">О нас</a>
+      </nav>
+    
+      {% if user.is_authenticated %}
+        <button type="sumbit" onclick="location.href='{% url 'logout' %}'" class='headerExit'>Выход</button>
+        <button type="sumbit" onclick="location.href='{% url 'user_page' %}'" class='headerBtn headerBtnUser'></button>
+        <button type="sumbit" onclick="location.href='{% url 'tree' %}'" class='headerBtn headerBtnMenu'></button>
+        <button class='headerBtn headerBtnTimer'></button>
+      {% else %}
+        <button type="sumbit" onclick="location.href='{% url 'login' %}'" class='headerEnter'>Войти</button>
+        <button type="sumbit" onclick="location.href='{% url 'signup' %}'" class='headerRegister'>Регистрация</button>
+      {% endif %}
+
+
+      <!-- Old code -->
+
+      <!-- 
         <div class="logo">
             <a href="/">
             <img src="https://media.discordapp.net/attachments/698260986880065546/744777298011619378/2.jpg" style="width: 60;" alt="Topskills">
@@ -34,10 +78,9 @@
        <div class="btn-group " role="group" aria-label="Basic example">
        </div>
         {% endif %}
-    </nav>
-</header>
-<body>
-    <body>
+      </nav>
+    
+
         <div class="page-header">
             {% if user.is_authenticated %}
             <div class="activated">
@@ -68,22 +111,93 @@
                 {% if form.errors %}
 
                 <p>Your username and password didn't match. Please try again.</p>
-                {% endif %}
+                {% endif %} -->
 
-<!-- Переход в Регистрацию -->
+            <!-- Переход в Регистрацию 
+
                     <a href="{% url 'signup' %}" class="button2"> Регистрация </a>
                 {% endif %}
-            </div>
+            </div> -->
 
-        </div>
+    </header>
+
+        <!-- </div>
         <div class="content-container" style="width: 100%;">
             <div class="row">
-                <div class="col-md-8" style="padding: 0 55px; width: 100%;">
+                <div class="col-md-8" style="padding: 0 55px; width: 100%;"> -->
                     {% block content %}
                         <!-- Try to delete invisible column-->
                     {% endblock %}
-                </div>
+                <!-- </div>
             </div>
+        </div> -->
+
+    <footer id='footer'>
+
+      <div class="footerGrid">
+        
+        <div class="footerCol">
+          <p class="footerPhone">+7 (777) 777-77-77</p>
+          <img class='footerLogo'src='{% static "img/logo.png" %}' alt="">
+
+          <div class="row footerFirstRow">
+            <a href="#" class='footerSocial'><img src='{% static "img/vk.png" %}' alt=""></a>
+            <a href="#" class='footerSocial'><img src='{% static "img/instagram.png" %}' alt=""></a>
+            <a href="#" class='footerSocial'><img src='{% static "img/facebook.png" %}' alt=""></a>
+            <a href="#" class='footerSocial'><img src='{% static "img/youtube.png" %}' alt=""></a>
+            <a href="#" class='footerSocial'><img src='{% static "img/google.png" %}' alt=""></a>
+          </div>
+
+          <p class="footerSupport">При поддержке КНИТУ-КАИ</p>
+          <img src='{% static "img/kaiLogo.png" %}' alt="" class="footerKaiIcon">
         </div>
-    </body>
+
+        <div class="footerCol">
+          <p class="footerColTitle">ОБУЧЕНИЕ</p>
+          <a href="#" class='footera'>Процесс</a>
+          <a href="#" class='footera'>Игры</a>
+          <a href="#" class='footera'>Вопрос-ответ</a>
+          <a href="#" class='footera'>Другие услуги</a>
+        </div>
+
+        <div class="footerCol footerColSupport">
+          <p class="footerColTitle">ПОДДЕРЖКА</p>
+          <a href="#" class='footera'>Процесс</a>
+          <a href="#"class='footera'>Игры</a>
+          <a href="#" class='footera'>Вопрос-ответ</a>
+          <a href="#" cla
+          ss='footera'>Другие услуги</a>
+        </div>
+        
+        <div class="footerCol footerColProducts">
+          <p class="footerColTitle">ПРОДУКТЫ</p>
+          <a href="#" class='footera'>Процесс</a>
+          <a href="#" class='footera'>Игры</a>
+          <a href="#" class='footera'>Вопрос-ответ</a>
+          <a href="#" class='footera'>Другие услуги</a>
+        </div>
+
+        <div class="footerCol footerColContact">
+          <p class="footerColTitle">КОНТАКТЫ</p>
+          <a href="#" class='footera'>Процесс</a>
+          <a href="#" class='footera'>Игры</a>
+          <a href="#" class='footera'>Вопрос-ответ</a>
+          <a href="#"class='footera'>Другие услуги</a>
+        </div>
+
+      </div>
+
+      <div class="footerLine"></div>
+
+      <div class="row footerSecondRow">
+        <p class="footerAllRights">Соглашение о конфидециальности Договор-оферта
+          бла бла бла бла бла бла Все права защищены</p>
+        <p class="footerAllRights  footerAllRights2 ">Соглашение о конфидециальности Договор-оферта
+          бла бла бла бла бла бла Все права защищены</p>
+        <p class="conf">Соглашение о конфидециальности</p>
+      </div>
+
+      </footer>
+
+  </body>
 </html>
