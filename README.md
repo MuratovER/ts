@@ -190,7 +190,7 @@ psycopg2==2.7.2
 ## Работа с Heroku
 Пуши в мастер автоматически деплояться на Heroku.
 
-Для подключения к надо установить [Heroku CLI] (https://devcenter.heroku.com/articles/heroku-cli)
+Для подключения к надо установить [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 
 Для работы с приложением в Heroku, Эльдар должен добавить тебя как контрибьютера в Heroku.
 
