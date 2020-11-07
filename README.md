@@ -187,7 +187,7 @@ python manage.py createsuperuser
 
 psycopg2==2.7.2
 
-## Работы с Heroku
+## Работа с Heroku
 Пуши в мастер автоматически деплояться на Heroku.
 
 Для подключения к надо установить [Heroku CLI] (https://devcenter.heroku.com/articles/heroku-cli)
