@@ -82,10 +82,17 @@ C:\topskills> python -m venv venv
 ```
 
 #### Запуск
+Windows
 ```
 C:\topskills venv\scripts\activate
 ```
 
+Linux
+```
+source venv/bin/activate
+```
+
+Название venv в начале командной строки говорит о том, что вирутальная среда активирована
 (venv) C:\ts>
 
 
@@ -99,7 +106,7 @@ pip install -r requirements.txt
 ### Требования к базе данных
 Возможно использование SQLite. Это не требует установки, однако если ты занимаешься backend разработкой, то рекомендуется установить PostgreSQL.
 
-Поменяй database backend ```settings.py```
+Для использования SQLite поменяй database backend ```settings.py```
 
 ```
 DATABASES = {
