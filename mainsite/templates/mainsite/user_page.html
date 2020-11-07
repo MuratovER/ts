@@ -37,6 +37,7 @@
                 <h2>Навыки</h2>
                 {% for skill in skills %}
                         <p>Название навыка : {{ skill.skill.skill_name }} </p>
+                        <p> <img src="{{ skill.skill.skill_ico }}">
                         <p>Описание навыка: {{ skill.skill.skill_description }}</p>
                         <p>Уровень : {{ skill.level }} </p>
                 {% endfor %}
