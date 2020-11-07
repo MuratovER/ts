@@ -165,9 +165,8 @@ python manage.py migrate
 
 ## Работа с Django
 
-### Migrations
+### Миграции
 ```
-
 python manage.py makemigrations
 
 python manage.py migrate
@@ -188,28 +187,45 @@ python manage.py createsuperuser
 
 psycopg2==2.7.2
 
-## Deploy on HEROKU
+## Работы с Heroku
+Пуши в мастер автоматически деплояться на Heroku.
+
+Для подключения к надо установить [Heroku CLI] (https://devcenter.heroku.com/articles/heroku-cli)
+
+Для работы с приложением в Heroku, Эльдар должен добавить тебя как контрибьютера в Heroku.
 
 ```
-(venv) C:\ts>heroku create djangogirlsblog
+# Команда для входа в heroku
+heroku login -i
 
-(venv) C:\ts>git push heroku master
+# Запуск командной строки Heroku
+heroku run bash
 
-(venv) C:\ts>heroku ps:scale web=1
-
-(venv) C:\ts>heroku open
-
-(venv) C:\ts>heroku run python manage.py migrate
-
-(venv) C:\ts>heroku run python manage.py createsuperuser
+После пуша новых таблиц, нужно сделать миграциюна Heroku
 ```
+heroku run python manage.py migrate
+```
+
+Команды heroku
+```
+# Проверка env variables
+heroku config
+
+# Создание env variables
+heroku config:set DEBUG=False
+
+# Создание супер пользователя на Heroku
+heroku run python manage.py createsuperuser
+
+# Команда открытия приложения
+heroku open
+```
+
 
 ## Команды Django
 ```
 # сбор статик файлов
 python manage.py collectstatic
-
-
 ```
 
 
