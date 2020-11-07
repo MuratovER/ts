@@ -31,6 +31,7 @@ urlpatterns = [
     re_path(r'^profile/(?P<username>[\w.@+-]+)/$', views.user_page, name='profile'),
 
 
+
     
 
 ]
