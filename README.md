@@ -181,11 +181,11 @@ python manage.py createsuperuser
 ```
 pip freeze > requirements.txt
 ```
-## Установка зависимостей с добавлением названия зависимости и её версии
 
-(venv) C:\ts> pip install dj-database-url gunicorn whitenoise
-
+Установка зависимостей с добавлением названия зависимости и её версии ```requiremetns.txt```
+```
 psycopg2==2.7.2
+```
 
 ## Работа с Heroku
 Пуши в мастер автоматически деплояться на Heroku.
