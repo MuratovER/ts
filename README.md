@@ -177,9 +177,9 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 
-# Сохранение зависимостей в requirements.txt
+### Сохранение зависимостей в requirements.txt
 ```
-(venv) C:\ts> pip freeze > requirements.txt
+pip freeze > requirements.txt
 ```
 ## Установка зависимостей с добавлением названия зависимости и её версии
 
