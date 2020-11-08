@@ -1,12 +1,114 @@
 {% extends 'mainsite/base.html' %}
 
 {% block content %}
+{% load static %}
 
-<div class="home">
-    <h2>Добро пожаловать на сайт проекта TopSkills!</h2>
 
-    <p>Здесь публикуются последние новости связанные с развитием проекта.</p>
+<section id='mainPage'>
+  
+</section>
 
-</div>
+<img  class="aboutFirstSemirical" src='{% static "img/semerical.png" %}' alt=""></div>
+<section id='aboutProject'>
+  <div class="aboutFirstEllipse"></div>
+  <img class="aboutIntersect" src='{% static "img/Intersect.png" %}'></img>
+  <div class="aboutFlex">
+    <div class="aboutCol aboutColTxt">
+      <p class="aboutTitle">Кто мы и что делаем?</p>
+      <p class="aboutTxt">Весь проект создается по книге Гильмутдинова А.Х 
+        и  Гильмутдиновой А.А “Уроки лидерства: Курс личносного развития”. 
+        Мы команда специалистов в разных областях, наша задача напрявлять людей
+        на важные дела, помогая им в трудной ситуации и поддерживая их на всем пути.
+        Сейчас мы занимаемся геймификацией этой книге в удобной для полльзователей
+        среде.
+      </p>
+      <button class='aboutArrow'><img src='{% static "img/short_down.png" %}' alt=""></button>
+    </div>
+    <div class="aboutCol">
+      <img class='aboutBook'src='{% static "img/book.png" %}' alt="">
+    </div>
+  </div>
+  <div class="aboutSecondEllipse"></div>
+  <div class="aboutFirstRingBg"></div>
+  <div class="aboutFirstRing"></div>
+</section>
+<img  class="orangeBlurRectangle" src='{% static "img/orange-Rectangle-blur.png" %}' alt="">
+<img src='{% static "img/semerical.png" %}'  class="aboutSecondSemirical" alt="">
+
+<section id='whyWe'>
+  <div class="whyFlex">
+    <div class="whyCol">
+      <p class="whyTitle">Почему 
+        именно мы <span>?</span></p>
+        <p class="whyTxt">Все просто! Наша команда старается помогать людям, которые сбились
+          с колеи жизни, кому нужна мотивация творить чудеса. 
+          Нам не важны препятствия и невзгоды, нам нужны победы!
+           и только победы!Мы ценим наших друзей и помогаем им во всем!</p>
+    </div>
+    <div class="whyCol">
+      <img class='girl'src='{% static "img/girl.png" %}' alt="">
+    </div>
+  </div>
+  <img class="whyTriangle" src='{% static "img/yellow-blur-Polygon-.png" %}'></img>
+</section>
+<section id='forWho'>
+  
+  <img class="forLeftIntersect" src='{% static "img/leftIntersect.png" %}'></img>
+  <img class="forMiddleSmallIntersect" src='{% static "img/middleIntersect.png" %}'></img>
+  <img class="forMiddleBigIntersect" src='{% static "img/middleBigIntersect.png" %}'></img>
+  <img class="forRightIntersect" src='{% static "img/RightIntesect.png" %}'></img>
+ 
+  <p class="forTitle">Для кого это?</p>
+  <div class="forGrid">
+    <div class="forCol">
+      <div class="forColWhiteBg">
+        <img src='{% static "img/forFirstIcon.png" %}' alt="" class="forColIcon">
+        <p class="forColTxt">Для людей, которые не определились <br>
+          в жизни и хотят изменить все <br>
+          в своей жизни, наладить отношения<br>
+          в обществе, выбрать профессию<br>
+          и тд.</p>
+      </div>
+      <img src='{% static "img/forFirstBg.png" %}' alt="" class="forColBlueBg">
+    </div>
+    <div class="forCol">
+      <div class="forColWhiteBg">
+        <img src='{% static "img/forSecondIcon.png" %}' alt="" class="forColSecondIcon">
+        <p class="forColTxt">Для тех, кому надоела рутинная жизнь
+          и повседневные заботы. <br>    Кто хочет измениться в жизни <br>
+          и стать тем, кем мечтал стать <br>
+          всю жизнь!</p>
+      </div>
+      <img src='{% static "img/forSecondBg.png" %}' alt="" class="forColSecondBlueBg">
+    </div>
+    <div class="forCol">
+      <div class="forColWhiteBg">
+        <img src='{% static "img/forThirdIcon.png" %}' alt="" class="forColThirdIcon">
+        <p class="forColTxt">Для тех, кому надоела рутинная жизнь
+          и повседневные заботы.<br>  Кто хочет измениться в жизни<br>
+          и стать тем, кем мечтал стать <br>
+          всю жизнь!</p>
+      </div>
+      <img src='{% static "img/forThirdBg.png" %}' alt="" class="forColBlueBg">
+    </div>
+  </div>
+  <img class='rocketLine' src='{% static "img/rocketLine.png" %}' alt="">
+  <img  class='rocket'src='{% static "img/rocket.png" %}' alt="">
+</section>
+<section id='question'>
+  <div class="questionFlex">
+    <div class="questionCol">
+      <p class="questionTitle">Есть вопросы?</p>
+      <p class="questionTxt">Не стесняйся задавать нам свои вопросы,
+        и наш сотрудник,Барсик обязательно ответит 
+        на ваши вопросы.</p>
+        <button class='questionBtn'>Задать вопрос</button>
+    </div>
+    <div class="questionCol">
+      <img src='{% static "img/catGroup.png" %}' class='cat' alt="">
+    </div>
+  </div>
+</section>
+
 
 {% endblock %}

@@ -11,6 +11,7 @@ from django.conf.urls import include, url
 #адреса которые ссылаются на вьюхи
 urlpatterns = [
     path('', views.home_page, name='home_page'),
+    path('accounts/login/', views.LoginView.as_view(), name='login'),
     path('signup/', views.signup_view, name='signup'),
     path('user_page/', views.user_page, name='user_page'), 
     path('achivements/', views.achivement_view, name='achivements'),
