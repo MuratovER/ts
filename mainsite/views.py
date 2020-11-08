@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 from .forms import Sphere_of_life_Form
 from django.contrib.auth.decorators import login_required
 from .useful_lib import WheelOfLife
-
+from django.http import JsonResponse
 
 #Basic views begin
 #отправляет расположение разметки страницы в файл url
@@ -254,3 +254,26 @@ def signup_view(request):
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})  
 
+
+
+#
+# API FUNCTIONS
+#
+from django.http import JsonResponse
+from .serializers import TodoListSerializer
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
+@api_view(['GET']) # Декоратор для красивого браузерного вывода
+def api_get_todolist(request):
+    # Как пример показан вывод сфер жизни по api запросу
+    # Позже будет прикручен todo лист
+    if request.method == "GET":
+        user_request = request.GET.get('user_id')
+        if not user_request.isdigit():
+            return JsonResponse({"error": "parameter error"})
+        spheres = Sphere_of_life.objects.filter(user = user_request) if Sphere_of_life.objects.filter(user = user_request).exists() else False
+        if not spheres:
+            return JsonResponse({"error": "not exist"})
+        serializer = TodoListSerializer(spheres, many = True)
+        return Response(serializer.data)
