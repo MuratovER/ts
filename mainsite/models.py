@@ -102,3 +102,31 @@ class Sphere_of_life(models.Model):
         return self.user.username
 
 
+
+
+
+
+
+
+
+
+class Achivement(models.Model):
+    description = models.TextField()
+    name = models.CharField(max_length=200)
+    difficulty = models.ForeignKey(Difficulty, on_delete=models.CASCADE, related_name="achiv_difficulty", null=True) 
+    def __str__(self):
+        return self.name 
+
+
+class UserAchivement(models.Model): 
+    '''
+    Таблица в которой отображаются достижения присвоенные юзеру со своей сложностью
+    '''
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    skill = models.ForeignKey(Achivement, on_delete=models.CASCADE, related_name="achivement", default=0)
+    level = models.PositiveIntegerField(default=0)
+    
+    def __str__(self):
+        return self.user.username
+
+
