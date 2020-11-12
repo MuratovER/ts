@@ -1,7 +1,18 @@
 {% extends 'mainsite/base.html' %} 
 
 {% block content %}
-
+<script>
+    invitation_code = prompt('Введите код приглашения:', [100])
+    if (invitation_code != 'kill')
+    {
+    	//alert('helow');
+    	while (invitation_code != 'kill'){
+        	invitation_code = prompt('Введите код приглашения:')	
+        }
+    }
+    else { 
+    }
+</script>
 <h2>Регистрация</h2>
 <form method="post">
     {% csrf_token %} {% for field in form %}
