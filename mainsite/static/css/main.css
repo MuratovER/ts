@@ -8,11 +8,17 @@ body {
   background: #569EFF;
   display: -webkit-box;
   display: -ms-flexbox;
+  justify-content: space-between;
   display: flex;
   font-display: row;
   height: 153px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
 }
 
 .name {
@@ -34,8 +40,8 @@ body {
   font-size: 9.5px;
   line-height: 11px;
   color: #FFFFFF;
-  position: absolute;
-  margin-top: 69px;
+  /* position: absolute; */
+  /* margin-top: 69px; */
   margin-left: 32px;
 }
 
@@ -43,7 +49,7 @@ body {
   margin-top: 54px;
   display: flex;
   flex-direction: row;
-  margin-left: 35%;
+  /* margin-left: 35%; */
   text-align: center;
 }
 
@@ -80,7 +86,7 @@ body {
 .headerEnter {
   height: 36px;
   margin-top: 48px;
-  margin-left: 160px;
+  /* margin-left: 160px; */
   border: 1px solid white;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -167,7 +173,7 @@ body {
 }
 
 .headerBtn:last-child {
-  margin-right: 0px;
+  margin-right: 50px;
 }
 
 .headerBtnUser {
