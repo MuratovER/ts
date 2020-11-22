@@ -759,3 +759,8 @@ body {
     width: 1800px;
   }
   /*# sourceMappingURL=main.css.map */
+
+
+.popup-content {
+  display: none;
+}

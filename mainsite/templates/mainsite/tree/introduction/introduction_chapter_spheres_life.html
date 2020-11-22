@@ -25,7 +25,11 @@
 			<h2>Колесо жизни</h2> 
 				    <form method="POST">{% csrf_token %}
 				        {{ form }}
-				        <button type="submit" class="save">Save</button>
+						
+						
+						<button type="submit" class="save" id="sphere_of_life_Btn">Save</button>
+
+
 				    </form>
 
 				    
@@ -47,6 +51,41 @@
 
 
 </div>
+<button id="sphere_of_life_Btn">Save</button>
+<div id="mypopup" class="popup">
+	<div class="popup_content">
+		<div class="popup_header">
+			<h2>Получено Достижение</h2>
+			<span class="close">&times;</span>
+		</div>
+		<div class="popup_body">
+			<p>Начало пути</p>
+		</div>
+	</div>
+
+</div>
+
+<script>	
+
+let popup = document.getElementById('mypopup'),
+	popupToggle = document.getElementById('sphere_of_life_Btn'),
+	popupClose = document.querySelector('.close');
+
+	popupToggle.onclick = function() {
+		popup.style.display = "block";
+	};
+
+	popupClose.onclick = function () {
+		popup.style.display = "none";
+	};
+
+    window.onclick = function (e) {
+        if(e.target == popup) {
+            popup.style.display="none";
+        }    
+    }
+</script>
+
 </article>
 
 

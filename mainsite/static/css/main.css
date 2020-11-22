@@ -8,11 +8,17 @@ body {
   background: #569EFF;
   display: -webkit-box;
   display: -ms-flexbox;
+  justify-content: space-between;
   display: flex;
   font-display: row;
   height: 153px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
 }
 
 .name {
@@ -34,8 +40,8 @@ body {
   font-size: 9.5px;
   line-height: 11px;
   color: #FFFFFF;
-  position: absolute;
-  margin-top: 69px;
+  /* position: absolute; */
+  /* margin-top: 69px; */
   margin-left: 32px;
 }
 
@@ -43,7 +49,7 @@ body {
   margin-top: 54px;
   display: flex;
   flex-direction: row;
-  margin-left: 35%;
+  /* margin-left: 35%; */
   text-align: center;
 }
 
@@ -80,7 +86,7 @@ body {
 .headerEnter {
   height: 36px;
   margin-top: 48px;
-  margin-left: 160px;
+  /* margin-left: 160px; */
   border: 1px solid white;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -167,7 +173,7 @@ body {
 }
 
 .headerBtn:last-child {
-  margin-right: 0px;
+  margin-right: 50px;
 }
 
 .headerBtnUser {
@@ -1616,3 +1622,86 @@ blockquote {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
   
+
+
+
+
+.popup {
+
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb0(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+.close:hover,
+.close:focus {
+
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+
+}
+
+.popup_header {
+  background-color: #5c82b8;
+  color: white;
+  display: flex;
+  padding: 2px 16px;
+}
+
+.popup_body {
+
+  padding: 2px 16px;
+
+}
+
+.popup_content {
+
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+
+}
+
+@keyframes animatetop {
+
+  from {
+
+    top: 300px;
+    opacity: 0
+
+  }
+
+  to {
+
+    top: 0;
+
+    opacity: 1
+
+  }
+
+}
+
+
+
