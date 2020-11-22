@@ -41,7 +41,10 @@ body {
 
 .menu {
   margin-top: 54px;
-  margin-left: 628px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 35%;
+  text-align: center;
 }
 
 .header-a {
@@ -65,8 +68,9 @@ body {
 
 .header-a:hover {
   background-size: 100% 2px;
-  text-decoration: none;
+  text-decoration: underline;
   color: #FFFFFF;
+
 }
 
 .header-a:last-child {
@@ -97,8 +101,11 @@ body {
   color: #569EFF;
   -webkit-transition: 1s;
   transition: 1s;
+  outline: none;
 }
-
+.headerEnter:active {
+  outline: none;
+}
 .headerRegister {
   height: 36px;
   margin-top: 48px;
@@ -123,8 +130,11 @@ body {
   color: #569EFF;
   -webkit-transition: 1s;
   transition: 1s;
+  outline: none;
 }
-
+.headerRegister:active {
+  outline: none;
+}
 .headerExit {
   height: 36px;
   margin-top: 48px;
@@ -225,7 +235,7 @@ body {
 #aboutProject {
   background-color: #F8F9FC;
   height: 1080px;
-  width: 1903px;
+  width: 100%;
 }
 
 .aboutFlex {
@@ -253,13 +263,12 @@ body {
 
 .aboutTxt {
   margin-top: 49px;
-  margin-left: 109px;
+  margin-left: 13%;
   font-family: "Roboto";
   font-style: normal;
-  font-weight: 500;
-  font-size: 23px;
-  line-height: 210.19%;
-  /* or 48px */
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 157.19%;
   letter-spacing: 0.03em;
   color: #000000;
 }
@@ -268,7 +277,7 @@ body {
   -webkit-transform: rotate(-180deg);
           transform: rotate(-180deg);
   z-index: 0;
-  width: 1903px;
+  width: 100%;
 }
 
 .aboutArrow {
@@ -289,15 +298,15 @@ body {
 }
 
 .aboutColTxt {
-  width: 882px;
+  width: 60%;
 }
 
 .aboutBook {
-  width: 1000px;
   position: absolute;
-  margin-left: -30px;
-  margin-top: 75px;
-  margin-right: 0px;
+  margin-left: -8%;
+  width: 45%;
+  margin-top: 10%;
+  
 }
 
 .aboutSecondEllipse {
@@ -376,22 +385,22 @@ body {
 }
 
 .whyTxt {
-  width: 978px;
+  width: 70%;
+  margin-top: 49px;
+  margin-left: 10%;
   font-family: "Roboto";
   font-style: normal;
   font-weight: bold;
-  font-size: 25px;
-  line-height: 162.19%;
+  font-size: 30px;
+  line-height: 157.19%;
   letter-spacing: 0.03em;
   color: #000000;
-  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.09);
-  margin-top: 30px;
-  margin-left: 103px;
 }
 
 .girl {
-  margin-top: 57px;
-  margin-left: -85px;
+  width: 100em;
+  margin-top: 50%;
+  margin-left: -20%;
   margin-bottom: 91px;
 }
 
@@ -424,7 +433,8 @@ body {
 .forMiddleBigIntersect {
   position: absolute;
   z-index: -1;
-  margin-left: 610px;
+  margin-left: 40%;
+  width: 50%;
 }
 
 .forRightIntersect {
@@ -459,15 +469,15 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   -ms-grid-columns: (477px)[3];
-      grid-template-columns: repeat(3, 477px);
-  grid-column-gap: 92px;
+      grid-template-columns: repeat(3, 27%);
+  grid-column-gap:5%;
   margin-top: 122.5px;
-  margin-left: 55px;
+  margin-left: 3%;
 }
 
 .forColWhiteBg {
   z-index: 1;
-  width: 455px;
+  width: 100%;
   height: 717px;
   background: #FFFFFF;
   -webkit-box-shadow: 4px -8px 61px rgba(0, 0, 0, 0.06);
@@ -511,6 +521,7 @@ body {
   text-align: center;
   letter-spacing: 0.03em;
   color: #000000;
+  margin-top: 5%;
 }
 
 .rocketLine {
@@ -550,7 +561,7 @@ body {
 }
 
 .questionTxt {
-  width: 698px;
+  width: 60%;
   font-family: "Roboto";
   font-style: normal;
   font-weight: bold;
@@ -586,7 +597,8 @@ body {
 }
 
 .cat {
-  margin-left: 145px;
+  width: 90%;
+  margin-left: 10%;
   margin-top: -140px;
 }
 
@@ -605,10 +617,12 @@ body {
       -ms-flex-direction: row;
           flex-direction: row;
   -ms-grid-columns: (248px)[5];
-      grid-template-columns: repeat(5, 248px);
-  grid-column-gap: 140px;
+      grid-template-columns: repeat(5, 20%);
+  grid-column-gap: 1%;
 }
-
+.footerFirstCol {
+  width: 90%;
+}
 .footerColSupport {
   margin-left: -30px;
 }
@@ -625,7 +639,7 @@ body {
   font-family: "Roboto";
   font-style: normal;
   font-weight: bold;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 33px;
   /* identical to box height */
   color: #515151;
@@ -652,6 +666,10 @@ body {
   letter-spacing: 0.03em;
   color: #000000;
   margin-bottom: 20px;
+}
+.footerColContact {
+  margin-top: 0px;
+  width: 85%;
 }
 
 .footerColTitle {
@@ -689,16 +707,16 @@ body {
 }
 
 .footerLine {
-  width: 1786px;
+  width: 95%;
   height: 4px;
   margin-top: 80px;
-  margin-left: 57px;
+  margin-left: 3%;
   background: #E3E3E3;
   margin-bottom: 42px;
 }
 
 .footerAllRights {
-  width: 466px;
+  width: 25%;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -706,11 +724,11 @@ body {
   line-height: 21px;
   letter-spacing: 0.03em;
   color: #A7A7A7;
-  margin-left: 132px;
+  margin-left: 10%;
 }
 
 .footerAllRights2 {
-  margin-left: 201px;
+  margin-left: 5%;
 }
 
 .conf {
@@ -722,12 +740,12 @@ body {
   /* identical to box height */
   letter-spacing: 0.03em;
   color: #A7A7A7;
-  margin-left: 177px;
-  width: 315px;
+  margin-left: 5%;
+  width: 25%;
 }
 
 .footerSecondRow {
-  width: 1800px;
+  width: 100%
 }
 /*# sourceMappingURL=main.css.map */
 
