@@ -123,7 +123,7 @@ class UserAchivement(models.Model):
     Таблица в которой отображаются достижения присвоенные юзеру со своей сложностью
     '''
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    skill = models.ForeignKey(Achivement, on_delete=models.CASCADE, related_name="achivement", default=0)
+    achivement = models.ForeignKey(Achivement, on_delete=models.CASCADE, related_name="achivement", default=0)
     level = models.PositiveIntegerField(default=0)
     
     def __str__(self):
