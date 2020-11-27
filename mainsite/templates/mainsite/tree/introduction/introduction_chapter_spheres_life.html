@@ -29,15 +29,17 @@
 					</form>
 					
 
-					<a class="btn btn-default" href="{% url 'sphere_deletion' %}">Удалить</a>
+					
 					
 
-					{% if path %}
-					<img src="/static/mainsite/images/wheeloflife/png/{{ path }}.png" alt="Здесь будет наглядно показан ваш прогресс">
+					{% if img %}
+					<img src="/static/mainsite/images/wheeloflife/png/{{ img }}.png" alt="Здесь будет наглядно показан ваш прогресс">
 					{% endif %}	
-		
+					
+					
 				</div>
-
+				<a class="btn btn-default" href="{% url 'sphere_deletion' %}">Удалить</a>
+				<br>
 				
 				
 
@@ -60,61 +62,49 @@
 <div id="mypopup" class="popup">
 	<div class="popup_content">
 		<div class="popup_header">
-			<h2>Получено Достижение</h2>
+			<h2>Получено достижение "Первые Шаги"</h2>
 			<span class="close">&times;</span>
 		</div>
 		<div class="popup_body">
-			<p>Начало пути</p>
+			<p>Поздравляем с началом вашего личностного развития!</p>
+			<p>Данное колесо жизни поможет вам отслеживать улучшение ваших сфер жизни по мере продвижения по книге.</p>
 		</div>
 	</div>
 
 </div>
-
+{% if not img %}
 <script>	
-
-
-
-
 let popup = document.getElementById('mypopup'),
 	popupToggle = document.getElementById('sphere_of_life_Btn'),
 	popupClose = document.querySelector('.close');
-	submitForm = document.getElementById("save_sphere")
-	
+	submitForm = document.getElementById("save_sphere")	
 	;
-
-
-
-
-// 	if (document.getElementById("sphere_save")) {
-//    	setTimeout("submitForm()", 1000); // set timout 
-// }
-
 	popupToggle.onclick = function() {
 		popup.style.display = "block"
-		// setTimeout(location.reload.bind(location), 5000);
-		// submitForm.submit()
-	
 	};
-
 	popupClose.onclick = function () {
 		popup.style.display = "none"
 		submitForm.submit()
-
 	};
-
     window.onclick = function (e) {
         if(e.target == popup) {
 			popup.style.display="none"
 			submitForm.submit()
-			
-
-
         }    
     }
 
+</script>
+{% endif %}
+<script>
+let popupToggle = document.getElementById('sphere_of_life_Btn'),
+	submitForm = document.getElementById("save_sphere")
+	;
 
+	popupToggle.onclick = function() {
+		submitForm.submit()
 
-	
+	};
+
 </script>
 
 </article>

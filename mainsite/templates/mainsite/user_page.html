@@ -30,6 +30,11 @@
 
              <div class="user-page-achivements">
                 <h2>Достижения</h2>
+                {% for achivement in achivements %}
+                    <p>Название достижения : {{ achivement.achivement.name}} </p>
+                    <p>Описание достижения: {{ achivement.achivement.description}}</p>
+                    <p>Уровень достижения : {{ achivement.achivement.difficulty }} </p>
+                {% endfor %}
              </div>
              
 
@@ -44,19 +49,19 @@
              </div>
 
 
-            <div class = "user-page-tables">
+            <div class = "user-page-sphere">
                 <!-- <img src="{% static 'mainsite/images/wheeloflife/png/9698.png' %}"> -->
-                {% if path %}
-                <img src="{{ STATIC_PREFIX }}mainsite/images/wheeloflife/png/{{ path }}.png">
+                {% if img %}
+                <img src="{{ STATIC_PREFIX }}mainsite/images/wheeloflife/png/{{ img }}.png">
                 {% endif %}
-                <!-- <img src="{% static ''|add:path %}'"> -->
+                <!-- <img src="{% static ''|add:img %}'"> -->
                 <h2> 
 
                 {% if sphere == None %}
                     <p> -- </p>
                 {% else %}
-                    <p>внутренний мир: {{ sphere.inside_world }}</p>  
-                    <p>карьера : {{ sphere.career}}</p>
+                    <p>Внутренний мир: {{ sphere.inside_world }}</p>  
+                    <p>Карьера : {{ sphere.career}}</p>
                     <p>Здоровье : {{ sphere.health}}</p>
                     <p>Отношения : {{ sphere.relationships}}</p>
                 {% endif%}    
@@ -67,7 +72,7 @@
 
             </div>
 
-    </div>
+        </div>
 
 </div>
 

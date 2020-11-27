@@ -69,12 +69,19 @@ def introduction_chapter_spheres_life_task(request):
 def sphere_deletion(request):
     try:
         sphere_del = Sphere_of_life.objects.get(user=request.user)
-        print(sphere_del)
-                # If method is POST,
-        sphere_del.delete()                     # delete the cat.
-        return redirect('introduction_chapter_spheres_life') 
+        sphere_del.delete() 
+
     except Sphere_of_life.DoesNotExist:
         pass
+
+    try:
+        achivement_delete = UserAchivement.objects.get(user=request.user)
+        achivement_delete.delete() 
+
+    except UserAchivement.DoesNotExist:
+        pass  
+
+    return redirect('introduction_chapter_spheres_life')   
 
     
 
@@ -83,16 +90,15 @@ def sphere_deletion(request):
 @login_required
 def introduction_chapter_spheres_life(request):
     # checks whether sphere already exists or not. Returns true or false
-    sphere = None
+    # sphere = None
 
-    try:       
-        sphere = Sphere_of_life.objects.get(user=request.user)[0].inside_world
-    except:
-        pass
+    # try:       
+    #     sphere = Sphere_of_life.objects.get(user=request.user)
+    # except:
+    #     pass
 
-    
-
-    if sphere != None:  
+    #if sphere != None:  
+    if Sphere_of_life.objects.filter(user=request.user).exists():  
         # if already exist - edit existing
         sphere = Sphere_of_life.objects.get(user=request.user)
         if request.method == "POST":
@@ -103,71 +109,45 @@ def introduction_chapter_spheres_life(request):
         else:
             form = Sphere_of_life_Form(request.POST, instance=sphere)
             
-            if form.is_valid():
-                sphere = form.save(commit=False)
-                sphere.save()
+            # if form.is_valid():
+            #     sphere = form.save(commit=False)
+            #     sphere.save()
 
-            else:
-                form = Sphere_of_life_Form()
+            # else:
+            #     form = Sphere_of_life_Form()
 
-            WheelOfLife_vars = Sphere_of_life.objects.get(user=request.user)
-            img = WheelOfLife.getImageSkills([WheelOfLife_vars.inside_world, WheelOfLife_vars.career, WheelOfLife_vars.health, WheelOfLife_vars.relationships  ])
+        WheelOfLife_vars = Sphere_of_life.objects.get(user=request.user)
+        img = WheelOfLife.getImageSkills([WheelOfLife_vars.inside_world, WheelOfLife_vars.career, WheelOfLife_vars.health, WheelOfLife_vars.relationships  ])
 
-            return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html', {'form': form, 'path': img})
+        return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html', {'form': form, 'img': img})
 
-            
-        
-
-    
-       
-        
-
-
-        
-        
-    
     else:
         # if not exist - create new
-
-
-
-        if request.method == 'POST':
-            
-        
+        if request.method == 'POST':     
              form = Sphere_of_life_Form(request.POST)
              if form.is_valid():
                 sphere = form.save(commit=False)
                 sphere.user = request.user
                 sphere.save()
-
                 
+                achivement = Achivement.objects.get(name="Первые шаги")
+                achivement_for_user = UserAchivement(user=request.user,achivement = achivement,level=1)
+                achivement_for_user.save()            
 
-                return render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html' )
-                
+                WheelOfLife_vars = Sphere_of_life.objects.get(user=request.user)
+                img = WheelOfLife.getImageSkills([WheelOfLife_vars.inside_world, WheelOfLife_vars.career, WheelOfLife_vars.health, WheelOfLife_vars.relationships])
+
+                return render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html', {'form': form, 'img': img})
+               
         else:
             form = Sphere_of_life_Form()
 
+        # achivement = Achivement.objects.get(name="Test")
+        # achivement_for_user = UserAchivement(user=request.user,achivement = achivement,level=21)
+        # achivement_for_user.save()
 
-
-        user_achivement_try = None
-
-        try:
-            user_achivement_try = UserAchivement.objects.get(user=request.user)[0].user_id
-        except:
-            pass
-
-        if user_achivement_try == None:             
-            achivement = Achivement.objects.get(name="Test")
-            achivement_for_user = UserAchivement(user=request.user,achivement = achivement,level=21)
-            achivement_for_user.save() 
-
-
-        try:       
-            WheelOfLife_vars = Sphere_of_life.objects.get(user=request.user)
-            img = WheelOfLife.getImageSkills([WheelOfLife_vars.inside_world, WheelOfLife_vars.career, WheelOfLife_vars.health, WheelOfLife_vars.relationships  ])
-            return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html', {'form': form,'path': img })
-        except:
-            pass
+        # WheelOfLife_vars = Sphere_of_life.objects.get(user=request.user)
+        # img = WheelOfLife.getImageSkills([WheelOfLife_vars.inside_world, WheelOfLife_vars.career, WheelOfLife_vars.health, WheelOfLife_vars.relationships])
 
         return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html', {'form': form})
     
@@ -295,6 +275,9 @@ def user_page(request):
     user = User.objects.get(username = request.user)
     skills = UserSkill.objects.filter(user=user)
 
+    achivements = UserAchivement.objects.filter(user = user)
+    
+
     sphere = None
     if Sphere_of_life.objects.filter(user=request.user).exists():
         sphere = Sphere_of_life.objects.get(user=request.user)
@@ -304,7 +287,7 @@ def user_page(request):
         img = WheelOfLife.getImageSkills([WheelOfLife_vars.inside_world, WheelOfLife_vars.career, WheelOfLife_vars.health, WheelOfLife_vars.relationships  ])
     else:
         img = False
-    return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills, 'sphere' : sphere, 'path': img})
+    return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills, 'sphere' : sphere, 'img': img, 'achivements':achivements })
 
 
 #signup view

@@ -1,6 +1,10 @@
 import os
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib
+from matplotlib import pyplot
+
+matplotlib.use('Agg')
 
 def save(name='', fmt='png'):
     pwd = os.getcwd()
@@ -37,7 +41,7 @@ def getImageSkills(values):
     
 
     plt.text(-2, 7, 'Внутренний мир', rotation=90)
-    plt.text(7, 22, 'карьера')
+    plt.text(7, 22, 'Карьера')
     plt.text(21, 10, 'Здоровье', rotation=270)
     plt.text(7, -1, 'Отношения')
 

@@ -765,6 +765,12 @@ body {
 
 }
 
+.user-page-sphere {
+
+  background-color: grey;
+
+}
+
 h1 {
     font-family: 'Roboto', sans-serif;
     color: white;
