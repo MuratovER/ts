@@ -33,8 +33,11 @@
 
   <body>
     <header id='header'>
-      <a href="{% url 'logout' %}" class="name">TopSkills</a>
-      <p class="nameDescripton">Фабрика твоих успехов</p>
+      <div class="logoContainer">      
+        <a href="{% url 'logout' %}" class="name">TopSkills</a>
+        <p class="nameDescripton">Фабрика твоих успехов</p>
+      </div>
+
       <nav class='menu'>
         <a href="{% url 'home_page' %}" class="header-a">Главная</a>
         <a href="#" class="header-a">Новости</a>
