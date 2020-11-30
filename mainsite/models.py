@@ -93,12 +93,40 @@ class Sphere_of_life(models.Model):
     таблица для фичи колеса жизни с возможностью выбора в каждой сфере от 1 до 10
     '''
     INTEGER_CHOICES = [tuple([x, x]) for x in range(1, 11)]
-    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
-    inside_world = models.IntegerField(verbose_name="Внутренний мир", choices=INTEGER_CHOICES, blank=True, null=True)
-    career = models.IntegerField(verbose_name="Учеба\Карьера", choices=INTEGER_CHOICES, blank=True, null=True)
-    health = models.IntegerField(verbose_name="Здоровье", choices=INTEGER_CHOICES, blank=True, null=True)
-    relationships = models.IntegerField(verbose_name="Отношения", choices=INTEGER_CHOICES, blank=True, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    inside_world = models.IntegerField(verbose_name="Внутренний мир", choices=INTEGER_CHOICES)
+    career = models.IntegerField(verbose_name="Учеба\Карьера", choices=INTEGER_CHOICES)
+    health = models.IntegerField(verbose_name="Здоровье", choices=INTEGER_CHOICES)
+    relationships = models.IntegerField(verbose_name="Отношения", choices=INTEGER_CHOICES)
     def __str__(self):
         return self.user.username
+
+
+
+
+
+
+
+
+
+
+class Achivement(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField()
+    difficulty = models.ForeignKey(Difficulty, on_delete=models.CASCADE, related_name="achiv_difficulty", null=True) 
+    def __str__(self):
+        return self.name 
+
+
+class UserAchivement(models.Model): 
+    '''
+    Таблица в которой отображаются достижения присвоенные юзеру со своей сложностью
+    '''
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    achivement = models.ForeignKey(Achivement, on_delete=models.CASCADE, related_name="achivement", default=0)
+    level = models.PositiveIntegerField(default=0)
+    
+    def __str__(self):
+        return self.achivement.name
 
 
