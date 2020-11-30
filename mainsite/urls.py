@@ -8,9 +8,10 @@ from django.conf.urls import include, url
 
 
 
-
+#адреса которые ссылаются на вьюхи
 urlpatterns = [
     path('', views.home_page, name='home_page'),
+    path('accounts/login/', views.LoginView.as_view(), name='login'),
     path('signup/', views.signup_view, name='signup'),
     path('user_page/', views.user_page, name='user_page'), 
     path('achivements/', views.achivement_view, name='achivements'),
@@ -59,4 +60,11 @@ urlpatterns = [
     path('fourth/fourth_chapters_Conflicts/', views.fourth_chapters_Conflicts, name='fourth_chapters_Conflicts'),
     path('fourth/fourth_chapters_RelationshipsintheFamily/', views.fourth_chapters_RelationshipsintheFamily, name='fourth_chapters_RelationshipsintheFamily'),
     path('fourth/fourth_chapters_Friends/', views.fourth_chapters_Friends, name='fourth_chapters_Friends'),
+
+    #API
+    #re_path(r'^api/get_todolist/(?P<user_id>[\w.@+-]+)/$', views.api_get_todolist),
+    path('api/get_todolist/', views.api_get_todolist),
+
+
+    path('introduction/introduction_chapter_spheres_life/delete/', views.sphere_deletion, name='sphere_deletion'),
 ]

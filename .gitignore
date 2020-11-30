@@ -1,10 +1,17 @@
 *.pyc
+*.log
+*.pot
 db.sqlite3
 myvenv
 env
+venv
 virtual environment
 __pycache__
 .vscode
 local_settings.py
-/static/
+/static
 topskills/settings.py
+.DS_Store
+/.idea
+/.vscode
+*~
