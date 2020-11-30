@@ -4,24 +4,42 @@
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
 
+{% load staticfiles%}
+    
 
-<form method="post" action="{% url 'login' %}" class="login-tables">
-    {% csrf_token %}
-    <table>
-        <tr class="login">
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
-        </tr>
-        <tr class="password">
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-        </tr>
-    </table>
-
-    <input type="submit" value="login" />
-    <input type="hidden" name="next" value="{{ next }}" />
-</form>
-
+<div class="conteiner">
+   <div class="login-tables"> 
+        <img class="DFL" src="https://cdn.discordapp.com/attachments/745700277004402832/780105259875172362/sign_in.jpg">
+            <form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+                <table class="login-form" class="DSS">
+                    <h1 class="lws">Приветствуем тебя!</h1>
+                        <div> 
+                            <img class="login-form::before" style="width: 30px;
+  position: absolute;
+  font-size: 30px;
+  padding: 10px 0 0 7px;
+  color: #2c536c;" src="{% static "mainsite/person.svg" %}" alt="2">{{ form.username }}
+                        </div>
+                        <div><img class="login-form::before" style="width: 30px;
+  position: absolute;
+  font-size: 30px;
+  padding: 10px 0 0 7px;
+  color: #2c536c;" src="{% static "mainsite/lock.svg" %}" alt="2">{{ form.password }}</td>
+                </table>
+    <div class="dws">
+        <label class="" for="" tabindex="25">   
+            <input class="DMT" type="checkbox" name="saveauth" checked="checked">&nbsp;Запомнить меня</label>
+        <a href="/" class="DRT"> Я забыл пароль </a>
+    </div>
+        <input class="dws_submit" type="submit" value="Вход" />
+    <div class="dws">
+       <strong> <a> Впервые тут?</a> </strong>
+        <a class="DLT" href="location.href='/signup/'" >Регистрация</a>
+    </div>
+        </form>
+  </div>  
+</div>
 
 
 {% endblock %}
