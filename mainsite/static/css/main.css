@@ -959,7 +959,7 @@ h1 a, h2 a {
 
 /* вид кнопок Регистрации и Входа */
 .button1 {
-  width: 100%;
+  /*width: 100%; */
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
@@ -1176,7 +1176,7 @@ img {
 table,
 th,
 td {
-  border: 1px solid rgba(55, 53, 47, 0.09);
+  /*border: 1px solid rgba(55, 53, 47, 0.09);*/
   border-collapse: collapse;
 }
 
@@ -1627,11 +1627,128 @@ blockquote {
 .checkbox-off {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
-  
 
 
+.conteiner {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  width: 1920px;
+  height: 1080px;
+  background-image: url("../img/conteiner.jpg");
+  /*width:  1920px;*/
+  /*height: 1080px;*/
+  }
+.login-tables {
+  width: 524px;
+  height: 900px;
+ /* margin: 250px auto 0 auto ;*/ 
+ /* margin:97px 698px 833px 698px ; */
+  text-align: center;
+  background: #FFFFFF;
+  mix-blend-mode: normal;
+  box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+}  
+input[type="text"], input[type="password"]{
+  width:441px;
+  height:44px;
+  font-size: 18px;
+  margin-bottom: 25px;
+  padding-left: 40px; 
+  border: 2px solid #5EA2FF;
+  box-sizing: border-box;
+  border-radius: 7px;
 
+}
+.login-table img {
+  width: 120px;
+  height: 120px;
+  margin: -60px 0 30px 0;
+  border-radius: 4px;
+  padding-left: 10px;
 
+}
+.dws_submit {
+  padding: 13px 30px;
+  margin:5px 0 20px 0;
+  font-size: 25px;
+  color: #fff;
+  width: 272px;
+  height: 55px;
+  border: none;
+  background: #5EA2FF;
+  border-radius: 7px;
+
+}
+a {
+  color: #fff;
+}
+a:hover{
+  text-decoration: none;
+}
+
+.nazvanie {
+padding: 107px;
+font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 48px;
+line-height: 59px;
+text-align: center;
+letter-spacing: 0.03em;
+color: #011128;
+}
+.dws {
+  padding-top: 50px;
+}
+.login {
+  width: 441px;
+  height: 44px;
+  border: 2px solid #5EA2FF;
+  box-sizing: border-box;
+  border-radius: 7px;
+  padding-left: 30px; 
+
+}
+.password {
+  width: 441px;
+  height: 44px;
+  border: 2px solid #5EA2FF;
+  box-sizing: border-box;
+  border-radius: 7px;
+  padding-left: 30px; 
+}
+.lws {
+  font-weight: 900;
+}
+.DFL{
+  padding-top: 50px;
+}
+.DMT {
+  margin-top: 0px !important;
+  margin-right: 0px !important;
+  margin-bottom: 0px !important;
+  margin-left: 0px !important;
+}
+.DRT {
+  padding-left: 250px; 
+  color: black;
+}
+.DLT {
+  text-decoration: underline;
+}
+.DSS {
+  height: 100px; 
+  padding: 25%;
+}
+.login-form::before {
+  width: 30px;
+  position: absolute;
+  font-size: 30px;
+  padding: 10px 0 0 7px;
+  color: #2c536c;
+}
 .popup {
 
   display: none;
@@ -1708,6 +1825,4 @@ blockquote {
   }
 
 }
-
-
 
