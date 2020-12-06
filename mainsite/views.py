@@ -294,7 +294,7 @@ def user_page(request):
         user_text = User_affirmation.objects.get(user=request.user).text
         bg_id = User_affirmation.objects.get(user=request.user).background_id
         user_affirmation_path = get_affirmation_image.get_image(user_text,user, bg_id)
-    return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills, 'sphere' : sphere, 'path': img, 'user_affirmation_path': user_affirmation_path})
+    return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills, 'sphere' : sphere, 'img': img, 'user_affirmation_path': user_affirmation_path})
 
 
 
