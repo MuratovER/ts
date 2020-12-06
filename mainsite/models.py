@@ -102,7 +102,21 @@ class Sphere_of_life(models.Model):
         return self.user.username
 
 
-
+class User_affirmation(models.Model):
+    """
+    Пользовательские аффирмации.
+    """
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    text = models.CharField(max_length=200, blank = True, null = True)
+    date_change = models.DateTimeField(blank = True, null = True)
+    background_id = models.PositiveSmallIntegerField(blank = True, null = True)
+    def __str__(self):
+        return self.user.username
+    class Meta:
+        verbose_name_plural = 'Пользовательские аффирмации'
+        verbose_name = 'Аффирмация'
+        ordering = ['-user']
 
 
 

@@ -4,12 +4,13 @@ from mainsite.forms import SignUpForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
+from .models import Post, Skill, UserSkill, Profile, Sphere_of_life, User_affirmation
 from .models import Post, Skill, UserSkill, Profile, Sphere_of_life, Achivement, UserAchivement
 from django.utils import timezone
 from django.contrib.auth.models import User
 from .forms import Sphere_of_life_Form
 from django.contrib.auth.decorators import login_required
-from .useful_lib import WheelOfLife
+from .useful_lib import WheelOfLife, get_affirmation_image
 from django.http import JsonResponse
 
 
@@ -287,7 +288,15 @@ def user_page(request):
         img = WheelOfLife.getImageSkills([WheelOfLife_vars.inside_world, WheelOfLife_vars.career, WheelOfLife_vars.health, WheelOfLife_vars.relationships  ])
     else:
         img = False
-    return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills, 'sphere' : sphere, 'img': img, 'achivements':achivements })
+
+    user_affirmation_path = None
+    if User_affirmation.objects.filter(user=request.user).exists():
+        user_text = User_affirmation.objects.get(user=request.user).text
+        bg_id = User_affirmation.objects.get(user=request.user).background_id
+        user_affirmation_path = get_affirmation_image.get_image(user_text,user, bg_id)
+    return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills, 'sphere' : sphere, 'path': img, 'user_affirmation_path': user_affirmation_path})
+
+
 
 
 #signup view
@@ -325,7 +334,7 @@ from rest_framework.decorators import api_view
 @api_view(['GET']) # Декоратор для красивого браузерного вывода
 def api_get_todolist(request):
     # Как пример показан вывод сфер жизни по api запросу
-    # Позже будет прикручен todo лист
+    # Позже будет прикручен to-do лист
     if request.method == "GET":
         user_request = request.GET.get('user_id')
         if not user_request.isdigit():
