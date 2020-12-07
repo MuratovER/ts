@@ -67,7 +67,7 @@ width: 100%;
 }
 
 .header-menu-a {
-    margin-top: %;
+    margin-top: 3%;
     font-family: 'Roboto';
 font-style: normal;
 font-weight: bold;
@@ -91,10 +91,10 @@ color: #2B2B2B;
     text-align: center;
     letter-spacing: 0.03em;
     z-index: 6;
-    
-    margin-top:5%;
-    
     color: #5F5F5F;
+    position: absolute;
+    bottom:20%;
+    
 }
 
 .logo-main-txt {
