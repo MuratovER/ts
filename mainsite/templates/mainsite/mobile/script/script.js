@@ -10,15 +10,16 @@ $(document).ready(function(){
     $(window).on('load scroll', function() { 
         if ($(this).scrollTop() >= '47' && CountUpFlag == 0) {
             $('.header-nav').toggleClass('header-nav-fixed').css('margin-top', '0px');
+            $('.header-menu').css('top', '8%');
             CountUpFlag = 1;
         } else if ($(this).scrollTop() <= '47' && CountUpFlag == 1)  {
             $('.header-nav').css('margin-top', '10%')
             $('.header-nav').removeClass('header-nav-fixed');
            
-            $('.header-menu').css('top', '3%');
+            $('.header-menu').css('top', '18%');
             CountUpFlag = 0;
         } else if ($(this).scrollTop() == '0' && CountUpFlag == 0) {
-            $('.header-menu').css('top', '15%');
+            $('.header-menu').css('top', '20%');
         }
     });
     $(window).on('load resize', function() {
