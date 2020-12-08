@@ -1,0 +1,88 @@
+{% extends 'mainsite/base.html' %}
+{% load static %}
+{% block content %}
+{% get_static_prefix as STATIC_PREFIX %}
+<meta charset="utf-8">
+<style type="text/css">
+.circle {
+  display: inline-block;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+    {#float: left;#}
+}
+.color-selector{
+     -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+position: absolute;
+width: 228px;
+height: 109.5px;
+left: 56px;
+top: 351px;
+}
+.page-title{
+    display: inline-block;
+    position: absolute;
+    width: 492px;
+    height: 56px;
+    left: 268px;
+    top: 131px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 48px;
+    line-height: 56px;
+
+    color: #000000;
+
+    }
+.background-selector {
+    position: absolute;
+    width: 800px;
+    height: 379px;
+    left: 320px;
+    top: 322px;
+
+    background: #447e9b;
+    filter: drop-shadow(0px 9px 21px rgba(0, 0, 0, 0.1));
+    border-radius: 21px;
+
+}
+</style>
+
+
+<div class="generator-content">
+    <p class="page-title">Создать аффирмацию</p>
+    <div class="generator-area">
+        <div class="color-selector">
+            <div class="first_row_color_selector">
+                <figure class="circle" id="FF0000" style="background-color: #FF0000;"></figure>
+            <figure class="circle" id="A90000" style="background-color: #A90000;"></figure>
+            <figure class="circle" id="FF6B00" style="background-color: #FF6B00;"></figure>
+            <figure class="circle" id="FAFF00" style="background-color: #FAFF00;"></figure>
+            <figure class="circle" id="42FF00" style="background-color: #42FF00;"></figure>
+            </div>
+            <div class="second_row_color_selector">
+            <figure class="circle" id="00903A" style="background-color: #00903A;"></figure>
+            <figure class="circle" id="085125" style="background-color: #085125;"></figure>
+            <figure class="circle" id="1CDB96" style="background-color: #1CDB96;"></figure>
+            <figure class="circle" id="00BFB4" style="background-color: #00BFB4;"></figure>
+            <figure class="circle" id="0096EB" style="background-color: #0096EB;"></figure>
+            </div>
+            <div class="first_row_color_selector">
+            <figure class="circle" id="1400FF" style="background-color: #1400FF;"></figure>
+            <figure class="circle" id="CB00FE" style="background-color: #CB00FE;"></figure>
+            <figure class="circle" id="FF6BE7" style="background-color: #FF6BE7;"></figure>
+            <figure class="circle" id="FF2F6D" style="background-color: #FF2F6D;"></figure>
+            <figure class="circle" id="417D8F" style="background-color: #417D8F;"></figure>
+            </div>
+        </div>
+        <div class="image-area">
+            <img class="background-selector">
+        </div>
+    </div>
+</div>
+
