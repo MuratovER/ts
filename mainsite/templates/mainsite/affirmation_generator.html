@@ -4,13 +4,20 @@
 {% get_static_prefix as STATIC_PREFIX %}
 <meta charset="utf-8">
 <style type="text/css">
+.generator-content {
+    display: block; 
+    width: 100%; 
+    height: 1000px; 
+    margin: 100px auto;
+    top:300px;
+}
 .circle {
-  display: inline-block;
+  display: block;
   border-radius: 50%;
-  height: 30px;
-  width: 30px;
+  height: 50px;
+  width: 50px;
   margin: 5px;
-    {#float: left;#}
+  float: left;
 }
 .color-selector{
      -moz-user-select: none;
@@ -23,12 +30,12 @@ left: 56px;
 top: 351px;
 }
 .page-title{
-    display: inline-block;
+    display:inline-block;
     position: absolute;
-    width: 492px;
+    width: 992px;
     height: 56px;
     left: 268px;
-    top: 131px;
+    top: 181px;
 
     font-family: Roboto;
     font-style: normal;
@@ -39,7 +46,7 @@ top: 351px;
     color: #000000;
 
     }
-.background-selector {
+.background-slider {
     position: absolute;
     width: 800px;
     height: 379px;
@@ -51,38 +58,296 @@ top: 351px;
     border-radius: 21px;
 
 }
+.generator-area {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 100px;
+    overflow: auto;
+    max-width: 1280px;
+
+}
+.image-area {
+    width: auto;
+    height: auto;
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 100px;
+    margin: auto;
+}
+.color-selector{
+    width: auto;
+    height: 200px;
+    /* right: 200px; */
+}
+.background-move-right{
+    opacity: 8%;
+    position: absolute;
+    width: 61px;
+    height: 379px;
+    left: 1059px;
+    top: 322px;
+
+    background: rgba(203, 199, 199, 0.3);
+    border-top-right-radius: 21px;
+    border-bottom-right-radius: 21px;
+}
+.background-move-left{
+    opacity: 8%;
+    position: absolute;
+    width: 61px;
+    height: 379px;
+    left: 320px;
+    top: 322px;
+
+    background: rgba(203, 199, 199, 0.3);
+    border-top-left-radius: 21px;
+    border-bottom-left-radius: 21px;
+}
+arrow.right {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border: solid black;
+    border-width: 3px 0px 0px 3px;
+    display: inline-block;
+    padding: 3px; 
+    top: calc(50% - 10px);
+    left: 5px;
+/* Rotate */
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+
+}
+
+arrow.left {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border: solid black;
+    border-width: 3px 0px 0px 3px;
+    display: inline-block;
+    padding: 3px; 
+    top: calc(50% - 10px);
+    left: 20px;
+/* Rotate */
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(-45deg);
+
+}
+
+.font-selector {
+    position: absolute;
+    display: inline-block;
+    float: left;
+    width: 118px;
+    height: 37px;
+    left: 80px;
+    top: 522px;
+    transform:scale(1.5);
+    opacity:0.9;
+}
+.font-selector-item {
+    transform:scale(1.5);
+    opacity:0.9;
+  
+    display: inline-block;
+	cursor: pointer;
+	padding: 0px 15px;
+	line-height: 34px;
+	border: 1px solid #999;
+	border-radius: 6px;
+    -moz-user-select: all;
+    -khtml-user-select: all;
+    user-select: all;
+}
+.background-move-left:hover {
+    opacity: 100%;
+    transition: .75s opacity, .75s visibility;
+}
+.background-move-right:hover {
+    opacity: 100%;
+    transition: .75s opacity, .75s visibility;
+}
+.circle:hover{
+    background-color: black;
+
+}
+.hidden-collection {
+    opacity: 0%;
+}
+.settings-selector {
+    width: 500px;
+    display: inline-block;
+    height: auto;
+    background-color: #A90000;
+}
+.generator-content{
+    display: inline-block;
+}
 </style>
+
+
 
 
 <div class="generator-content">
     <p class="page-title">Создать аффирмацию</p>
     <div class="generator-area">
-        <div class="color-selector">
-            <div class="first_row_color_selector">
-                <figure class="circle" id="FF0000" style="background-color: #FF0000;"></figure>
-            <figure class="circle" id="A90000" style="background-color: #A90000;"></figure>
-            <figure class="circle" id="FF6B00" style="background-color: #FF6B00;"></figure>
-            <figure class="circle" id="FAFF00" style="background-color: #FAFF00;"></figure>
-            <figure class="circle" id="42FF00" style="background-color: #42FF00;"></figure>
+        <div class="settings-selector">
+            <div class="color-selector">
+                <div class="first_row_color_selector">
+                    <figure class="circle" id="FF0000" style="background-color: #FF0000;"></figure>
+                <figure class="circle" id="A90000" style="background-color: #A90000;"></figure>
+                <figure class="circle" id="FF6B00" style="background-color: #FF6B00;"></figure>
+                <figure class="circle" id="FAFF00" style="background-color: #FAFF00;"></figure>
+                <figure class="circle" id="42FF00" style="background-color: #42FF00;"></figure>
+                </div>
+                <div class="second_row_color_selector">
+                <figure class="circle" id="00903A" style="background-color: #00903A;"></figure>
+                <figure class="circle" id="085125" style="background-color: #085125;"></figure>
+                <figure class="circle" id="1CDB96" style="background-color: #1CDB96;"></figure>
+                <figure class="circle" id="00BFB4" style="background-color: #00BFB4;"></figure>
+                <figure class="circle" id="0096EB" style="background-color: #0096EB;"></figure>
+                </div>
+                <div class="first_row_color_selector">
+                <figure class="circle" id="1400FF" style="background-color: #1400FF;"></figure>
+                <figure class="circle" id="CB00FE" style="background-color: #CB00FE;"></figure>
+                <figure class="circle" id="FF6BE7" style="background-color: #FF6BE7;"></figure>
+                <figure class="circle" id="FF2F6D" style="background-color: #FF2F6D;"></figure>
+                <figure class="circle" id="417D8F" style="background-color: #417D8F;"></figure>
+                </div>
             </div>
-            <div class="second_row_color_selector">
-            <figure class="circle" id="00903A" style="background-color: #00903A;"></figure>
-            <figure class="circle" id="085125" style="background-color: #085125;"></figure>
-            <figure class="circle" id="1CDB96" style="background-color: #1CDB96;"></figure>
-            <figure class="circle" id="00BFB4" style="background-color: #00BFB4;"></figure>
-            <figure class="circle" id="0096EB" style="background-color: #0096EB;"></figure>
-            </div>
-            <div class="first_row_color_selector">
-            <figure class="circle" id="1400FF" style="background-color: #1400FF;"></figure>
-            <figure class="circle" id="CB00FE" style="background-color: #CB00FE;"></figure>
-            <figure class="circle" id="FF6BE7" style="background-color: #FF6BE7;"></figure>
-            <figure class="circle" id="FF2F6D" style="background-color: #FF2F6D;"></figure>
-            <figure class="circle" id="417D8F" style="background-color: #417D8F;"></figure>
+            <div class="font-selector" >
+                
+                <p><input class="font-selector-item" name="font-type" type="radio" value="Roboto">  Roboto</p>    
+                <p><input class="font-selector-item" name="font-type" type="radio" value="Comic Sans MS">  Comic Sans MS</p>    
+                <p><input class="font-selector-item" name="font-type" type="radio" value="Times New Roman">  Times New Roman</p>    
             </div>
         </div>
         <div class="image-area">
-            <img class="background-selector">
+            <img id="bgslider" class="background-slider" src="{% static "img/images_for_affirmation/bg_1.png" %}">
+            <div class="background-move-right" id="right-move">
+                <arrow class='right'></arrow>
+            </div>
+            <div class="background-move-left" id="left-move">
+                <arrow class='left'></arrow>
+            </div>
         </div>
+        
     </div>
 </div>
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_1.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_2.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_3.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_4.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_5.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_6.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_7.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_8.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_9.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_10.png" %}">
 
+<script>
+    var images = [
+        "{% static "img/images_for_affirmation/bg_1.png" %}",
+        "{% static "img/images_for_affirmation/bg_2.png" %}",
+        "{% static "img/images_for_affirmation/bg_3.png" %}",
+        "{% static "img/images_for_affirmation/bg_4.png" %}",
+        "{% static "img/images_for_affirmation/bg_5.png" %}",
+        "{% static "img/images_for_affirmation/bg_6.png" %}",
+        "{% static "img/images_for_affirmation/bg_7.png" %}",
+        "{% static "img/images_for_affirmation/bg_8.png" %}",
+        "{% static "img/images_for_affirmation/bg_9.png" %}",
+        "{% static "img/images_for_affirmation/bg_10.png" %}"
+    ];
+    var num = 0;
+    function next() {
+        // var slider = document.getElementsByClassName("background-slider");
+        var slider = document.getElementById("bgslider");
+        num++;
+        if(num>=images.length){
+            num=0;
+        }
+        slider.src=images[num];
+        
+    }
+    function prev() {
+        // var slider = document.getElementsByClassName("background-slider");
+        var slider = document.getElementById("bgslider");
+
+        num--;
+        if(num < 0){
+            num = images.length-1;
+        }
+        slider.src = images[num];
+    }
+    var right_move = document.getElementById("right-move");
+    right_move.onclick = next;
+    var left_move = document.getElementById("left-move");
+    left_move.onclick = prev;
+
+    function circleclick(){
+        alert("TTTTTTTTTTTTTESt");
+
+        // var circle = document.getElementsByClassName("circle");
+        // circle.background = "FF0000";
+    }
+
+    // var circle_mas = document.querySelectorAll("figure.circle");
+    var circle_mas = document.querySelectorAll("figure.circle");
+    // for(let elem in circle_mas){
+    //     circle_mas[elem].onclick = circleclick;
+        
+    // }
+    circle_mas.forEach(element => {
+        // console.log(element.id);
+        // element.onclick = circleclick;
+        var el = document.getElementById(element.id);
+        // el.onclick = circleclick
+        el.addEventListener('click', function (e) {
+            alert("Test1");
+            e.width = "100px";
+        })
+         
+    })
+
+//     function circleclick(circle){
+//         alert("Test")
+//         // var circle = document.getElementsByClassName("circle");
+//         circle.style.backgroundColor = "FFFFFF";
+//     }
+
+//     // var circle_mas = document.querySelectorAll("figure.circle");
+//     var circle_mas = document.querySelectorAll(".circle");
+    
+//     for(let elem in circle_mas){
+//         elem.onclick = circleclick;
+//         elem.addEventListener('click', circleclick(elem), false);
+//         alert(elem);
+//     }
+//     // var frow = document.getElementsByClassName("first_row_color_selector");
+//     // frow.onclick = circleclick
+    
+//     [].forEach.call(circle_mas,function (el){
+//     el.addEventListener('click', function (e) {alert("Test1");el.width = "100px";})
+// });
+
+//     // var circle1 = document.getElementsByTagName("figure");
+//     // function fcircle(){
+//     //     alert("Тестер");
+//     //     circle1.style.opacity = "20%";
+//     // };
+
+//     circle1.onclick = fcircle;
+
+</script>
+{% endblock %}

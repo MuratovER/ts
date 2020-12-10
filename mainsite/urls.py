@@ -60,7 +60,7 @@ urlpatterns = [
     path('fourth/fourth_chapters_Conflicts/', views.fourth_chapters_Conflicts, name='fourth_chapters_Conflicts'),
     path('fourth/fourth_chapters_RelationshipsintheFamily/', views.fourth_chapters_RelationshipsintheFamily, name='fourth_chapters_RelationshipsintheFamily'),
     path('fourth/fourth_chapters_Friends/', views.fourth_chapters_Friends, name='fourth_chapters_Friends'),
-
+    path("affirmation_generator", views.affirmation_generator, name='affirmation_generator'),
     #API
     #re_path(r'^api/get_todolist/(?P<user_id>[\w.@+-]+)/$', views.api_get_todolist),
     path('api/get_todolist/', views.api_get_todolist),
