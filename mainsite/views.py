@@ -321,7 +321,9 @@ def signup_view(request):
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})  
 
-
+@login_required
+def affirmation_generator(request):
+    return  render(request, 'mainsite/affirmation_generator.html',)
 
 #
 # API FUNCTIONS
