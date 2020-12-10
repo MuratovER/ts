@@ -5,6 +5,7 @@ body {
 }
 
 #header {
+  width: 100%;
   background: #569EFF;
   display: -webkit-box;
   display: -ms-flexbox;

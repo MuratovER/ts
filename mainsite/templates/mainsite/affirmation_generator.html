@@ -14,25 +14,28 @@
 .circle {
   display: block;
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 30px;
+  width: 30px;
   margin: 5px;
   float: left;
+  border: solid black;
+    border-width: 3px;
 }
 .color-selector{
+    display: block;
      -moz-user-select: none;
     -khtml-user-select: none;
     user-select: none;
-position: absolute;
+position: relative;
 width: 228px;
-height: 109.5px;
-left: 56px;
-top: 351px;
+height: auto;
+/* left: 56px;
+top: 351px; */
 }
 .page-title{
     display:inline-block;
     position: absolute;
-    width: 992px;
+    width: 500px;
     height: 56px;
     left: 268px;
     top: 181px;
@@ -50,8 +53,7 @@ top: 351px;
     position: absolute;
     width: 800px;
     height: 379px;
-    left: 320px;
-    top: 322px;
+
 
     background: #447e9b;
     filter: drop-shadow(0px 9px 21px rgba(0, 0, 0, 0.1));
@@ -65,32 +67,28 @@ top: 351px;
     top: 0;
     left: 100px;
     overflow: auto;
-    max-width: 1280px;
+    /* max-width: 1280px; */
 
 }
 .image-area {
-    width: auto;
+    display: inline;
+    width: 100%;
     height: auto;
-    position: relative;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 100px;
+    position: absolute;
+    top: 100px;
+    
+    /* left: 200px; */
     margin: auto;
-}
-.color-selector{
-    width: auto;
-    height: 200px;
-    /* right: 200px; */
 }
 .background-move-right{
     opacity: 8%;
     position: absolute;
     width: 61px;
     height: 379px;
-    left: 1059px;
-    top: 322px;
-
+    /* left: 1059px;
+    top: 322px; */
+    left: 739px;
+    float:right;
     background: rgba(203, 199, 199, 0.3);
     border-top-right-radius: 21px;
     border-bottom-right-radius: 21px;
@@ -100,8 +98,9 @@ top: 351px;
     position: absolute;
     width: 61px;
     height: 379px;
-    left: 320px;
-    top: 322px;
+
+    /* left: 320px;
+    top: 322px; */
 
     background: rgba(203, 199, 199, 0.3);
     border-top-left-radius: 21px;
@@ -146,13 +145,13 @@ arrow.left {
 }
 
 .font-selector {
-    position: absolute;
-    display: inline-block;
-    float: left;
+    position: relative;
+    display: block;
+    /* left: 20px; */
     width: 118px;
     height: 37px;
-    left: 80px;
-    top: 522px;
+    /* left: 80px; */
+    /* top: 522px; */
     transform:scale(1.5);
     opacity:0.9;
 }
@@ -184,16 +183,72 @@ arrow.left {
 }
 .hidden-collection {
     opacity: 0%;
+    width: 0px;
+    height: 0px;
+    display: none;
+    position: absolute;
+
 }
 .settings-selector {
-    width: 500px;
+    top:100px;
+    position: relative;
     display: inline-block;
-    height: auto;
-    background-color: #A90000;
+    width: 300px;
+    height: 600px;
+    /* top: 351px;
+    left: 56px; */
+    display: inline-block;
+    /* height: auto; */
+    padding-left: 20px;
+    /* background-color: #A90000; */
 }
 .generator-content{
     display: inline-block;
 }
+.row_color_selector{
+    display:block;
+    position: relative;
+    height: 50px;
+}
+input {
+    display: inline;
+    position: relative;
+
+}
+.font-selector-name{
+    display: inline-block;
+    position: relative;
+    left: 20px;
+}
+
+.inputTextArea{
+    position: absolute;
+    display: block;
+    width: calc(800px-122px);
+    height: 361px;
+
+    background: rgba(0, 0, 0, 0);
+    /* left: 61px; */
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 48px;
+    line-height: 56px;
+
+    color: #000000;
+    text-align: center;
+    text-orientation: sideways-right;
+
+    border:none;
+    outline-width: 0;
+    padding: 50px;
+    padding-top: 130px;
+    margin: 0 61px 0 61px;
+    align-self: center;
+}
+
+
+
 </style>
 
 
@@ -204,21 +259,21 @@ arrow.left {
     <div class="generator-area">
         <div class="settings-selector">
             <div class="color-selector">
-                <div class="first_row_color_selector">
+                <div class="row_color_selector">
                     <figure class="circle" id="FF0000" style="background-color: #FF0000;"></figure>
                 <figure class="circle" id="A90000" style="background-color: #A90000;"></figure>
                 <figure class="circle" id="FF6B00" style="background-color: #FF6B00;"></figure>
                 <figure class="circle" id="FAFF00" style="background-color: #FAFF00;"></figure>
                 <figure class="circle" id="42FF00" style="background-color: #42FF00;"></figure>
                 </div>
-                <div class="second_row_color_selector">
+                <div class="row_color_selector">
                 <figure class="circle" id="00903A" style="background-color: #00903A;"></figure>
                 <figure class="circle" id="085125" style="background-color: #085125;"></figure>
                 <figure class="circle" id="1CDB96" style="background-color: #1CDB96;"></figure>
                 <figure class="circle" id="00BFB4" style="background-color: #00BFB4;"></figure>
                 <figure class="circle" id="0096EB" style="background-color: #0096EB;"></figure>
                 </div>
-                <div class="first_row_color_selector">
+                <div class="row_color_selector">
                 <figure class="circle" id="1400FF" style="background-color: #1400FF;"></figure>
                 <figure class="circle" id="CB00FE" style="background-color: #CB00FE;"></figure>
                 <figure class="circle" id="FF6BE7" style="background-color: #FF6BE7;"></figure>
@@ -227,10 +282,9 @@ arrow.left {
                 </div>
             </div>
             <div class="font-selector" >
-                
-                <p><input class="font-selector-item" name="font-type" type="radio" value="Roboto">  Roboto</p>    
-                <p><input class="font-selector-item" name="font-type" type="radio" value="Comic Sans MS">  Comic Sans MS</p>    
-                <p><input class="font-selector-item" name="font-type" type="radio" value="Times New Roman">  Times New Roman</p>    
+                <p class="font-selector-name"><input class="font-selector-item" name="font-type" type="radio" value="Roboto">  Roboto</p>    
+                <p class="font-selector-name"><input class="font-selector-item" name="font-type" type="radio" value="Comic Sans MS">  Comic Sans MS</p>    
+                <p class="font-selector-name"><input class="font-selector-item" name="font-type" type="radio" value="Times New Roman">  Times New Roman</p>    
             </div>
         </div>
         <div class="image-area">
@@ -241,6 +295,7 @@ arrow.left {
             <div class="background-move-left" id="left-move">
                 <arrow class='left'></arrow>
             </div>
+            <textarea class="inputTextArea" placeholder="Введите ваши мысли"></textarea>>
         </div>
         
     </div>
@@ -311,11 +366,15 @@ arrow.left {
     circle_mas.forEach(element => {
         // console.log(element.id);
         // element.onclick = circleclick;
-        var el = document.getElementById(element.id);
+
         // el.onclick = circleclick
-        el.addEventListener('click', function (e) {
-            alert("Test1");
-            e.width = "100px";
+        element.addEventListener('click', function (e) {
+            circle_mas.forEach(el =>{
+                el.style.borderRadius = "50%";
+                element.style.border = "solid black";
+            })
+            element.style.borderRadius = "0%";
+            element.style.border = "solid black";
         })
          
     })
