@@ -29,7 +29,7 @@ urlpatterns = [
     path('accounts/logout/', views.LogoutView.as_view(next_page='/'), name='logout'),
     path('', include('mainsite.urls')),
     re_path(r'^profile/(?P<username>[\w.@+-]+)/$', views.user_page, name='profile'),
-
+    url(r'^q/', include('quiz.urls')),
 
 
     
