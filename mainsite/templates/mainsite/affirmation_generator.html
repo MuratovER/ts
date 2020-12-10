@@ -1,0 +1,412 @@
+{% extends 'mainsite/base.html' %}
+{% load static %}
+{% block content %}
+{% get_static_prefix as STATIC_PREFIX %}
+<meta charset="utf-8">
+<style type="text/css">
+.generator-content {
+    display: block; 
+    width: 100%; 
+    height: 1000px; 
+    margin: 100px auto;
+    top:300px;
+}
+.circle {
+  display: block;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+  float: left;
+  border: solid black;
+    border-width: 3px;
+}
+.color-selector{
+    display: block;
+     -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+position: relative;
+width: 228px;
+height: auto;
+/* left: 56px;
+top: 351px; */
+}
+.page-title{
+    display:inline-block;
+    position: absolute;
+    width: 500px;
+    height: 56px;
+    left: 268px;
+    top: 181px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 48px;
+    line-height: 56px;
+
+    color: #000000;
+
+    }
+.background-slider {
+    position: absolute;
+    width: 800px;
+    height: 379px;
+
+
+    background: #447e9b;
+    filter: drop-shadow(0px 9px 21px rgba(0, 0, 0, 0.1));
+    border-radius: 21px;
+
+}
+.generator-area {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 100px;
+    overflow: auto;
+    /* max-width: 1280px; */
+
+}
+.image-area {
+    display: inline;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 100px;
+    
+    /* left: 200px; */
+    margin: auto;
+}
+.background-move-right{
+    opacity: 8%;
+    position: absolute;
+    width: 61px;
+    height: 379px;
+    /* left: 1059px;
+    top: 322px; */
+    left: 739px;
+    float:right;
+    background: rgba(203, 199, 199, 0.3);
+    border-top-right-radius: 21px;
+    border-bottom-right-radius: 21px;
+}
+.background-move-left{
+    opacity: 8%;
+    position: absolute;
+    width: 61px;
+    height: 379px;
+
+    /* left: 320px;
+    top: 322px; */
+
+    background: rgba(203, 199, 199, 0.3);
+    border-top-left-radius: 21px;
+    border-bottom-left-radius: 21px;
+}
+arrow.right {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border: solid black;
+    border-width: 3px 0px 0px 3px;
+    display: inline-block;
+    padding: 3px; 
+    top: calc(50% - 10px);
+    left: 5px;
+/* Rotate */
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+
+}
+
+arrow.left {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border: solid black;
+    border-width: 3px 0px 0px 3px;
+    display: inline-block;
+    padding: 3px; 
+    top: calc(50% - 10px);
+    left: 20px;
+/* Rotate */
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(-45deg);
+
+}
+
+.font-selector {
+    position: relative;
+    display: block;
+    /* left: 20px; */
+    width: 118px;
+    height: 37px;
+    /* left: 80px; */
+    /* top: 522px; */
+    transform:scale(1.5);
+    opacity:0.9;
+}
+.font-selector-item {
+    transform:scale(1.5);
+    opacity:0.9;
+  
+    display: inline-block;
+	cursor: pointer;
+	padding: 0px 15px;
+	line-height: 34px;
+	border: 1px solid #999;
+	border-radius: 6px;
+    -moz-user-select: all;
+    -khtml-user-select: all;
+    user-select: all;
+}
+.background-move-left:hover {
+    opacity: 100%;
+    transition: .75s opacity, .75s visibility;
+}
+.background-move-right:hover {
+    opacity: 100%;
+    transition: .75s opacity, .75s visibility;
+}
+.circle:hover{
+    background-color: black;
+
+}
+.hidden-collection {
+    opacity: 0%;
+    width: 0px;
+    height: 0px;
+    display: none;
+    position: absolute;
+
+}
+.settings-selector {
+    top:100px;
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    height: 600px;
+    /* top: 351px;
+    left: 56px; */
+    display: inline-block;
+    /* height: auto; */
+    padding-left: 20px;
+    /* background-color: #A90000; */
+}
+.generator-content{
+    display: inline-block;
+}
+.row_color_selector{
+    display:block;
+    position: relative;
+    height: 50px;
+}
+input {
+    display: inline;
+    position: relative;
+
+}
+.font-selector-name{
+    display: inline-block;
+    position: relative;
+    left: 20px;
+}
+
+.inputTextArea{
+    position: absolute;
+    display: block;
+    width: calc(800px-122px);
+    height: 361px;
+
+    background: rgba(0, 0, 0, 0);
+    /* left: 61px; */
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 48px;
+    line-height: 56px;
+
+    color: #000000;
+    text-align: center;
+    text-orientation: sideways-right;
+
+    border:none;
+    outline-width: 0;
+    padding: 50px;
+    padding-top: 130px;
+    margin: 0 61px 0 61px;
+    align-self: center;
+}
+
+
+
+</style>
+
+
+
+
+<div class="generator-content">
+    <p class="page-title">Создать аффирмацию</p>
+    <div class="generator-area">
+        <div class="settings-selector">
+            <div class="color-selector">
+                <div class="row_color_selector">
+                    <figure class="circle" id="FF0000" style="background-color: #FF0000;"></figure>
+                <figure class="circle" id="A90000" style="background-color: #A90000;"></figure>
+                <figure class="circle" id="FF6B00" style="background-color: #FF6B00;"></figure>
+                <figure class="circle" id="FAFF00" style="background-color: #FAFF00;"></figure>
+                <figure class="circle" id="42FF00" style="background-color: #42FF00;"></figure>
+                </div>
+                <div class="row_color_selector">
+                <figure class="circle" id="00903A" style="background-color: #00903A;"></figure>
+                <figure class="circle" id="085125" style="background-color: #085125;"></figure>
+                <figure class="circle" id="1CDB96" style="background-color: #1CDB96;"></figure>
+                <figure class="circle" id="00BFB4" style="background-color: #00BFB4;"></figure>
+                <figure class="circle" id="0096EB" style="background-color: #0096EB;"></figure>
+                </div>
+                <div class="row_color_selector">
+                <figure class="circle" id="1400FF" style="background-color: #1400FF;"></figure>
+                <figure class="circle" id="CB00FE" style="background-color: #CB00FE;"></figure>
+                <figure class="circle" id="FF6BE7" style="background-color: #FF6BE7;"></figure>
+                <figure class="circle" id="FF2F6D" style="background-color: #FF2F6D;"></figure>
+                <figure class="circle" id="417D8F" style="background-color: #417D8F;"></figure>
+                </div>
+            </div>
+            <div class="font-selector" >
+                <p class="font-selector-name"><input class="font-selector-item" name="font-type" type="radio" value="Roboto">  Roboto</p>    
+                <p class="font-selector-name"><input class="font-selector-item" name="font-type" type="radio" value="Comic Sans MS">  Comic Sans MS</p>    
+                <p class="font-selector-name"><input class="font-selector-item" name="font-type" type="radio" value="Times New Roman">  Times New Roman</p>    
+            </div>
+        </div>
+        <div class="image-area">
+            <img id="bgslider" class="background-slider" src="{% static "img/images_for_affirmation/bg_1.png" %}">
+            <div class="background-move-right" id="right-move">
+                <arrow class='right'></arrow>
+            </div>
+            <div class="background-move-left" id="left-move">
+                <arrow class='left'></arrow>
+            </div>
+            <textarea class="inputTextArea" placeholder="Введите ваши мысли"></textarea>>
+        </div>
+        
+    </div>
+</div>
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_1.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_2.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_3.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_4.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_5.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_6.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_7.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_8.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_9.png" %}">
+<img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_10.png" %}">
+
+<script>
+    var images = [
+        "{% static "img/images_for_affirmation/bg_1.png" %}",
+        "{% static "img/images_for_affirmation/bg_2.png" %}",
+        "{% static "img/images_for_affirmation/bg_3.png" %}",
+        "{% static "img/images_for_affirmation/bg_4.png" %}",
+        "{% static "img/images_for_affirmation/bg_5.png" %}",
+        "{% static "img/images_for_affirmation/bg_6.png" %}",
+        "{% static "img/images_for_affirmation/bg_7.png" %}",
+        "{% static "img/images_for_affirmation/bg_8.png" %}",
+        "{% static "img/images_for_affirmation/bg_9.png" %}",
+        "{% static "img/images_for_affirmation/bg_10.png" %}"
+    ];
+    var num = 0;
+    function next() {
+        // var slider = document.getElementsByClassName("background-slider");
+        var slider = document.getElementById("bgslider");
+        num++;
+        if(num>=images.length){
+            num=0;
+        }
+        slider.src=images[num];
+        
+    }
+    function prev() {
+        // var slider = document.getElementsByClassName("background-slider");
+        var slider = document.getElementById("bgslider");
+
+        num--;
+        if(num < 0){
+            num = images.length-1;
+        }
+        slider.src = images[num];
+    }
+    var right_move = document.getElementById("right-move");
+    right_move.onclick = next;
+    var left_move = document.getElementById("left-move");
+    left_move.onclick = prev;
+
+    function circleclick(){
+        alert("TTTTTTTTTTTTTESt");
+
+        // var circle = document.getElementsByClassName("circle");
+        // circle.background = "FF0000";
+    }
+
+    // var circle_mas = document.querySelectorAll("figure.circle");
+    var circle_mas = document.querySelectorAll("figure.circle");
+    // for(let elem in circle_mas){
+    //     circle_mas[elem].onclick = circleclick;
+        
+    // }
+    circle_mas.forEach(element => {
+        // console.log(element.id);
+        // element.onclick = circleclick;
+
+        // el.onclick = circleclick
+        element.addEventListener('click', function (e) {
+            circle_mas.forEach(el =>{
+                el.style.borderRadius = "50%";
+                element.style.border = "solid black";
+            })
+            element.style.borderRadius = "0%";
+            element.style.border = "solid black";
+        })
+         
+    })
+
+//     function circleclick(circle){
+//         alert("Test")
+//         // var circle = document.getElementsByClassName("circle");
+//         circle.style.backgroundColor = "FFFFFF";
+//     }
+
+//     // var circle_mas = document.querySelectorAll("figure.circle");
+//     var circle_mas = document.querySelectorAll(".circle");
+    
+//     for(let elem in circle_mas){
+//         elem.onclick = circleclick;
+//         elem.addEventListener('click', circleclick(elem), false);
+//         alert(elem);
+//     }
+//     // var frow = document.getElementsByClassName("first_row_color_selector");
+//     // frow.onclick = circleclick
+    
+//     [].forEach.call(circle_mas,function (el){
+//     el.addEventListener('click', function (e) {alert("Test1");el.width = "100px";})
+// });
+
+//     // var circle1 = document.getElementsByTagName("figure");
+//     // function fcircle(){
+//     //     alert("Тестер");
+//     //     circle1.style.opacity = "20%";
+//     // };
+
+//     circle1.onclick = fcircle;
+
+</script>
+{% endblock %}
