@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'corsheaders',
 
     'mainsite',
-
+    'quiz',
+    'multichoice', 
+    'true_false', 
+    'essay'
 ]
 
 MIDDLEWARE = [
