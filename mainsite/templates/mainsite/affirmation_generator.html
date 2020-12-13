@@ -19,7 +19,7 @@
   margin: 5px;
   float: left;
   border: solid black;
-    border-width: 3px;
+    border-width: 1px;
 }
 .color-selector{
     display: block;
@@ -61,17 +61,19 @@ top: 351px; */
 
 }
 .generator-area {
-    width: 100%;
+    width: calc(100% - 200px);
+    display: block;
     height: 100%;
     position: relative;
     top: 0;
     left: 100px;
     overflow: auto;
+    overflow-x: hidden;
     /* max-width: 1280px; */
 
 }
 .image-area {
-    display: inline;
+    display: inline-block;
     width: 100%;
     height: auto;
     position: absolute;
@@ -256,6 +258,7 @@ input {
 
 <div class="generator-content">
     <p class="page-title">Создать аффирмацию</p>
+    
     <div class="generator-area">
         <div class="settings-selector">
             <div class="color-selector">
@@ -263,7 +266,7 @@ input {
                     <figure class="circle" id="FF0000" style="background-color: #FF0000;"></figure>
                 <figure class="circle" id="A90000" style="background-color: #A90000;"></figure>
                 <figure class="circle" id="FF6B00" style="background-color: #FF6B00;"></figure>
-                <figure class="circle" id="FAFF00" style="background-color: #FAFF00;"></figure>
+                <figure class="circle" id="FFFFFF" style="background-color: #FFFFFF;"></figure>
                 <figure class="circle" id="42FF00" style="background-color: #42FF00;"></figure>
                 </div>
                 <div class="row_color_selector">
@@ -281,9 +284,9 @@ input {
                 <figure class="circle" id="417D8F" style="background-color: #417D8F;"></figure>
                 </div>
             </div>
-            <div class="font-selector" >
+            <div class="font-selector" name="font_selector_type">
                 <p class="font-selector-name"><input class="font-selector-item" name="font-type" type="radio" value="Roboto">  Roboto</p>    
-                <p class="font-selector-name"><input class="font-selector-item" name="font-type" type="radio" value="Comic Sans MS">  Comic Sans MS</p>    
+                <p class="font-selector-name"><input class="font-selector-item" name="font-type" type="radio" value="sans-serif">  Comic Sans MS</p>    
                 <p class="font-selector-name"><input class="font-selector-item" name="font-type" type="radio" value="Times New Roman">  Times New Roman</p>    
             </div>
         </div>
@@ -295,7 +298,7 @@ input {
             <div class="background-move-left" id="left-move">
                 <arrow class='left'></arrow>
             </div>
-            <textarea class="inputTextArea" placeholder="Введите ваши мысли"></textarea>>
+            <textarea class="inputTextArea" id="main-inputTextArea" placeholder="Введите ваши мысли"></textarea>>
         </div>
         
     </div>
@@ -312,6 +315,9 @@ input {
 <img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_10.png" %}">
 
 <script>
+    var selected_bg_id = 0;
+    var selected_font = "Roboto";
+    var selected_color = "";
     var images = [
         "{% static "img/images_for_affirmation/bg_1.png" %}",
         "{% static "img/images_for_affirmation/bg_2.png" %}",
@@ -331,8 +337,10 @@ input {
         num++;
         if(num>=images.length){
             num=0;
+            selected_bg_id = 0;
         }
         slider.src=images[num];
+        selected_bg_id = num;
         
     }
     function prev() {
@@ -342,8 +350,10 @@ input {
         num--;
         if(num < 0){
             num = images.length-1;
+            selected_bg_id = images.length-1;
         }
         slider.src = images[num];
+        selected_bg_id = num;
     }
     var right_move = document.getElementById("right-move");
     right_move.onclick = next;
@@ -371,13 +381,47 @@ input {
         element.addEventListener('click', function (e) {
             circle_mas.forEach(el =>{
                 el.style.borderRadius = "50%";
-                element.style.border = "solid black";
+                // element.style.border = "solid black";
+                el.style.borderWidth = "1px";
             })
             element.style.borderRadius = "0%";
             element.style.border = "solid black";
+            selected_color = element.id;
+            txtarea = document.getElementById("main-inputTextArea");
+            txtarea.style.color = "#"+ element.id;
+            console.log(element.id);
         })
          
     })
+    
+
+
+
+
+
+    var radios = document.querySelectorAll(".font-selector-item");
+    // for(let elem in circle_mas){
+    //     circle_mas[elem].onclick = circleclick;
+        
+    // }
+    radios.forEach(elem => {
+        // console.log(element.id);
+        // element.onclick = circleclick;
+
+        // el.onclick = circleclick
+        elem.addEventListener('change', function (e) {
+                selected_font = elem.value;
+                console.log(selected_font);
+                txtarea = document.getElementById("main-inputTextArea");
+                txtarea.style.fontFamily = selected_font;
+
+
+        })
+         
+    })
+
+
+
 
 //     function circleclick(circle){
 //         alert("Test")
