@@ -1,3 +1,0 @@
-[submodule "django_quiz"]
-	path = django_quiz
-	url = https://github.com/MuratovER/django_quiz
