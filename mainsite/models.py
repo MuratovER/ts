@@ -111,6 +111,8 @@ class User_affirmation(models.Model):
     text = models.CharField(max_length=200, blank = True, null = True)
     date_change = models.DateTimeField(blank = True, null = True)
     background_id = models.PositiveSmallIntegerField(blank = True, null = True)
+    color = models.CharField(max_length=6, blank=True, null=True)
+    font_type = models.CharField(max_length=100, blank=True, null=True)
     def __str__(self):
         return self.user.username
     class Meta:

@@ -11,6 +11,8 @@ from django.contrib.auth.models import User
 from .forms import Sphere_of_life_Form
 from django.contrib.auth.decorators import login_required
 from .useful_lib import WheelOfLife, get_affirmation_image
+import datetime
+from django.utils.timezone import make_aware
 from django.http import JsonResponse
 
 
@@ -291,9 +293,10 @@ def user_page(request):
 
     user_affirmation_path = None
     if User_affirmation.objects.filter(user=request.user).exists():
-        user_text = User_affirmation.objects.get(user=request.user).text
-        bg_id = User_affirmation.objects.get(user=request.user).background_id
-        user_affirmation_path = get_affirmation_image.get_image(user_text,user, bg_id)
+        user_obj = User_affirmation.objects.filter(user=request.user).order_by('-id')[:1][0]
+        user_text = user_obj.text
+        bg_id = user_obj.background_id
+        user_affirmation_path = get_affirmation_image.get_image(user_obj)
     return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills, 'sphere' : sphere, 'img': img, 'user_affirmation_path': user_affirmation_path})
 
 
@@ -323,6 +326,21 @@ def signup_view(request):
 
 @login_required
 def affirmation_generator(request):
+    if request.method == "POST":
+        print("AFFIRM TEST :::::::::::", request.POST)
+        # affirmation = User_affirmation.objects.get(name="Первые шаги")
+        # return  render(request, 'mainsite/affirmation_generator.html',)
+        affirmation = User_affirmation(
+            user=request.user,
+            text = request.POST["text"],
+            date_change = make_aware(datetime.datetime.now()),
+            background_id = request.POST["bg_id"],
+            color = request.POST["color"],
+            font_type = request.POST["font-type"]
+        )
+        affirmation.save()
+
+
     return  render(request, 'mainsite/affirmation_generator.html',)
 
 #
