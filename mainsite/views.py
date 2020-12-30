@@ -308,8 +308,8 @@ def signup_view(request):
     if form.is_valid():
         user = form.save()
         user.refresh_from_db()
-        user.profile.first_name = form.cleaned_data.get('first_name')
-        user.profile.last_name = form.cleaned_data.get('last_name')
+        #user.profile.first_name = form.cleaned_data.get('first_name')
+        #user.profile.last_name = form.cleaned_data.get('last_name')
         user.profile.email = form.cleaned_data.get('email')
         user.save()
         username = form.cleaned_data.get('username')
@@ -322,7 +322,8 @@ def signup_view(request):
     return render(request, 'registration/signup.html', {'form': form})  
 
 @login_required
-def affirmation_generator(request):return render_to_response('fileupload/upload.html', {'form': c['UploadFileForm']},  RequestContext(request))
+def affirmation_generator(request):
+    return render_to_response('fileupload/upload.html', {'form': c['UploadFileForm']},  RequestContext(request))
 
 #
 # API FUNCTIONS
