@@ -1,7 +1,7 @@
 {% extends 'mainsite/base.html' %} 
 
 {% block content %}
-<script>
+<--script>
     invitation_code = prompt('Введите код приглашения:',)
     if (invitation_code != 'welcome2topskills')
     {
@@ -12,37 +12,62 @@
     }
     else { 
     }
+</--script>
+<script>
+  function show_hide_password(target){
+  var input = document.getElementById('id_password1', 'id_password2',);
+  if (input.getAttribute('type') == 'password') {
+    target.classList.add('view');
+    input.setAttribute('type', 'text');
+  } else {
+    target.classList.remove('view');
+    input.setAttribute('type', 'password');
+  }
+  return false;
+}
 </script>
 
-
+  
 {% load static %}
-
-
-
-<--h2>Регистрация</--h2> 
 <div class="conteiner">
    <div class="login-tables"> 
-        <img class="DFL" src="https://media.discordapp.net/attachments/745700277004402832/780420125471014932/1.jpg">
-             <form id="regForm" method="post">
+      <form id="regForm" method="post">
+
                 <div style="text-align:center;margin-top:26px; border-image-width: 50px; ">
+                    <span class="step active"></span>
                     <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                </div>
-                {% csrf_token %}  {% for field in form %}
+                    <span class="step"> </span>
+               
+                <input type="hidden" name="csrfmiddlewaretoken" value="zpaiwvYTM6Dq59xYXuTt6qc9U22rkYnNYli3REBvE2DQ8EHtK1lpSEIfzL0rnjBX">    
+                    <p class="tab" style="display: block;">
+                      <img class="DFL" src="https://media.discordapp.net/attachments/745700277004402832/780420125471014932/1.jpg">
+                        <label for="id_username">Имя пользователя:</label><br> {{ form.username }}
+                        <small style="color: grey">  </small>  
+                    </p>
+                
+                    <p class="tab">
+                      <img class="DFL" src="https://media.discordapp.net/attachments/745700277004402832/793115328505970688/No_Messages_-_Empty_Inbox_1_1.jpg">
+                        <label for="id_email">Email:</label><br> {{ form.email }} 
+                        <small style="color: grey">  </small>  
+                    </p>
+                
+                    <p class="tab">
+                       <img class="DFL" src="https://media.discordapp.net/attachments/745700277004402832/793115323456684032/Locked_-_Security_1.jpg">
+                        <label for="id_password1">Пароль:</label><br><img href="#" class="password-control" onclick="return show_hide_password(this);"></img>
+                      {{ form.password1 }}
+                        <small style="color: grey">  </small>  
+                    </p>
                     <p class="tab">
                         {{ field.label_tag }}<br> {{ field }} {% if field.help_text %}
                         <small style="color: grey">  </small> {% endif %} {% for error in field.errors %}
                         <p style="color: red">{{ error }}</p>
                         {% endfor %}
                     </p>
-                {% endfor %}
+                     </div>
                 <div class="next">
-                    <button type="button submit" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    <button type="button submit" id="nextBtn" onclick="nextPrev(1)">Дальше</button>
                 </div>
-                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                    <button type="button submit" id="prevBtn" onclick="nextPrev(-1)" style="display: none;">Назад</button>
         </form>
     </div>
 </div>
