@@ -12,7 +12,7 @@ from .forms import Sphere_of_life_Form
 from django.contrib.auth.decorators import login_required
 from .useful_lib import WheelOfLife, get_affirmation_image
 from django.http import JsonResponse
-
+from django.template import RequestContext
 
 #Basic views begin
 #отправляет расположение разметки страницы в файл url
@@ -322,8 +322,7 @@ def signup_view(request):
     return render(request, 'registration/signup.html', {'form': form})  
 
 @login_required
-def affirmation_generator(request):
-    return  render(request, 'mainsite/affirmation_generator.html',)
+def affirmation_generator(request):return render_to_response('fileupload/upload.html', {'form': c['UploadFileForm']},  RequestContext(request))
 
 #
 # API FUNCTIONS

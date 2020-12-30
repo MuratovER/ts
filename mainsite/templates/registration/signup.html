@@ -13,36 +13,64 @@
     else { 
     }
 </script>
+<script>
+  function show_hide_password(target){
+  var input = document.getElementById('id_password1', 'id_password2',);
+  if (input.getAttribute('type') == 'password') {
+    target.classList.add('view');
+    input.setAttribute('type', 'text');
+  } else {
+    target.classList.remove('view');
+    input.setAttribute('type', 'password');
+  }
+  return false;
+}
+</script>
 
-
+  
 {% load static %}
-
-
-
-<--h2>Регистрация</--h2> 
 <div class="conteiner">
    <div class="login-tables"> 
-        <img class="DFL" src="https://media.discordapp.net/attachments/745700277004402832/780420125471014932/1.jpg">
-             <form id="regForm" method="post">
+      <form id="regForm" method="post">
+
                 <div style="text-align:center;margin-top:26px; border-image-width: 50px; ">
+                    <span class="step active"></span>
                     <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                </div>
-                {% csrf_token %}  {% for field in form %}
+                    <span class="step"> </span>
+                 {% csrf_token %}   
+                    <p class="tab" style="display: block;">
+                      <img class="DFL" src="https://media.discordapp.net/attachments/745700277004402832/780420125471014932/1.jpg">
+                        <label for="id_username">Имя пользователя:</label><br> {{ form.username }}
+                        <small style="color: grey">  </small>  
+                    </p>
+                
+                    <p class="tab">
+                      <img class="DFL" src="https://media.discordapp.net/attachments/745700277004402832/793115328505970688/No_Messages_-_Empty_Inbox_1_1.jpg">
+                        <label for="id_email">Email:</label><br> {{ form.email }} 
+                        <small style="color: grey">  </small>  
+                    </p>
+                
+                    <p class="tab">
+                       <img class="DFL" src="https://media.discordapp.net/attachments/745700277004402832/793115323456684032/Locked_-_Security_1.jpg">
+                        <label for="id_password1">Пароль:</label><br><img href="#" class="password-control" onclick="return show_hide_password(this);"></img>
+                      {{ form.password1 }}
+                        <small style="color: grey">  </small>  
+                    </p>
+                    <p class="tab">
+                         <img class="DFL" src="https://cdn.discordapp.com/attachments/745700277004402832/793924733182803988/Finances_1.jpg">
+                        <label for="id_password1"> Поздравляем </label>
+                    </p>
                     <p class="tab">
                         {{ field.label_tag }}<br> {{ field }} {% if field.help_text %}
                         <small style="color: grey">  </small> {% endif %} {% for error in field.errors %}
                         <p style="color: red">{{ error }}</p>
                         {% endfor %}
                     </p>
-                {% endfor %}
+                     </div>
                 <div class="next">
-                    <button type="button submit" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    <button type="button submit" id="nextBtn" onclick="nextPrev(1)">Дальше</button>
                 </div>
-                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                    <button type="button submit" id="prevBtn" onclick="nextPrev(-1)" style="display:none;">Назад</button>
         </form>
     </div>
 </div>
@@ -138,7 +166,11 @@
             }
 
             #prevBtn {
-              background-color: #bbbbbb;
+              width: 384px;
+              height: 69px;
+              background: #5DA1FB;
+              border-radius: 7px;
+              margin-top: 20px;
             }
 
             /* Make circles that indicate the steps of the form: */
@@ -174,14 +206,19 @@
       //... and fix the Previous/Next buttons:
       if (n == 0) {
         document.getElementById("prevBtn").style.display = "none";
-      } else {
+      } else if ( n == 3) {
+        document.getElementById("prevBtn").style.display = "none";
+      }
+       else {
         document.getElementById("prevBtn").style.display = "inline";
       }
       if (n == (x.length - 1)) {
-        document.getElementById("nextBtn").innerHTML = "Submit";
+        document.getElementById("nextBtn").innerHTML = "Зарегистрироваться";
  
+      } else if ( n == 3) {
+        document.getElementById("nextBtn").innerHTML = "Закончить";  
       } else {
-        document.getElementById("nextBtn").innerHTML = "Next";
+        document.getElementById("nextBtn").innerHTML = "Далее";
       }
 
       //... and run a function that will display the correct step indicator:
