@@ -14,7 +14,7 @@ from .useful_lib import WheelOfLife, get_affirmation_image
 import datetime
 from django.utils.timezone import make_aware
 from django.http import JsonResponse
-
+from django.template import RequestContext
 
 #Basic views begin
 #отправляет расположение разметки страницы в файл url
@@ -311,8 +311,8 @@ def signup_view(request):
     if form.is_valid():
         user = form.save()
         user.refresh_from_db()
-        user.profile.first_name = form.cleaned_data.get('first_name')
-        user.profile.last_name = form.cleaned_data.get('last_name')
+        #user.profile.first_name = form.cleaned_data.get('first_name')
+        #user.profile.last_name = form.cleaned_data.get('last_name')
         user.profile.email = form.cleaned_data.get('email')
         user.save()
         username = form.cleaned_data.get('username')
@@ -342,6 +342,9 @@ def affirmation_generator(request):
 
 
     return  render(request, 'mainsite/affirmation_generator.html',)
+
+   # return render_to_response('fileupload/upload.html', {'form': c['UploadFileForm']},  RequestContext(request))
+
 
 #
 # API FUNCTIONS

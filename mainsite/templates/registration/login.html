@@ -8,7 +8,23 @@
 
 {% load static %}
 
-    
+<script>
+  function show_hide_password(target){
+  var input = document.getElementById('id_password');
+  if (input.getAttribute('type') == 'password') {
+    target.classList.add('view');
+    input.setAttribute('type', 'text');
+  } else {
+    target.classList.remove('view');
+    input.setAttribute('type', 'password');
+  }
+  return false;
+}
+</script>    
+<style>
+
+
+</style>
 <div class="conteiner">
    <div class="login-tables"> 
         <img class="DFL" src="https://cdn.discordapp.com/attachments/745700277004402832/780105259875172362/sign_in.jpg">
@@ -17,18 +33,13 @@
                 <table class="login-form" class="DSS">
                     <h1 class="lws">Приветствуем тебя!</h1>
                         <div> 
-                            <img class="login-form::before" style="width: 30px;
-  position: absolute;
-  font-size: 30px;
-  padding: 10px 0 0 7px;
-  color: #2c536c;" src="{% static "mainsite/person.svg" %}" alt="2">{{ form.username }}
+                          <img class="login-form::before" style="width: 30px; position: absolute;font-size: 30px;padding: 10px 0 0 7px; color: #2c536c;" src="{% static "mainsite/person.svg" %}" alt="2">{{ form.username }}
                         </div>
-                        <div><img class="login-form::before" style="width: 30px;
-  position: absolute;
-  font-size: 30px;
-  padding: 10px 0 0 7px;
-  color: #2c536c;" src="{% static "mainsite/lock.svg" %}" alt="2">{{ form.password }}</td>
-                </table>
+                        <div>
+                          <img class="login-form::before" style="width: 30px;position: absolute;font-size: 30px;padding: 10px 0 0 7px;color: #2c536c;" src="{% static "mainsite/lock.svg" %}" alt="2">
+                          <img href="#" class="password-control" onclick="return show_hide_password(this);"></img>{{ form.password }}
+                        </div> 
+                </table>               
     <div class="dws">
         <label class="" for="" tabindex="25">   
             <input class="DMT" type="checkbox" name="saveauth" checked="checked">&nbsp;Запомнить меня</label>
@@ -37,7 +48,7 @@
         <input class="dws_submit" type="submit" value="Вход" />
     <div class="dws">
        <strong> <a> Впервые тут?</a> </strong>
-        <a class="DLT" href="location.href='/signup/'" >Регистрация</a>
+        <a class="DLT" href="/signup/" >Регистрация</a>
     </div>
         </form>
   </div>  

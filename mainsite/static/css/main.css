@@ -1634,8 +1634,7 @@ blockquote {
   display: grid;
   justify-content: center;
   align-content: center;
-  width: 1920px;
-  height: 1080px;
+  font-size: 1.5em;
   background-image: url("../img/conteiner.jpg");
   /*width:  1920px;*/
   /*height: 1080px;*/
@@ -1702,6 +1701,9 @@ color: #011128;
 }
 .dws {
   padding-top: 50px;
+  font-family: Roboto;
+  font-style: normal;
+    
 }
 .login {
   width: 441px;
@@ -1722,6 +1724,8 @@ color: #011128;
 }
 .lws {
   font-weight: 900;
+  font-family: Roboto;
+  font-style: normal;
 }
 .DFL{
   padding-top: 50px;
@@ -1731,10 +1735,15 @@ color: #011128;
   margin-right: 0px !important;
   margin-bottom: 0px !important;
   margin-left: 0px !important;
+  font-family: Roboto;
+  font-style: normal;
 }
 .DRT {
-  padding-left: 250px; 
+  padding-left: 100px; 
   color: black;
+  font-family: Roboto;
+  font-style: normal;
+  
 }
 .DLT {
   text-decoration: underline;
@@ -1826,4 +1835,67 @@ color: #011128;
   }
 
 }
+.password-control {
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  position: absolute;
+  display: inline-block;
+  background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
+}
+.password-control.view {
+  background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat;
+}
 
+ .larg {
+        position: relative;
+      }
+
+      /* Hide the images by default */
+      .mySlides {
+        display: none;
+      }
+
+      /* Add a pointer when hovering over the thumbnail images */
+      .cursor {
+        cursor: pointer;
+      }
+
+   
+      .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+      }
+
+      /* Container for image text */
+      .caption-container {
+        text-align: center;
+        background-color: #222;
+        padding: 2px 16px;
+        color: white;
+      }
+
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* Six columns side by side */
+      .column {
+        float: left;
+        width: 16.66%;
+      }
+
+      /* Add a transparency effect for thumnbail images */
+      .demo {
+        opacity: 0.6;
+      }
+
+      .active,
+      .demo:hover {
+        opacity: 1;
+}
