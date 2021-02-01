@@ -247,60 +247,110 @@ input {
     padding-top: 130px;
     margin: 0 61px 0 61px;
     align-self: center;
+
+    resize: none;
 }
 
+#selector-Inter {
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
 
+}
+#selector-Montserrat {
+    font-family: Montserrat;
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: 33px;
+letter-spacing: 0em;
+text-align: left;
 
+}
+#selector-Roboto {
+        font-family: Roboto;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+#btnSubmit {
+    position: relative;
+    left:70%;
+    
+}
+#hidden-color-input {
+    opacity: 0%;
+}
+#hidden-bg-input {
+    opacity: 0%;
+}
 </style>
 
+{% if form.errors %}
 
+
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
 
 
 <div class="generator-content">
     <p class="page-title">Создать аффирмацию</p>
-    
-    <div class="generator-area">
-        <div class="settings-selector">
-            <div class="color-selector">
-                <div class="row_color_selector">
-                    <figure class="circle" id="FF0000" style="background-color: #FF0000;"></figure>
-                <figure class="circle" id="A90000" style="background-color: #A90000;"></figure>
-                <figure class="circle" id="FF6B00" style="background-color: #FF6B00;"></figure>
-                <figure class="circle" id="FFFFFF" style="background-color: #FFFFFF;"></figure>
-                <figure class="circle" id="42FF00" style="background-color: #42FF00;"></figure>
+    <form id="generator" method="POST" {% url 'affirmation_generator' %}">
+        <button id="btnSubmit" type="submit">Сохранить</button>
+        {% csrf_token %}
+        <div class="generator-area">
+            <div class="settings-selector">
+                <div class="color-selector">
+                    <div class="row_color_selector">
+                        <figure form="generator" value="FF0000" class="circle" id="FF0000" style="background-color: #FF0000;"></figure>
+                    <figure class="circle" id="A90000" style="background-color: #A90000;"></figure>
+                    <figure class="circle" id="FF6B00" style="background-color: #FF6B00;"></figure>
+                    <figure class="circle" id="FFFFFF" style="background-color: #FFFFFF;"></figure>
+                    <figure class="circle" id="42FF00" style="background-color: #42FF00;"></figure>
+                    </div>
+                    <div class="row_color_selector">
+                    <figure class="circle" id="00903A" style="background-color: #00903A;"></figure>
+                    <figure class="circle" id="085125" style="background-color: #085125;"></figure>
+                    <figure class="circle" id="1CDB96" style="background-color: #1CDB96;"></figure>
+                    <figure class="circle" id="00BFB4" style="background-color: #00BFB4;"></figure>
+                    <figure class="circle" id="0096EB" style="background-color: #0096EB;"></figure>
+                    </div>
+                    <div class="row_color_selector">
+                    <figure class="circle" id="1400FF" style="background-color: #1400FF;"></figure>
+                    <figure class="circle" id="CB00FE" style="background-color: #CB00FE;"></figure>
+                    <figure class="circle" id="FF6BE7" style="background-color: #FF6BE7;"></figure>
+                    <figure class="circle" id="FF2F6D" style="background-color: #FF2F6D;"></figure>
+                    <figure class="circle" id="417D8F" style="background-color: #417D8F;"></figure>
+                    </div>
+                    <input id="hidden-color-input" form="generator" name="color" value="000000">
+                    <input id="hidden-bg-input"  form="generator" name="bg_id" value=1>
+
                 </div>
-                <div class="row_color_selector">
-                <figure class="circle" id="00903A" style="background-color: #00903A;"></figure>
-                <figure class="circle" id="085125" style="background-color: #085125;"></figure>
-                <figure class="circle" id="1CDB96" style="background-color: #1CDB96;"></figure>
-                <figure class="circle" id="00BFB4" style="background-color: #00BFB4;"></figure>
-                <figure class="circle" id="0096EB" style="background-color: #0096EB;"></figure>
-                </div>
-                <div class="row_color_selector">
-                <figure class="circle" id="1400FF" style="background-color: #1400FF;"></figure>
-                <figure class="circle" id="CB00FE" style="background-color: #CB00FE;"></figure>
-                <figure class="circle" id="FF6BE7" style="background-color: #FF6BE7;"></figure>
-                <figure class="circle" id="FF2F6D" style="background-color: #FF2F6D;"></figure>
-                <figure class="circle" id="417D8F" style="background-color: #417D8F;"></figure>
+                <div class="font-selector" name="font_selector_type">
+                    <p class="font-selector-name" id="selector-Roboto"><input form="generator" class="font-selector-item" name="font-type" type="radio" value="Roboto">  Roboto</p>    
+                    <p class="font-selector-name" id="selector-Inter"><input form="generator" class="font-selector-item" name="font-type" type="radio" value="Inter">  Inter</p>    
+                    <p class="font-selector-name" id="selector-Montserrat"><input form="generator" class="font-selector-item" name="font-type" type="radio" value="Montserrat">  Montserrat</p>    
                 </div>
             </div>
-            <div class="font-selector" name="font_selector_type">
-                <p class="font-selector-name"><input class="font-selector-item" name="font-type" type="radio" value="Roboto">  Roboto</p>    
-                <p class="font-selector-name"><input class="font-selector-item" name="font-type" type="radio" value="sans-serif">  Comic Sans MS</p>    
-                <p class="font-selector-name"><input class="font-selector-item" name="font-type" type="radio" value="Times New Roman">  Times New Roman</p>    
+            <div class="image-area">
+                <img id="bgslider" class="background-slider" src="{% static "img/images_for_affirmation/bg_1.png" %}">
+                <div class="background-move-right" id="right-move">
+                    <arrow class='right'></arrow>
+                </div>
+                <div class="background-move-left" id="left-move">
+                    <arrow class='left'></arrow>
+                </div>
+                <textarea form="generator" class="inputTextArea" id="main-inputTextArea" placeholder="Введите ваши мысли" wrap="hard" name="text" autofocus></textarea>>
             </div>
-        </div>
-        <div class="image-area">
-            <img id="bgslider" class="background-slider" src="{% static "img/images_for_affirmation/bg_1.png" %}">
-            <div class="background-move-right" id="right-move">
-                <arrow class='right'></arrow>
-            </div>
-            <div class="background-move-left" id="left-move">
-                <arrow class='left'></arrow>
-            </div>
-            <textarea class="inputTextArea" id="main-inputTextArea" placeholder="Введите ваши мысли"></textarea>>
-        </div>
-        
+    </form>
     </div>
 </div>
 <img class="hidden-collection" src="{% static "img/images_for_affirmation/bg_1.png" %}">
@@ -341,6 +391,8 @@ input {
         }
         slider.src=images[num];
         selected_bg_id = num;
+        fontSelector = document.getElementById("hidden-bg-input");
+        fontSelector.value = selected_bg_id;
         
     }
     function prev() {
@@ -354,6 +406,8 @@ input {
         }
         slider.src = images[num];
         selected_bg_id = num;
+        fontSelector = document.getElementById("hidden-bg-input");
+        fontSelector.value = selected_bg_id;
     }
     var right_move = document.getElementById("right-move");
     right_move.onclick = next;
@@ -390,6 +444,9 @@ input {
             txtarea = document.getElementById("main-inputTextArea");
             txtarea.style.color = "#"+ element.id;
             console.log(element.id);
+            colorSelector = document.getElementById("hidden-color-input");
+            colorSelector.value = element.id;
+
         })
          
     })
