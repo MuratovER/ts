@@ -402,22 +402,18 @@
            <p class="friends-more">Показать больше друзей</p>
     </div>
   </div>
-  
   <div class="grid-col">
     <div class="calendar-section">
       <div class="calendar-col calendar">
-      
         <button class='calendar-btn'><img src="img/calendar2.png" alt=""></button>
         <table id="calendar2">
           <thead>
             <tr><td><button class='calendar-arrow prev-arrow'><img src="img/prev-arrow.png" alt="">
             </button><td class='month' colspan="5"><td>
               <button class='calendar-arrow  next-arrow'><img src="img/next-arrow.png" alt=""></button>
-            <tr><td>Пн<td>Вт<td>Ср<td>Чт<td>Пт<td>Сб<td>Вс
+            <tr class='weekDay'><td>Пн<td>Вт<td>Ср<td>Чт<td>Пт<td>Сб<td>Вс
           <tbody>
         </table>
-        
-     
       </div>
       <div class="calendar-col">
         <div class="calendar-case-headline">
@@ -508,9 +504,57 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
+  <div class="grid-col">
+    <div id="lifeWheelSection">
+      <div id="lifeWheelHeader">
+        <p id='lifeWheelHeaderTxt'>Колесо жизни</p>
+        <button class='lifeWheelBtn lifeWheelReverseBtn'>
+          <img src="img/reverse.png" alt="">
+        </button>
+        <button class='lifeWheelBtn lifeWheelCopyBtn'>
+          <img src="img/copy.png" alt="">
+        </button>
+      </div>
+      <div id="lifeWheelInfo">
+        <div class="lifeWheelCoef">
+          <div class="coef-col">
+            <p class='coefTxt'>Коэффициент отношений:.................................</p>
+            <p class='coefPoint'> 5</p>
+          </div>
+          <div class="coef-col">
+            <p class='coefTxt'>Коэффициент учебы:..........................................</p>
+            <p class='coefPoint'> 5</p>
+          </div>
+          <div class="coef-col">
+            <p class='coefTxt'>Коэффициент внутреннего мира:.................... </p>
+            <p class='coefPoint'> 5</p>
+          </div>
+          <div class="coef-col">
+            <p class='coefTxt'>Коэффициент здоровья:................................... </p>
+            <p class='coefPoint'> 5</p>
+          </div>
+          <div class="coef-col">
+            <p class='coefTxt'>Последнее обновление:....................................</p>
+            <p class='coefPoint'> 03.02.2021</p>
+          </div>
+        </div>
+        <div id="lifeWheelChar">
+          
+            <p class='ten horizontalLeftTen'>10</p>
+            <div class="horizontalLine"></div>
+            <p class='ten horizontaRightlTen'>10</p>
+          
+          
+            <p class='ten verticalTopTen'>10</p>
+            <div class="verticalLine"></div>
+            <p class='ten verticalBotTen'>10</p>
 
+        </div>
+      </div>
+    </div>
+  </div>
+   
+</section>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
