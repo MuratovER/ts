@@ -34,27 +34,36 @@
 
   <body>
     <header id='header'>
-      <div class="logoContainer">      
-        <a href="{% url 'logout' %}" class="name">TopSkills</a>
-        <p class="nameDescripton">Фабрика твоих успехов</p>
+      <div class="header--container"> 
+        <div class="header--flex">  
+          <div class="header--logo">   
+            <img src="../../static/mainsite/home/img_for_new_version/Logo.png" alt="">
+            <a href="{% url 'logout' %}" class="name">TopSkills</a>
+          </div>
+
+        <nav class='menu'>
+          <a href="{% url 'home_page' %}" class="header-a">Главная</a>
+          <a href="#" class="header-a">Профиль</a>
+          <a href="#" class="header-a">Дерево развития</a>
+        </nav>
+       
+        <div class="header--btns">
+          {% if user.is_authenticated %}
+            <button type="sumbit" onclick="location.href='{% url 'logout' %}'" class='header--change--btn headerExit'>Выход</button>
+            <!--
+            <button type="sumbit" onclick="location.href='{% url 'tree' %}'" class='headerBtn headerBtnMenu'></button>
+            -->
+            <button type="sybmit" class='header--btn header--btn-search'></button>
+            <button type="sybmit" class='header--btn header--btn-notification'></button>
+            <button type="sumbit" onclick="location.href='{% url 'user_page' %}'" class='header--btn header--btn-user'></button>
+          {% else %}
+            <button type="sumbit" onclick="location.href='{% url 'login' %}'" class='header--change--btn headerEnter'>Войти</button>
+            <button type="sumbit" onclick="location.href='{% url 'signup' %}'" class='header--change--btn headerRegister'>Регистрация</button>
+          {% endif %}
+        </div>
+        </div>
       </div>
-
-      <nav class='menu'>
-        <a href="{% url 'home_page' %}" class="header-a">Главная</a>
-        <a href="#" class="header-a">Новости</a>
-        <a href="#" class="header-a">О нас</a>
-      </nav>
     
-      {% if user.is_authenticated %}
-        <button type="sumbit" onclick="location.href='{% url 'logout' %}'" class='headerExit'>Выход</button>
-        <button type="sumbit" onclick="location.href='{% url 'user_page' %}'" class='headerBtn headerBtnUser'></button>
-        <button type="sumbit" onclick="location.href='{% url 'tree' %}'" class='headerBtn headerBtnMenu'></button>
-        <button class='headerBtn headerBtnTimer'></button>
-      {% else %}
-        <button type="sumbit" onclick="location.href='{% url 'login' %}'" class='headerEnter'>Войти</button>
-        <button type="sumbit" onclick="location.href='{% url 'signup' %}'" class='headerRegister'>Регистрация</button>
-      {% endif %}
-
 
       <!-- Old code -->
 
