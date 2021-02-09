@@ -44,6 +44,9 @@ def help_view(request):
 @login_required
 def skills(request):
     return render(request, 'mainsite/skills.html',)
+    
+def aboutus(request):
+    return render(request, 'mainsite/aboutus.html',)    
 
 @login_required
 def introduction_view(request):
