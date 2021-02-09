@@ -42,7 +42,8 @@
       <nav class='menu'>
         <a href="{% url 'home_page' %}" class="header-a">Главная</a>
         <a href="#" class="header-a">Новости</a>
-        <a href="#" class="header-a">О нас</a>
+        <a href="{% url 'aboutus' %}" class="header-a">О нас</a>
+        <a href="#" class="header-a">Разработчикам</a>
       </nav>
     
       {% if user.is_authenticated %}
@@ -52,7 +53,7 @@
         <button class='headerBtn headerBtnTimer'></button>
       {% else %}
         <button type="sumbit" onclick="location.href='{% url 'login' %}'" class='headerEnter'>Войти</button>
-        <button type="sumbit" onclick="location.href='{% url 'signup' %}'" class='headerRegister'>Регистрация</button>
+        <!--button type="sumbit" onclick="location.href='{% url 'signup' %}'" class='headerRegister'>Регистрация</button!-->
       {% endif %}
 
 
