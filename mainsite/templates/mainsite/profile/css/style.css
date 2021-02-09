@@ -141,6 +141,7 @@
       -ms-flex-align: center;
           align-items: center;
   margin-left: 23%;
+  background: red;
 }
 
 .header-info-userName {

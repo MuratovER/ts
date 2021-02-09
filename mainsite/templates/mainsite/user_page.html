@@ -6,45 +6,47 @@
 
 <title>Профиль</title>
 
-<section id='profile-settings'>
-
-  <div class="header-menu-col header-menu-profile-log">
-    <img src='{% static "mainsite/profile/img/profile-img.png" %}' alt="">
-  </div>
-
-
+<section id='profile-header'>
 <div class="header-info">
-  <div class="header-info-col">
-      
+      <div class="header-info-flex">
         <div class="gol_icon">
           <img src='{% static "mainsite/profile/img/Profile-photo.png" %}' class='header-profile-img' alt="">
           <button class='changePhoto'>
             <img src='{% static "mainsite/profile/img/image_alt.png" %}' alt="">
           </button>
         </div>
-      <div class="header-flex-col">
-        <p class="header-info-userName">Абракадабра</p>
-        <p class="header-info-userId">@abrrakadobra116</p>
-        <p class="header-info-user-quote">Вдохновение — это такая гостья, которая не любит посещать ленивых. 
-          Пётр Ильич Чайковский русский композитор </p>
+     
+          <p class="header-info-userName">Абракадабра</p>
+          <p class="header-info-userId">@abrrakadobra116</p>
+          <p class="header-info-user-quote">Вдохновение — это такая гостья, которая не любит посещать ленивых. <br>
+            Пётр Ильич Чайковский русский композитор 
+          </p>
       </div>
-    </div>
-
-
-  <div class="header-info-col">
-  <div class="Profile-buttons">
-    <button class='profile-btn'>
+  <div class="profile-buttons">
+    <button class='profile-btn profile-btn-message'>
       <img src='{% static "mainsite/profile/img/mail.png" %}' alt="">
     </button>
-    <button class='profile-btn'>
+    <div class="hint hint--message">
+      <p class="hint--txt">Сообщение</p>
+    </div>
+    <button class='profile-btn profile-btn-calendar'>
       <img src='{% static "mainsite/profile/img/calendar.png" %}' alt="">
     </button>
-    <button class='profile-btn'>
+    <div class="hint hint--callendar">
+      <p class="hint--txt hint--txt--calendar">Календарь</p>
+    </div>
+    <button class='profile-btn profile-btn-setting'>
       <img src='{% static "mainsite/profile/img/settings.png" %}' alt="">
     </button>
-    <button class='profile-btn'>
+    <div class="hint hint--settings">
+      <p class="hint--txt hint--txt--settings">Настройки</p>
+    </div>
+    <button class='profile-btn profile-btn-statics'>
       <img src='{% static "mainsite/profile/img/bar_chart.png" %}' alt="">
     </button>
+    <div class="hint hint--statics">
+      <p class="hint--txt hint--txt--statics">Настройки</p>
+    </div>
     <button class='profile-btn'>
       <img src='{% static "mainsite/profile/img/arrow_down.png" %}' alt="">
     </button>
@@ -52,7 +54,8 @@
 </div>
 </div>
 
-
+</section>
+<section id='profile--info'>
   <div class="profile-grid">
     <div class="grid-col">
       <div class="profile-info-container">
@@ -150,7 +153,7 @@
             <img src='{% static "mainsite/profile/img/gallery 3 col 2.png" %}' class='gallery3'alt="">
           </div>
         </div>
-        <p class="gallery-more-img">Показать больше картинок</p>
+        <button class="gallery-more-img">Показать больше картинок</button>
       </div>
     </div>
     <div class="grid-col">
@@ -363,7 +366,7 @@
             </div>
             </div>  
           </div>
-          <p class="friends-more">Показать больше друзей</p>
+          <button class="friends-more">Показать больше друзей</button>
     </div>
   </div>
   <div class="grid-col">
@@ -490,11 +493,11 @@
             <p class='coefPoint'> 5</p>
           </div>
           <div class="coef-col">
-            <p class='coefTxt'>Коэффициент внутреннего мира:.................... </p>
+            <p class='coefTxt'>Коэффициент внутреннего мира:....................</p>
             <p class='coefPoint'> 5</p>
           </div>
           <div class="coef-col">
-            <p class='coefTxt'>Коэффициент здоровья:................................... </p>
+            <p class='coefTxt'>Коэффициент здоровья:....................................</p>
             <p class='coefPoint'> 5</p>
           </div>
           <div class="coef-col">
