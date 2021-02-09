@@ -41,14 +41,8 @@
             <a href="{% url 'logout' %}" class="name">TopSkills</a>
           </div>
 
-      <nav class='menu'>
-        <a href="{% url 'home_page' %}" class="header-a">Главная</a>
-        <a href="#" class="header-a">Новости</a>
-        <a href="{% url 'aboutus' %}" class="header-a">О нас</a>
-        <a href="#" class="header-a">Разработчикам</a>
-      </nav>
     
-      {% if user.is_authenticated %}
+<!--       {% if user.is_authenticated %}
         <button type="sumbit" onclick="location.href='{% url 'logout' %}'" class='headerExit'>Выход</button>
         <button type="sumbit" onclick="location.href='{% url 'user_page' %}'" class='headerBtn headerBtnUser'></button>
         <button type="sumbit" onclick="location.href='{% url 'tree' %}'" class='headerBtn headerBtnMenu'></button>
@@ -56,7 +50,29 @@
       {% else %}
         <button type="sumbit" onclick="location.href='{% url 'login' %}'" class='headerEnter'>Войти</button>
         <!--button type="sumbit" onclick="location.href='{% url 'signup' %}'" class='headerRegister'>Регистрация</button!-->
-      {% endif %}
+      {% endif %} -->
+
+        <nav class='menu'>
+          <a href="{% url 'home_page' %}" class="header-a">Главная</a>
+          <a href="#" class="header-a">Профиль</a>
+          <a href="{% url 'aboutus' %}" class="header-a">О нас</a>
+          <a type="sumbit" onclick="location.href='{% url 'tree' %}'" class="header-a">Дерево развития</a>
+        </nav>
+       
+        <div class="header--btns">
+          {% if user.is_authenticated %}
+            <button type="sumbit" onclick="location.href='{% url 'logout' %}'" class='header--change--btn headerExit'>Выход</button>
+            <!--
+            <button type="sumbit" onclick="location.href='{% url 'tree' %}'" class='headerBtn headerBtnMenu'></button>
+            -->
+            <button type="sybmit" class='header--btn header--btn-search'></button>
+            <button type="sybmit" class='header--btn header--btn-notification'></button>
+            <button type="sumbit" onclick="location.href='{% url 'user_page' %}'" class='header--btn header--btn-user'></button>
+          {% else %}
+            <button type="sumbit" onclick="location.href='{% url 'login' %}'" class='header--change--btn headerEnter'>Войти</button>
+            <button type="sumbit" onclick="location.href='{% url 'signup' %}'" class='header--change--btn headerRegister'>Регистрация</button>
+          {% endif %}
+
         </div>
         </div>
       </div>
@@ -145,24 +161,25 @@
             </div>
         </div> -->
 
+
     <footer id='footer'>
 
       <div class="footerGrid">
         
         <div class="footerCol">
           <p class="footerPhone">+7 (777) 777-77-77</p>
-          <img class='footerLogo'src='{% static "img/logo.png" %}' alt="">
+          <img class='footerLogo'src='{% static "../static/mainsite/home/logo.png" %}' alt="">
 
           <div class="row footerFirstRow">
-            <a href="#" class='footerSocial'><img src='{% static "img/vk.png" %}' alt=""></a>
-            <a href="#" class='footerSocial'><img src='{% static "img/instagram.png" %}' alt=""></a>
-            <a href="#" class='footerSocial'><img src='{% static "img/facebook.png" %}' alt=""></a>
-            <a href="#" class='footerSocial'><img src='{% static "img/youtube.png" %}' alt=""></a>
-            <a href="#" class='footerSocial'><img src='{% static "img/google.png" %}' alt=""></a>
+            <a href="#" class='footerSocial'><img src='{% static "../static/mainsite/home/vk.png" %}' alt=""></a>
+            <a href="#" class='footerSocial'><img src='{% static "../static/mainsite/home/instagram.png" %}' alt=""></a>
+            <a href="#" class='footerSocial'><img src='{% static "../static/mainsite/home/facebook.png" %}' alt=""></a>
+            <a href="#" class='footerSocial'><img src='{% static "../static/mainsite/home/youtube.png" %}' alt=""></a>
+            <a href="#" class='footerSocial'><img src='{% static "../static/mainsite/home/google.png" %}' alt=""></a>
           </div>
 
           <p class="footerSupport">При поддержке КНИТУ-КАИ</p>
-          <img src='{% static "img/kaiLogo.png" %}' alt="" class="footerKaiIcon">
+          <img src='{% static "../static/mainsite/home/kaiLogo.png" %}' alt="" class="footerKaiIcon">
         </div>
 
         <div class="footerCol">
