@@ -3,36 +3,43 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-
-#header {
-  width: 100%;
-  background: #569EFF;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  justify-content: space-between;
-  display: flex;
-  font-display: row;
-  height: 153px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+/*new header*/
+.header--container { 
+  width: 1426px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 34px;
+  
 }
-
-.logoContainer {
+.header--flex {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
-
+.header--logo {
+  position: absolute;
+  left: 27px;
+}
 .name {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: bold;
-  font-size: 27px;
-  line-height: 32px;
-  /* identical to box height */
-  color: #FFFFFF;
-  margin-top: 37px;
-  margin-left: 28px;
+  font-size: 12.0816px;
+  line-height: 154.19%;
+  /* identical to box height, or 19px */
+  color: #000000;
+  margin-left: 7px;
 }
+.menu {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  gap: 64px
+}
+
+
 
 .nameDescripton {
   font-family: "Roboto";
@@ -41,18 +48,11 @@ body {
   font-size: 9.5px;
   line-height: 11px;
   color: #FFFFFF;
-  /* position: absolute; */
-  /* margin-top: 69px; */
+  
   margin-left: 32px;
 }
 
-.menu {
-  margin-top: 54px;
-  display: flex;
-  flex-direction: row;
-  /* margin-left: 35%; */
-  text-align: center;
-}
+
 
 .header-a {
   font-family: "Roboto";
@@ -60,172 +60,86 @@ body {
   font-weight: bold;
   font-size: 18px;
   line-height: 21px;
-  /* identical to box height */
-  color: #FFFFFF;
-  margin-right: 68px;
-  text-decoration: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(white));
-  background-image: linear-gradient(white);
+  
+  color: #000000;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(black));
+  background-image: linear-gradient(black);
   background-position: 0% 100%;
   background-repeat: no-repeat;
   background-size: 0% 2px;
   -webkit-transition: background-size .3s;
   transition: background-size .3s;
+  
 }
 
 .header-a:hover {
   background-size: 100% 2px;
-  text-decoration: underline;
-  color: #FFFFFF;
+  color: #000000;
+  text-decoration: none;
+}
+.header--btns {
+  position: absolute;
+  right:12px;
+}
+.header--change--btn {
+  height: 36px;
 
+  border: 1px solid white;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 21px;
+  padding: 8px 29px 7px 30px;
+  background-color: #569EFF;
+  color: white;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+}
+.header--change--btn:hover {
+  background-color: #fff;
+  color: #569EFF;
+  -webkit-transition: 1s;
+  transition: 1s;
+  outline: none;
 }
 
-.header-a:last-child {
-  margin-right: 0px;
+.header--change--btn:focus {
+  outline: none;
 }
-
 .headerEnter {
-  height: 36px;
-  margin-top: 48px;
-  /* margin-left: 160px; */
-  border: 1px solid white;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border-radius: 21px;
-  padding: 8px 29px 7px 30px;
-  background-color: #569EFF;
-  color: white;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 21px;
-  margin-right: 21px;
+  margin-right: 31px;
 }
-
-.headerEnter:hover {
-  background-color: #fff;
-  color: #569EFF;
-  -webkit-transition: 1s;
-  transition: 1s;
-  outline: none;
-}
-.headerEnter:active {
-  outline: none;
-}
-.headerRegister {
-  height: 36px;
-  margin-top: 48px;
-  margin-left: 10px;
-  border: 1px solid white;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border-radius: 21px;
-  padding: 8px 29px 7px 30px;
-  background-color: #569EFF;
-  color: white;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 21px;
-  margin-right: 21px;
-}
-
-.headerRegister:hover {
-  background-color: #fff;
-  color: #569EFF;
-  -webkit-transition: 1s;
-  transition: 1s;
-  outline: none;
-}
-
-.headerRegister:active {
-  outline: none;
-}
-
 .headerExit {
-  height: 36px;
-  margin-top: 48px;
-  margin-left: 100px;
-  border: 1px solid white;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border-radius: 21px;
-  padding: 8px 29px 7px 30px;
-  background-color: #569EFF;
-  color: white;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 21px;
   margin-right: 21px;
 }
 
-.headerExit:hover {
-  background-color: #fff;
-  color: #569EFF;
-  -webkit-transition: 1s;
-  transition: 1s;
-}
-
-.headerBtn {
+.header--btn {
   background: none;
   border: 0px;
+  -webkit-transition: background .3s;
+  transition: background .3s;
+  background-repeat: no-repeat;
+  width: 18px;
+  height: 19px;
 }
 
-.headerBtn:last-child {
-  margin-right: 50px;
+.header--btn-user {
+  margin-left: 29px;
+  background-image: url(../home/img_for_new_version/user.png);
+}
+.header--btn-search {
+  background-image: url(../home/img_for_new_version/search.png);
+}
+.header--btn-notification {
+  margin-left: 30px;
+  background-image: url(../home/img_for_new_version/notification.png);
 }
 
-.headerBtnUser {
-  margin-top: 55px;
-  margin-right: 42px;
-  margin-left: 100px;
-  background-image: url(../home/user.png);
-  width: 22px;
-  height: 22px;
-}
 
-.headerBtnUser:hover {
-  background-image: url(../home/userHover.png);
-  width: 22px;
-  height: 22px;
-  -webkit-transition: .3s;
-  transition: .3s;
-}
 
-.headerBtnMenu {
-  margin-right: 24px;
-}
 
-.headerBtnMenu {
-  margin-top: 49px;
-  background-image: url(../home/menu-logo.png);
-  width: 40px;
-  height: 40px;
-}
-
-.headerBtnMenu:hover {
-  background-image: url(../home/menuHover.png);
-  -webkit-transition: .3s;
-  transition: .3s;
-}
-
-.headerBtnTimer {
-  margin-top: 50px;
-  background-image: url(../home/timer-logo.png);
-  width: 33px;
-  height: 33px;
-  margin-right: 0px;
-}
-
-.headerBtnTimer:hover {
-  background-image: url(../home/timerHover.png);
-  -webkit-transition: .3s;
-  transition: .3s;
-}
 
 /* MAINPAGE * / */
 #mainPage {

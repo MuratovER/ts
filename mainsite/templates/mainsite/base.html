@@ -34,10 +34,12 @@
 
   <body>
     <header id='header'>
-      <div class="logoContainer">      
-        <a href="{% url 'logout' %}" class="name">TopSkills</a>
-        <p class="nameDescripton">Фабрика твоих успехов</p>
-      </div>
+      <div class="header--container"> 
+        <div class="header--flex">  
+          <div class="header--logo">   
+            <img src="../../static/mainsite/home/img_for_new_version/Logo.png" alt="">
+            <a href="{% url 'logout' %}" class="name">TopSkills</a>
+          </div>
 
       <nav class='menu'>
         <a href="{% url 'home_page' %}" class="header-a">Главная</a>
@@ -55,6 +57,10 @@
         <button type="sumbit" onclick="location.href='{% url 'login' %}'" class='headerEnter'>Войти</button>
         <!--button type="sumbit" onclick="location.href='{% url 'signup' %}'" class='headerRegister'>Регистрация</button!-->
       {% endif %}
+        </div>
+        </div>
+      </div>
+    
 
 
       <!-- Old code -->
