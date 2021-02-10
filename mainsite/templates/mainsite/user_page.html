@@ -16,8 +16,8 @@
           </button>
         </div>
      
-          <p class="header-info-userName">Абракадабра</p>
-          <p class="header-info-userId">@abrrakadobra116</p>
+          <p class="header-info-userName">{{ user.first_name }} {{ user.last_name }}</p>
+          <p class="header-info-userId">@{{ user }}</p>
           <p class="header-info-user-quote">Вдохновение — это такая гостья, которая не любит посещать ленивых. <br>
             Пётр Ильич Чайковский русский композитор 
           </p>
@@ -66,8 +66,9 @@
         <div class="profile-info-line"></div>
         <div class="profile-info-grid">
           <div class="profile-info-box">
-            <p class="profile-info">Подписчиков:</p>
-            <p class="profile-info">Друзей:</p>
+            <!-- <p class="profile-info">Подписчиков:</p>
+            <p class="profile-info">Друзей:</p> -->
+            <p class="profile-info">E-mail:</p>
             <p class="profile-info">Дата регистрации:</p>
             <p class="profile-info">Уровень</p>
             <p class="profile-info">Всего выполненных заданий:</p>
@@ -78,16 +79,17 @@
             <p class="profile-info">Языки:</p>
           </div>
           <div class="profile-info-box profile-info-txt-box">
-            <p class="profile-info-txt">999k</p>
-            <p class="profile-info-txt">999k</p>
-            <p class="profile-info-txt"> 1 января 2021г.</p>
-            <p class="profile-info-txt">999к</p>
-            <p class="profile-info-txt">999к</p>
+            <!-- <p class="profile-info-txt">999k</p>
+            <p class="profile-info-txt">999k</p> -->
+            <p class="profile-info-txt"> {{ user.email }} </p>
+            <p class="profile-info-txt"> {{ user.date_joined }}  </p>
+            <p class="profile-info-txt">80</p>
+            <p class="profile-info-txt">1000</p>
             <p class="profile-info-txt">г. Казань, Россия</p>
             <p class="profile-info-txt"> 1 января 2021г.</p>
             <p class="profile-info-txt">Телефон: 89826716241</p>
             <p class="profile-info-txt">КНИТУ КАИ им. Туполева</p>
-            <p class="profile-info-txt">Русский, Татарский, Английский, Турецкий, Немецкий, Индийский, Китайский, Монгольский</p>
+            <p class="profile-info-txt">Татарский, Русский, Английский</p>
           </div>
         </div>
       </div>
@@ -137,7 +139,7 @@
     <div class="grid-col">
       <div class="gallerry">
         <img src='{% static "mainsite/profile/img/3dots.png" %}' alt="" id="gallety-dots">
-        <p class="gallery-title">Моя галлерея: 999к фото</p>
+        <p class="gallery-title">Моя галлерея: 12 фото</p>
         <div class="gallery-grid">
           <div class="gallery-col">
             <img src='{% static "mainsite/profile/img/gallery 1 col 1.png" %}' alt="">
@@ -172,7 +174,6 @@
           </button>
         </div>
         
-      
         <div class="skills-flex row">
           <div class="skills-col skills-col-1">
             <p class="skill-name">Скорость выполнения работы:</p>
@@ -483,38 +484,45 @@
         </button>
       </div>
       <div id="lifeWheelInfo">
-        <div class="lifeWheelCoef">
-          <div class="coef-col">
-            <p class='coefTxt'>Коэффициент отношений:.................................</p>
-            <p class='coefPoint'> 5</p>
-          </div>
-          <div class="coef-col">
-            <p class='coefTxt'>Коэффициент учебы:..........................................</p>
-            <p class='coefPoint'> 5</p>
-          </div>
-          <div class="coef-col">
-            <p class='coefTxt'>Коэффициент внутреннего мира:....................</p>
-            <p class='coefPoint'> 5</p>
-          </div>
-          <div class="coef-col">
-            <p class='coefTxt'>Коэффициент здоровья:....................................</p>
-            <p class='coefPoint'> 5</p>
-          </div>
-          <div class="coef-col">
-            <p class='coefTxt'>Последнее обновление:....................................</p>
-            <p class='coefPoint'> 03.02.2021</p>
-          </div>
+            <div class="lifeWheelCoef">
+          {% if sphere == None %}
+            <p> -- </p>
+          {% else %}
+            <div class="coef-col">
+              <p class='coefTxt'>Коэффициент отношений:.................................</p>
+              <p class='coefPoint'>{{ sphere.relationships}}</p>
+            </div>
+            <div class="coef-col">
+              <p class='coefTxt'>Коэффициент учебы:..........................................</p>
+              <p class='coefPoint'>{{ sphere.career}}</p>
+            </div>
+            <div class="coef-col">
+              <p class='coefTxt'>Коэффициент внутреннего мира:....................</p>
+              <p class='coefPoint'>{{ sphere.inside_world }}</p>
+            </div>
+            <div class="coef-col">
+              <p class='coefTxt'>Коэффициент здоровья:....................................</p>
+              <p class='coefPoint'>{{ sphere.health}}</p>
+            </div>
+            <div class="coef-col">
+              <p class='coefTxt'>Последнее обновление:....................................</p>
+              <p class='coefPoint'> 03.02.2021</p>
+            </div>
+          {% endif%}
         </div>
         <div id="lifeWheelChar">
+          {% if img %}
+            <img src="../static/mainsite/images/wheeloflife/png/{{ img }}.png">
+          {% endif %}
           
-            <p class='ten horizontalLeftTen'>10</p>
+            <!-- <p class='ten horizontalLeftTen'>10</p>
             <div class="horizontalLine"></div>
             <p class='ten horizontaRightlTen'>10</p>
           
           
             <p class='ten verticalTopTen'>10</p>
             <div class="verticalLine"></div>
-            <p class='ten verticalBotTen'>10</p>
+            <p class='ten verticalBotTen'>10</p> -->
 
         </div>
       </div>
