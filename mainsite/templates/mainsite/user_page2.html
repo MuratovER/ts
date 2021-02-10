@@ -1,0 +1,97 @@
+{% extends 'mainsite/base.html' %}
+{% load static %}
+{% block content %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+
+<div class="user-page">
+         <div class="user-info">
+         <div class="img-user-page">
+             <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fpaomedia%2Fsmall-n-flat%2F1024%2Fuser-male-icon.png&f=1&nofb=1" width="200" height="222" alt="photo" class="image">
+         </div>
+
+         <div class="container" style="width: 100%;">
+
+
+               <h1>Профиль пользователя</h1>
+               <p>Username: {{ user }}</p>
+                <p>Имя: {{ user.first_name }}</p>
+                <p>Фамилия: {{ user.last_name }}</p>
+                <p>E-mail: {{ user.email }}</p>
+         </div>
+         </div>
+
+
+         <div class="user-page-tables" style="width: 100%;">
+
+             <div class="user-page-skill-progress">
+                <h2>Навыки в прогрессе</h2>
+             </div>
+
+             <div class="user-page-achivements">
+                <h2>Достижения</h2>
+                {% for achivement in achivements %}
+                    <p>Название достижения : {{ achivement.achivement.name}} </p>
+                    <p>Описание достижения: {{ achivement.achivement.description}}</p>
+                    <p>Уровень достижения : {{ achivement.achivement.difficulty }} </p>
+                {% endfor %}
+             </div>
+             
+
+             <div class="user-page-max-skill">
+                <h2>Навыки</h2>
+                {% for skill in skills %}
+                        <p>Название навыка : {{ skill.skill.skill_name }} </p>
+                        <p> <img src="{{ skill.skill.skill_ico }}">
+                        <p>Описание навыка: {{ skill.skill.skill_description }}</p>
+                        <p>Уровень : {{ skill.level }} </p>
+                {% endfor %}
+             </div>
+
+
+            <div class = "user-page-sphere">
+                <!-- <img src="{% static 'mainsite/images/wheeloflife/png/9698.png' %}"> -->
+                {% if img %}
+                <img src="{{ STATIC_PREFIX }}mainsite/images/wheeloflife/png/{{ img }}.png">
+                {% endif %}
+                <!-- <img src="{% static ''|add:img %}'"> -->
+                <h2> 
+
+                {% if sphere == None %}
+                    <p> -- </p>
+                {% else %}
+                    <p>Внутренний мир: {{ sphere.inside_world }}</p>  
+                    <p>Карьера : {{ sphere.career}}</p>
+                    <p>Здоровье : {{ sphere.health}}</p>
+                    <p>Отношения : {{ sphere.relationships}}</p>
+                {% endif%}    
+   
+
+                </h2>
+
+
+            </div>
+
+
+
+-
+    </div>
+
+        </div>
+
+
+                 <div class = "user-page-affirmation">
+
+                {% if user_affirmation_path %}
+                <img src="{{ STATIC_PREFIX }}mainsite/images/affirmations/{{ user_affirmation_path }}">
+                {% endif %}
+
+
+
+
+            </div>
+
+</div>
+
+
+{% endblock %}
