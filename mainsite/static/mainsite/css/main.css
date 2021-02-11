@@ -1569,7 +1569,7 @@ blockquote {
   width: 524px;
   height: 900px;
  /* margin: 250px auto 0 auto ;*/ 
- /* margin:97px 698px 833px 698px ; */
+  margin:97px 698px 833px 698px ; 
   text-align: center;
   background: #FFFFFF;
   mix-blend-mode: normal;
@@ -1827,6 +1827,7 @@ color: #011128;
         opacity: 1;
 }
 
+
   .round {
     border-radius: 50%;
   }
@@ -1859,10 +1860,11 @@ color: #011128;
   .stopka {
     margin-top: 70px; 
     margin-right: 20%; 
-    margin-left: 5%;
+    margin-left: 10%;
   }
   .baner {
-    display: block;
+    display: grid;
+    justify-content: center;
     margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
@@ -1926,14 +1928,14 @@ color: #011128;
     display: grid;
     grid-template-columns: auto auto; 
     grid-column-gap: 20%;
-    margin-left: 20%;
+
 
   }
   .aboutus_three{
     display: grid;
     grid-template-columns: auto auto auto; 
     grid-column-gap: 20%;
-    margin-left: 10%;
+  
   }
   .aboutus_group {
     font-family: "Roboto";
@@ -1977,5 +1979,15 @@ color: #011128;
          margin-top: 49px;
     margin-left: 10%;
     width: 70%;
-      
-  }
+     }
+.aboutus_group_ico {
+  width: 30px;
+  height: 30px;
+  margin-top: -3pc;
+}
+
+.ico_of_aboutus {
+  display: grid;
+  justify-content: center;
+}
+
