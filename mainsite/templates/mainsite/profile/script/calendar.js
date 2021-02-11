@@ -18,7 +18,7 @@ for(var  i = 1; i <= Dlast; i++) {
     calendar += '<td>' + i;
   }
   if (new Date(D.getFullYear(),D.getMonth(),i).getDay() == 0) {
-    calendar += '<tr>';
+    calendar += '<tr class="calendarDay">';
   }
 }
 for(var  i = DNlast; i < 7; i++) calendar += '<td>&nbsp;';

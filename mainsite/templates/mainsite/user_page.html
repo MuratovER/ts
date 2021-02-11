@@ -1,97 +1,539 @@
 {% extends 'mainsite/base.html' %}
-{% load static %}
+
 {% block content %}
-{% get_static_prefix as STATIC_PREFIX %}
+{% load static %}
 
 
-<div class="user-page">
-         <div class="user-info">
-         <div class="img-user-page">
-             <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fpaomedia%2Fsmall-n-flat%2F1024%2Fuser-male-icon.png&f=1&nofb=1" width="200" height="222" alt="photo" class="image">
-         </div>
+<title>Профиль</title>
 
-         <div class="container" style="width: 100%;">
-
-
-               <h1>Профиль пользователя</h1>
-               <p>Username: {{ user }}</p>
-                <p>Имя: {{ user.first_name }}</p>
-                <p>Фамилия: {{ user.last_name }}</p>
-                <p>E-mail: {{ user.email }}</p>
-         </div>
-         </div>
-
-
-         <div class="user-page-tables" style="width: 100%;">
-
-             <div class="user-page-skill-progress">
-                <h2>Навыки в прогрессе</h2>
-             </div>
-
-             <div class="user-page-achivements">
-                <h2>Достижения</h2>
-                {% for achivement in achivements %}
-                    <p>Название достижения : {{ achivement.achivement.name}} </p>
-                    <p>Описание достижения: {{ achivement.achivement.description}}</p>
-                    <p>Уровень достижения : {{ achivement.achivement.difficulty }} </p>
-                {% endfor %}
-             </div>
-             
-
-             <div class="user-page-max-skill">
-                <h2>Навыки</h2>
-                {% for skill in skills %}
-                        <p>Название навыка : {{ skill.skill.skill_name }} </p>
-                        <p> <img src="{{ skill.skill.skill_ico }}">
-                        <p>Описание навыка: {{ skill.skill.skill_description }}</p>
-                        <p>Уровень : {{ skill.level }} </p>
-                {% endfor %}
-             </div>
-
-
-            <div class = "user-page-sphere">
-                <!-- <img src="{% static 'mainsite/images/wheeloflife/png/9698.png' %}"> -->
-                {% if img %}
-                <img src="{{ STATIC_PREFIX }}mainsite/images/wheeloflife/png/{{ img }}.png">
-                {% endif %}
-                <!-- <img src="{% static ''|add:img %}'"> -->
-                <h2> 
-
-                {% if sphere == None %}
-                    <p> -- </p>
-                {% else %}
-                    <p>Внутренний мир: {{ sphere.inside_world }}</p>  
-                    <p>Карьера : {{ sphere.career}}</p>
-                    <p>Здоровье : {{ sphere.health}}</p>
-                    <p>Отношения : {{ sphere.relationships}}</p>
-                {% endif%}    
-   
-
-                </h2>
-
-
-            </div>
-
-
-
--
+<section id='profile-header'>
+<div class="header-info">
+      <div class="header-info-flex">
+        <div class="gol_icon">
+          <img src='{% static "mainsite/profile/img/Profile-photo.png" %}' class='header-profile-img' alt="">
+          <button class='changePhoto'>
+            <img src='{% static "mainsite/profile/img/image_alt.png" %}' alt="">
+          </button>
+        </div>
+     
+          <p class="header-info-userName">Абракадабра</p>
+          <p class="header-info-userId">@abrrakadobra116</p>
+          <p class="header-info-user-quote">Вдохновение — это такая гостья, которая не любит посещать ленивых. <br>
+            Пётр Ильич Чайковский русский композитор 
+          </p>
+      </div>
+  <div class="profile-buttons">
+    <button class='profile-btn profile-btn-message'>
+      <img src='{% static "mainsite/profile/img/mail.png" %}' alt="">
+    </button>
+    <div class="hint hint--message">
+      <p class="hint--txt">Сообщение</p>
     </div>
+    <button class='profile-btn profile-btn-calendar'>
+      <img src='{% static "mainsite/profile/img/calendar.png" %}' alt="">
+    </button>
+    <div class="hint hint--callendar">
+      <p class="hint--txt hint--txt--calendar">Календарь</p>
+    </div>
+    <button class='profile-btn profile-btn-setting'>
+      <img src='{% static "mainsite/profile/img/settings.png" %}' alt="">
+    </button>
+    <div class="hint hint--settings">
+      <p class="hint--txt hint--txt--settings">Настройки</p>
+    </div>
+    <button class='profile-btn profile-btn-statics'>
+      <img src='{% static "mainsite/profile/img/bar_chart.png" %}' alt="">
+    </button>
+    <div class="hint hint--statics">
+      <p class="hint--txt hint--txt--statics">Настройки</p>
+    </div>
+    <button class='profile-btn'>
+      <img src='{% static "mainsite/profile/img/arrow_down.png" %}' alt="">
+    </button>
+  </div>
+</div>
+</div>
+
+</section>
+<section id='profile--info'>
+  <div class="profile-grid">
+    <div class="grid-col">
+      <div class="profile-info-container">
+        <div class="profile-title-flex">
+          <div class="profile-info-title">Информация</div>
+          <img src='{% static "mainsite/profile/img/edit.png" %}'  alt="">
+        </div>
+        <div class="profile-info-line"></div>
+        <div class="profile-info-grid">
+          <div class="profile-info-box">
+            <p class="profile-info">Подписчиков:</p>
+            <p class="profile-info">Друзей:</p>
+            <p class="profile-info">Дата регистрации:</p>
+            <p class="profile-info">Уровень</p>
+            <p class="profile-info">Всего выполненных заданий:</p>
+            <p class="profile-info">Родной город:</p>
+            <p class="profile-info">День рождения:</p>
+            <p class="profile-info">Контактная информация:</p>
+            <p class="profile-info">Образование:</p>
+            <p class="profile-info">Языки:</p>
+          </div>
+          <div class="profile-info-box profile-info-txt-box">
+            <p class="profile-info-txt">999k</p>
+            <p class="profile-info-txt">999k</p>
+            <p class="profile-info-txt"> 1 января 2021г.</p>
+            <p class="profile-info-txt">999к</p>
+            <p class="profile-info-txt">999к</p>
+            <p class="profile-info-txt">г. Казань, Россия</p>
+            <p class="profile-info-txt"> 1 января 2021г.</p>
+            <p class="profile-info-txt">Телефон: 89826716241</p>
+            <p class="profile-info-txt">КНИТУ КАИ им. Туполева</p>
+            <p class="profile-info-txt">Русский, Татарский, Английский, Турецкий, Немецкий, Индийский, Китайский, Монгольский</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-col">
+      <div class="profile-purpose">
+          <div class="profile-purposes-title-flex">
+            <p class="profile-purposes-title">Моя пирамида целей</p>
+            <img src='{% static "mainsite/profile/img/copy.png" %}' class='purposes-copy'class= alt="">
+          </div>
+        <div class="profile-purposes-pyramid">
+          <img src='{% static "mainsite/profile/img/pyramid-lines.png" %}' class='pyramid-lines'alt=""> 
+          <div class="pyramid-col">
+          <button class='pyramid-btn pyramid-btn-1-child'>
+            <img src='{% static "mainsite/profile/img/pyramid-btn.png" %}' alt="">
+            <p class='pyramid-btn-txt'>Счастье</p>
+          </button>
+          
+          </div>
+          <div class="pyramid-col">
+            <button class='pyramid-btn pyramid-btn-3-child'>
+              <img src='{% static "mainsite/profile/img/pyramid-btn.png" %}' alt="">
+              <p class='pyramid-btn-txt'>Счастье</p>
+            </button>
+            <button class='pyramid-btn'>
+              <img src='{% static "mainsite/profile/img/pyramid-btn.png" %}' alt="">
+              <p class='pyramid-btn-txt'>Счастье</p>
+            </button>
+          </div>
+          <div class="pyramid-col">
+            <button class='pyramid-btn pyramid-btn-4-child'>
+              <img src='{% static "mainsite/profile/img/pyramid-btn.png" %}' alt="">
+              <p class='pyramid-btn-txt'>Счастье</p>
+            </button>
+            <button class='pyramid-btn'>
+              <img src='{% static "mainsite/profile/img/pyramid-btn.png" %}' alt="">
+              <p class='pyramid-btn-txt'>Счастье</p>
+            </button>
+            <button class='pyramid-btn'>
+              <img src='{% static "mainsite/profile/img/pyramid-btn.png" %}' alt="">
+              <p class='pyramid-btn-txt'>Счастье</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-col">
+      <div class="gallerry">
+        <img src='{% static "mainsite/profile/img/3dots.png" %}' alt="" id="gallety-dots">
+        <p class="gallery-title">Моя галлерея: 999к фото</p>
+        <div class="gallery-grid">
+          <div class="gallery-col">
+            <img src='{% static "mainsite/profile/img/gallery 1 col 1.png" %}' alt="">
+            <img src='{% static "mainsite/profile/img/gallery 1 col 2.png" %}' class='gallery1'alt="">
+            <img src='{% static "mainsite/profile/img/gallery 1 col 23.png" %}' class='gallery1'alt="">
+          </div>
+          <div class="gallery-col">
+            <img src='{% static "mainsite/profile/img/gallery 2 col 1.png" %}' alt="">
+            <img src='{% static "mainsite/profile/img/gallery 2 col 2.png" %}' class='gallery2'alt="">
+          </div>
+          <div class="gallery-col">
+            <img src='{% static "mainsite/profile/img/gallery 3 col 1.png" %}' alt="">
+            <img src='{% static "mainsite/profile/img/gallery 3 col 2.png" %}' class='gallery3'alt="">
+          </div>
+        </div>
+        <button class="gallery-more-img">Показать больше картинок</button>
+      </div>
+    </div>
+    <div class="grid-col">
+      <div class="skills">
+        <div class="skills-header">
+          <p class="skills-title">Мои навыки</p>
+          <div class="skills-menu">
+            <button class="skills-section">Учеба<div class="line"></div></button>
+            <button class="skills-section">Общие<div class="line"></div></button>
+            <button class="skills-section">Спорт<div class="line"></div></button>
+            <button class="skills-section">Отдых<div class="line"></div></button>
+            <button class="skills-section">Прочее<div class="line"></div></button>
+          </div>
+          <button class="skills-copy">
+            <img src='{% static "mainsite/profile/img/copy.png" %}' alt="">
+          </button>
+        </div>
+        
+      
+        <div class="skills-flex row">
+          <div class="skills-col skills-col-1">
+            <p class="skill-name">Скорость выполнения работы:</p>
+            <div class="skill-grey-line skill-grey-line-1"><div class="skill-blue-line skill-blue-line-1"></div></div>
+            <p class="skill-percent">23%</p>
+          </div>
+        <div class="skills-col ">
+          <p class="skill-name">Выносливость:</p>
+          <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-2"></div></div>
+          <p class="skill-percent">87%</p>
+          </div>
+          <div class="skills-col ">
+            <p class="skill-name">Выдержка:</p>
+            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-3"></div></div>
+            <p class="skill-percent">100%</p>
+          </div>
+          <div class="skills-col ">
+            <p class="skill-name">Самообладание:</p>
+            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-4"></div></div>
+            <p class="skill-percent">64%</p>
+          </div>
+          <div class="skills-col ">
+            <p class="skill-name">Успешность:</p>
+            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-5"></div></div>
+            <p class="skill-percent">37%</p>
+
+          </div>
+          <div class="skills-col ">
+            <p class="skill-name">Логическое мышление:</p>
+            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-6"></div></div>
+            <p class="skill-percent">74%</p>
+          </div>
+          <div class="skills-col ">
+            <p class="skill-name">Творческое мышление:</p>
+            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-7"></div></div>
+            <p class="skill-percent">87%</p>
+            
+          </div>
+          <div class="skills-col ">
+            <p class="skill-name">Хорошие оценки по учебе:</p>
+            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-8"></div></div>
+            <p class="skill-percent">47%</p>
+          </div>
+        
+        
+          
+            <div class="skills-diagram">
+              <svg viewBox="0 0 36 36" class="circular-chart blue">   
+                <path class="circle-bg"
+                  d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                />
+                <path class="circle"
+                  stroke-dasharray="75, 100"
+                  d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                />
+                <text x="18" y="20.35" class="percentage">75%</text>
+                
+              </svg>
+              <p class='all-precent'>Общий процент</p>
+            </div>
+          </div>
+
+      <!--  Первая версия
+        <div class="skills-flex">
+          <div class="skills-col skills-col-1">
+            <p class="skill-name">Скорость выполнения работы:</p>
+            <p class="skill-name">Выносливость:</p>
+            <p class="skill-name">Выдержка:</p>
+            <p class="skill-name">Самообладание:</p>
+            <p class="skill-name">Успешность:</p>
+            <p class="skill-name">Логическое мышление:</p>
+            <p class="skill-name">Творческое мышление:</p>
+            <p class="skill-name">Хорошие оценки по учебе:</p>
+          </div>
+
+          <div class="skills-col skills-col-2">
+            <div class="skill-grey-line skill-grey-line-1"><div class="skill-blue-line skill-blue-line-1"></div></div>
+            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-2"></div></div>
+            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-3"></div></div>
+            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-4"></div></div>
+            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-5"></div></div>
+            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-6"></div></div>
+            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-7"></div></div>
+            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-8"></div></div>
+          </div>
+          <div class="skills-col skills-col-3">
+            <p class="skill-percent">23%</p>
+            <p class="skill-percent">87%</p>
+            <p class="skill-percent">100%</p>
+            <p class="skill-percent">64%</p>
+            <p class="skill-percent">37%</p>
+            <p class="skill-percent">74%</p>
+            <p class="skill-percent">87%</p>
+            <p class="skill-percent">47%</p>
+          </div>
+          <div class="skills-col">
+          
+          </div>
+      -->
+        
+        </div>
+        </div>
+      
+    <div class="grid-col">
+      <div class="friends">
+        <button class="friends-3-dots" type="button">
+          <img src='{% static "mainsite/profile/img/3dots.png" %}'> </img>
+        </button>
+          <p class='friends-title'>Мои друзья 999к</p>
+          <div class="friends-flex">
+            <div class="friends-flex-col">
+              <div class="friend-box">
+                <img src='{% static "mainsite/profile/img/1friend.png" %}' alt="" class="friend-img">
+                <p class="friend-name">Максим</p>
+              </div>
+              <div class="friend-box">
+                <img src='{% static "mainsite/profile/img/2friend.png" %}' alt="" class="friend-img">
+                <p class="friend-name">Алеша</p>
+              </div>
+              <div class="friend-box">
+                <img src='{% static "mainsite/profile/img/3friend.png" %}' alt="" class="friend-img">
+                <p class="friend-name">Fenua</p>
+              </div>
+              <div class="friend-box">
+                <img src='{% static "mainsite/profile/img/4friend.png" %}' alt="" class="friend-img">
+                <p class="friend-name">Andry</p>
+              </div>
+              <div class="friend-box">
+                <img src='{% static "mainsite/profile/img/5friend.png" %}' alt="" class="friend-img">
+                <p class="friend-name">Костян</p>
+              </div>
+              <div class="friend-box">
+                <img src='{% static "mainsite/profile/img/6friend.png" %}' alt="" class="friend-img">
+                <p class="friend-name">એન્ડ્રે</p>
+              </div>
+            </div>
+            <div class="friends-flex-col">
+              <div class="friend-box">
+                <img src='{% static "mainsite/profile/img/1friend.png" %}' alt="" class="friend-img">
+                <p class="friend-name">Максим</p>
+              </div>
+              <div class="friend-box">
+              <img src='{% static "mainsite/profile/img/2friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Алеша</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/profile/img/3friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Fenua</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/profile/img/4friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Andry</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/profile/img/5friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Костян</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/profile/img/6friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">એન્ડ્રે</p>
+            </div>
+            </div>  
+            <div class="friends-flex-col">
+              <div class="friend-box">
+                <img src='{% static "mainsite/profile/img/1friend.png" %}' alt="" class="friend-img">
+                <p class="friend-name">Максим</p>
+              </div>
+              <div class="friend-box">
+              <img src='{% static "mainsite/profile/img/2friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Алеша</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/profile/img/3friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Fenua</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/profile/img/4friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Andry</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/profile/img/5friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Костян</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/profile/img/6friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">એન્ડ્રે</p>
+            </div>
+            </div>  
+          </div>
+          <button class="friends-more">Показать больше друзей</button>
+    </div>
+  </div>
+  <div class="grid-col">
+    <div class="calendar-section">
+      <div class="calendar-col calendar">
+        <button class='calendar-btn'><img src='{% static "mainsite/profile/img/calendar2.png" %}' alt=""></button>
+        <table id="calendar2">
+          <thead>
+            <tr><td><button class='calendar-arrow prev-arrow'><img src='{% static "mainsite/profile/img/prev-arrow.png" %}' alt="">
+            </button><td class='month' colspan="5"><td>
+              <button class='calendar-arrow  next-arrow'><img src='{% static "mainsite/profile/img/next-arrow.png" %}' alt=""></button>
+            <tr class='weekDay'><td>Пн<td>Вт<td>Ср<td>Чт<td>Пт<td>Сб<td>Вс
+          <tbody>
+        </table>
+      </div>
+      <div class="calendar-col">
+        <div class="calendar-case-headline">
+          <p class="case-title">Дела на этот день</p>
+          <button class="case-plus"><img src='{% static "mainsite/profile/img/plus.png" %}' alt=""></button>
+        </div>
+        <div class="calendar-case-flex">
+          <div class="calendar-case-col">
+            
+            <div class="calendar-case-box">
+              <p class="case-time">8:00</p>
+              <p class="case-txt">Пройти 15 км пешком по горным хребтам Альп</p>
+              <input type="checkbox" class='checkCase' >
+            </div>
+            <div class="calendar-case-box">
+              <p class="case-time">8:00</p>
+              <p class="case-txt">Пройти 15 км пешком по горным хребтам Альп</p>
+              <input type="checkbox" class='checkCase' >
+            </div>
+            <div class="calendar-case-box">
+              <p class="case-time">8:00</p>
+              <p class="case-txt">Пройти 15 км пешком по горным хребтам Альп</p>
+              <input type="checkbox" class='checkCase' >
+            </div>
+            <div class="calendar-case-box">
+              <p class="case-time">8:00</p>
+              <p class="case-txt">Пройти 15 км пешком по горным хребтам Альп</p>
+              <input type="checkbox" class='checkCase' >
+            </div>
+            <div class="calendar-case-box">
+              <p class="case-time">8:00</p>
+              <p class="case-txt">Пройти 15 км пешком по горным хребтам Альп</p>
+              <input type="checkbox" class='checkCase' >
+            </div>
+          </div>
+          <div class="calendar-case-col">
+            
+            <div class="calendar-case-box">
+              <p class="case-time">8:00</p>
+              <p class="case-txt">Пройти 15 км пешком по горным хребтам Альп</p>
+              <input type="checkbox" class='checkCase' >
+            </div>
+            <div class="calendar-case-box">
+              <p class="case-time">8:00</p>
+              <p class="case-txt">Пройти 15 км пешком по горным хребтам Альп</p>
+              <input type="checkbox" class='checkCase' >
+            </div>
+            <div class="calendar-case-box">
+              <p class="case-time">8:00</p>
+              <p class="case-txt">Пройти 15 км пешком по горным хребтам Альп</p>
+              <input type="checkbox" class='checkCase' >
+            </div>
+            <div class="calendar-case-box">
+              <p class="case-time">8:00</p>
+              <p class="case-txt">Пройти 15 км пешком по горным хребтам Альп</p>
+              <input type="checkbox" class='checkCase' >
+            </div>
+            <div class="calendar-case-box">
+              <p class="case-time">8:00</p>
+              <p class="case-txt">Пройти 15 км пешком по горным хребтам Альп</p>
+              <input type="checkbox" class='checkCase' >
+            </div>
+          </div>
+
+          </div>
+          <button class="calendar-farther"><p >Дальше</p></button>
+        </div>
+      </div>
+    </div>
+    <div class="grid-col">
+      <div class="affirmation">
+        <div class="affirmation-haedline">
+          <p class="affirmation-title">Мои аффирмации</p>
+          <button class='affirmation-copy'><img src='{% static "mainsite/profile/img/copy.png" %}' alt=""></button>
+        </div>
+        <div class="affirmation-col affirmation-1">
+          <p class="affirmation-col-title">Не забыть взять с собой студик</p>
+          <p class="affirmation-col-txt">Сегодня важная встреча, поэтому нужно взять с собой все необходимое и не забыть взять с собой студик, чтобы меня смогли впустить в институт</p>
+        </div>
+        <div class="affirmation-col affirmation-2">
+          <p class="affirmation-col-2-title">Встретиться с президентом Кубы</p>
+        </div>
+        <div class="affirmation-col affirmation-3">
+          <p class="affirmation-col-2-title">Съездить в Сибирь</p>
+        </div>
+        <div class="affirmation-col">
+          <button class="affirmation-plus">Добавить новые аффирмации</button>
+        </div>
+      </div>
+    </div>
+  <div class="grid-col">
+    <div id="lifeWheelSection">
+      <div id="lifeWheelHeader">
+        <p id='lifeWheelHeaderTxt'>Колесо жизни</p>
+        <button class='lifeWheelBtn lifeWheelReverseBtn'>
+          <img src='{% static "mainsite/profile/img/reverse.png" %}' alt="">
+        </button>
+        <button class='lifeWheelBtn lifeWheelCopyBtn'>
+          <img src='{% static "mainsite/profile/img/copy.png" %}' alt="">
+        </button>
+      </div>
+      <div id="lifeWheelInfo">
+        <div class="lifeWheelCoef">
+          <div class="coef-col">
+            <p class='coefTxt'>Коэффициент отношений:.................................</p>
+            <p class='coefPoint'> 5</p>
+          </div>
+          <div class="coef-col">
+            <p class='coefTxt'>Коэффициент учебы:..........................................</p>
+            <p class='coefPoint'> 5</p>
+          </div>
+          <div class="coef-col">
+            <p class='coefTxt'>Коэффициент внутреннего мира:....................</p>
+            <p class='coefPoint'> 5</p>
+          </div>
+          <div class="coef-col">
+            <p class='coefTxt'>Коэффициент здоровья:....................................</p>
+            <p class='coefPoint'> 5</p>
+          </div>
+          <div class="coef-col">
+            <p class='coefTxt'>Последнее обновление:....................................</p>
+            <p class='coefPoint'> 03.02.2021</p>
+          </div>
+        </div>
+        <div id="lifeWheelChar">
+          
+            <p class='ten horizontalLeftTen'>10</p>
+            <div class="horizontalLine"></div>
+            <p class='ten horizontaRightlTen'>10</p>
+          
+          
+            <p class='ten verticalTopTen'>10</p>
+            <div class="verticalLine"></div>
+            <p class='ten verticalBotTen'>10</p>
 
         </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="{% static 'mainsite/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'mainsite/profile/script/calendar.js' %}"></script>
+<script src="{% static 'mainsite/profile/script/script.js' %}"></script>
 
+<!--FONTS-->
 
-                 <div class = "user-page-affirmation">
-
-                {% if user_affirmation_path %}
-                <img src="{{ STATIC_PREFIX }}mainsite/images/affirmations/{{ user_affirmation_path }}">
-                {% endif %}
-
-
-
-
-            </div>
-
-</div>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 
 
 {% endblock %}

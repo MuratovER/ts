@@ -2,8 +2,9 @@
 
 {% block content %}
 
+{% load static %}
 
-<article id="0370fccd-7455-4596-ba0f-cb036289fef4" class="page sans w-75 mx-auto" style="margin-top: 2em">
+<article id="0370fccd-7455-4596-ba0f-cb036289fef4" class="page sans w-75 mx-auto" style="margin-top: 2em;font-size: 18px">
     <header>
         <div>
             <a href="{% url 'introduction' %}" target="_self" style="color: black; margin-right: 5em"><span
@@ -18,7 +19,7 @@
              src="https://media.discordapp.net/attachments/745700277004402832/756944421903138967/fd8d7152cfbc475ca4aeaca9a7ddc0ee.jpg"
              style="object-position:center 50%; margin-top: 2em; border-radius: 0"/>
     </header>
-    <div class="page-body .text-left w-75 mx-auto">
+    <div class="page-body text-left w-75 mx-auto">
         <div class="d-inline-flex justify-content-between align-items-baseline my-5">
             <span class="oi oi-person mr-2"></span>
             <span>Иванов Иван</span>
@@ -84,9 +85,10 @@
             условия которых были намного хуже, чем у большинства из вас и которые достигли невероятного жизненного
             успеха. Вы не верите? Вот только один пример. Посмотрите видео к этому уроку, оно снимет все ваши сомнения
         </p>
-        <div style="margin-bottom: 2rem; height: 17rem" class="d-inline-flex">
-            <iframe src="https://www.youtube.com/watch?v=Qj0cIAVAqKY" class="h-100 w-75"
-                    style="margin-right: 2rem"></iframe>
+        <div style="margin-bottom: 2rem; height: 22rem" class="d-inline-flex">
+            <iframe class="h-100 w-75" src="https://www.youtube.com/embed/Qj0cIAVAqKY" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             <strong>Ник Вуйнич. Превый канал, Программа "Воскрестное время" 14.04.13</strong>
         </div>
         <p id="b7c51ed5-c516-4e3b-b59d-0e043026463d" class="" style="margin-bottom: 2rem;">
@@ -126,7 +128,7 @@
             </p>
         </div>
         <p id="7f1c46da-147e-4e85-85db-ae5bbc1d5d85" class="" style="margin-bottom: 2rem;">
-            <mark class="highlight-purple">ЛЮБЫЕ ОГРАНИЧЕНИЯ СУЩЕСТВУЮТ ЛИШЬ В ВАШЕЙ ГОЛОВЕ</mark>
+            <mark class="">ЛЮБЫЕ ОГРАНИЧЕНИЯ СУЩЕСТВУЮТ ЛИШЬ В ВАШЕЙ ГОЛОВЕ</mark>
         </p>
         <p id="33642bf1-1755-4d52-a73e-d0677aeec8ea" class="" style="margin-bottom: 2rem;">
             Вы можете стать выдающимся ученым, олимпийским чемпионом, крупным политическим деятелем, миллиардером,
@@ -153,8 +155,10 @@
             В добрый путь!
         </p>
         <h2 style="margin-bottom: 2rem;">РЕЗЮМЕ УРОКА</h2>
-        <p style="margin-bottom: 2rem;">Мир прекрасен и в нем для вас открыты огромные возможности.</p>
-        <p style="margin-bottom: 2rem;">Ваша будущая жизнь зависит только от вас самих.</p>
+        <ul>
+            <li>Мир прекрасен и в нем для вас открыты огромные возможности.</li>
+            <li>Ваша будущая жизнь зависит только от вас самих.</li>
+        </ul>
         <span style="border-bottom: 3px solid blue" class="pb-4">
 			<a href="{% url 'introduction_chapter_lider_task' %}" class="d-inline-flex text-decoration-none">
 				<h3 style="color: black;">Перейти к домашнему заданию</h3>
@@ -164,6 +168,9 @@
     </div>
     <a href="#"><span class="oi oi-arrow-top float-right rounded-circle py-3 px-4"
                       style="color: black; border: 3px solid black; font-size: 2.5rem"></span></a>
+    <div class="mt-5 w-100 justify-content-center d-inline-flex">
+        <img src='{% static "img/images_for_tree/Yoga.svg" %}' alt="" class="rectang"/>
+    </div>
 </article>
 
 

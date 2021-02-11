@@ -20,6 +20,7 @@ urlpatterns = [
     path('tree/', views.tree_view, name='tree'),
     path('help/', views.help_view, name='help'),
     path('skills/', views.skills, name='skills'),
+    path('aboutus/', views.aboutus, name='aboutus'),
     #Introduction
     path('introduction/', views.introduction_view, name='introduction'),
     path('introduction/introduction_chapter_lider/', views.introduction_chapter_lider, name='introduction_chapter_lider'),
