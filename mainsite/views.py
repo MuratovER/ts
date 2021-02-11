@@ -48,6 +48,9 @@ def skills(request):
 def aboutus(request):
     return render(request, 'mainsite/aboutus.html',)    
 
+def aboutus(request):
+    return render(request, 'mainsite/aboutus.html',)
+
 @login_required
 def introduction_view(request):
     return  render(request, 'mainsite/tree/introduction/introduction_chapters.html',)

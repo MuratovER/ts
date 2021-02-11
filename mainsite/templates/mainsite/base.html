@@ -43,6 +43,17 @@
             <a href="{% url 'logout' %}" class="name">TopSkills</a>
           </div>
 
+    
+<!--       {% if user.is_authenticated %}
+        <button type="sumbit" onclick="location.href='{% url 'logout' %}'" class='headerExit'>Выход</button>
+        <button type="sumbit" onclick="location.href='{% url 'user_page' %}'" class='headerBtn headerBtnUser'></button>
+        <button type="sumbit" onclick="location.href='{% url 'tree' %}'" class='headerBtn headerBtnMenu'></button>
+        <button class='headerBtn headerBtnTimer'></button>
+      {% else %}
+        <button type="sumbit" onclick="location.href='{% url 'login' %}'" class='headerEnter'>Войти</button>
+        <!--button type="sumbit" onclick="location.href='{% url 'signup' %}'" class='headerRegister'>Регистрация</button!-->
+      {% endif %} -->
+
         <nav class='menu'>
           <a href="{% url 'home_page' %}" class="header-a">Главная</a>
           <a href="#" class="header-a">Профиль</a>
@@ -63,10 +74,12 @@
             <button type="sumbit" onclick="location.href='{% url 'login' %}'" class='header--change--btn headerEnter'>Войти</button>
             <button type="sumbit" onclick="location.href='{% url 'signup' %}'" class='header--change--btn headerRegister'>Регистрация</button>
           {% endif %}
+
         </div>
         </div>
       </div>
     
+
 
       <!-- Old code -->
 
