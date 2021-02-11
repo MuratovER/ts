@@ -44,7 +44,8 @@
         <nav class='menu'>
           <a href="{% url 'home_page' %}" class="header-a">Главная</a>
           <a href="#" class="header-a">Профиль</a>
-          <a href="#" class="header-a">Дерево развития</a>
+          <a href="{% url 'aboutus' %}" class="header-a">О нас</a>
+          <a type="sumbit" onclick="location.href='{% url 'tree' %}'" class="header-a">Дерево развития</a>
         </nav>
        
         <div class="header--btns">
@@ -147,6 +148,7 @@
             </div>
         </div> -->
 
+
     <footer id='footer'>
       <div class="footer--container">
         <div class="footer--flex">
@@ -163,6 +165,7 @@
               <a href="#" class='footerSocial'><img src='../../static/mainsite/home/google.png' alt=""></a>
             </div>
 
+<<<<<<< HEAD
             <p class="footerSupport">При поддержке КНИТУ-КАИ</p>
             <img src='../../static/mainsite/home/img_for_new_version/kaiLogo.png' alt="" class="footerKaiIcon">
           </div>
@@ -174,6 +177,25 @@
             <a href="#" class='footer--link'>Вопрос-ответ</a>
             <a href="#" class='footer--link'>Другие услуги</a>
           </div>
+=======
+      <div class="footerGrid">
+        
+        <div class="footerCol">
+          <p class="footerPhone">+7 (777) 777-77-77</p>
+          <img class='footerLogo'src='{% static "../static/mainsite/home/logo.png" %}' alt="">
+
+          <div class="row footerFirstRow">
+            <a href="#" class='footerSocial'><img src='{% static "../static/mainsite/home/vk.png" %}' alt=""></a>
+            <a href="#" class='footerSocial'><img src='{% static "../static/mainsite/home/instagram.png" %}' alt=""></a>
+            <a href="#" class='footerSocial'><img src='{% static "../static/mainsite/home/facebook.png" %}' alt=""></a>
+            <a href="#" class='footerSocial'><img src='{% static "../static/mainsite/home/youtube.png" %}' alt=""></a>
+            <a href="#" class='footerSocial'><img src='{% static "../static/mainsite/home/google.png" %}' alt=""></a>
+          </div>
+
+          <p class="footerSupport">При поддержке КНИТУ-КАИ</p>
+          <img src='{% static "../static/mainsite/home/kaiLogo.png" %}' alt="" class="footerKaiIcon">
+        </div>
+>>>>>>> master
 
           <div class="footerCol footerColSupport">
             <p class="footerColTitle">ПОДДЕРЖКА</p>
