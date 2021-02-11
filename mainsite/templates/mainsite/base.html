@@ -45,7 +45,11 @@
           <a href="{% url 'home_page' %}" class="header-a">Главная</a>
           <a href="#" class="header-a">Профиль</a>
           <a href="{% url 'aboutus' %}" class="header-a">О нас</a>
+          {% if user.is_authenticated %}
           <a type="sumbit" onclick="location.href='{% url 'tree' %}'" class="header-a">Дерево развития</a>
+          {% else %}
+           <a href="#" class="header-a">Разработчикам</a>
+          {% endif %}
         </nav>
        
         <div class="header--btns">
