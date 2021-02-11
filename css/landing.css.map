@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "../mainsite/static/mainsite/css/landing.sass"
-    ],
-    "names": [],
-    "file": "landing.css"
-}
