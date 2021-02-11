@@ -529,93 +529,83 @@ body {
 #footer {
   margin-top: 145px;
 }
-
-.footerGrid {
-  margin-top: 390px;
-  margin-left: 95px;
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-grid-columns: (248px)[5];
-      grid-template-columns: repeat(5, 20%);
-  grid-column-gap: 1%;
-}
-.footerFirstCol {
-  width: 90%;
-}
-.footerColSupport {
-  margin-left: -30px;
+.footer--container {
+  width: 1170px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.footerColProducts {
-  margin-left: -60px;
-}
 
-.footerColContact {
-  margin-left: -105px;
+.footer--flex {
+  position: relative;
+  display: flex;
+  flex-direction: row;
 }
 
 .footerPhone {
   font-family: "Roboto";
   font-style: normal;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 33px;
   /* identical to box height */
   color: #515151;
-  margin-bottom: 26px;
+  margin-bottom: 20px;
+  width: 177px;
 }
-
+.footerLogo {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30.4054px;
+  line-height: 36px;
+  /* identical to box height */
+  color: #000000;
+  margin-bottom: 10px;
+}
 .footerFirstRow {
-  margin-top: 21px;
-  padding-left: 20px;
+  padding-left: 10px;
   margin-bottom: 44px;
 }
 
 .footerSocial {
-  margin-right: 20px;
+  margin-right: 12px;
 }
 
 .footerSupport {
   font-family: "Roboto";
   font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 21px;
+  font-weight: normal;
+  font-size: 11.088px;
+  line-height: 13px;
   /* identical to box height */
   letter-spacing: 0.03em;
   color: #000000;
   margin-bottom: 20px;
 }
-.footerColContact {
-  margin-top: 0px;
-  width: 85%;
-}
 
 .footerColTitle {
   font-family: "Roboto";
   font-style: normal;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 20px;
-  line-height: 32px;
-  /* identical to box height */
-  letter-spacing: 0.05em;
-  color: #AFAFAE;
+  line-height: 23px;
+  font-variant: small-caps;
+  color: #000000;
   margin-bottom: 37px;
+  width: 112px;
 }
 
-.footera {
+.footer--link {
   font-family: "Roboto";
   font-style: normal;
-  font-weight: bold;
-  font-size: 23px;
-  line-height: 27px;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
   /* identical to box height */
   letter-spacing: 0.03em;
-  color: #393736;
+  color: #000000;
   margin-bottom: 37px;
 }
 
@@ -629,31 +619,53 @@ body {
           flex-direction: column;
 }
 
+.footerEducationCol {
+  margin-left: 171px;
+}
+.footerColSupport {
+ margin-left: 115px;
+}
+.footerColProducts {
+  margin-left: 144px;
+}
+.footerColContact {
+  position: absolute;
+  right: 0;
+}
 .footerLine {
-  width: 95%;
-  height: 4px;
-  margin-top: 80px;
-  margin-left: 3%;
-  background: #E3E3E3;
-  margin-bottom: 42px;
+  margin-top: 60px;
+display:flex;
+flex-direction: row;
+border-top: 1px solid #000000;
+padding-top: 30px;
+margin-bottom: 64px;
 }
-
-.footerAllRights {
-  width: 25%;
-  font-family: "Roboto";
+.footerRights {
+  font-family: 'Roboto';
   font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 21px;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  /* identical to box height */
   letter-spacing: 0.03em;
-  color: #A7A7A7;
-  margin-left: 10%;
+  color: #000000;
 }
-
-.footerAllRights2 {
-  margin-left: 5%;
+.footer--link-col {
+  position: absolute;
+  right: 0;
 }
-
+.footer--bottom--link {
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: 18px;
+/* identical to box height */
+letter-spacing: 0.03em;
+color: #000000;
+margin-left: 68px;
+text-decoration: none;
+}
 .conf {
   font-family: "Roboto";
   font-style: normal;
@@ -667,9 +679,7 @@ body {
   width: 25%;
 }
 
-.footerSecondRow {
-  width: 100%
-}
+
 /*# sourceMappingURL=main.css.map */
 
 

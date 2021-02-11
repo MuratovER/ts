@@ -47,17 +47,10 @@
         <nav class='menu'>
           {% if user.is_authenticated %}
           <a href="{% url 'home_page' %}" class="header-a">Главная</a>
-          <a href="{% url 'user_page' %}" class="header-a">Профиль</a>
-          <a type="sumbit" onclick="location.href='{% url 'tree' %}'" class="header-a">Дерево развития</a>
-          {% else %}
-          <a href="{% url 'home_page' %}" class="header-a">Главная</a>
-          <a href="{% url 'aboutus' %}" class="header-a">О нас</a>
-          <a href="#" class="header-a">Разработчикам</a>
-          {% endif %}
-          
-          
-          
-         
+
+          <a href="#" class="header-a">Профиль</a>
+          <a href="#" class="header-a">Дерево развития</a>
+
         </nav>
        
         <div class="header--btns">
@@ -162,67 +155,70 @@
             </div>
         </div> -->
 
-
     <footer id='footer'>
+      <div class="footer--container">
+        <div class="footer--flex">
+          
+          <div class="footerCol footer--first--col">
+            <p class="footerPhone">+7 (777) 777-77-77</p>
+            <p class="footerLogo">TopSkills</p>
 
-      <div class="footerGrid">
-        
-        <div class="footerCol">
-          <p class="footerPhone">+7 (777) 777-77-77</p>
-          <img class='footerLogo'src='{% static "../static/mainsite/home/logo.png" %}' alt="">
+            <div class="row footerFirstRow">
+              <a href="#" class='footerSocial'><img src='../../static/mainsite/home/vk.png' alt=""></a>
+              <a href="#" class='footerSocial'><img src='../../static/mainsite/home/instagram.png' alt=""></a>
+              <a href="#" class='footerSocial'><img src='../../static/mainsite/home/facebook.png' alt=""></a>
+              <a href="#" class='footerSocial'><img src='../../static/mainsite/home/youtube.png' alt=""></a>
+              <a href="#" class='footerSocial'><img src='../../static/mainsite/home/google.png' alt=""></a>
+            </div>
 
-          <div class="row footerFirstRow">
-            <a href="#" class='footerSocial'><img src='{% static "../static/mainsite/home/vk.png" %}' alt=""></a>
-            <a href="#" class='footerSocial'><img src='{% static "../static/mainsite/home/instagram.png" %}' alt=""></a>
-            <a href="#" class='footerSocial'><img src='{% static "../static/mainsite/home/facebook.png" %}' alt=""></a>
-            <a href="#" class='footerSocial'><img src='{% static "../static/mainsite/home/youtube.png" %}' alt=""></a>
-            <a href="#" class='footerSocial'><img src='{% static "../static/mainsite/home/google.png" %}' alt=""></a>
+            <p class="footerSupport">При поддержке КНИТУ-КАИ</p>
+            <img src='../../static/mainsite/home/img_for_new_version/kaiLogo.png' alt="" class="footerKaiIcon">
           </div>
 
-          <p class="footerSupport">При поддержке КНИТУ-КАИ</p>
-          <img src='{% static "../static/mainsite/home/kaiLogo.png" %}' alt="" class="footerKaiIcon">
+          <div class="footerCol footerEducationCol">
+            <p class="footerColTitle">ОБУЧЕНИЕ</p>
+            <a href="#" class='footer--link'>Процесс</a>
+            <a href="#" class='footer--link'>Игры</a>
+            <a href="#" class='footer--link'>Вопрос-ответ</a>
+            <a href="#" class='footer--link'>Другие услуги</a>
+          </div>
+
+
+          <div class="footerCol footerColSupport">
+            <p class="footerColTitle">ПОДДЕРЖКА</p>
+            <a href="#" class='footer--link'>Процесс</a>
+            <a href="#"class='footer--link'>Игры</a>
+            <a href="#" class='footer--link'>Вопрос-ответ</a>
+            <a href="#" class='footer--link'>Другие услуги</a>
+          </div>
+          
+          <div class="footerCol footerColProducts">
+            <p class="footerColTitle">ПРОДУКТЫ</p>
+            <a href="#" class='footer--link'>Процесс</a>
+            <a href="#" class='footer--link'>Игры</a>
+            <a href="#" class='footer--link'>Вопрос-ответ</a>
+            <a href="#" class='footer--link'>Другие услуги</a>
+          </div>
+
+          <div class="footerCol footerColContact">
+            <p class="footerColTitle">КОНТАКТЫ</p>
+            <a href="#" class='footer--link'>Процесс</a>
+            <a href="#" class='footer--link'>Игры</a>
+            <a href="#" class='footer--link'>Вопрос-ответ</a>
+            <a href="#"class='footer--link'>Другие услуги</a>
+          </div>
+
+
         </div>
 
-        <div class="footerCol">
-          <p class="footerColTitle">ОБУЧЕНИЕ</p>
-          <a href="#" class='footera'>Книга</a>
-          <a href="#" class='footera'>Игры</a>
-          <a href="#" class='footera'>Тесты</a>
-          <a href="#" class='footera'>Задания</a>
+        <div class="footerLine footer--container">
+          <p class="footerRights">© “TopSkills”, 2020-2021, все права защищены</p>
+          <div class="footer--link-col">
+            <a href="" class="footer--bottom--link">Дизайн</a>
+            <a href="" class="footer--bottom--link">Вопрос-ответ</a>
+            <a href="" class="footer--bottom--link">Политика конфидециальности</a>
+          </div>
         </div>
-
-        <div class="footerCol footerColSupport">
-          <p class="footerColTitle">ПОДДЕРЖКА</p>
-          <a href="#" class='footera'>Чат-бот</a>
-          <a href="#"class='footera'>Звонок в поддержку</a>
-          <a href="#" class='footera'>Вопрос-ответ</a>
-          <a href="#" class='footera'>Часы работы</a>
-        </div>
-        
-        <div class="footerCol footerColProducts">
-          <p class="footerColTitle">ПРОДУКТЫ</p>
-          <a href="#" class='footera'>Платформа</a>
-          <a href="#" class='footera'>Приложения</a>
-          <a href="#" class='footera'>Интеграции</a>
-          <a href="#" class='footera'>Парнтнерство</a>
-        </div>
-
-        <div class="footerCol footerColContact">
-          <p class="footerColTitle">КОНТАКТЫ</p>
-          <a href="{% url 'home_page' %}" class="footera">Главная</a>
-          <a href="{% url 'aboutus' %}" class="footera">О нас</a>
-          <a href="#" class='footera'>Задать вопрос</a>
-          <a href="#"class='footera'>Помочь проекту</a>
-        </div>
-
-      </div>
-
-      <div class="footerLine"></div>
-
-      <div class="row footerSecondRow">
-        <p class="footerAllRights">Соглашение о конфидециальности Договор-оферта</p>
-        <p class="footerAllRights  footerAllRights2 "> Сайт TopSkills работает в тестовом режиме.</p>
-        <p class="conf">Сервис предоставляется без гарантии сохранения данных. Пользуйтесь с осторожностью.</p>
       </div>
 
       </footer>
