@@ -1817,6 +1817,7 @@ color: #011128;
         opacity: 1;
 }
 
+
   .round {
     border-radius: 50%;
   }
@@ -1968,8 +1969,7 @@ color: #011128;
          margin-top: 49px;
     margin-left: 10%;
     width: 70%;
-      
-  }
+     }
 .aboutus_group_ico {
   width: 30px;
   height: 30px;
@@ -1980,3 +1980,4 @@ color: #011128;
   display: grid;
   justify-content: center;
 }
+

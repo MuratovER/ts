@@ -21,11 +21,13 @@
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
+
       <!--FONTS-->
       <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">      
       <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.css' %}">
       
 
       <!-- <title>TopSkills</title> -->
@@ -41,15 +43,21 @@
             <a href="{% url 'logout' %}" class="name">TopSkills</a>
           </div>
 
+
         <nav class='menu'>
-          <a href="{% url 'home_page' %}" class="header-a">Главная</a>
-          <a href="#" class="header-a">Профиль</a>
-          <a href="{% url 'aboutus' %}" class="header-a">О нас</a>
           {% if user.is_authenticated %}
+          <a href="{% url 'home_page' %}" class="header-a">Главная</a>
+          <a href="{% url 'user_page' %}" class="header-a">Профиль</a>
           <a type="sumbit" onclick="location.href='{% url 'tree' %}'" class="header-a">Дерево развития</a>
           {% else %}
-           <a href="#" class="header-a">Разработчикам</a>
+          <a href="{% url 'home_page' %}" class="header-a">Главная</a>
+          <a href="{% url 'aboutus' %}" class="header-a">О нас</a>
+          <a href="#" class="header-a">Разработчикам</a>
           {% endif %}
+          
+          
+          
+         
         </nav>
        
         <div class="header--btns">
@@ -58,17 +66,19 @@
             <!--
             <button type="sumbit" onclick="location.href='{% url 'tree' %}'" class='headerBtn headerBtnMenu'></button>
             -->
-            <button type="sybmit" class='header--btn header--btn-search'></button>
+            <!-- <button type="sybmit" class='header--btn header--btn-search'></button>
             <button type="sybmit" class='header--btn header--btn-notification'></button>
-            <button type="sumbit" onclick="location.href='{% url 'user_page' %}'" class='header--btn header--btn-user'></button>
+            <button type="sumbit" onclick="location.href='{% url 'user_page' %}'" class='header--btn header--btn-user'></button> -->
           {% else %}
             <button type="sumbit" onclick="location.href='{% url 'login' %}'" class='header--change--btn headerEnter'>Войти</button>
             <button type="sumbit" onclick="location.href='{% url 'signup' %}'" class='header--change--btn headerRegister'>Регистрация</button>
           {% endif %}
+
         </div>
         </div>
       </div>
     
+
 
       <!-- Old code -->
 
@@ -175,35 +185,34 @@
 
         <div class="footerCol">
           <p class="footerColTitle">ОБУЧЕНИЕ</p>
-          <a href="#" class='footera'>Процесс</a>
+          <a href="#" class='footera'>Книга</a>
           <a href="#" class='footera'>Игры</a>
-          <a href="#" class='footera'>Вопрос-ответ</a>
-          <a href="#" class='footera'>Другие услуги</a>
+          <a href="#" class='footera'>Тесты</a>
+          <a href="#" class='footera'>Задания</a>
         </div>
 
         <div class="footerCol footerColSupport">
           <p class="footerColTitle">ПОДДЕРЖКА</p>
-          <a href="#" class='footera'>Процесс</a>
-          <a href="#"class='footera'>Игры</a>
+          <a href="#" class='footera'>Чат-бот</a>
+          <a href="#"class='footera'>Звонок в поддержку</a>
           <a href="#" class='footera'>Вопрос-ответ</a>
-          <a href="#" cla
-          ss='footera'>Другие услуги</a>
+          <a href="#" class='footera'>Часы работы</a>
         </div>
         
         <div class="footerCol footerColProducts">
           <p class="footerColTitle">ПРОДУКТЫ</p>
-          <a href="#" class='footera'>Процесс</a>
-          <a href="#" class='footera'>Игры</a>
-          <a href="#" class='footera'>Вопрос-ответ</a>
-          <a href="#" class='footera'>Другие услуги</a>
+          <a href="#" class='footera'>Платформа</a>
+          <a href="#" class='footera'>Приложения</a>
+          <a href="#" class='footera'>Интеграции</a>
+          <a href="#" class='footera'>Парнтнерство</a>
         </div>
 
         <div class="footerCol footerColContact">
           <p class="footerColTitle">КОНТАКТЫ</p>
-          <a href="#" class='footera'>Процесс</a>
-          <a href="#" class='footera'>Игры</a>
-          <a href="#" class='footera'>Вопрос-ответ</a>
-          <a href="#"class='footera'>Другие услуги</a>
+          <a href="{% url 'home_page' %}" class="footera">Главная</a>
+          <a href="{% url 'aboutus' %}" class="footera">О нас</a>
+          <a href="#" class='footera'>Задать вопрос</a>
+          <a href="#"class='footera'>Помочь проекту</a>
         </div>
 
       </div>
@@ -211,11 +220,9 @@
       <div class="footerLine"></div>
 
       <div class="row footerSecondRow">
-        <p class="footerAllRights">Соглашение о конфидециальности Договор-оферта
-          бла бла бла бла бла бла Все права защищены</p>
-        <p class="footerAllRights  footerAllRights2 ">Соглашение о конфидециальности Договор-оферта
-          бла бла бла бла бла бла Все права защищены</p>
-        <p class="conf">Соглашение о конфидециальности</p>
+        <p class="footerAllRights">Соглашение о конфидециальности Договор-оферта</p>
+        <p class="footerAllRights  footerAllRights2 "> Сайт TopSkills работает в тестовом режиме.</p>
+        <p class="conf">Сервис предоставляется без гарантии сохранения данных. Пользуйтесь с осторожностью.</p>
       </div>
 
       </footer>
