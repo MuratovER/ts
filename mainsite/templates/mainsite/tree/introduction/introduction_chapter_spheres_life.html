@@ -133,20 +133,24 @@
                     развитию
                     каждой сферы своей жизни.</em></p>
         </div>
-        <form method="POST" id="save_sphere">{% csrf_token %}
-            {{ form }}
-            <button type="button" class="save" id="sphere_of_life_Btn">Сохранить</button>
-        </form>
 
+        <div class="d-inline-flex flex-column w-100  mt-5">
+            <div class="d-inline-flex justify-content-center mx-auto align-items-center">
+                <form method="POST" id="save_sphere" class="d-inline-flex flex-column mr-5">{% csrf_token %}
+                    {{ form }}
+                </form>
 
-        {% if img %}
-        <img src="/static/mainsite/images/wheeloflife/png/{{ img }}.png"
-             alt="Здесь будет наглядно показан ваш прогресс">
-        {% endif %}
+                {% if img %}
+                <img src="/static/mainsite/images/wheeloflife/png/{{ img }}.png"
+                     alt="Здесь будет наглядно показан ваш прогресс">
+                {% endif %}
+            </div>
+            <div class="d-flex justify-content-center mt-5">
+                <button type="button" class="header--change--btn mr-5" id="sphere_of_life_Btn">Сохранить</button>
+                <a class="header--change--btn" href="{% url 'sphere_deletion' %}">Удалить</a>
 
-
-        <a class="btn btn-default" href="{% url 'sphere_deletion' %}">Удалить</a>
-        <br>
+            </div>
+        </div>
 
         <p id="9d9968dd-1ed3-4ee4-b790-f79ca44d2b1d" class="mt-5">
             <mark class=""> СЧАСТЬЕ - ЭТО ПОЛНОТА И ГАРМОНИЯ ЧЕТЫРЕХ СФЕР ЖИЗНИ</mark>
@@ -167,6 +171,9 @@
     </div>
     <a href="#"><span class="oi oi-arrow-top float-right rounded-circle py-3 px-4"
                       style="color: black; border: 3px solid black; font-size: 2.5rem"></span></a>
+    <div class="mt-5 w-100 justify-content-center d-inline-flex">
+        <img src='{% static "img/images_for_tree/Yoga.svg" %}' alt="" class="rectang"/>
+    </div>
 
     <div id="mypopup" class="popup">
         <div class="popup_content">
