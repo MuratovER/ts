@@ -47,10 +47,12 @@
         <nav class='menu'>
           {% if user.is_authenticated %}
           <a href="{% url 'home_page' %}" class="header-a">Главная</a>
-
-          <a href="#" class="header-a">Профиль</a>
-          <a href="#" class="header-a">Дерево развития</a>
-
+          <a href="{% url 'user_page' %}" class="header-a">Профиль</a>
+          <a href="{% url 'tree' %}" class="header-a">Дерево развития</a>
+          {% else %}
+          <a href="{% url 'home_page' %}" class="header-a">Главная</a>
+          <a href="{% url 'aboutus' %}" class="header-a">О нас</a>
+          {% endif %}
         </nav>
        
         <div class="header--btns">
