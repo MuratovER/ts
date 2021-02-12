@@ -4,7 +4,7 @@
 
 {% load static %}
 
-<article id="0370fccd-7455-4596-ba0f-cb036289fef4" class="page sans w-75 mx-auto" style="margin-top: 2em">
+<article id="0370fccd-7455-4596-ba0f-cb036289fef4" class="page sans w-75 mx-auto" style="margin-top: 2em; font-size: 18px">
     <header>
         <div>
             <a href="{% url 'introduction' %}" target="_self" style="color: black; margin-right: 5em"><span
@@ -31,10 +31,10 @@
             <span>1800</span>
         </div>
         <div class="float-right align-top mt-5">
-            <a href="#" class="ml-2"><img src='' style="background: black;width: 25px; height: 30px"></a>
-            <a href="#" class="ml-2"><img src='' style="background: black;width: 25px; height: 30px"></a>
-            <a href="#" class="ml-2"><img src='' style="background: black;width: 25px; height: 30px"></a>
-            <a href="#" class="ml-2"><img src='' style="background: black;width: 25px; height: 30px"></a>
+            <a href="#" class="ml-2"><img src='{% static "img/images_for_tree/vk.png" %}' style="background: black;width: 25px; height: 30px"></a>
+            <a href="#" class="ml-2"><img src='{% static "img/images_for_tree/inst.png" %}' style="background: black;width: 25px; height: 30px"></a>
+            <a href="#" class="ml-2"><img src='{% static "img/images_for_tree/faceb.png" %}' style="background: black;width: 25px; height: 30px"></a>
+            <a href="#" class="ml-2"><img src='{% static "img/images_for_tree/pinter.png" %}' style="background: black;width: 25px; height: 30px"></a>
         </div>
         <h1 class="" style="margin-bottom: 3rem;">
             <em>Кто такой Лидер и что такое личностное развитие</em>
@@ -85,8 +85,8 @@
             условия которых были намного хуже, чем у большинства из вас и которые достигли невероятного жизненного
             успеха. Вы не верите? Вот только один пример. Посмотрите видео к этому уроку, оно снимет все ваши сомнения
         </p>
-        <div style="margin-bottom: 2rem; height: 22rem" class="d-inline-flex">
-            <iframe class="h-100 w-75" src="https://www.youtube.com/embed/Qj0cIAVAqKY" frameborder="0"
+        <div style="margin-bottom: 2rem; height: 22rem" class="d-inline-flex mt-4">
+            <iframe class="h-100 w-75 mr-5" src="https://www.youtube.com/embed/Qj0cIAVAqKY" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             <strong>Ник Вуйнич. Превый канал, Программа "Воскрестное время" 14.04.13</strong>
@@ -96,14 +96,13 @@
             отговорки. Этот парень попав в беду, нашел силы не только выжить самому, но в буквальном смысле помочь
             тысячам других людей, некоторых из которых он своим примером просто спас.
         </p>
-        <p id="7f6a7066-19f8-4aad-bf25-06f13666f313" class="" style="margin-bottom: 2rem;">
+        <p id="7f6a7066-19f8-4aad-bf25-06f13666f313" class="" style="">
             .... В начале книги(?) мы обещали вам притчи. Вот первая и, возможно, самая важная притча. Мы ее придумали
             сами, чтобы сформулировать первый и самый главный урок этой книги.</p>
-
-        <a href="{% url 'introduction_chapter_pritch' %}" style="color: black;">
-            <h2 style=" margin-bottom: 1.5rem;">ПРИТЧА О САМОМ ГЛАВНОМ В ЖИЗНИ</h2>
-        </a>
-        <div style="border-left: 5px solid black; padding: 0.5rem 0 0.02rem 1rem; margin: -0.5rem 0 2rem -1rem;">
+        <div style="border-left: 5px solid black; padding: 0.002rem 0 1rem 3rem; margin: 0 0 2rem -3.5rem;">
+            <a href="{% url 'introduction_chapter_pritch' %}" style="color: black;">
+                <h3 style=" margin-bottom: 1.5rem;">ПРИТЧА О САМОМ ГЛАВНОМ В ЖИЗНИ</h3>
+            </a>
             <p id="52826301-1bb6-4366-8cf7-ab29b601c917" class="" style="margin-bottom: 2rem;">
                 Какой урок из этой притчи? Вас окружает прекрасный, огромный мир, в котором для вас открыты бесконечные
                 возможности. и, просто по факту своего рождения, вы получили самый главный подарок - жизнь в этом мире.
