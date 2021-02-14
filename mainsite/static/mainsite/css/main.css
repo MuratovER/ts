@@ -1894,6 +1894,8 @@ color: #011128;
 }
   
 .aboutus_title{
+  display: grid;
+  justify-content: center;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 1000;
@@ -1998,7 +2000,7 @@ color: #011128;
 
 .aboutus_fixing--right {
   display: grid; 
-  justify-content: right;
+  justify-content: center;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 1000;
@@ -2012,5 +2014,10 @@ color: #011128;
 .aboutus_fixing--niz {
   display: grid; 
   justify-content: right; 
+  font-size: 25px;
+}
+.aboutus_niliz {
+  display: grid; 
+  justify-content: center;
   font-size: 25px;
 }
