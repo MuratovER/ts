@@ -40,8 +40,8 @@ urlpatterns = [
     path('first/first_chapters_self_assessment_list/', views. first_chapters_self_assessment_list, name='first_chapters_self_assessment_list'),
     path('first/first_chapters_self_discipline/', views.first_chapters_self_discipline, name='first_chapters_self_discipline'),
     path('first/first_chapters_self_discipline_list/', views.first_chapters_self_discipline_list, name='first_chapters_self_discipline_list'),
-    path('firstr/first_chapters_aims_in_life/', views.first_chapters_aims_in_life, name='first_chapters_aims_in_life'),
-    path('firstr/first_chapters_aims_in_life_list/', views.first_chapters_aims_in_life_list, name='first_chapters_aims_in_life_list'),
+    path('first/first_chapters_aims_in_life/', views.first_chapters_aims_in_life, name='first_chapters_aims_in_life'),
+    path('first/first_chapters_self_aims_in_life_list/', views.first_chapters_self_aims_in_life_list, name='first_chapters_self_aims_in_life_list'),
     #Second
     path('second/', views.second_view, name='second'),
     path('second/second_chapters_AimofLearning/', views.second_chapters_AimofLearning, name='second_chapters_AimofLearning'),
