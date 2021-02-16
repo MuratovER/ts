@@ -197,8 +197,8 @@ def first_chapters_self_discipline_list(request):
 def first_chapters_aims_in_life(request):
     return  render(request, 'mainsite/tree/first/first_chapters_aims_in_life.html',)
 
-def first_chapters_aims_in_life_list(request):
-    return  render(request, 'mainsite/tree/first/first_chapters_aims_in_life_list.html',)
+def first_chapters_self_aims_in_life_list(request):
+    return  render(request, 'mainsite/tree/first/first_chapters_self_aims_in_life_list.html',)
 
 #Second
 #подключение второй главы
