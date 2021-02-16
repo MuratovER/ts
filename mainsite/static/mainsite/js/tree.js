@@ -10,7 +10,7 @@
 window.onload = function() { 
     const tree = document.querySelector('.tree--container'),
         rootLists = document.querySelector('.tree--root--lists'),
-        crownContent = document.querySelectorAll('.tree--crown--flex'),
+        crownContent = document.querySelector('.tree--crown--flex'),
         crownItem = document.querySelectorAll('.tree--crown--item'),
         chooseSphereBtn = document.querySelectorAll('.tree--crown--item--btn'),
         crownBranch = document.querySelectorAll('.tree--crown--item--branch'),
@@ -137,7 +137,8 @@ window.onload = function() {
         //показ кроны
         if (target == rootLists) {
             rootLists.style.display = 'none';
-            crownContent.style.display = 'flex'
+            crownContent.style.display = 'flex';
+
             document.body.insertAdjacentHTML("beforeend", 
             `<style>
             .tree--crown--flex {
