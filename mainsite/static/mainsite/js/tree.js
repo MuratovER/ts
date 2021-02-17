@@ -84,7 +84,7 @@ window.onload = function() {
                 //добавляется после селект
                 formItem.insertAdjacentHTML("afterEnd", 
                 `<div class="tree--crown--item--branch  tree--crown--item--branch-${sphereIndex}">
-                <img src="../../static/mainsite/home/tree_img/lesson${sphereIndex}-branch.png" alt=""
+                <img src="../../static/mainsite/images/tree/lesson${sphereIndex}-branch.png" alt=""
                 class='tree--crown--item--branch--img'>
                 <a id='branch-${sphereIndex}-lesson-1' href='#'class="tree--branch--lesson tree--branch--lesson-1">
                     <div class="tree--branch--lesson--border">

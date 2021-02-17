@@ -7,6 +7,7 @@
 
       <!-- Required meta tags -->
       <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
       <!-- Optional JavaScript -->
@@ -15,11 +16,12 @@
       <script src='{% static "mainsite/js/bootstrap.min.js" %}'></script>
 
       <!-- Style sheets -->
-      <link rel="shortcut icon"   type="image/x-icon"  href="{% static '/mainsite/home/img_for_new_version/favicon.ico' %}"/>
+      <link rel="shortcut icon"   type="image/x-icon"  href="{% static '/mainsite/images/base/favicon.ico' %}"/>
      
       <link rel="stylesheet" href="{% static 'mainsite/css/main.css' %}">
       <link rel="stylesheet" href="{% static 'mainsite/css/profile.css' %}">
       <link rel="stylesheet" href="{% static 'mainsite/css/bootstrap.css' %}">
+      <link rel="stylesheet" href="{% static 'mainsite/css/landing.css' %}">
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
@@ -29,7 +31,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">      
       <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.css' %}">
+      <link rel="stylesheet" href="{% static 'mainsite/css/open-iconic-bootstrap.css' %}">
       
 
       <!-- <title>TopSkills</title> -->
@@ -41,7 +43,7 @@
       <div class="header--container"> 
         <div class="header--flex">  
           <div class="header--logo">   
-            <img src="../../static/mainsite/home/img_for_new_version/Logo.png" alt="">
+            <img src="../../static/mainsite/images/base/Logo.png" alt="">
             <a href="{% url 'logout' %}" class="name">TopSkills</a>
           </div>
 
@@ -51,6 +53,7 @@
           <a href="{% url 'home_page' %}" class="header-a">Главная</a>
           <a href="{% url 'user_page' %}" class="header-a">Профиль</a>
           <a href="{% url 'tree' %}" class="header-a">Дерево развития</a>
+          <a href="{% url 'tree_old' %}" class="header-a">Старое дерево развития</a>
           {% else %}
           <a href="{% url 'home_page' %}" class="header-a">Главная</a>
           <a href="{% url 'aboutus' %}" class="header-a">О нас</a>
@@ -168,48 +171,48 @@
             <p class="footerLogo">TopSkills</p>
 
             <div class="row footerFirstRow">
-              <a href="#" class='footerSocial'><img src='../../static/mainsite/home/vk.png' alt=""></a>
-              <a href="#" class='footerSocial'><img src='../../static/mainsite/home/instagram.png' alt=""></a>
-              <a href="#" class='footerSocial'><img src='../../static/mainsite/home/facebook.png' alt=""></a>
-              <a href="#" class='footerSocial'><img src='../../static/mainsite/home/youtube.png' alt=""></a>
-              <a href="#" class='footerSocial'><img src='../../static/mainsite/home/google.png' alt=""></a>
+              <a href="#" class='footerSocial'><img src='../../static/mainsite/images/base/vk.png' alt=""></a>
+              <a href="#" class='footerSocial'><img src='../../static/mainsite/images/base/instagram.png' alt=""></a>
+              <a href="#" class='footerSocial'><img src='../../static/mainsite/images/base/facebook.png' alt=""></a>
+              <a href="#" class='footerSocial'><img src='../../static/mainsite/images/base/youtube.png' alt=""></a>
+              <a href="#" class='footerSocial'><img src='../../static/mainsite/images/base/google.png' alt=""></a>
             </div>
 
             <p class="footerSupport">При поддержке КНИТУ-КАИ</p>
-            <img src='../../static/mainsite/home/img_for_new_version/kaiLogo.png' alt="" class="footerKaiIcon">
+            
+            <img src='../../static/mainsite/images/base/kaiLogo.png' alt="" class="footerKaiIcon">
           </div>
 
           <div class="footerCol footerEducationCol">
             <p class="footerColTitle">ОБУЧЕНИЕ</p>
-            <a href="#" class='footer--link'>Процесс</a>
+            <a href="#" class='footer--link'>Книга</a>
             <a href="#" class='footer--link'>Игры</a>
-            <a href="#" class='footer--link'>Вопрос-ответ</a>
-            <a href="#" class='footer--link'>Другие услуги</a>
+            <a href="#" class='footer--link'>Тесты</a>
+            <a href="#" class='footer--link'>Задания</a>
           </div>
-
 
           <div class="footerCol footerColSupport">
             <p class="footerColTitle">ПОДДЕРЖКА</p>
-            <a href="#" class='footer--link'>Процесс</a>
-            <a href="#"class='footer--link'>Игры</a>
+            <a href="#" class='footer--link'>Чат-бот</a>
+            <a href="#" class='footer--link'>Звонок в поддержку</a>
             <a href="#" class='footer--link'>Вопрос-ответ</a>
-            <a href="#" class='footer--link'>Другие услуги</a>
+            <a href="#" class='footer--link'>Часы работы</a>
           </div>
           
           <div class="footerCol footerColProducts">
             <p class="footerColTitle">ПРОДУКТЫ</p>
-            <a href="#" class='footer--link'>Процесс</a>
-            <a href="#" class='footer--link'>Игры</a>
-            <a href="#" class='footer--link'>Вопрос-ответ</a>
-            <a href="#" class='footer--link'>Другие услуги</a>
+            <a href="#" class='footer--link'>Платформа</a>
+            <a href="#" class='footer--link'>Приложения</a>
+            <a href="#" class='footer--link'>Интеграции</a>
+            <a href="#" class='footer--link'>Партнерство</a>
           </div>
 
           <div class="footerCol footerColContact">
             <p class="footerColTitle">КОНТАКТЫ</p>
-            <a href="#" class='footer--link'>Процесс</a>
-            <a href="#" class='footer--link'>Игры</a>
-            <a href="#" class='footer--link'>Вопрос-ответ</a>
-            <a href="#"class='footer--link'>Другие услуги</a>
+            <a href="{% url 'home_page' %}" class='footer--link'>Главная</a>
+            <a href="{% url 'aboutus' %}" class='footer--link'>О нас</a>
+            <a href="#" class='footer--link'>Задать вопрос</a>
+            <a href="#"class='footer--link'>Помочь проекту</a>
           </div>
 
 

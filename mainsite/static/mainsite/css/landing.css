@@ -46,14 +46,14 @@ position: relative;
     cursor: pointer;
 }
 .header-slider .slick-prev {
-    background-image: url(../home/img_for_new_version/prev--arrow.png);
+    background-image: url(../images/landing/prev--arrow.png);
     background-repeat:no-repeat;
     padding: 6px;
     right: 74px;
     
 }
 .header-slider .slick-next {
-    background-image: url(../home/img_for_new_version/next--arrow.png);
+    background-image: url(../images/landing/next--arrow.png);
     background-repeat:no-repeat;
 }
 
@@ -65,13 +65,13 @@ position: relative;
     height: 698px;
 }
 .slider--1item {
-    background-image: url(../home/img_for_new_version/header--first--bg.jpg);
+    background-image: url(../images/landing/header--first--bg.jpg);
 }
 .slider--2item {
-    background-image: url(../home/img_for_new_version/header--second--bg.jpg);
+    background-image: url(../images/landing/header--second--bg.jpg);
 }
 .slider--3item {
-    background-image: url(../home/img_for_new_version/header--third-bg.jpg);
+    background-image: url(../images/landing/header--third-bg.jpg);
 } 
 
 .header--container {

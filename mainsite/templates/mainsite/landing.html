@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../static/mainsite/css/landing.css">
-</head>
-<body>
+{% extends 'mainsite/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<title>TopSkills</title>
+
     <section id='header-slogan'>
         <div class="header-slider">
             <div class="header--slider--item slider--1item">
@@ -31,10 +28,10 @@
             <!--
             <div class="header--slider--btns">
                 <button class="header--slider--btn header--slider--prev">
-                    <img src="../../static/mainsite/home/img_for_new_version/prev--arrow.png" alt="">
+                    <img src="../../static/mainsite/images/landing/prev--arrow.png" alt="">
                 </button>
                 <button class="header--slider--btn header--slider--next">
-                    <img src="../../static/mainsite/home/img_for_new_version/next--arrow.png" alt="">
+                    <img src="../../static/mainsite/images/landing/next--arrow.png" alt="">
                 </button>
             </div>
         -->
@@ -64,10 +61,10 @@
                             школе и университете - о личностном развитии
                         </p>
                     </div>
-                    <img src="../../static/mainsite/home/img_for_new_version/manWithLaptop.png" alt="" class="aboutPlatform--col--img">
+                    <img src="../../static/mainsite/images/landing/manWithLaptop.png" alt="" class="aboutPlatform--col--img">
                 </div>
                 <div class="aboutPlatform--col">
-                    <img src="../../static/mainsite/home/img_for_new_version/manWithVr.png" alt="" class="aboutPlatform--col--img">
+                    <img src="../../static/mainsite/images/landing/manWithVr.png" alt="" class="aboutPlatform--col--img">
                     <div class="aboutPlatform--col--texts">
                         <p class="aboutPlatform--col--title">О сложном простым языком</p>
                         <p class="aboutPlatform--col--txt">
@@ -84,17 +81,17 @@
                             а также команда твоих единомышленников.
                             </p>
                         </div>    
-                    <img src="../../static/mainsite/home/img_for_new_version/mp3.png" alt="" class="aboutPlatform--col--img">
+                    <img src="../../static/mainsite/images/landing/mp3.png" alt="" class="aboutPlatform--col--img">
                 </div>
-                <img src="../../static/mainsite/home/img_for_new_version/aboutPlatformLine.png" class='aboutPlatform-bg-line' alt="">
+                <img src="../../static/mainsite/images/landing/aboutPlatformLine.png" class='aboutPlatform-bg-line' alt="">
             </div>
         </div>
     </section>
     <section id='noName'> 
         <p class="noName--title">Просто текст</p>
-        <img src="../../static/mainsite/home/img_for_new_version/1-elipse.png" alt="" class="noNameEllipses-1">
-        <img src="../../static/mainsite/home/img_for_new_version/2-ellipse.png" alt="" class="noNameEllipses-2">
-        <img src="../../static/mainsite/home/img_for_new_version/3-ellipse.png" alt="" class="noNameEllipses-3">
+        <img src="../../static/mainsite/images/landing/1-elipse.png" alt="" class="noNameEllipses-1">
+        <img src="../../static/mainsite/images/landing/2-ellipse.png" alt="" class="noNameEllipses-2">
+        <img src="../../static/mainsite/images/landing/3-ellipse.png" alt="" class="noNameEllipses-3">
     </section>
     <section id='aboutUs'> 
         <div class="content--container">
@@ -107,14 +104,14 @@
                         им в трудной ситуации и поддерживая их на всем пути. Сейчас мы занимаемся геймификацией
                          этой книги в удобной для пользователей среде. 
                     </p>
-                    <a href="#" class="aboutUs--link">Подробнее о нас <img src="../../static/mainsite/home/img_for_new_version/linkArrow.png" alt=""></a>
+                    <a href="#" class="aboutUs--link">Подробнее о нас <img src="../../static/mainsite/images/landing/linkArrow.png" alt=""></a>
                 </div>
-                <img src="../../static/mainsite/home/img_for_new_version/book.png" alt="" class="aboutUs--book">
+                <img src="../../static/mainsite/images/landing/book.png" alt="" class="aboutUs--book">
             </div>
         </div>
-        <img src="../../static/mainsite/home/img_for_new_version/aboutUs-1-ellipse.png" alt="" class="aboutUs-1-ellipse">
-        <img src="../../static/mainsite/home/img_for_new_version/aboutUs-2-ellipse.png" alt="" class="aboutUs-2-ellipse">
-        <img src="../../static/mainsite/home/img_for_new_version/aboutUs-3-ellipse.png" alt="" class="aboutUs-3-ellipse">
+        <img src="../../static/mainsite/images/landing/aboutUs-1-ellipse.png" alt="" class="aboutUs-1-ellipse">
+        <img src="../../static/mainsite/images/landing/aboutUs-2-ellipse.png" alt="" class="aboutUs-2-ellipse">
+        <img src="../../static/mainsite/images/landing/aboutUs-3-ellipse.png" alt="" class="aboutUs-3-ellipse">
         <a href="" class="aboutUs--regisrationBtn">Большая кнопка регистрации</a>
     </section>
     <section id="question">
@@ -123,18 +120,17 @@
                 <div class="question--text--content">
                     <p class="question--title">Есть вопросы?</p>
                     <p class="question--txt">Не стесняйся задавать нам свои вопросы, и наш сотрудник,Барсик обязательно ответит на ваши вопросы.</p>
-                    <a href="#" class="question--btn">Задать нам вопрос <img src="../../static/mainsite/home/img_for_new_version/linkArrow.png" alt=""> </a>
+                    <a href="#" class="question--btn">Задать нам вопрос <img src="../../static/mainsite/images/landing/linkArrow.png" alt=""> </a>
                 </div>
-                <img src="../../static/mainsite/home/img_for_new_version/questionList.png" alt="" class="question--img">
+                <img src="../../static/mainsite/images/landing/questionList.png" alt="" class="question--img">
             </div>
         </div>
     </section>
-</body>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
-<script src='landingScripts/jquery.min.js'></script>
-<script src='landingScripts/slick.min.js'></script>
-<script src='landingScripts/slider.js'></script>
+<script src="{% static 'mainsite/js/landingScripts/jquery.min.js' %}"></script>
+<script src="{% static 'mainsite/js/landingScripts/slick.min.js' %}"></script>
+<script src="{% static 'mainsite/js/landingScripts/slider.js' %}"></script>
 
-</html>
+{% endblock %}

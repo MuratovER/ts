@@ -81,7 +81,7 @@
   position: relative;
   height: 278px;
   margin-left: 67px;
-  background-image: url(../profile/img/background-header.png);
+  background-image: url(../images/profile/background-header.png);
   background-repeat: no-repeat;
   margin-top: 140px;
 }
@@ -194,7 +194,7 @@ transition: opacity .3s;
 }
 .hint--message {
   position: absolute;
-  background-image: url(../profile/img/messageBtn.png);
+  background-image: url(../images/profile/messageBtn.png);
   margin-top: -70px;
   margin-left: -25px;
   height: 38px;
@@ -215,7 +215,7 @@ transition: opacity .3s;
   opacity: 1;
 }
 .hint--callendar {
-background-image: url(../profile/img/calendarBtnBg.png);
+background-image: url(../images/profile/calendarBtnBg.png);
 margin-left: 15px;
 margin-top: 15px;
 width: 84px;
@@ -229,7 +229,7 @@ height: 38px;
   opacity: 1;
 }
 .hint--settings {
-  background-image: url(../profile/img/settingsVector.png);
+  background-image: url(../images/profile/settingsVector.png);
   position: absolute;
   margin-top: -80px;
   margin-left: 57px;
@@ -241,7 +241,7 @@ height: 38px;
   opacity: 1;
 }
 .hint--statics {
-  background-image: url(../profile/img/staticsVector.png);
+  background-image: url(../images/profile/staticsVector.png);
   position: absolute;
   width: 75px;
   height: 55px;
@@ -1213,7 +1213,7 @@ height: 38px;
 }
 
 .affirmation-1 {
-  background-image: url(../profile/img/affirmation-bg-1.png);
+  background-image: url(../images/profile/affirmation-bg-1.png);
   height: 207px;
 }
 
@@ -1246,13 +1246,13 @@ height: 38px;
 
 .affirmation-2 {
   height: 207px;
-  background-image: url(../profile/img/affirmation-bg-2.png);
+  background-image: url(../images/profile/affirmation-bg-2.png);
   border-radius: 28.533px;
 }
 
 .affirmation-3 {
   height: 207px;
-  background-image: url(../profile/img/affirmation-bg-3.png);
+  background-image: url(../images/profile/affirmation-bg-3.png);
   border-radius: 28.533px;
 }
 

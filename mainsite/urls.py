@@ -19,6 +19,7 @@ urlpatterns = [
     path('to_do_list/', views.to_do_list_view, name='to_do_list'),
     path('blog/', views.post_list, name='blog'),
     path('tree/', views.tree_view, name='tree'),
+    path('tree_old/', views.tree_old, name='tree_old'),
     path('help/', views.help_view, name='help'),
     path('skills/', views.skills, name='skills'),
     path('aboutus/', views.aboutus, name='aboutus'),

@@ -18,8 +18,16 @@ from django.template import RequestContext
 
 #Basic views begin
 #отправляет расположение разметки страницы в файл url
-def home_page(request):
-    return render(request, 'mainsite/home.html',)
+
+# if user authenticated load home, else load landing page
+def home_page(request): 
+    #print(request.user)
+    if request.user.is_authenticated:
+        return render(request, 'mainsite/home.html',)
+    else:
+        return render(request, 'mainsite/landing.html',)
+
+    
 
 @login_required
 def achivement_view(request):
@@ -36,6 +44,10 @@ def blog_view(request):
 @login_required
 def tree_view(request):
     return render(request, 'mainsite/tree.html', )
+
+@login_required
+def tree_old(request):
+    return render(request, 'mainsite/tree_old.html', )
 
 @login_required
 def help_view(request):
