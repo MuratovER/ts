@@ -46,11 +46,18 @@ urlpatterns = [
     #Second
     path('second/', views.second_view, name='second'),
     path('second/second_chapters_AimofLearning/', views.second_chapters_AimofLearning, name='second_chapters_AimofLearning'),
+    path('second/second_chapters_AimofLearning_task/', views.second_chapters_AimofLearning_task,
+         name='second_chapters_AimofLearning_task'),
     path('second/second_chapters_ControlofTime/', views.second_chapters_ControlofTime, name='second_chapters_ControlofTime'),
+    path('second/second_chapters_ControlofTime_task/', views.second_chapters_ControlofTime_task, name='second_chapters_ControlofTime_task'),
     path('second/second_chapters_ControlofTimeEfficiency/', views.second_chapters_ControlofTimeEfficiency, name='second_chapters_ControlofTimeEfficiency'),
+    path('second/second_chapters_ControlofTimeEfficiency_task/', views.second_chapters_ControlofTimeEfficiency_task, name='second_chapters_ControlofTimeEfficiency_task'),
     path('second/second_chapters_EfficientСommunications/', views.second_chapters_EfficientСommunications, name='second_chapters_EfficientСommunications'),
+    path('second/second_chapters_EfficientСommunications_task/', views.second_chapters_EfficientСommunications_task, name='second_chapters_EfficientСommunications_task'),
     path('second/second_chapters_ForeignLanguage/', views.second_chapters_ForeignLanguage, name='second_chapters_ForeignLanguage'),
+    path('second/second_chapters_ForeignLanguage_task/', views.second_chapters_ForeignLanguage_task, name='second_chapters_ForeignLanguage_task'),
     path('second/second_chapters_Thoughts/', views.second_chapters_Thoughts, name='second_chapters_Thoughts'),
+    path('second/second_chapters_Thoughts_task/', views.second_chapters_Thoughts_task, name='second_chapters_Thoughts_task'),
     #Third
     path('third/', views.third_view, name='third'),
     path('third/third_chapters_HealthySleep/', views.third_chapters_HealthySleep, name='third_chapters_HealthySleep'),

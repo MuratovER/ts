@@ -220,20 +220,38 @@ def second_view(request):
 def second_chapters_AimofLearning(request):
     return  render(request, 'mainsite/tree/second/second_chapters_AimofLearning.html',)
 
+def second_chapters_AimofLearning_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_AimofLearning_task.html',)
+
 def second_chapters_ControlofTime(request):
     return  render(request, 'mainsite/tree/second/second_chapters_ControlofTime.html',) 
+
+def second_chapters_ControlofTime_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_ControlofTime_task.html',)
 
 def second_chapters_ControlofTimeEfficiency(request):
     return  render(request, 'mainsite/tree/second/second_chapters_ControlofTimeEfficiency.html',)
 
+def second_chapters_ControlofTimeEfficiency_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_ControlofTimeEfficiency_task.html',)
+
 def second_chapters_EfficientСommunications(request):
     return  render(request, 'mainsite/tree/second/second_chapters_EfficientСommunications.html',)
+
+def second_chapters_EfficientСommunications_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_EfficientСommunications_task.html',)
 
 def second_chapters_ForeignLanguage(request):
     return  render(request, 'mainsite/tree/second/second_chapters_ForeignLanguage.html',)
 
+def second_chapters_ForeignLanguage_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_ForeignLanguage_task.html',)
+
 def second_chapters_Thoughts(request):
     return  render(request, 'mainsite/tree/second/second_chapters_Thoughts.html',)      
+
+def second_chapters_Thoughts_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_Thoughts_task.html',)
 
 #Third
 #подключение тертей главы
