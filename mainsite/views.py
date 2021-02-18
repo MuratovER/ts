@@ -210,7 +210,7 @@ def first_chapters_aims_in_life(request):
     return  render(request, 'mainsite/tree/first/first_chapters_aims_in_life.html',)
 
 def first_chapters_self_aims_in_life_list(request):
-    return  render(request, 'mainsite/tree/first/first_chapters_self_aims_in_life_list.html',)
+    return  render(request, 'mainsite/tree/first/first_chapters_self_aim_in_life_list.html',)
 
 #Second
 #подключение второй главы
@@ -220,20 +220,38 @@ def second_view(request):
 def second_chapters_AimofLearning(request):
     return  render(request, 'mainsite/tree/second/second_chapters_AimofLearning.html',)
 
+def second_chapters_AimofLearning_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_AimofLearning_task.html',)
+
 def second_chapters_ControlofTime(request):
     return  render(request, 'mainsite/tree/second/second_chapters_ControlofTime.html',) 
+
+def second_chapters_ControlofTime_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_ControlofTime_task.html',)
 
 def second_chapters_ControlofTimeEfficiency(request):
     return  render(request, 'mainsite/tree/second/second_chapters_ControlofTimeEfficiency.html',)
 
+def second_chapters_ControlofTimeEfficiency_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_ControlofTimeEfficiency_task.html',)
+
 def second_chapters_EfficientСommunications(request):
     return  render(request, 'mainsite/tree/second/second_chapters_EfficientСommunications.html',)
+
+def second_chapters_EfficientСommunications_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_EfficientСommunications_task.html',)
 
 def second_chapters_ForeignLanguage(request):
     return  render(request, 'mainsite/tree/second/second_chapters_ForeignLanguage.html',)
 
+def second_chapters_ForeignLanguage_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_ForeignLanguage_task.html',)
+
 def second_chapters_Thoughts(request):
     return  render(request, 'mainsite/tree/second/second_chapters_Thoughts.html',)      
+
+def second_chapters_Thoughts_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_Thoughts_task.html',)
 
 #Third
 #подключение тертей главы
@@ -252,6 +270,18 @@ def third_chapters_MovementandHardening(request):
 def third_chapters_LadieswithStress(request):
     return  render(request, 'mainsite/tree/third/third_chapters_LadieswithStress.html',)   
 
+def third_chapters_HealthySleep_task(request):
+    return  render(request, 'mainsite/tree/third/third_chapters_HealthySleep_task.html',)
+
+def third_chapters_GoodNutrition_task(request):
+    return  render(request, 'mainsite/tree/third/third_chapters_GoodNutrition_task.html',)
+
+def third_chapters_MovementandHardening_task(request):
+    return  render(request, 'mainsite/tree/third/third_chapters_MovementandHardening_task.html',)
+
+def third_chapters_LadieswithStress_task(request):
+    return  render(request, 'mainsite/tree/third/third_chapters_LadieswithStress_task.html',)
+
 #Fourth
 #подключение четвертой главы
 def fourth_view(request):
@@ -268,6 +298,18 @@ def fourth_chapters_RelationshipsintheFamily(request):
 
 def fourth_chapters_Friends(request):
     return  render(request, 'mainsite/tree/fourth/fourth_chapters_Friends.html',)        
+
+def fourth_chapters_AbilitytoCommunicate_task(request):
+    return  render(request, 'mainsite/tree/fourth/fourth_chapters_AbilitytoCommunicate_task.html',)
+
+def fourth_chapters_Conflicts_task(request):
+    return  render(request, 'mainsite/tree/fourth/fourth_chapters_Conflicts_task.html',)
+
+def fourth_chapters_RelationshipsintheFamily_task(request):
+    return  render(request, 'mainsite/tree/fourth/fourth_chapters_RelationshipsintheFamily_task.html',)
+
+def fourth_chapters_Friends_task(request):
+    return  render(request, 'mainsite/tree/fourth/fourth_chapters_Friends_task.html',)
 
 
 #Basic views end
