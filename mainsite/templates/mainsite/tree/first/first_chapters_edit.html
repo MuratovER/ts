@@ -472,6 +472,14 @@
                 программы и тренинги, направленные на формирование необходимых универсальных навыков.
             </li>
         </ol>
+        <a class="header--change--btn" href="{% url 'affirmation_generator' %}">Создать аффирмацию</a>
+        <!-- <button class="affirmation-plus" type="sumbit" onclick="location.href='{% url 'affirmation_generator' %}'" class='header--change--btn headerRegister'>Добавить новые аффирмации</button> -->
+        <br>
+        <br>
+        {% if user_affirmation_path %}
+        <img src="../../static/mainsite/images/affirmations/{{ user_affirmation_path }}">
+        {% endif %}
+        <br>
         <span style="border-bottom: 3px solid blue" class="pb-4">
 			<a href="{% url 'first_chapters_EditTask' %}" class="d-inline-flex text-decoration-none">
 				<h3 style="color: black;">Перейти к домашнему заданию</h3>

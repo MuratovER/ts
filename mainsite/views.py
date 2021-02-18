@@ -188,7 +188,13 @@ def first_chapters_what_is_it_task(request):
     return  render(request, 'mainsite/tree/first/first_chapters_what_is_it_task.html',)
 
 def first_chapters_edit(request):
-    return  render(request, 'mainsite/tree/first/first_chapters_edit.html',)
+    user_affirmation_path = None
+    if User_affirmation.objects.filter(user=request.user).exists():
+        user_obj = User_affirmation.objects.filter(user=request.user).order_by('-id')[:1][0]
+        user_text = user_obj.text
+        bg_id = user_obj.background_id
+        user_affirmation_path = get_affirmation_image.get_image(user_obj)
+    return  render(request, 'mainsite/tree/first/first_chapters_edit.html', {'user_affirmation_path': user_affirmation_path})
 
 def first_chapters_EditTask(request):
     return  render(request, 'mainsite/tree/first/first_chapters_EditTask.html',)

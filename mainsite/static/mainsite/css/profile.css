@@ -274,7 +274,7 @@ height: 38px;
 /* profile_settings */
 #profile-header {
   background: #ffffff;
-  height: 635px;
+  height: 600px;
 }
 #profile--info {
   background: #EFF0F4;
@@ -295,7 +295,7 @@ height: 38px;
 .profile-info-container {
   background: #ffffff;
   width: 100%;
-  height: 498px;
+  height: 400px;
   border-radius: 21px;
 }
 
@@ -1154,7 +1154,7 @@ height: 38px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 980px;
+  height: 480px;
   background: #ffffff;
   border-radius: 21px;
 }

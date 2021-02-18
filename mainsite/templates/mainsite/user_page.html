@@ -81,7 +81,7 @@
             <p class="profile-info">Всего выполненных заданий:</p>
             <p class="profile-info">Родной город:</p>
             <p class="profile-info">День рождения:</p>
-            <p class="profile-info">Контактная информация:</p>
+            <!-- <p class="profile-info">Контактная информация:</p> -->
             <p class="profile-info">Образование:</p>
             <p class="profile-info">Языки:</p>
           </div>
@@ -90,11 +90,11 @@
             <p class="profile-info-txt">999k</p> -->
             <p class="profile-info-txt"> {{ user.email }} </p>
             <p class="profile-info-txt"> {{ user.date_joined }}  </p>
-            <p class="profile-info-txt">80</p>
-            <p class="profile-info-txt">1000</p>
+            <p class="profile-info-txt">1</p>
+            <p class="profile-info-txt">10</p>
             <p class="profile-info-txt">г. Казань, Россия</p>
             <p class="profile-info-txt"> 1 января 2021г.</p>
-            <p class="profile-info-txt">Телефон: 89826716241</p>
+            <!-- <p class="profile-info-txt">Телефон: 89826716241</p> -->
             <p class="profile-info-txt">КНИТУ КАИ им. Туполева</p>
             <p class="profile-info-txt">Татарский, Русский, Английский</p>
           </div>
@@ -463,28 +463,41 @@
         </div>
       </div>
     </div>
+
+    {% if user_affirmation_path %}
     <div class="grid-col">
       <div class="affirmation">
+
         <div class="affirmation-haedline">
           <p class="affirmation-title">Мои аффирмации</p>
           <button class='affirmation-copy'><img src='{% static "mainsite/images/profile/copy.png" %}' alt=""></button>
         </div>
+        
         <div class="affirmation-col affirmation-1">
-          <p class="affirmation-col-title">Не забыть взять с собой студик</p>
-          <p class="affirmation-col-txt">Сегодня важная встреча, поэтому нужно взять с собой все необходимое и не забыть взять с собой студик, чтобы меня смогли впустить в институт</p>
+          <!-- <p class="affirmation-col-title">Не забыть взять с собой студик</p> -->
+          <!-- <p class="affirmation-col-txt">Сегодня важная встреча, поэтому нужно взять с собой все необходимое и не забыть взять с собой студик, чтобы меня смогли впустить в институт</p> -->
+          
+          <img src="../static/mainsite/images/affirmations/{{ user_affirmation_path }}">
+          
         </div>
-        <div class="affirmation-col affirmation-2">
+
+        <!-- <div class="affirmation-col affirmation-2">
           <p class="affirmation-col-2-title">Встретиться с президентом Кубы</p>
         </div>
+
         <div class="affirmation-col affirmation-3">
           <p class="affirmation-col-2-title">Съездить в Сибирь</p>
-        </div>
+        </div> -->
+
         <div class="affirmation-col">
-          <button class="affirmation-plus">Добавить новые аффирмации</button>
+          <button class="affirmation-plus" type="sumbit" onclick="location.href='{% url 'affirmation_generator' %}'" class='header--change--btn headerRegister'>Изменить аффирмацию</button>
         </div>
+
       </div>
     </div>
+    {% endif %}
 
+    {% if img %}
   <div class="grid-col">
     <div id="lifeWheelSection">
       <div id="lifeWheelHeader">
@@ -497,11 +510,9 @@
         </button>
       </div>
 
+      
       <div id="lifeWheelInfo">
         <div class="lifeWheelCoef">
-          {% if sphere == None %}
-            <p> -- </p>
-          {% else %}
             <div class="coef-col">
               <p class='coefTxt'>Коэффициент отношений:.................................</p>
               <p class='coefPoint'>{{ sphere.relationships}}</p>
@@ -522,13 +533,12 @@
               <p class='coefTxt'>Последнее обновление:....................................</p>
               <p class='coefPoint'> 03.02.2021</p>
             </div>
-          {% endif%}
         </div>
 
         <div id="lifeWheelChar">
-          {% if img %}
+          
             <img src="../static/mainsite/images/wheeloflife/png/{{ img }}.png">
-          {% endif %}
+          
           
             <!-- <p class='ten horizontalLeftTen'>10</p>
             <div class="horizontalLine"></div>
@@ -543,6 +553,7 @@
       </div>
     </div>
   </div>
+  {% endif %}
 
 </div>
   
