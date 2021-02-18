@@ -1561,9 +1561,7 @@ blockquote {
   justify-content: center;
   align-content: center;
   font-size: 1.5em;
-  background-image: url("../home/conteiner.jpg");
-  /*width:  1920px;*/
-  /*height: 1080px;*/
+  background-image: url("../images/home/conteiner.jpg");
   }
 .login-tables {
   width: 524px;
