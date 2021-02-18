@@ -270,6 +270,18 @@ def third_chapters_MovementandHardening(request):
 def third_chapters_LadieswithStress(request):
     return  render(request, 'mainsite/tree/third/third_chapters_LadieswithStress.html',)   
 
+def third_chapters_HealthySleep_task(request):
+    return  render(request, 'mainsite/tree/third/third_chapters_HealthySleep_task.html',)
+
+def third_chapters_GoodNutrition_task(request):
+    return  render(request, 'mainsite/tree/third/third_chapters_GoodNutrition_task.html',)
+
+def third_chapters_MovementandHardening_task(request):
+    return  render(request, 'mainsite/tree/third/third_chapters_MovementandHardening_task.html',)
+
+def third_chapters_LadieswithStress_task(request):
+    return  render(request, 'mainsite/tree/third/third_chapters_LadieswithStress_task.html',)
+
 #Fourth
 #подключение четвертой главы
 def fourth_view(request):
@@ -286,6 +298,18 @@ def fourth_chapters_RelationshipsintheFamily(request):
 
 def fourth_chapters_Friends(request):
     return  render(request, 'mainsite/tree/fourth/fourth_chapters_Friends.html',)        
+
+def fourth_chapters_AbilitytoCommunicate_task(request):
+    return  render(request, 'mainsite/tree/fourth/fourth_chapters_AbilitytoCommunicate_task.html',)
+
+def fourth_chapters_Conflicts_task(request):
+    return  render(request, 'mainsite/tree/fourth/fourth_chapters_Conflicts_task.html',)
+
+def fourth_chapters_RelationshipsintheFamily_task(request):
+    return  render(request, 'mainsite/tree/fourth/fourth_chapters_RelationshipsintheFamily_task.html',)
+
+def fourth_chapters_Friends_task(request):
+    return  render(request, 'mainsite/tree/fourth/fourth_chapters_Friends_task.html',)
 
 
 #Basic views end

@@ -64,6 +64,10 @@ urlpatterns = [
     path('third/third_chapters_GoodNutrition/', views.third_chapters_GoodNutrition, name='third_chapters_GoodNutrition'),
     path('third/third_chapters_MovementandHardening/', views.third_chapters_MovementandHardening, name='third_chapters_MovementandHardening'),
     path('third/third_chapters_LadieswithStress/', views.third_chapters_LadieswithStress, name='third_chapters_LadieswithStress'),
+    path('third/third_chapters_HealthySleep_task/', views.third_chapters_HealthySleep_task, name='third_chapters_HealthySleep_task'),
+    path('third/third_chapters_GoodNutrition_task/', views.third_chapters_GoodNutrition_task, name='third_chapters_GoodNutrition_task'),
+    path('third/third_chapters_MovementandHardening_task/', views.third_chapters_MovementandHardening_task, name='third_chapters_MovementandHardening_task'),
+    path('third/third_chapters_LadieswithStress_task/', views.third_chapters_LadieswithStress_task, name='third_chapters_LadieswithStress_task'),
     #Fourth
     path('fourth/', views.fourth_view, name='fourth'),
     path('fourth/fourth_chapters_AbilitytoCommunicate/', views.fourth_chapters_AbilitytoCommunicate, name='fourth_chapters_AbilitytoCommunicate'),
@@ -71,6 +75,10 @@ urlpatterns = [
     path('fourth/fourth_chapters_RelationshipsintheFamily/', views.fourth_chapters_RelationshipsintheFamily, name='fourth_chapters_RelationshipsintheFamily'),
     path('fourth/fourth_chapters_Friends/', views.fourth_chapters_Friends, name='fourth_chapters_Friends'),
     path("affirmation_generator", views.affirmation_generator, name='affirmation_generator'),
+    path('fourth/fourth_chapters_AbilitytoCommunicate_task/', views.fourth_chapters_AbilitytoCommunicate_task, name='fourth_chapters_AbilitytoCommunicate_task'),
+    path('fourth/fourth_chapters_Conflicts_task/', views.fourth_chapters_Conflicts_task, name='fourth_chapters_Conflicts_task'),
+    path('fourth/fourth_chapters_RelationshipsintheFamily_task/', views.fourth_chapters_RelationshipsintheFamily_task, name='fourth_chapters_RelationshipsintheFamily_task'),
+    path('fourth/fourth_chapters_Friends_task/', views.fourth_chapters_Friends_task, name='fourth_chapters_Friends_task'),
     #API
     #re_path(r'^api/get_todolist/(?P<user_id>[\w.@+-]+)/$', views.api_get_todolist),
     path('api/get_todolist/', views.api_get_todolist),
