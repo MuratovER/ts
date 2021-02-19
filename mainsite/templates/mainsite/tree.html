@@ -3,8 +3,7 @@
 {% block content %}
 
 {% load static%}
-<link rel="stylesheet" href="../../static/mainsite/css/tree/tree.css">
-<div class="tree--container">
+<link rel="stylesheet" href="../../static/mainsite/css/tree/tree.css"><div class="tree--container">
 	<div class="tree--crown">
 		<div class="tree--crown--flex">
 				
@@ -67,10 +66,20 @@
 			</div>
 					<!-- all branches-->
 					<div class="tree--crown--item--branch tree--crown--item--branch--disabled tree--crown--item--branch-1"
-					></div>
-					<div  class="tree--crown--item--branch tree--crown--item--branch--disabled tree--crown--item--branch-2"></div>
-					<div class="tree--crown--item--branch tree--crown--item--branch--disabled tree--crown--item--branch-3"></div>
-					<div class="tree--crown--item--branch tree--crown--item--branch--disabled tree--crown--item--branch-4"></div>
+
+					>
+						
+					</div>
+					<div  class="tree--crown--item--branch tree--crown--item--branch--disabled tree--crown--item--branch-2">
+						
+					</div>
+					<div class="tree--crown--item--branch tree--crown--item--branch--disabled tree--crown--item--branch-3">
+						
+					</div>
+					<div class="tree--crown--item--branch tree--crown--item--branch--disabled tree--crown--item--branch-4">
+						
+					</div>
+
 				</div>
 			<div class="crown--right--branches">
 				<div class="tree--crown--item--test tree--crown--item-right test--disabled">
@@ -83,12 +92,14 @@
 					<div class="tree--crown--item-line"></div>
 					<button  class="tree--crown--item--btn"></button>
 					<form action="" class='tree-sphere--form tree-sphere--form-3'>
-						<select class='tree-crown-sphere'>
+						<select  class='tree-crown-sphere'>
 							<option class='sphere--name' disabled selected>Выберите сферу</option>
-							<option class='sphere--name' >Внутренний мир</option>
-							<option class='sphere--name' label='Учеба'>Учеба и будущая карьера</option>
-							<option class='sphere--name' >Здоровье</option>
-							<option class='sphere--name' >Отношение</option>
+
+							<option class='sphere--name' value="">Внутренний мир</option>
+							<option class='sphere--name' label='Учеба'  value="">Учеба и будущая карьера</option>
+							<option class='sphere--name' value="">Здоровье</option>
+							<option class='sphere--name' value="">Отношение</option>
+
 						</select>
 					</form>
 				</div>	
@@ -100,50 +111,27 @@
 
 			</div>
 		</div>
-		<div class="tree--root">
-			<div class="tree--flex">
-				<img src="../../static/mainsite/images/tree/introduction--lists.png" class='tree--root--lists' alt="">
-				<div class="tree--lesson tree--root--lesson">
-					<div class="tree--lesson-border ">
-						<p class="tree--lesson--txt">Лидер</p>
-					</div>
+
+	</div>
+	<div class="tree--root">
+		<div class="tree--flex">
+			<img src="../../static/mainsite/images/tree/introduction--lists.png" class='tree--root--lists' alt="">
+			<div class="tree--lesson tree--root--lesson">
+				<div class="tree--lesson-border ">
+					<a href="{% url 'introduction_chapter_lider' %}" class="tree--lesson--txt">Лидер</a>
 				</div>
-				<a href="{% url 'introduction' %}" class="tree--sphere tree--sphere-introduction">
-					Введение
-				</a>
-				<div class="tree--lesson tree--root--lesson">
-					<div class="tree--lesson-border ">
-						<p class="tree--lesson--txt">Сферы жизни</p>
-					</div>
+			</div>
+			<a class="tree--sphere tree--sphere-introduction">Введение</a>
+			<div class="tree--lesson tree--root--lesson">
+				<div class="tree--lesson-border ">
+					<a href="{% url 'introduction_chapter_spheres_life' %}" class="tree--lesson--txt">Сферы жизни</a>
+
 				</div>
 				<img src="../../static/mainsite/images/tree/root.png" class='tree--root-img'alt="">
 			</div>
 		</div>	
 	</div>
 <script src='../../static/mainsite/js/tree.js'></script>
-<!-- OLD CODE-->
-<!--
-<div class="introduction">
-     <a href="{% url 'introduction' %}" target="_self">
-        <img src="{% static "mainsite/introductions.svg" %}" alt="2">
-    </a>
-</div>    
-<div class="chapters">    
-	<a href="{% url 'first' %}" target="_self">
-		<img src="{% static "mainsite/inner_world.svg" %}" alt="2">
-	</a>
-	<a href="{% url 'second' %}" target="_self">
-		<img src="{% static "mainsite/learning_and_future.svg" %}" alt="2">
-	</a>
-	<a href="{% url 'third' %}" target="_self">
-		<img src="{% static "mainsite/health.svg" %}" alt="2">
-	</a>
-	<a href="{% url 'fourth' %}" target="_self">
-		<img src="{% static "mainsite/relationship.svg" %}" alt="2">
-	</a>
-</div>	
-<div class="chapters"></div>
--->
 
 
 {% endblock %}

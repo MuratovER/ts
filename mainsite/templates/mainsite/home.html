@@ -5,11 +5,40 @@
 
 <title>TopSkills</title>
 
-<section id='mainPage'>
+<section id='header-slogan'>
+        <div class="header-slider" style="margin-top: 40px;">
+            <div class="header--slider--item slider--4item">
+                <div class="header--container">
+                    <p class="home--header--slogan--title">Скоро новое обновление дизайна TopSkills Beta 2.0  </p>
+                </div>
+            </div>
+            <div class="header--slider--item slider--5item">
+                <div class="header--container">
+                    <p class="home--header--slogan--title">Скоро наша телефонная версия TopSkills Beta 3.0 </p>
+                </div>
+            </div>
+            <div class="header--slider--item slider--6item">
+                <div class="header--container">
+                    <p class="center--slogan--title">Скоро только на нашей платформе IconImages <br> Beta 1.0</p>
+                </div>
+            </div>
+            <!--
+            <div class="header--slider--btns">
+                <button class="header--slider--btn header--slider--prev">
+                    <img src="../../static/mainsite/images/landing/prev--arrow.png" alt="">
+                </button>
+                <button class="header--slider--btn header--slider--next">
+                    <img src="../../static/mainsite/images/landing/next--arrow.png" alt="">
+                </button>
+            </div>
+        -->
+        </div>
+    </section>
+<!--section id='mainPage'>
   
 </section>
 
-<img  class="aboutFirstSemirical" src='{% static "../static/mainsite/images/home/semerical.png" %}' alt=""></div>
+  <img  class="aboutFirstSemirical" src='{% static "../static/mainsite/images/home/semerical.png" %}' alt=""></div>
 <section id='aboutProject'>
   <div class="aboutFirstEllipse"></div>
   <img class="aboutIntersect" src='{% static "../static/mainsite/images/home/Intersect.png" %}'></img>
@@ -109,7 +138,12 @@
       <img src='{% static "../static/mainsite/images/home/catGroup.png" %}' class='cat' alt="">
     </div>
   </div>
-</section>
+</section-->
 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
+<script src="{% static 'mainsite/js/landingScripts/jquery.min.js' %}"></script>
+<script src="{% static 'mainsite/js/landingScripts/slick.min.js' %}"></script>
+<script src="{% static 'mainsite/js/landingScripts/slider.js' %}"></script>
 {% endblock %}

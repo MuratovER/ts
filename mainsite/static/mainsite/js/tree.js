@@ -47,6 +47,36 @@ window.onload = function() {
             3: "Умение общаться",
             4: "Отношения в семье",
         }
+    }, 
+
+    lessonsLinksObj = {
+        1: {
+            1: "/first/first_chapters_self_discipline/",
+            2: "/first/first_chapters_aims_in_life/",
+            3: "/first/first_chapters_what_is_it/",
+            4: "/first/first_chapters_edit/",
+            5: "/first/first_chapters_self_assessment/",
+        },
+        2: {
+            1: "/second/second_chapters_AimofLearning/",
+            2: "/second/second_chapters_ForeignLanguage/",
+            3: "/second/second_chapters_EfficientСommunications/",
+            4: "/second/second_chapters_Thoughts/",
+            5: "/second/second_chapters_ControlofTime/",
+            6: "/second/second_chapters_ControlofTimeEfficiency/",
+        },
+        3: {
+            1: "/third/third_chapters_GoodNutrition/",
+            2: "/third/third_chapters_HealthySleep/",
+            3: "/third/third_chapters_MovementandHardening/",
+            4: "/third/third_chapters_LadieswithStress/",
+        },
+        4: {
+            1: "/fourth/fourth_chapters_Conflicts/",
+            2: "/fourth/fourth_chapters_Friends/",
+            3: "/fourth/fourth_chapters_AbilitytoCommunicate/",
+            4: "/fourth/fourth_chapters_RelationshipsintheFamily/",
+        }
     }
 
     //подсчет кол-во уроков в теме
@@ -131,16 +161,22 @@ window.onload = function() {
                
                 formItem.insertAdjacentHTML("afterEnd", 
                 `<div class="tree--crown--item--branch  tree--crown--item--branch-${sphereIndex}">
-                    <img src="tree/lesson${sphereIndex}-branch.png" alt=""
+
+
+                    <img src="../../static/mainsite/images/tree/lesson${sphereIndex}-branch.png" alt=""
+
                     class='tree--crown--item--branch--img'>
                 </div>`);
 
                 let branch = formItem.parentElement.querySelector('.tree--crown--item--branch');
                 
+
+                // add links to lessons here
                 for (let i = 1; i <= lessonCount; i++)
                  {
                     branch.insertAdjacentHTML('beforeend', 
-                    `<a id='branch-${sphereIndex}-lesson-${i}' href='#'class="tree--branch--lesson tree--branch--lesson-${i}">
+                    `<a id='branch-${sphereIndex}-lesson-${i}' href='${lessonsLinksObj[sphereIndex][i]}'class="tree--branch--lesson tree--branch--lesson-${i}">
+
                         <div class="tree--branch--lesson--border">
                             ${lessonsObj[sphereIndex][i]}
                         </div>

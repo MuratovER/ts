@@ -74,6 +74,18 @@ position: relative;
     background-image: url(../images/landing/header--third-bg.jpg);
 } 
 
+/* HOME */
+.slider--4item {
+    background-image: url(../images/home/dezain.jpg);
+} 
+.slider--5item {
+    background-image: url(../images/home/telefon.jpg);
+} 
+.slider--6item {
+    background-image: url(../images/home/future.jpg);
+} 
+
+
 .header--container {
     position: relative;
     width: 1426px;
@@ -114,6 +126,8 @@ position: relative;
     margin-top: 261px;
 }
 .welcome--title {
+    display: grid;
+    justify-content: center;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: bold;
@@ -125,13 +139,13 @@ position: relative;
 .welcome--txt {
     font-family: 'Roboto';
     font-style: normal;
-    font-size: 18px;
+    font-size: 25px; /* or 18 */
     line-height: 243.19%;
     /* or 44px */
     text-align: justify;
     letter-spacing: 0.02em;
     color: #000000;
-    padding-top: 37px;
+   /* padding-top: 27px; /* or 37 */
 }
 .welcome--txt span {
     font-weight: bold;
@@ -196,6 +210,21 @@ position: relative;
     top: 196px;
     left: 470px;
 }
+.aboutproject {
+    height: 1080px;
+    width: 100%;
+}
+.aboutproject--text {
+    margin-top: 49px;
+    margin-left: 13%;
+    font-family: "Roboto";
+    font-style: normal;
+    /*font-weight: bold;*/
+    font-size: 25px;
+    /*line-height: 157.19%;*/
+    letter-spacing: 0.03em;
+    color: #000000;
+}
 /* NO name section */
 #noName {
     position: relative;
@@ -246,17 +275,28 @@ position: relative;
     letter-spacing: 0.03em;
     color: #000000;
 }
-.aboutUs--txt {
+.aboutUs--txt--upper {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 220.69%;
     /* or 35px */
     letter-spacing: 0.02em;
     color: #000000;
     width: 680px;
     padding-top: 33px;
+}
+.aboutUs--txt--down {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 220.69%;
+    /* or 35px */
+    letter-spacing: 0.02em;
+    color: #000000;
+    width: 680px;
     padding-bottom: 39px;
 }
 .aboutUs--link {
@@ -289,14 +329,15 @@ position: relative;
 .aboutUs--regisrationBtn {
     display: block;
     position: relative;
-    width: 430px;
+    width: 800px;
+    height: 100px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 400px;
+    margin-top: 200px;
     font-family: 'Roboto';
     font-style: normal;
-    font-size: 30px;
-    color:#569EFF;
+    font-size: 80px;
+   /* color:#569EFF; */
 }
 /* question */
 #question {
@@ -350,4 +391,34 @@ position: relative;
 .aboutUs--book {
     width: 600px;
 }
+}
+
+.text--paragraph{
+    text-indent: 10px;
+}
+
+
+/*<.....  HOME */
+
+.center--slogan--title {
+    width: 700px;
+    position: absolute;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 72px;
+    line-height: 84px;
+    text-shadow: 0px 0px 47px rgba(0, 0, 0, 0.25);
+    padding-left: 150px;
+}
+.home--header--slogan--title {
+    width: 700px;
+    position: absolute;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 72px;
+    line-height: 84px;
+    text-shadow: 0px 0px 47px rgba(0, 0, 0, 0.25);
+    padding-top: 320px;
 }
