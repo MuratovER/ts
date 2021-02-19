@@ -263,7 +263,7 @@ position: relative;
     letter-spacing: 0.03em;
     color: #000000;
 }
-.aboutUs--txt {
+.aboutUs--txt--upper {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: normal;
@@ -274,6 +274,17 @@ position: relative;
     color: #000000;
     width: 680px;
     padding-top: 33px;
+}
+.aboutUs--txt--down {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 220.69%;
+    /* or 35px */
+    letter-spacing: 0.02em;
+    color: #000000;
+    width: 680px;
     padding-bottom: 39px;
 }
 .aboutUs--link {
