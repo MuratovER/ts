@@ -254,7 +254,7 @@ height: 38px;
   opacity: 1;
 }
 .profile-btn {
-  margin-right: 8px;
+  margin-right: 22px;
   border: none;
   background: none;
 }
@@ -1348,6 +1348,7 @@ height: 38px;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  justify-content: space-between;
 }
 
 .coef-col {
@@ -1361,6 +1362,9 @@ height: 38px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-left: 42px;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .coef-col:first-child {
@@ -1389,6 +1393,8 @@ height: 38px;
 
 #lifeWheelChar {
   position: relative;
+  top: 10px;
+  width: 380px;
 }
 
 .horizontalTen {

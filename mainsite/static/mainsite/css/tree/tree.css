@@ -247,16 +247,16 @@
 .tree--branch--lesson {
   transform: none;
   position: absolute;
-  width: 82px;
+  width: 132px;
   height: 60px;
   background: white;
   border-radius: 10px;
-  padding: 4px 8px;
+  padding: 4px;
   display: block; }
 
 .tree--branch--lesson--border {
   height: 52px;
-  width: 68px;
+  width: 124px;
   border: 3px solid #5EA2FF;
   box-sizing: border-box;
   border-radius: 10px;
@@ -300,70 +300,74 @@
   margin-right: 80px; }
 
 /* стилизация уроков */
+#branch-1-lesson-1 {
+  margin-left: 350px; }
+
 #branch-1-lesson-2 {
-  margin-top: -100px; }
+  margin-left: 470px;
+  margin-top: -120px; }
 
 #branch-1-lesson-3 {
-  margin-top: -260px; }
+  margin-left: 180px;
+  margin-top: -280px; }
 
 #branch-1-lesson-4 {
-  margin-top: -260px; }
+  margin-top: -280px; }
 
 #branch-1-lesson-5 {
   margin-top: -230px; }
 
 #branch-2-lesson-1 {
-  margin-left: -20px; }
+  margin-left: 0px; }
 
 #branch-2-lesson-2 {
   margin-top: -15px;
-  margin-left: -130px; }
+  margin-left: -160px; }
 
 #branch-2-lesson-3 {
-  margin-left: -65px;
+  margin-left: -35px;
   margin-top: -120px; }
 
 #branch-2-lesson-4 {
-  margin-left: -215px;
+  margin-left: -235px;
   margin-top: -180px; }
 
 #branch-2-lesson-5 {
+  margin-left: 20px;
+  margin-top: -210px; }
+
+#branch-2-lesson-6 {
   margin-left: -135px;
   margin-top: -280px; }
 
 #branch-3-lesson-1 {
-  margin-top: -60px; }
+  margin-top: -60px;
+  margin-left: 550px; }
 
 #branch-3-lesson-2 {
-  margin-left: 540px;
-  margin-top: -60px; }
+  margin-left: 155px;
+  margin-top: -280px; }
 
 #branch-3-lesson-3 {
-  margin-left: 185px;
+  margin-left: 585px;
   margin-top: -280px; }
 
 #branch-3-lesson-4 {
-  margin-top: -170px; }
-
-#branch-3-lesson-5 {
-  margin-top: -280px; }
+  margin-top: -170px;
+  margin-left: 420px; }
 
 #branch-4-lesson-1 {
-  margin-top: -290px;
-  margin-left: 120px; }
-
-#branch-4-lesson-2 {
-  margin-left: 20px;
-  margin-top: -105px; }
-
-#branch-4-lesson-3 {
   margin-left: -80px;
   margin-top: -65px; }
 
-#branch-4-lesson-4 {
-  margin-left: -70px;
-  margin-top: -290px; }
+#branch-4-lesson-2 {
+  margin-left: -240px;
+  margin-top: -165px; }
 
-#branch-4-lesson-5 {
-  margin-left: -170px;
-  margin-top: -170px; }
+#branch-4-lesson-3 {
+  margin-top: -290px;
+  margin-left: 95px; }
+
+#branch-4-lesson-4 {
+  margin-left: -110px;
+  margin-top: -290px; }

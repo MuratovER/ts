@@ -1,11 +1,8 @@
 'use strict'
 /*
-добавить проверку на повторение сфер
-отображать тесты не по номерам а по value
+TODO
 заблокировать уроки пока предыдущий урок не пройден
-динамическое создание сфер
 при наведении на заблокированную сферу подсказывать, что он заблочен
-для оптион установить лэйблы
 */
 window.onload = function() { 
     const tree = document.querySelector('.tree--container'),
@@ -162,7 +159,7 @@ window.onload = function() {
                 formItem.insertAdjacentHTML("afterEnd", 
                 `<div class="tree--crown--item--branch  tree--crown--item--branch-${sphereIndex}">
                     <img src="../../static/mainsite/images/tree/lesson${sphereIndex}-branch.png" alt=""
-                    class='tree--crown--item--branch--img'>
+                    class='tree--crown--item--branch--img tree--crown--item--branch--img--${sphereIndex}'>
                 </div>`);
 
                 let branch = formItem.parentElement.querySelector('.tree--crown--item--branch');
