@@ -161,17 +161,22 @@ window.onload = function() {
                
                 formItem.insertAdjacentHTML("afterEnd", 
                 `<div class="tree--crown--item--branch  tree--crown--item--branch-${sphereIndex}">
+
+
                     <img src="../../static/mainsite/images/tree/lesson${sphereIndex}-branch.png" alt=""
+
                     class='tree--crown--item--branch--img'>
                 </div>`);
 
                 let branch = formItem.parentElement.querySelector('.tree--crown--item--branch');
                 
+
                 // add links to lessons here
                 for (let i = 1; i <= lessonCount; i++)
                  {
                     branch.insertAdjacentHTML('beforeend', 
                     `<a id='branch-${sphereIndex}-lesson-${i}' href='${lessonsLinksObj[sphereIndex][i]}'class="tree--branch--lesson tree--branch--lesson-${i}">
+
                         <div class="tree--branch--lesson--border">
                             ${lessonsObj[sphereIndex][i]}
                         </div>
