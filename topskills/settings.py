@@ -64,7 +64,7 @@ ROOT_URLCONF = 'topskills.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'mainsite', 'templates', 'mainsite')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,15 +129,6 @@ USE_TZ = True
 
 
 
-
-#login
-
-
-
-
-
-
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 # required for login
@@ -151,13 +142,5 @@ DATABASES['default'].update(db_from_env)
 
 # reduce size of static files
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
-
-
-
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
-
 MEDIA_URL = '/media/'

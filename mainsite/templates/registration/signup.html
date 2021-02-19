@@ -32,32 +32,31 @@
 <div class="conteiner">
    <div class="login-tables"> 
       <form id="regForm" method="post">
-
                 <div style="text-align:center;margin-top:26px; border-image-width: 50px; ">
                     <span class="step active"></span>
                     <span class="step"></span>
                     <span class="step"> </span>
                  {% csrf_token %}   
                     <p class="tab" style="display: block;">
-                      <img class="DFL" src="https://media.discordapp.net/attachments/745700277004402832/780420125471014932/1.jpg">
+                      <img class="DFL" src="../../static/mainsite/images/login_signup/part(1).jpg">
                         <label for="id_username">Имя пользователя:</label><br> {{ form.username }}
                         <small style="color: grey">  </small>  
                     </p>
                 
                     <p class="tab">
-                      <img class="DFL" src="https://media.discordapp.net/attachments/745700277004402832/793115328505970688/No_Messages_-_Empty_Inbox_1_1.jpg">
+                      <img class="DFL" src="../../static/mainsite/images/login_signup/part(2).jpg">
                         <label for="id_email">Email:</label><br> {{ form.email }} 
                         <small style="color: grey">  </small>  
                     </p>
                 
                     <p class="tab">
-                       <img class="DFL" src="https://media.discordapp.net/attachments/745700277004402832/793115323456684032/Locked_-_Security_1.jpg">
+                       <img class="DFL" src="../../static/mainsite/images/login_signup/part(3).jpg">
                         <label for="id_password1">Пароль:</label><br><img href="#" class="password-control" onclick="return show_hide_password(this);"></img>
                       {{ form.password1 }}
                         <small style="color: grey">  </small>  
                     </p>
                     <p class="tab">
-                         <img class="DFL" src="https://cdn.discordapp.com/attachments/745700277004402832/793924733182803988/Finances_1.jpg">
+                         <img class="DFL" src="../../static/mainsite/images/login_signup/Finish.jpg">
                         <label for="id_password1"> Поздравляем </label>
                     </p>
                     <p class="tab">
