@@ -102,10 +102,10 @@ window.onload = function() {
     //стилизация кнопок
     chooseSphereBtn.forEach((item) => {
         if(item.parentElement.matches(".tree--crown--item-left")) {
-            item.style.marginRight = '48px';
-            item.style.marginLeft = '0px'
+            item.style.marginRight = '40px';
+            item.style.marginLeft = '0px';
         } else {
-            item.style.marginLeft = '50px'
+            item.style.marginLeft = '40px';
             item.style.marginRight = '0px';
         }
     });
