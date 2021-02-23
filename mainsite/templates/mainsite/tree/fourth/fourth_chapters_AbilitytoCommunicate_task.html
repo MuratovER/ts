@@ -4,35 +4,52 @@
 
 {% load static %}
 
-<hr id="061499b8-ec1d-4154-b301-e2722c1202c2"/>
-<p id="76b25abb-1a59-4aed-a9e2-1178006eb888" class="">
-    <mark class="highlight-blue">ДОМАШНЕЕ ЗАДАНИЕ</mark>
-</p>
-<hr id="afee0d9c-a28f-46c4-aa5b-da13b36f4e2d"/>
-<ul id="02ac2c7f-9ea1-4977-9cf4-c7861b5f571c" class="to-do-list">
-    <li>
-        <div class="checkbox checkbox-off"></div>
-        <span class="to-do-children-unchecked">Представьте себе знакомство с человеком. Составьте список из 5 положительных и 5 отрицательных факторов, которые повлияют на ваше первое впечатление о нем. А теперь сравните эти списки со своим привычным поведением во время знакомства с кем-либо. Если бы вы знакомились с самим собой, вы бы произвели хорошее впечатление?</span>
-    </li>
-</ul>
-<ul id="78ea1b9d-0adc-4b8c-91f2-f6819b519d61" class="to-do-list">
-    <li>
-        <div class="checkbox checkbox-off"></div>
-        <span class="to-do-children-unchecked">Учимся налаживать контакт. Представьте себе следующие ситуации знакомств: а) в лифте, б) в магазине, в) встреча с новым одноклассником, г) вечеринка. Для каждой ситуации продумайте как начать разговор с собеседником - спросить что-либо, высказать мнение, констатировать какой-либо факт и т.д. Попробуйте протестировать эти варианты на практике и оцените результаты.</span>
-    </li>
-</ul>
-<ul id="a7657fea-f575-401f-8e74-3efa5c538275" class="to-do-list">
-    <li>
-        <div class="checkbox checkbox-off"></div>
-        <span class="to-do-children-unchecked">Объясните разницу между понятиями «слушать» и «слышать» в контексте общения с людьми.</span>
-    </li>
-</ul>
-<ul id="4bcfe94d-2989-46cd-bb3b-3515a07ae676" class="to-do-list">
-    <li>
-        <div class="checkbox checkbox-off"></div>
-        <span class="to-do-children-unchecked">Попросите пять своих знакомых охарактеризовать вас в десяти словах. Проанализируйте результаты. Обратите внимание на слова, которые больше всего повторяются. Есть ли среди них что-то неожиданное для вас? Есть ли какие-то качества, которыми вы не хотите обладать? Узнайте у этих людей, почему они выбрали именно эти слова. Попросите также посоветовать, как вы можете больше проявлять свои положительные качества и избавиться от негативных.</span>
-    </li>
-</ul>
-
+<div class=" w-75 mx-auto mt-5" style="font-size: 18px">
+    <header>
+        <a href="{% url 'fourth_chapters_AbilitytoCommunicate' %}" target="_self" style="color: black; margin-right: 5em"><span
+                class="oi oi-arrow-left"></span> <strong>Назад</strong></a>
+        <span class="text-muted">
+            <a href="{% url 'tree' %}" target="_self" class="text-muted">Дерево развития</a> >
+            <a href="{% url 'fourth' %}" target="_self" class="text-muted">Отношения</a> >
+            <a href="{% url 'fourth_chapters_AbilitytoCommunicate' %}" target="_self"
+               class="text-muted">Умение общаться</a> >
+                Домашнее задание
+        </span>
+    </header>
+    <div class="my-5 w-75 mx-auto">
+        <div class="d-flex justify-content-center">
+            <h1>ДОМАШНЕЕ ЗАДАНИЕ</h1>
+        </div>
+        <ul id="02ac2c7f-9ea1-4977-9cf4-c7861b5f571c" class="to-do-list">
+            <li>
+                <div class="checkbox checkbox-off"></div>
+                <span class="to-do-children-unchecked">Представьте себе знакомство с человеком. Составьте список из 5 положительных и 5 отрицательных факторов, которые повлияют на ваше первое впечатление о нем. А теперь сравните эти списки со своим привычным поведением во время знакомства с кем-либо. Если бы вы знакомились с самим собой, вы бы произвели хорошее впечатление?</span>
+            </li>
+        </ul>
+        <ul id="78ea1b9d-0adc-4b8c-91f2-f6819b519d61" class="to-do-list">
+            <li>
+                <div class="checkbox checkbox-off"></div>
+                <span class="to-do-children-unchecked">Учимся налаживать контакт. Представьте себе следующие ситуации знакомств: а) в лифте, б) в магазине, в) встреча с новым одноклассником, г) вечеринка. Для каждой ситуации продумайте как начать разговор с собеседником - спросить что-либо, высказать мнение, констатировать какой-либо факт и т.д. Попробуйте протестировать эти варианты на практике и оцените результаты.</span>
+            </li>
+        </ul>
+        <ul id="a7657fea-f575-401f-8e74-3efa5c538275" class="to-do-list">
+            <li>
+                <div class="checkbox checkbox-off"></div>
+                <span class="to-do-children-unchecked">Объясните разницу между понятиями «слушать» и «слышать» в контексте общения с людьми.</span>
+            </li>
+        </ul>
+        <ul id="4bcfe94d-2989-46cd-bb3b-3515a07ae676" class="to-do-list">
+            <li>
+                <div class="checkbox checkbox-off"></div>
+                <span class="to-do-children-unchecked">Попросите пять своих знакомых охарактеризовать вас в десяти словах. Проанализируйте результаты. Обратите внимание на слова, которые больше всего повторяются. Есть ли среди них что-то неожиданное для вас? Есть ли какие-то качества, которыми вы не хотите обладать? Узнайте у этих людей, почему они выбрали именно эти слова. Попросите также посоветовать, как вы можете больше проявлять свои положительные качества и избавиться от негативных.</span>
+            </li>
+        </ul>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button class="header--change--btn ">
+            <a href="{% url 'fourth' %}" style="color: inherit" class="h-100 w-100">Вернуться к разделу</a>
+        </button>
+    </div>
+</div>
 
 {% endblock %}
