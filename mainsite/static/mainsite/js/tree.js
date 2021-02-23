@@ -3,17 +3,27 @@
 TODO
 заблокировать уроки пока предыдущий урок не пройден
 при наведении на заблокированную сферу подсказывать, что он заблочен
+
+для дерева получать данные из бд хранить в кэше
+при обновлении в БД обновлять кэш
+
+для теста в будущем получать условие из бд что все лекции и дз пройдены
+для оптион установить selected из кэша
 */
+
+
 window.onload = function() { 
     const tree = document.querySelector('.tree--container'),
         rootLists = document.querySelector('.tree--root--lists'),
         crownContent = document.querySelector('.tree--crown--flex'),
         crownItem = document.querySelectorAll('.tree--crown--item'),
         chooseSphereBtn = document.querySelectorAll('.tree--crown--item--btn'),
+        sphereForm = document.querySelectorAll('.tree-sphere--form'),
         crownBranch = document.querySelectorAll('.tree--crown--item--branch'),
         crownTests = document.querySelectorAll('.tree--crown--item--test'),
         crownLink = document.querySelectorAll('.tree--branch--lesson'),
         crownItemSphere = document.querySelectorAll('.tree-crown-sphere');
+
     let disableSphereObj = [],
         lessonsArr = [],
         lessonsObj = {
@@ -76,8 +86,8 @@ window.onload = function() {
         }
     }
 
-    //подсчет кол-во уроков в теме
-    const lessonCounter = (i) => {
+     //подсчет кол-во уроков в теме
+     const lessonCounter = (i) => {
         let counter = 0;
         for (let k in lessonsObj[i]) {
             counter++;
@@ -85,6 +95,183 @@ window.onload = function() {
 
         return counter;
     }
+
+    //показ нужной ветки
+    const showBranch = (formItem, formIndex, sphereIndex) => {
+
+        let lessonCount = lessonCounter(sphereIndex);
+        
+        crownBranch.forEach((item, i) => {
+            let branchClass = item.classList.value,
+                branchIndex = +branchClass[branchClass.length - 1];
+            
+            if(branchIndex == sphereIndex) {
+               
+                formItem.insertAdjacentHTML("afterEnd", 
+                `<div class="tree--crown--item--branch  tree--crown--item--branch-${sphereIndex}">
+                    <img src="../../static/mainsite/images/tree/lesson${sphereIndex}-branch.png" alt=""
+                    class='tree--crown--item--branch--img tree--crown--item--branch--img--${sphereIndex}'>
+                </div>`);
+
+                let branch = formItem.parentElement.querySelector('.tree--crown--item--branch');
+                
+                // add links to lessons here
+                for (let i = 1; i <= lessonCount; i++)
+                {
+                    branch.insertAdjacentHTML('beforeend', 
+                    `<a id='branch-${sphereIndex}-lesson-${i}' href='${lessonsLinksObj[sphereIndex][i]}'class="tree--branch--lesson tree--branch--lesson-${i}">
+                        <div class="tree--branch--lesson--border">
+                            ${lessonsObj[sphereIndex][i]}
+                        </div>
+                    </a>`); 
+                }
+ 
+            let branchLessons = branch.querySelectorAll('.tree--branch--lesson--border');
+            
+                //изменение отображения ветки 
+            if ((formIndex % 2) != (sphereIndex % 2)) {
+                //console.log(formIndex, sphereIndex, 'НЕ совпадают');
+
+                branch.style.transform = 'matrix(-1, 0, 0, 1, 0, 0)';
+                
+                //изменение отображения текста после отражения ветки
+                branchLessons.forEach((item) => {
+                    item.style.transform = 'rotateY(180deg)';
+                });
+            } 
+            }
+        });
+    };
+    
+    //показ нужого теста
+    const showTest = (formIndex, sphereIndex, status) => {
+        //status переменная от
+        if (!status) {
+            return;
+        }
+        
+        crownTests.forEach((item, i) => {
+            let testTxt = item.lastElementChild.textContent,
+                testIndex = +testTxt[testTxt.length - 1];
+                
+            if (testIndex == formIndex) {
+                item.lastElementChild.setAttribute('href', `http://127.0.0.1:8000/test${sphereIndex}/#`);
+                item.classList.remove('test--disabled');
+            }
+        });
+    }
+
+    //получение и вставка свойств из LocalStorage
+    const getProperty = (className, strClass) => {
+        for (let key in localStorage) {
+
+            if (localStorage.hasOwnProperty(strClass)) {
+                
+                let arr = localStorage.getItem(strClass),
+                    modifyArr  = arr.split(' ');
+                    
+                modifyArr.forEach((item) => {
+                    className.classList.add(item);
+                })
+            }
+            else {
+                console.log('такого свойства нет');
+                return;
+            }
+        }
+    }
+
+    //общая функция работы с кэшом для кнопок и форм
+    const getPropertyItem = ( formNumber, elements, addClass, environment) => {
+        
+        if (localStorage.hasOwnProperty(formNumber)) {
+            
+            let getArr = String(JSON.parse(localStorage.getItem(formNumber)));
+            
+            for (let index of getArr) {
+                elements.forEach((item, i) => {
+                    
+                    if (+index == 1) {
+                        elements[2].classList.add(addClass);
+                    }
+                    if (+index == 2) {
+                        elements[0].classList.add(addClass);
+                    }
+                    if (+index == 3) {
+                        elements[3].classList.add(addClass);
+                    }
+                    if (+index == 4) {
+                        elements[1].classList.add(addClass);
+                    }
+                    if (environment) {
+                        elements[0].style.marginRight = '40px';
+                        elements[1].style.marginRight = '40px';
+                    } else {
+                        return;
+                    }
+                })
+            }        
+        } 
+    }
+
+    //получение веток из Кэша
+    const getBranch = ( elemName) => {
+
+        if (localStorage.hasOwnProperty(elemName)) {
+            
+            let getArr = String(JSON.parse(localStorage.getItem(elemName)));
+                getArr = getArr.replace(/\\+/gi,"").replace(/\"+/gi,"");
+                getArr = getArr.split(' ');
+            
+            getArr.forEach((item, i) => {
+                
+                if (isNaN(item)) {
+                    let form = document.querySelector(`.${item}`);
+                
+                    showBranch(form, getArr[++i], getArr[++i]);
+                    
+                    showTest(getArr[--i], getArr[++i], true);
+                }
+            })
+               
+        } 
+    }
+    
+     //render
+     const render = () => {
+          
+            getProperty(rootLists, 'rootLists');
+            getProperty(crownContent, 'crownContent');
+            
+        if (localStorage.hasOwnProperty('btnArr')) {
+
+             getPropertyItem('btnArr',chooseSphereBtn, 'displayNone', false);
+                
+        } else {
+            console.log('такого свойства нет');
+            return;
+        }
+        
+        if (localStorage.hasOwnProperty('sphereFormNumber')) {
+
+            getPropertyItem('sphereFormNumber', sphereForm, 'displayFlex', true);
+           
+        }  else {
+            console.log('такого свойства нет');
+            return;
+        }
+
+        if (localStorage.hasOwnProperty('branchArr')) {
+
+            getBranch('branchArr', crownItemSphere, 'none', false);
+           
+        }  else {
+            console.log('такого свойства нет');
+            return;
+        }
+    }   
+
+    render();
 
     //стилизация четных и нечетных форм
     crownItemSphere.forEach((item, i) => {
@@ -107,6 +294,8 @@ window.onload = function() {
         }
     });
 
+  
+   
     //блокировка ранее выбранных тем
     const disableSphere = (disableObj) => {
 
@@ -127,131 +316,19 @@ window.onload = function() {
         })
     }
     
-    //показ нужого теста
-    const showTest = (formIndex, sphereIndex, status) => {
-        //status переменная от
-        if (!status) {
-            return;
-        }
-
-        crownTests.forEach((item, i) => {
-            let testTxt = item.lastElementChild.textContent,
-                testIndex = +testTxt[testTxt.length - 1];
-                
-            if (testIndex == formIndex) {
-                item.lastElementChild.setAttribute('href', `http://127.0.0.1:8000/test${sphereIndex}/#`);
-                item.classList.remove('test--disabled');
-            }
-        });
-    }
-
-   //показ нужной ветки с уроками 
-   const showBranch = (formItem, formIndex, sphereIndex) => {
-
-        let lessonCount = lessonCounter(sphereIndex);
-        
-        crownBranch.forEach((item, i) => {
-            let branchClass = item.classList.value,
-                branchIndex = +branchClass[branchClass.length - 1];
-            
-            if(branchIndex == sphereIndex) {
-               
-                formItem.insertAdjacentHTML("afterEnd", 
-                `<div class="tree--crown--item--branch  tree--crown--item--branch-${sphereIndex}">
-                    <img src="../../static/mainsite/images/tree/lesson${sphereIndex}-branch.png" alt=""
-                    class='tree--crown--item--branch--img tree--crown--item--branch--img--${sphereIndex}'>
-                </div>`);
-
-                let branch = formItem.parentElement.querySelector('.tree--crown--item--branch');
-                
-                // add links to lessons here
-                for (let i = 1; i <= lessonCount; i++)
-                 {
-                    branch.insertAdjacentHTML('beforeend', 
-                    `<a id='branch-${sphereIndex}-lesson-${i}' href='${lessonsLinksObj[sphereIndex][i]}'class="tree--branch--lesson tree--branch--lesson-${i}">
-                        <div class="tree--branch--lesson--border">
-                            ${lessonsObj[sphereIndex][i]}
-                        </div>
-                    </a>`); 
-                    console.log(lessonsObj[sphereIndex][i]);
-            
-                }
-
-                /*
-                //добавляется после селект
-                formItem.insertAdjacentHTML("afterEnd", 
-                `<div class="tree--crown--item--branch  tree--crown--item--branch-${sphereIndex}">
-                <img src="../../static/mainsite/images/tree/lesson${sphereIndex}-branch.png" alt=""
-                class='tree--crown--item--branch--img'>
-                <a id='branch-${sphereIndex}-lesson-1' href='#'class="tree--branch--lesson tree--branch--lesson-1">
-                    <div class="tree--branch--lesson--border">
-                        1
-                    </div>
-                </a>
-                <a id='branch-${sphereIndex}-lesson-2' href='#'class="tree--branch--lesson tree--branch--lesson-2">
-                    <div class="tree--branch--lesson--border">
-                        2
-                    </div>
-                </a>
-                <a id='branch-${sphereIndex}-lesson-3'  href='#'class="tree--branch--lesson tree--branch--lesson-3">
-                    <div class="tree--branch--lesson--border">
-                        3
-                    </div>
-                </a>
-                <a id='branch-${sphereIndex}-lesson-4'  href='#'class="tree--branch--lesson tree--branch--lesson-4">
-                    <div class="tree--branch--lesson--border">
-                        4
-                    </div>
-                </a>
-                <a id='branch-${sphereIndex}-lesson-5'  href='#'class="tree--branch--lesson tree--branch--lesson-5">
-                    <div class="tree--branch--lesson--border">
-                        5
-                    </div>
-                </a>
-            </div>`);
-            */
-           
-            let branchLessons = branch.querySelectorAll('.tree--branch--lesson--border');
-            
-                //изменение отображения ветки 
-            if ((formIndex % 2) != (sphereIndex % 2)) {
-                console.log(formIndex, sphereIndex, 'НЕ совпадают');
-
-                branch.style.transform = 'matrix(-1, 0, 0, 1, 0, 0)';
-                
-                //изменение отображения текста после отражения ветки
-                branchLessons.forEach((item) => {
-                    item.style.transform = 'rotateY(180deg)';
-                });
-            } 
-            }
-        });
-    };
-
     //делегироваанное событие на дерево
-
     tree.addEventListener('click', (event) => {
+
         let target = event.target;
-        
         
         //показ кроны
         if (target == rootLists) {
-
-            rootLists.style.display = 'none';
-            crownContent.style.display = 'flex';
-
-            document.body.insertAdjacentHTML("beforeend", 
-            `<style>
-            .tree--crown--flex {
-                bottom: 270px;
-                display: flex;
-                width: 1400px
-                flex-direction: row
-                margin-left: auto;
-                margin-right:  auto;
-            }
-            </style>`)
             
+            rootLists.classList.add('displayNone');
+            crownContent.classList.add('tree--crown--flex-active');
+
+            localStorage.rootLists = rootLists.classList;
+            localStorage.crownContent = crownContent.classList;
         }
         
         //показ формы выбора сферы развития
@@ -260,11 +337,42 @@ window.onload = function() {
             chooseSphereBtn.forEach( (elem, item) => {
 
                 if (elem == target) {
-                    elem.style.display = 'none';
+                    let form2ClassValue = elem.nextElementSibling.classList.value,
+                        form2Index = parseInt(form2ClassValue.replace(/\D+/g,""));
+                    
+                    elem.classList.add('displayNone');
+
                     if (elem.nextElementSibling.parentElement.matches('.tree--crown--item-right')) {
                         elem.nextElementSibling.style.marginLeft = '40px';
                     } else  elem.nextElementSibling.style.marginRight = '40px';
-                    elem.nextElementSibling.style.display = 'flex';
+
+                    elem.nextElementSibling.classList.add('displayFlex');
+
+                    //добавление кнопок в кэш
+                    if (localStorage.hasOwnProperty('btnArr')) {
+                        let btnArr = localStorage.getItem('btnArr');
+                        btnArr = btnArr + form2Index;
+                        
+                        localStorage.btnArr = JSON.stringify(+btnArr);
+                    } else {
+                        let btnArr = + form2Index;
+                        
+                        localStorage.btnArr= JSON.stringify(btnArr);
+
+                    }
+
+                    //добавление форм в кэш
+                    if (localStorage.hasOwnProperty('sphereFormNumber')) {
+                        let sphereFormNumber = localStorage.getItem('sphereFormNumber');
+                            
+                        sphereFormNumber = sphereFormNumber + form2Index;
+                        
+                        localStorage.sphereFormNumber = JSON.stringify(+sphereFormNumber);
+                    } else {
+                        let sphereFormNumber = + form2Index;
+                        localStorage.sphereFormNumber = JSON.stringify(sphereFormNumber);
+                    }
+                 
                 }
             });
         }
@@ -276,11 +384,26 @@ window.onload = function() {
 
                 let indexSelected = target.selectedIndex,
                     formClassValue = target.parentElement.classList.value,
-                    formIndex = +formClassValue[formClassValue.length - 1];
-                            
-                //показ нужной ветки с уроками пока не интерактивно
-                showBranch(target.parentElement,formIndex, indexSelected);
+                    formIndex = parseInt(formClassValue.replace(/\D+/g,""));
 
+                //показ нужной ветки с уроками 
+                showBranch(target.parentElement, formIndex, indexSelected);
+
+                //добавление ветки в кэш
+                if (localStorage.hasOwnProperty('branchArr')) {
+                    let branchArr = localStorage.getItem('branchArr');
+                    
+                    branchArr = branchArr + target.parentElement.classList[1] + " " + formIndex + " " + indexSelected + " ";
+
+                    localStorage.branchArr = JSON.stringify(branchArr);
+                } else {
+                    let branchArr;
+
+                    branchArr = target.parentElement.classList[1] + " " + formIndex + " " + indexSelected + " ";
+                    
+                    localStorage.branchArr = JSON.stringify(branchArr);
+                }
+                
                  //показ нужного теста после ответа сервера в будущем
                  let sphereStatus = true; //состояние прохождения сферы и всех уроков
 

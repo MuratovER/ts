@@ -98,6 +98,14 @@
   margin-right: auto;
   display: none; }
 
+.tree--crown--flex-active {
+  bottom: 270px;
+  display: flex;
+  width: 1400px;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto; }
+
 .crown--left--branches {
   position: relative;
   display: flex;
@@ -298,6 +306,15 @@
 .tree--crown--item--branch-4 img {
   margin-left: -180px;
   margin-right: 80px; }
+
+.displayNone {
+  display: none; }
+
+.displayFlex {
+  display: flex; }
+
+.selectedItem {
+  selected: selected; }
 
 /* стилизация уроков */
 #branch-1-lesson-1 {
