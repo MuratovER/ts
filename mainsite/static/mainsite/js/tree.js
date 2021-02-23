@@ -161,6 +161,45 @@ window.onload = function() {
         });
     }
 
+    //блокировка ранее выбранных тем
+    const disableSphere = (disableObj, formNumber) => {
+        
+        if (disableObj.length == 0) {
+            return;
+        }
+        let getArr = String(JSON.parse(localStorage.getItem(formNumber)));
+
+        crownItemSphere.forEach((item, i) => {
+           console.log(item);
+            let option = item.querySelectorAll('.sphere--name');
+            
+                option.forEach((item, i) => {
+                   //console.log(item, ++i);
+                    for (let char of disableObj) {
+                        
+                        if (char == i) {
+                            item.setAttribute('disabled', true);
+                            //console.log(item);
+                        }
+                    }
+                })
+                for (let index of getArr) {
+                    if (index == 1) {
+                        crownItemSphere[2].setAttribute('disabled', 'disabled');
+                    }
+                    if (index == 2) {
+                        crownItemSphere[0].setAttribute('disabled', 'disabled');
+                    }
+                    if (index == 3) {
+                        crownItemSphere[3].setAttribute('disabled', 'disabled');
+                    }
+                    if (index == 4) {
+                        crownItemSphere[1].setAttribute('disabled', 'disabled');
+                    }
+                }
+        })
+    }
+
     //получение и вставка свойств из LocalStorage
     const getProperty = (className, strClass) => {
         for (let key in localStorage) {
@@ -206,9 +245,7 @@ window.onload = function() {
                     if (environment) {
                         elements[0].style.marginRight = '40px';
                         elements[1].style.marginRight = '40px';
-                    } else {
-                        return;
-                    }
+                    } 
                 })
             }        
         } 
@@ -269,6 +306,12 @@ window.onload = function() {
             console.log('такого свойства нет');
             return;
         }
+        if (localStorage.hasOwnProperty('disableFormArr')) {
+            let disableFormArr = localStorage.getItem('disableFormArr');
+            disableFormArr = disableFormArr.replace(/\\+/gi,"").replace(/\"+/gi,"");
+            //console.log(disableFormArr);
+            disableSphere(disableFormArr, 'sphereFormNumber');
+        }
     }   
 
     render();
@@ -294,28 +337,6 @@ window.onload = function() {
         }
     });
 
-  
-   
-    //блокировка ранее выбранных тем
-    const disableSphere = (disableObj) => {
-
-        if (disableObj.length == 0) {
-            return;
-        }
-
-        crownItemSphere.forEach((item) => {
-            
-            let option = item.querySelectorAll('.sphere--name');
-
-                option.forEach((item, i) => {
-                    
-                    if (disableObj.includes(i++))  {
-                        item.setAttribute('disabled', true);
-                    }
-                })
-        })
-    }
-    
     //делегироваанное событие на дерево
     tree.addEventListener('click', (event) => {
 
@@ -408,12 +429,28 @@ window.onload = function() {
                  let sphereStatus = true; //состояние прохождения сферы и всех уроков
 
                  showTest(formIndex,indexSelected,sphereStatus);
-                
+               
                  target.setAttribute('disabled', 'disabled');
-                
-                 disableSphereObj.unshift(indexSelected);
+
+                 if (localStorage.hasOwnProperty('disableFormArr')) {
+                    let disableFormArr= localStorage.getItem('disableFormArr');
+                    disableFormArr = disableFormArr.replace(/\\+/gi,"").replace(/\"+/gi,"");
+                    disableFormArr += indexSelected;
+                    disableFormArr = disableFormArr.replace(/\\+/gi,"").replace(/\"+/gi,"");
+                    localStorage.disableFormArr = JSON.stringify(disableFormArr);
+
+                    disableSphere(disableFormArr);
+                } else {
+                    let disableFormArr = '';
+
+                    disableFormArr += indexSelected;
+                    
+                    localStorage.disableFormArr = JSON.stringify(disableFormArr);
+
+                    disableFormArr = disableFormArr.replace(/\\+/gi,"").replace(/\"+/gi,"");
+                    disableSphere(disableFormArr);
+                }                 
             })
-            disableSphere(disableSphereObj);
         }
     });
 };
