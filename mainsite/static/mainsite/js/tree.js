@@ -170,7 +170,7 @@ window.onload = function() {
         let getArr = String(JSON.parse(localStorage.getItem(formNumber)));
 
         crownItemSphere.forEach((item, i) => {
-           console.log(item);
+           
             let option = item.querySelectorAll('.sphere--name');
             
                 option.forEach((item, i) => {
@@ -179,13 +179,14 @@ window.onload = function() {
                         
                         if (char == i) {
                             item.setAttribute('disabled', true);
-                            //console.log(item);
                         }
                     }
                 })
+
                 for (let index of getArr) {
                     if (index == 1) {
                         crownItemSphere[2].setAttribute('disabled', 'disabled');
+
                     }
                     if (index == 2) {
                         crownItemSphere[0].setAttribute('disabled', 'disabled');

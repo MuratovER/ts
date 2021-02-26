@@ -141,7 +141,8 @@
   line-height: 19px;
   text-align: center;
   color: #000000;
-  margin-right: 40px; }
+  margin-right: 40px;
+  cursor: pointer; }
 
 .tree--crown--test--link:nth-child(2n) {
   margin-left: 40px; }
@@ -312,9 +313,6 @@
 
 .displayFlex {
   display: flex; }
-
-.selectedItem {
-  selected: selected; }
 
 /* стилизация уроков */
 #branch-1-lesson-1 {
