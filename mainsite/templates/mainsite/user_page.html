@@ -10,9 +10,9 @@
 <div class="header-info">
       <div class="header-info-flex">
         <div class="gol_icon">
-          <img src='{% static "mainsite/home/profile--img/Profile-photo.png" %}' class='header-profile-img' alt="">
+          <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' class='header-profile-img' alt="">
           <button class='changePhoto'>
-            <img src='{% static "mainsite/home/profile--img/image_alt.png" %}' alt="">
+            <img src='{% static "mainsite/images/profile/image_alt.png" %}' alt="">
           </button>
         </div>
      
@@ -25,36 +25,34 @@
 
   <div class="profile-buttons">
     <button class='profile-btn profile-btn-message'>
-      <img src='{% static "mainsite/profile/img/mail.png" %}' alt="">
+      <img src='{% static "mainsite/images/profile/mail.png" %}' alt="">
     </button>
     <div class="hint hint--message">
       <p class="hint--txt">Сообщение</p>
     </div>
     <button class='profile-btn profile-btn-calendar'>
-      <img src='{% static "mainsite/profile/img/calendar.png" %}' alt="">
+      <img src='{% static "mainsite/images/profile/calendar.png" %}' alt="">
     </button>
     <div class="hint hint--callendar">
       <p class="hint--txt hint--txt--calendar">Календарь</p>
     </div>
     <button class='profile-btn profile-btn-setting'>
-      <img src='{% static "mainsite/profile/img/settings.png" %}' alt="">
+      <img src='{% static "mainsite/images/profile/settings.png" %}' alt="">
     </button>
     <div class="hint hint--settings">
       <p class="hint--txt hint--txt--settings">Настройки</p>
     </div>
+
     <button class='profile-btn profile-btn-statics'>
-      <img src='{% static "mainsite/profile/img/bar_chart.png" %}' alt="">
+      <img src='{% static "mainsite/images/profile/bar_chart.png" %}' alt="">
 
-    </div>
-
-
-  
-    </button>
+    
+  </button>
     <div class="hint hint--statics">
       <p class="hint--txt hint--txt--statics">Настройки</p>
     </div>
     <button class='profile-btn'>
-      <img src='{% static "mainsite/home/profile--img/arrow_down.png" %}' alt="">
+      <img src='{% static "mainsite/images/profile/arrow_down.png" %}' alt="">
     </button>
   </div>
 </div>
@@ -68,7 +66,7 @@
       <div class="profile-info-container">
         <div class="profile-title-flex">
           <div class="profile-info-title">Информация</div>
-          <img src='{% static "mainsite/home/profile--img/edit.png" %}'  alt="">
+          <img src='{% static "mainsite/images/profile/edit.png" %}'  alt="">
         </div>
         <div class="profile-info-line"></div>
         <div class="profile-info-grid">
@@ -81,7 +79,7 @@
             <p class="profile-info">Всего выполненных заданий:</p>
             <p class="profile-info">Родной город:</p>
             <p class="profile-info">День рождения:</p>
-            <p class="profile-info">Контактная информация:</p>
+            <!-- <p class="profile-info">Контактная информация:</p> -->
             <p class="profile-info">Образование:</p>
             <p class="profile-info">Языки:</p>
           </div>
@@ -90,11 +88,11 @@
             <p class="profile-info-txt">999k</p> -->
             <p class="profile-info-txt"> {{ user.email }} </p>
             <p class="profile-info-txt"> {{ user.date_joined }}  </p>
-            <p class="profile-info-txt">80</p>
-            <p class="profile-info-txt">1000</p>
+            <p class="profile-info-txt">1</p>
+            <p class="profile-info-txt">10</p>
             <p class="profile-info-txt">г. Казань, Россия</p>
             <p class="profile-info-txt"> 1 января 2021г.</p>
-            <p class="profile-info-txt">Телефон: 89826716241</p>
+            <!-- <p class="profile-info-txt">Телефон: 89826716241</p> -->
             <p class="profile-info-txt">КНИТУ КАИ им. Туполева</p>
             <p class="profile-info-txt">Татарский, Русский, Английский</p>
           </div>
@@ -105,38 +103,38 @@
       <div class="profile-purpose">
           <div class="profile-purposes-title-flex">
             <p class="profile-purposes-title">Моя пирамида целей</p>
-            <img src='{% static "mainsite/home/profile--img/copy.png" %}' class='purposes-copy'class= alt="">
+            <img src='{% static "mainsite/images/profile/copy.png" %}' class='purposes-copy'class= alt="">
           </div>
         <div class="profile-purposes-pyramid">
-          <img src='{% static "mainsite/home/profile--img/pyramid-lines.png" %}' class='pyramid-lines'alt=""> 
+          <img src='{% static "mainsite/images/profile/pyramid-lines.png" %}' class='pyramid-lines'alt=""> 
           <div class="pyramid-col">
           <button class='pyramid-btn pyramid-btn-1-child'>
-            <img src='{% static "mainsite/home/profile--img/pyramid-btn.png" %}' alt="">
+            <img src='{% static "mainsite/images/profile/pyramid-btn.png" %}' alt="">
             <p class='pyramid-btn-txt'>Счастье</p>
           </button>
           
           </div>
           <div class="pyramid-col">
             <button class='pyramid-btn pyramid-btn-3-child'>
-              <img src='{% static "mainsite/home/profile--img/pyramid-btn.png" %}' alt="">
+              <img src='{% static "mainsite/images/profile/pyramid-btn.png" %}' alt="">
               <p class='pyramid-btn-txt'>Счастье</p>
             </button>
             <button class='pyramid-btn'>
-              <img src='{% static "mainsite/home/profile--img/pyramid-btn.png" %}' alt="">
+              <img src='{% static "mainsite/images/profile/pyramid-btn.png" %}' alt="">
               <p class='pyramid-btn-txt'>Счастье</p>
             </button>
           </div>
           <div class="pyramid-col">
             <button class='pyramid-btn pyramid-btn-4-child'>
-              <img src='{% static "mainsite/home/profile--img/pyramid-btn.png" %}' alt="">
+              <img src='{% static "mainsite/images/profile/pyramid-btn.png" %}' alt="">
               <p class='pyramid-btn-txt'>Счастье</p>
             </button>
             <button class='pyramid-btn'>
-              <img src='{% static "mainsite/home/profile--img/pyramid-btn.png" %}' alt="">
+              <img src='{% static "mainsite/images/profile/pyramid-btn.png" %}' alt="">
               <p class='pyramid-btn-txt'>Счастье</p>
             </button>
             <button class='pyramid-btn'>
-              <img src='{% static "mainsite/home/profile--img/pyramid-btn.png" %}' alt="">
+              <img src='{% static "mainsite/images/profile/pyramid-btn.png" %}' alt="">
               <p class='pyramid-btn-txt'>Счастье</p>
             </button>
           </div>
@@ -146,22 +144,22 @@
     <div class="grid-col">
       <div class="gallerry">
 
-        <img src='{% static "mainsite/profile/img/3dots.png" %}' alt="" id="gallety-dots">
+        <img src='{% static "mainsite/images/profile/3dots.png" %}' alt="" id="gallety-dots">
         <p class="gallery-title">Моя галлерея: 12 фото</p>
 
         <div class="gallery-grid">
           <div class="gallery-col">
-            <img src='{% static "mainsite/home/profile--img/gallery 1 col 1.png" %}' alt="">
-            <img src='{% static "mainsite/home/profile--img/gallery 1 col 2.png" %}' class='gallery1'alt="">
-            <img src='{% static "mainsite/home/profile--img/gallery 1 col 23.png" %}' class='gallery1'alt="">
+            <img src='{% static "mainsite/images/profile/gallery 1 col 1.png" %}' alt="">
+            <img src='{% static "mainsite/images/profile/gallery 1 col 2.png" %}' class='gallery1'alt="">
+            <img src='{% static "mainsite/images/profile/gallery 1 col 23.png" %}' class='gallery1'alt="">
           </div>
           <div class="gallery-col">
-            <img src='{% static "mainsite/home/profile--img/gallery 2 col 1.png" %}' alt="">
-            <img src='{% static "mainsite/home/profile--img/gallery 2 col 2.png" %}' class='gallery2'alt="">
+            <img src='{% static "mainsite/images/profile/gallery 2 col 1.png" %}' alt="">
+            <img src='{% static "mainsite/images/profile/gallery 2 col 2.png" %}' class='gallery2'alt="">
           </div>
           <div class="gallery-col">
-            <img src='{% static "mainsite/home/profile--img/gallery 3 col 1.png" %}' alt="">
-            <img src='{% static "mainsite/home/profile--img/gallery 3 col 2.png" %}' class='gallery3'alt="">
+            <img src='{% static "mainsite/images/profile/gallery 3 col 1.png" %}' alt="">
+            <img src='{% static "mainsite/images/profile/gallery 3 col 2.png" %}' class='gallery3'alt="">
           </div>
         </div>
         <button class="gallery-more-img">Показать больше картинок</button>
@@ -179,7 +177,7 @@
             <button class="skills-section">Прочее<div class="line"></div></button>
           </div>
           <button class="skills-copy">
-            <img src='{% static "mainsite/home/profile--img/copy.png" %}' alt="">
+            <img src='{% static "mainsite/images/profile/copy.png" %}' alt="">
           </button>
         </div>
         
@@ -293,86 +291,86 @@
     <div class="grid-col">
       <div class="friends">
         <button class="friends-3-dots" type="button">
-          <img src='{% static "mainsite/home/profile--img/3dots.png" %}'> </img>
+          <img src='{% static "mainsite/images/profile/3dots.png" %}'> </img>
         </button>
           <p class='friends-title'>Мои друзья 27</p>
           <div class="friends-flex">
             <div class="friends-flex-col">
 
               <div class="friend-box">
-                <img src='{% static "mainsite/home/profile--img/1friend.png" %}' alt="" class="friend-img">
+                <img src='{% static "mainsite/images/profile/1friend.png" %}' alt="" class="friend-img">
                 <p class="friend-name">Максим</p>
               </div>
               <div class="friend-box">
-                <img src='{% static "mainsite/home/profile--img/2friend.png" %}' alt="" class="friend-img">
+                <img src='{% static "mainsite/images/profile/2friend.png" %}' alt="" class="friend-img">
                 <p class="friend-name">Алеша</p>
               </div>
               <div class="friend-box">
-                <img src='{% static "mainsite/home/profile--img/3friend.png" %}' alt="" class="friend-img">
+                <img src='{% static "mainsite/images/profile/3friend.png" %}' alt="" class="friend-img">
                 <p class="friend-name">Fenua</p>
               </div>
               <div class="friend-box">
-                <img src='{% static "mainsite/home/profile--img/4friend.png" %}' alt="" class="friend-img">
+                <img src='{% static "mainsite/images/profile/4friend.png" %}' alt="" class="friend-img">
                 <p class="friend-name">Andry</p>
               </div>
               <div class="friend-box">
-                <img src='{% static "mainsite/home/profile--img/5friend.png" %}' alt="" class="friend-img">
+                <img src='{% static "mainsite/images/profile/5friend.png" %}' alt="" class="friend-img">
                 <p class="friend-name">Костян</p>
               </div>
               <div class="friend-box">
-                <img src='{% static "mainsite/home/profile--img/6friend.png" %}' alt="" class="friend-img">
+                <img src='{% static "mainsite/images/profile/6friend.png" %}' alt="" class="friend-img">
                 <p class="friend-name">એન્ડ્રે</p>
 
               </div>
               <div class="friend-box">
 
-                <img src='{% static "mainsite/home/profile--img/1friend.png" %}' alt="" class="friend-img">
+                <img src='{% static "mainsite/images/profile/1friend.png" %}' alt="" class="friend-img">
                 <p class="friend-name">Максим</p>
               </div>
               <div class="friend-box">
-              <img src='{% static "mainsite/home/profile--img/2friend.png" %}' alt="" class="friend-img">
+              <img src='{% static "mainsite/images/profile/2friend.png" %}' alt="" class="friend-img">
               <p class="friend-name">Алеша</p>
             </div>
             <div class="friend-box">
-              <img src='{% static "mainsite/home/profile--img/3friend.png" %}' alt="" class="friend-img">
+              <img src='{% static "mainsite/images/profile/3friend.png" %}' alt="" class="friend-img">
               <p class="friend-name">Fenua</p>
             </div>
             <div class="friend-box">
-              <img src='{% static "mainsite/home/profile--img/4friend.png" %}' alt="" class="friend-img">
+              <img src='{% static "mainsite/images/profile/4friend.png" %}' alt="" class="friend-img">
               <p class="friend-name">Andry</p>
             </div>
             <div class="friend-box">
-              <img src='{% static "mainsite/home/profile--img/5friend.png" %}' alt="" class="friend-img">
+              <img src='{% static "mainsite/images/profile/5friend.png" %}' alt="" class="friend-img">
               <p class="friend-name">Костян</p>
             </div>
             <div class="friend-box">
-              <img src='{% static "mainsite/home/profile--img/6friend.png" %}' alt="" class="friend-img">
+              <img src='{% static "mainsite/images/profile/6friend.png" %}' alt="" class="friend-img">
               <p class="friend-name">એન્ડ્રે</p>
             </div>
             </div>  
             <div class="friends-flex-col">
               <div class="friend-box">
-                <img src='{% static "mainsite/home/profile--img/1friend.png" %}' alt="" class="friend-img">
+                <img src='{% static "mainsite/images/profile/1friend.png" %}' alt="" class="friend-img">
                 <p class="friend-name">Максим</p>
               </div>
               <div class="friend-box">
-              <img src='{% static "mainsite/home/profile--img/2friend.png" %}' alt="" class="friend-img">
+              <img src='{% static "mainsite/images/profile/2friend.png" %}' alt="" class="friend-img">
               <p class="friend-name">Алеша</p>
             </div>
             <div class="friend-box">
-              <img src='{% static "mainsite/home/profile--img/3friend.png" %}' alt="" class="friend-img">
+              <img src='{% static "mainsite/images/profile/3friend.png" %}' alt="" class="friend-img">
               <p class="friend-name">Fenua</p>
             </div>
             <div class="friend-box">
-              <img src='{% static "mainsite/home/profile--img/4friend.png" %}' alt="" class="friend-img">
+              <img src='{% static "mainsite/images/profile/4friend.png" %}' alt="" class="friend-img">
               <p class="friend-name">Andry</p>
             </div>
             <div class="friend-box">
-              <img src='{% static "mainsite/home/profile--img/5friend.png" %}' alt="" class="friend-img">
+              <img src='{% static "mainsite/images/profile/5friend.png" %}' alt="" class="friend-img">
               <p class="friend-name">Костян</p>
             </div>
             <div class="friend-box">
-              <img src='{% static "mainsite/home/profile--img/6friend.png" %}' alt="" class="friend-img">
+              <img src='{% static "mainsite/images/profile/6friend.png" %}' alt="" class="friend-img">
               <p class="friend-name">એન્ડ્રે</p>
             </div>
 
@@ -384,12 +382,12 @@
   <div class="grid-col">
     <div class="calendar-section">
       <div class="calendar-col calendar">
-        <button class='calendar-btn'><img src='{% static "mainsite/home/profile--img/calendar2.png" %}' alt=""></button>
+        <button class='calendar-btn'><img src='{% static "mainsite/images/profile/calendar2.png" %}' alt=""></button>
         <table id="calendar2">
           <thead>
-            <tr><td><button class='calendar-arrow prev-arrow'><img src='{% static "mainsite/home/profile--img/prev-arrow.png" %}' alt="">
+            <tr><td><button class='calendar-arrow prev-arrow'><img src='{% static "mainsite/images/profile/prev-arrow.png" %}' alt="">
             </button><td class='month' colspan="5"><td>
-              <button class='calendar-arrow  next-arrow'><img src='{% static "mainsite/home/profile--img/next-arrow.png" %}' alt=""></button>
+              <button class='calendar-arrow  next-arrow'><img src='{% static "mainsite/images/profile/next-arrow.png" %}' alt=""></button>
             <tr class='weekDay'><td>Пн<td>Вт<td>Ср<td>Чт<td>Пт<td>Сб<td>Вс
           <tbody>
         </table>
@@ -397,7 +395,7 @@
       <div class="calendar-col">
         <div class="calendar-case-headline">
           <p class="case-title">Дела на этот день</p>
-          <button class="case-plus"><img src='{% static "mainsite/home/profile--img/plus.png" %}' alt=""></button>
+          <button class="case-plus"><img src='{% static "mainsite/images/profile/plus.png" %}' alt=""></button>
         </div>
         <div class="calendar-case-flex">
           <div class="calendar-case-col">
@@ -463,72 +461,82 @@
         </div>
       </div>
     </div>
+
+    {% if user_affirmation_path %}
     <div class="grid-col">
       <div class="affirmation">
+
         <div class="affirmation-haedline">
           <p class="affirmation-title">Мои аффирмации</p>
-          <button class='affirmation-copy'><img src='{% static "mainsite/home/profile--img/copy.png" %}' alt=""></button>
+          <button class='affirmation-copy'><img src='{% static "mainsite/images/profile/copy.png" %}' alt=""></button>
         </div>
+        
         <div class="affirmation-col affirmation-1">
-          <p class="affirmation-col-title">Не забыть взять с собой студик</p>
-          <p class="affirmation-col-txt">Сегодня важная встреча, поэтому нужно взять с собой все необходимое и не забыть взять с собой студик, чтобы меня смогли впустить в институт</p>
+          <!-- <p class="affirmation-col-title">Не забыть взять с собой студик</p> -->
+          <!-- <p class="affirmation-col-txt">Сегодня важная встреча, поэтому нужно взять с собой все необходимое и не забыть взять с собой студик, чтобы меня смогли впустить в институт</p> -->
+          
+          <img src="../static/mainsite/images/affirmations/{{ user_affirmation_path }}">
+          
         </div>
-        <div class="affirmation-col affirmation-2">
+
+        <!-- <div class="affirmation-col affirmation-2">
           <p class="affirmation-col-2-title">Встретиться с президентом Кубы</p>
         </div>
+
         <div class="affirmation-col affirmation-3">
           <p class="affirmation-col-2-title">Съездить в Сибирь</p>
-        </div>
+        </div> -->
+
         <div class="affirmation-col">
-          <button class="affirmation-plus">Добавить новые аффирмации</button>
+          <button class="affirmation-plus" type="sumbit" onclick="location.href='{% url 'affirmation_generator' %}'" class='header--change--btn headerRegister'>Изменить аффирмацию</button>
         </div>
+
       </div>
     </div>
+    {% endif %}
 
+    {% if img %}
   <div class="grid-col">
     <div id="lifeWheelSection">
       <div id="lifeWheelHeader">
         <p id='lifeWheelHeaderTxt'>Колесо жизни</p>
         <button class='lifeWheelBtn lifeWheelReverseBtn'>
-          <img src='{% static "mainsite/home/profile--img/reverse.png" %}' alt="">
+          <img src='{% static "mainsite/images/profile/reverse.png" %}' alt="">
         </button>
         <button class='lifeWheelBtn lifeWheelCopyBtn'>
-          <img src='{% static "mainsite/home/profile--img/copy.png" %}' alt="">
+          <img src='{% static "mainsite/images/profile/copy.png" %}' alt="">
         </button>
       </div>
 
+      
       <div id="lifeWheelInfo">
         <div class="lifeWheelCoef">
-          {% if sphere == None %}
-            <p> -- </p>
-          {% else %}
             <div class="coef-col">
-              <p class='coefTxt'>Коэффициент отношений:.................................</p>
+              <p class='coefTxt'>Коэффициент отношений:</p>
               <p class='coefPoint'>{{ sphere.relationships}}</p>
             </div>
             <div class="coef-col">
-              <p class='coefTxt'>Коэффициент учебы:..........................................</p>
+              <p class='coefTxt'>Коэффициент учебы:</p>
               <p class='coefPoint'>{{ sphere.career}}</p>
             </div>
             <div class="coef-col">
-              <p class='coefTxt'>Коэффициент внутреннего мира:....................</p>
+              <p class='coefTxt'>Коэффициент внутреннего мира:</p>
               <p class='coefPoint'>{{ sphere.inside_world }}</p>
             </div>
             <div class="coef-col">
-              <p class='coefTxt'>Коэффициент здоровья:....................................</p>
+              <p class='coefTxt'>Коэффициент здоровья:</p>
               <p class='coefPoint'>{{ sphere.health}}</p>
             </div>
             <div class="coef-col">
-              <p class='coefTxt'>Последнее обновление:....................................</p>
-              <p class='coefPoint'> 03.02.2021</p>
+              <p class='coefTxt'>Последнее обновление:</p>
+              <p class='coefPoint'>   03.02.2021</p>
             </div>
-          {% endif%}
         </div>
 
         <div id="lifeWheelChar">
-          {% if img %}
+          
             <img src="../static/mainsite/images/wheeloflife/png/{{ img }}.png">
-          {% endif %}
+          
           
             <!-- <p class='ten horizontalLeftTen'>10</p>
             <div class="horizontalLine"></div>
@@ -543,6 +551,7 @@
       </div>
     </div>
   </div>
+  {% endif %}
 
 </div>
   

@@ -81,7 +81,7 @@
   position: relative;
   height: 278px;
   margin-left: 67px;
-  background-image: url(../profile/img/background-header.png);
+  background-image: url(../images/profile/background-header.png);
   background-repeat: no-repeat;
   margin-top: 140px;
 }
@@ -194,7 +194,7 @@ transition: opacity .3s;
 }
 .hint--message {
   position: absolute;
-  background-image: url(../profile/img/messageBtn.png);
+  background-image: url(../images/profile/messageBtn.png);
   margin-top: -70px;
   margin-left: -25px;
   height: 38px;
@@ -215,7 +215,7 @@ transition: opacity .3s;
   opacity: 1;
 }
 .hint--callendar {
-background-image: url(../profile/img/calendarBtnBg.png);
+background-image: url(../images/profile/calendarBtnBg.png);
 margin-left: 15px;
 margin-top: 15px;
 width: 84px;
@@ -229,7 +229,7 @@ height: 38px;
   opacity: 1;
 }
 .hint--settings {
-  background-image: url(../profile/img/settingsVector.png);
+  background-image: url(../images/profile/settingsVector.png);
   position: absolute;
   margin-top: -80px;
   margin-left: 57px;
@@ -241,7 +241,7 @@ height: 38px;
   opacity: 1;
 }
 .hint--statics {
-  background-image: url(../profile/img/staticsVector.png);
+  background-image: url(../images/profile/staticsVector.png);
   position: absolute;
   width: 75px;
   height: 55px;
@@ -254,7 +254,7 @@ height: 38px;
   opacity: 1;
 }
 .profile-btn {
-  margin-right: 8px;
+  margin-right: 22px;
   border: none;
   background: none;
 }
@@ -274,7 +274,7 @@ height: 38px;
 /* profile_settings */
 #profile-header {
   background: #ffffff;
-  height: 635px;
+  height: 600px;
 }
 #profile--info {
   background: #EFF0F4;
@@ -295,7 +295,7 @@ height: 38px;
 .profile-info-container {
   background: #ffffff;
   width: 100%;
-  height: 498px;
+  height: 400px;
   border-radius: 21px;
 }
 
@@ -1154,7 +1154,7 @@ height: 38px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 980px;
+  height: 480px;
   background: #ffffff;
   border-radius: 21px;
 }
@@ -1213,7 +1213,7 @@ height: 38px;
 }
 
 .affirmation-1 {
-  background-image: url(../profile/img/affirmation-bg-1.png);
+  background-image: url(../images/profile/affirmation-bg-1.png);
   height: 207px;
 }
 
@@ -1246,13 +1246,13 @@ height: 38px;
 
 .affirmation-2 {
   height: 207px;
-  background-image: url(../profile/img/affirmation-bg-2.png);
+  background-image: url(../images/profile/affirmation-bg-2.png);
   border-radius: 28.533px;
 }
 
 .affirmation-3 {
   height: 207px;
-  background-image: url(../profile/img/affirmation-bg-3.png);
+  background-image: url(../images/profile/affirmation-bg-3.png);
   border-radius: 28.533px;
 }
 
@@ -1348,6 +1348,7 @@ height: 38px;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  justify-content: space-between;
 }
 
 .coef-col {
@@ -1361,6 +1362,9 @@ height: 38px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-left: 42px;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .coef-col:first-child {
@@ -1389,6 +1393,8 @@ height: 38px;
 
 #lifeWheelChar {
   position: relative;
+  top: 10px;
+  width: 380px;
 }
 
 .horizontalTen {

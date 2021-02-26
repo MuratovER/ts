@@ -1,0 +1,49 @@
+{% extends 'mainsite/base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<div class=" w-75 mx-auto mt-5" style="font-size: 18px">
+    <header>
+        <a href="{% url 'third_chapters_HealthySleep' %}" target="_self" style="color: black; margin-right: 5em"><span
+                class="oi oi-arrow-left"></span> <strong>Назад</strong></a>
+        <span class="text-muted">
+            <a href="{% url 'tree' %}" target="_self" class="text-muted">Дерево развития</a> >
+            <a href="{% url 'third' %}" target="_self" class="text-muted">Здоровье</a> >
+            <a href="{% url 'third_chapters_MovementandHardening' %}" target="_self"
+               class="text-muted">Движение и закаливание</a> >
+                Домашнее задание
+        </span>
+    </header>
+    <div class="my-5 w-75 mx-auto">
+        <div class="d-flex justify-content-center">
+            <h1>ДОМАШНЕЕ ЗАДАНИЕ</h1>
+        </div>
+        <ul id="63d42b5d-afea-44c9-a753-ce0b3711ecfa" class="to-do-list">
+            <li>
+                <div class="checkbox checkbox-off"></div>
+                <span class="to-do-children-unchecked">На основе материалов этого урока, разработайте собственную программу насыщения движением своей повседневной жизни.</span>
+            </li>
+        </ul>
+        <ul id="8edf37f0-c698-4fc4-b9b9-1cc844919cba" class="to-do-list">
+            <li>
+                <div class="checkbox checkbox-off"></div>
+                <span class="to-do-children-unchecked">Следуя принципам формирования привычек, изложенным на уроке I.4, превратите элементы этой программы (лестница вместо лифта, пешком вместо автобуса и т.д.) в полезные привычки.</span>
+            </li>
+        </ul>
+        <ul id="6ee8701b-f991-4172-9b81-f1c9efb1ce90" class="to-do-list">
+            <li>
+                <div class="checkbox checkbox-off"></div>
+                <span class="to-do-children-unchecked">Контролируйте свою физическую активность с помощью шагомера. Хорошей нормой для человека считается 10 тысяч и более шагов в день.</span>
+            </li>
+        </ul>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button class="header--change--btn ">
+            <a href="{% url 'third' %}" style="color: inherit" class="h-100 w-100">Вернуться к разделу</a>
+        </button>
+    </div>
+</div>
+
+{% endblock %}

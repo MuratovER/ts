@@ -18,8 +18,16 @@ from django.template import RequestContext
 
 #Basic views begin
 #отправляет расположение разметки страницы в файл url
-def home_page(request):
-    return render(request, 'mainsite/home.html',)
+
+# if user authenticated load home, else load landing page
+def home_page(request): 
+    #print(request.user)
+    if request.user.is_authenticated:
+        return render(request, 'mainsite/home.html',)
+    else:
+        return render(request, 'mainsite/landing.html',)
+
+    
 
 @login_required
 def achivement_view(request):
@@ -36,6 +44,10 @@ def blog_view(request):
 @login_required
 def tree_view(request):
     return render(request, 'mainsite/tree.html', )
+
+@login_required
+def tree_old(request):
+    return render(request, 'mainsite/tree_old.html', )
 
 @login_required
 def help_view(request):
@@ -176,7 +188,13 @@ def first_chapters_what_is_it_task(request):
     return  render(request, 'mainsite/tree/first/first_chapters_what_is_it_task.html',)
 
 def first_chapters_edit(request):
-    return  render(request, 'mainsite/tree/first/first_chapters_edit.html',)
+    user_affirmation_path = None
+    if User_affirmation.objects.filter(user=request.user).exists():
+        user_obj = User_affirmation.objects.filter(user=request.user).order_by('-id')[:1][0]
+        user_text = user_obj.text
+        bg_id = user_obj.background_id
+        user_affirmation_path = get_affirmation_image.get_image(user_obj)
+    return  render(request, 'mainsite/tree/first/first_chapters_edit.html', {'user_affirmation_path': user_affirmation_path})
 
 def first_chapters_EditTask(request):
     return  render(request, 'mainsite/tree/first/first_chapters_EditTask.html',)
@@ -197,8 +215,8 @@ def first_chapters_self_discipline_list(request):
 def first_chapters_aims_in_life(request):
     return  render(request, 'mainsite/tree/first/first_chapters_aims_in_life.html',)
 
-def first_chapters_aims_in_life_list(request):
-    return  render(request, 'mainsite/tree/first/first_chapters_aims_in_life_list.html',)
+def first_chapters_self_aims_in_life_list(request):
+    return  render(request, 'mainsite/tree/first/first_chapters_self_aim_in_life_list.html',)
 
 #Second
 #подключение второй главы
@@ -208,20 +226,38 @@ def second_view(request):
 def second_chapters_AimofLearning(request):
     return  render(request, 'mainsite/tree/second/second_chapters_AimofLearning.html',)
 
+def second_chapters_AimofLearning_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_AimofLearning_task.html',)
+
 def second_chapters_ControlofTime(request):
     return  render(request, 'mainsite/tree/second/second_chapters_ControlofTime.html',) 
+
+def second_chapters_ControlofTime_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_ControlofTime_task.html',)
 
 def second_chapters_ControlofTimeEfficiency(request):
     return  render(request, 'mainsite/tree/second/second_chapters_ControlofTimeEfficiency.html',)
 
+def second_chapters_ControlofTimeEfficiency_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_ControlofTimeEfficiency_task.html',)
+
 def second_chapters_EfficientСommunications(request):
     return  render(request, 'mainsite/tree/second/second_chapters_EfficientСommunications.html',)
+
+def second_chapters_EfficientСommunications_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_EfficientСommunications_task.html',)
 
 def second_chapters_ForeignLanguage(request):
     return  render(request, 'mainsite/tree/second/second_chapters_ForeignLanguage.html',)
 
+def second_chapters_ForeignLanguage_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_ForeignLanguage_task.html',)
+
 def second_chapters_Thoughts(request):
     return  render(request, 'mainsite/tree/second/second_chapters_Thoughts.html',)      
+
+def second_chapters_Thoughts_task(request):
+    return  render(request, 'mainsite/tree/second/second_chapters_Thoughts_task.html',)
 
 #Third
 #подключение тертей главы
@@ -240,6 +276,18 @@ def third_chapters_MovementandHardening(request):
 def third_chapters_LadieswithStress(request):
     return  render(request, 'mainsite/tree/third/third_chapters_LadieswithStress.html',)   
 
+def third_chapters_HealthySleep_task(request):
+    return  render(request, 'mainsite/tree/third/third_chapters_HealthySleep_task.html',)
+
+def third_chapters_GoodNutrition_task(request):
+    return  render(request, 'mainsite/tree/third/third_chapters_GoodNutrition_task.html',)
+
+def third_chapters_MovementandHardening_task(request):
+    return  render(request, 'mainsite/tree/third/third_chapters_MovementandHardening_task.html',)
+
+def third_chapters_LadieswithStress_task(request):
+    return  render(request, 'mainsite/tree/third/third_chapters_LadieswithStress_task.html',)
+
 #Fourth
 #подключение четвертой главы
 def fourth_view(request):
@@ -256,6 +304,18 @@ def fourth_chapters_RelationshipsintheFamily(request):
 
 def fourth_chapters_Friends(request):
     return  render(request, 'mainsite/tree/fourth/fourth_chapters_Friends.html',)        
+
+def fourth_chapters_AbilitytoCommunicate_task(request):
+    return  render(request, 'mainsite/tree/fourth/fourth_chapters_AbilitytoCommunicate_task.html',)
+
+def fourth_chapters_Conflicts_task(request):
+    return  render(request, 'mainsite/tree/fourth/fourth_chapters_Conflicts_task.html',)
+
+def fourth_chapters_RelationshipsintheFamily_task(request):
+    return  render(request, 'mainsite/tree/fourth/fourth_chapters_RelationshipsintheFamily_task.html',)
+
+def fourth_chapters_Friends_task(request):
+    return  render(request, 'mainsite/tree/fourth/fourth_chapters_Friends_task.html',)
 
 
 #Basic views end

@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../static/mainsite/css/landing.css">
-</head>
-<body>
+{% extends 'mainsite/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<title>TopSkills</title>
+
     <section id='header-slogan'>
-        <div class="header-slider">
+        <div class="header-slider" style="margin-top: 40px;">
             <div class="header--slider--item slider--1item">
                 <div class="header--container">
                     <p class="header--slogan--title">Начни меняться 
@@ -31,10 +28,10 @@
             <!--
             <div class="header--slider--btns">
                 <button class="header--slider--btn header--slider--prev">
-                    <img src="../../static/mainsite/home/img_for_new_version/prev--arrow.png" alt="">
+                    <img src="../../static/mainsite/images/landing/prev--arrow.png" alt="">
                 </button>
                 <button class="header--slider--btn header--slider--next">
-                    <img src="../../static/mainsite/home/img_for_new_version/next--arrow.png" alt="">
+                    <img src="../../static/mainsite/images/landing/next--arrow.png" alt="">
                 </button>
             </div>
         -->
@@ -42,99 +39,132 @@
     </section>
     <section id='welcome'>
         <div class="content--container">
-            <p class="welcome--title">Добро пожаловать!</p>
-            <p class="welcome--txt">
+            <p class="welcome--title">Добро пожаловать, дорогой друг!</p>
+            <!--p class="welcome--txt">
                 <span>Наш проект про самый сложный и важный курс - личностное развитие. <br> </span>
-                Мы рады приветствовать тебя на корабле, который направляется по верному пути твоей жизни!
-                Ты здесь не просто так, мы в этом уверены. И очень рады этому! Ведь саморазвитие - 
-                это огромный шаг к улучшению самого себя. Поэтому, приготовься. Наш ждет увлекательный,
-                но не простой путь.
-            </p>
+            </p-->
+            <p class="welcome--txt text--paragraph" style="padding-top: 27px;">    
+                Наш проект про самый сложный и важный процесс — личностное развитие. <br>
+                Саморазвитие — это огромный шаг к улучшению самого себя. И мы рады, что ты на него решился. И решил сделать это вместе с нами. <br>
+                Приготовься! Наш ждет увлекательный, но не простой путь.
+            </p>   
         </div>
     </section>
     <section id='aboutPlatform'>
         <div class="content--container">
-            <p class="aboutPlatform--title">Просто текст</p>
+            <!--p class="aboutPlatform--title">Просто текст</p-->
             <div class="aboutPlatform--flex">
                 <div class="aboutPlatform--col aboutPlatform--col-first">
                     <div class="aboutPlatform--col--texts">
                         <p class="aboutPlatform--col--title">Прокачай свою жизнь</p>
-                        <p class="aboutPlatform--col--txt">
-                            Уроки по самым важным и базовым знаниям в жизни, которым не учат в 
-                            школе и университете - о личностном развитии
+                        <p class="aboutPlatform--col--txt text--paragraph">
+                            Уроки по самым важным и базовым знаниям в жизни, которым не учат в школе и университете — о внутреннем мире, тайм-менеджменте, целеполагании, психологии и взаимоотношениях с окружающими!
                         </p>
                     </div>
-                    <img src="../../static/mainsite/home/img_for_new_version/manWithLaptop.png" alt="" class="aboutPlatform--col--img">
+                    <img src="../../static/mainsite/images/landing/manWithLaptop.png" alt="" class="aboutPlatform--col--img">
                 </div>
                 <div class="aboutPlatform--col">
-                    <img src="../../static/mainsite/home/img_for_new_version/manWithVr.png" alt="" class="aboutPlatform--col--img">
+                    <img src="../../static/mainsite/images/landing/manWithVr.png" alt="" class="aboutPlatform--col--img">
                     <div class="aboutPlatform--col--texts">
                         <p class="aboutPlatform--col--title">О сложном простым языком</p>
-                        <p class="aboutPlatform--col--txt">
-                            Использование самых современных технологии в обучении с использованием 
-                            удобной онлайн платформы и подходов геймификации
+                        <p class="aboutPlatform--col--txt text--paragraph">
+                            Использование самых современных технологии в обучении с использованием удобной онлайн платформы и подходов геймификации
                         </p>
                     </div>
                 </div>
                 <div class="aboutPlatform--col">
                     <div class="aboutPlatform--col--texts">
                         <p class="aboutPlatform--col--title">Развивай личность в команде</p>
-                        <p class="aboutPlatform--col--txt">
+                        <p class="aboutPlatform--col--txt text--paragraph">
                             На протяжении всего обучения рядом с тобой будет наша команда,
                             а также команда твоих единомышленников.
                             </p>
                         </div>    
-                    <img src="../../static/mainsite/home/img_for_new_version/mp3.png" alt="" class="aboutPlatform--col--img">
+                    <img src="../../static/mainsite/images/landing/mp3.png" alt="" class="aboutPlatform--col--img">
                 </div>
-                <img src="../../static/mainsite/home/img_for_new_version/aboutPlatformLine.png" class='aboutPlatform-bg-line' alt="">
+                <img src="../../static/mainsite/images/landing/aboutPlatformLine.png" class='aboutPlatform-bg-line' alt="">
             </div>
         </div>
     </section>
     <section id='noName'> 
-        <p class="noName--title">Просто текст</p>
-        <img src="../../static/mainsite/home/img_for_new_version/1-elipse.png" alt="" class="noNameEllipses-1">
-        <img src="../../static/mainsite/home/img_for_new_version/2-ellipse.png" alt="" class="noNameEllipses-2">
-        <img src="../../static/mainsite/home/img_for_new_version/3-ellipse.png" alt="" class="noNameEllipses-3">
+        <p class="noName--title">Что такое TopSkills ?</p>
+        <img src="../../static/mainsite/images/landing/1-elipse.png" alt="" class="noNameEllipses-1">
+        <div class="aboutFirstEllipse"></div>
+          <img class="aboutIntersect" src="/static/mainsite/images/home/Intersect.png">
+          <div class="aboutFlex">
+            <div class="aboutCol aboutColTxt" style="text-align: center;
+    margin-left: 250px;">
+              <p class="aboutTxt aboutproject--text">Это платформа для изучения основных методов личностного развития. </p>
+              <p class="aboutproject--text text--paragraph">
+                Современный мир требует цифровых решений для передачи информации. Сегодня наиболее популярными форматами являются онлайн-ресурсы, как Coursera, YouTube и Instagram. Мы хотим не отставать от трендов. 
+                <br>
+                В основе проекта — книга “Уроки лидерства” А.Х. Гильмутдинова и А.А. Гильмутдиновой. Мы перенесли ее в доступный виртуальный формат с удобным интерфейсом и дополнили интерактивными сервисами. Все это в единой форме поможет каждому выстроить грамотную траекторию саморазвития. 
+              </p>
+            </div>
+        <img src="../../static/mainsite/images/landing/2-ellipse.png" alt="" class="noNameEllipses-2">
+        <img src="../../static/mainsite/images/landing/3-ellipse.png" alt="" class="noNameEllipses-3">
     </section>
+    <!--section id="aboutproject">
+          <div class="aboutFirstEllipse"></div>
+          <img class="aboutIntersect" src="/static/mainsite/images/home/Intersect.png">
+          <div class="aboutFlex">
+            <div class="aboutCol aboutColTxt">
+              <p class="aboutTxt aboutproject--text">Это платформа для изучения основных методов личностного развития. </p>
+              <p class="aboutproject--text text--paragraph">
+                Современный мир требует цифровых решений для передачи информации. Сегодня наиболее популярными форматами являются онлайн-ресурсы, как Coursera, YouTube и Instagram. Мы хотим не отставать от трендов. 
+                <br>
+                В основе проекта — книга “Уроки лидерства” А.Х. Гильмутдинова и А.А. Гильмутдиновой. Мы перенесли ее в доступный виртуальный формат с удобным интерфейсом и дополнили интерактивными сервисами. Все это в единой форме поможет каждому выстроить грамотную траекторию саморазвития. 
+              </p>
+            </div>
+            <div class="aboutCol">
+              <img class="aboutBook" src="/static/mainsite/images/home/book.png" alt="">
+            </div>
+          </div>
+          <div class="aboutSecondEllipse"></div>
+          <div class="aboutFirstRingBg"></div>
+          <div class="aboutFirstRing"></div>
+    </section-->
     <section id='aboutUs'> 
         <div class="content--container">
             <div class="aboutUs--flex">
                 <div class="aboutUs--text--content">
-                    <p class="aboutUs--title">Кто мы и что делаем?</p>
-                    <p class="aboutUs--txt">
-                        Весь проект создается по книге Гильмутдинова А.Х и  Гильмутдиновой А.А
-                        Мы команда специалистов в разных областях, наша задача напрявлять людей на важные дела, помогая 
-                        им в трудной ситуации и поддерживая их на всем пути. Сейчас мы занимаемся геймификацией
-                         этой книге в удобной для полльзователей среде. 
+                    <p class="aboutUs--title"> Кто мы ? </p>
+                    <p class="aboutUs--txt--upper text--paragraph">
+                       Мы — команда специалистов в разных областях. Нас объединило желание структурировать процесс внутреннего развития.  
                     </p>
-                    <a href="#" class="aboutUs--link">Подробнее о нас <img src="../../static/mainsite/home/img_for_new_version/linkArrow.png" alt=""></a>
+                    <p class="aboutUs--txt--down text--paragraph">        
+                       С нами ты поймешь, как найти дело своей жизни и максимально реализовать заложенный в человеке огромный потенциал: интеллектуальный, физический и духовный. Мы предоставим тебе много инструментов, которые мы добавили в проект, основываясь на наших знаниях и проверив их эффективность на собственном опыте.
+                    </p>
+                    <a href="/aboutus/" class="aboutUs--link">Подробнее о нас <i class="fa fa-long-arrow-right" aria-hidden="true" ></i></a>
                 </div>
-                <img src="../../static/mainsite/home/img_for_new_version/book.png" alt="" class="aboutUs--book">
+                <img src="../../static/mainsite/images/landing/book.png" alt="" class="aboutUs--book">
             </div>
         </div>
-        <img src="../../static/mainsite/home/img_for_new_version/aboutUs-1-ellipse.png" alt="" class="aboutUs-1-ellipse">
-        <img src="../../static/mainsite/home/img_for_new_version/aboutUs-2-ellipse.png" alt="" class="aboutUs-2-ellipse">
-        <img src="../../static/mainsite/home/img_for_new_version/aboutUs-3-ellipse.png" alt="" class="aboutUs-3-ellipse">
-        <a href="" class="aboutUs--regisrationBtn">Большая кнопка регистрации</a>
+        <img src="../../static/mainsite/images/landing/aboutUs-1-ellipse.png" alt="" class="aboutUs-1-ellipse">
+        <img src="../../static/mainsite/images/landing/aboutUs-2-ellipse.png" alt="" class="aboutUs-2-ellipse">
+        <!--img onclick="location.href='/signup/'" src="../../static/mainsite/images/landing/aboutUs-3-ellipse.png" alt="" class="aboutUs-3-ellipse"-->
+        <button type="sumbit" onclick="location.href='/signup/'" class="aboutUs--regisrationBtn">Зарегестрироваться<i class="fa fa-long-arrow-right" aria-hidden="true" ></i></button>
+        <!--a href="" class="aboutUs--regisrationBtn">Большая кнопка регистрации</a-->
     </section>
     <section id="question">
         <div class="content--container">
             <div class="question--flex">
                 <div class="question--text--content">
                     <p class="question--title">Есть вопросы?</p>
-                    <p class="question--txt">Не стесняйся задавать нам свои вопросы, и наш сотрудник,Барсик обязательно ответит на ваши вопросы.</p>
-                    <a href="#" class="question--btn">Задать нам вопрос <img src="../../static/mainsite/home/img_for_new_version/linkArrow.png" alt=""> </a>
+                    <p class="question--txt">Не стесняйся.... 
+                   <br>Твой верный друг и помощник Альбик всегда готов помочь!</p>
+                    <a href="#" class="question--btn">Задать нам вопрос <i class="fa fa-long-arrow-right" aria-hidden="true" ></i> </a>
                 </div>
-                <img src="../../static/mainsite/home/img_for_new_version/questionList.png" alt="" class="question--img">
+                <img  style="width: 700px;" src="../../static/mainsite/images/landing/Orel.png" alt="" class="question--img">
             </div>
         </div>
     </section>
-</body>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
-<script src='landingScripts/jquery.min.js'></script>
-<script src='landingScripts/slick.min.js'></script>
-<script src='landingScripts/slider.js'></script>
+<script src="https://kit.fontawesome.com/e7a8738e3a.js" crossorigin="anonymous"></script>
+<script src="{% static 'mainsite/js/landingScripts/jquery.min.js' %}"></script>
+<script src="{% static 'mainsite/js/landingScripts/slick.min.js' %}"></script>
+<script src="{% static 'mainsite/js/landingScripts/slider.js' %}"></script>
 
-</html>
+{% endblock %}
