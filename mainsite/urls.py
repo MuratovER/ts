@@ -79,6 +79,8 @@ urlpatterns = [
     path('fourth/fourth_chapters_Conflicts_task/', views.fourth_chapters_Conflicts_task, name='fourth_chapters_Conflicts_task'),
     path('fourth/fourth_chapters_RelationshipsintheFamily_task/', views.fourth_chapters_RelationshipsintheFamily_task, name='fourth_chapters_RelationshipsintheFamily_task'),
     path('fourth/fourth_chapters_Friends_task/', views.fourth_chapters_Friends_task, name='fourth_chapters_Friends_task'),
+    #End
+    path('end/', views.end_view, name='end'),
     #API
     #re_path(r'^api/get_todolist/(?P<user_id>[\w.@+-]+)/$', views.api_get_todolist),
     path('api/get_todolist/', views.api_get_todolist),
