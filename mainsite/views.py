@@ -1,11 +1,10 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect ,get_object_or_404
-from mainsite.forms import SignUpForm
+from mainsite.forms import SignUpForm, PhotoForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
-from .models import Post, Skill, UserSkill, Profile, Sphere_of_life, User_affirmation
-from .models import Post, Skill, UserSkill, Profile, Sphere_of_life, Achivement, UserAchivement
+from .models import Post, Skill, UserSkill, Profile, Sphere_of_life, Achivement, UserAchivement, User_affirmation, Photo
 from django.utils import timezone
 from django.contrib.auth.models import User
 from .forms import Sphere_of_life_Form
@@ -15,6 +14,8 @@ import datetime
 from django.utils.timezone import make_aware
 from django.http import JsonResponse
 from django.template import RequestContext
+from cloudinary.forms import cl_init_js_callbacks      
+
 
 #Basic views begin
 #отправляет расположение разметки страницы в файл url
@@ -333,6 +334,15 @@ def skills(request):
 
 #blog view end
 
+def profile_image_upload(request):
+
+    if request.method == 'POST':
+        profile_picture_upload_form = PhotoForm(request.POST, requset.FILES)
+        if profile_picture_upload_form.is_valid():
+            profile_picture_upload_form.save()
+        
+    return render(request, 'mainsite/user_page.html', {'profile_picture_upload_form':profile_picture_upload_form})
+
 
 @login_required
 def user_page(request):
@@ -343,8 +353,12 @@ def user_page(request):
 
     user = User.objects.get(username = request.user)
     skills = UserSkill.objects.filter(user=user)
+    profile_picture = Photo.objects.all() 
+
+
 
     achivements = UserAchivement.objects.filter(user = user)
+    
     
 
     sphere = None
@@ -363,7 +377,15 @@ def user_page(request):
         user_text = user_obj.text
         bg_id = user_obj.background_id
         user_affirmation_path = get_affirmation_image.get_image(user_obj)
-    return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills, 'sphere' : sphere, 'img': img, 'user_affirmation_path': user_affirmation_path})
+    return render(request, 'mainsite/user_page.html', 
+                            {
+                                'user' : user, 
+                                'skills' : skills, 
+                                'sphere' : sphere, 
+                                'img' : img, 
+                                'user_affirmation_path' : user_affirmation_path, 
+                                'profile_picture' : profile_picture,
+                            })
 
 
 
@@ -433,3 +455,6 @@ def api_get_todolist(request):
             return JsonResponse({"error": "not exist"})
         serializer = TodoListSerializer(spheres, many = True)
         return Response(serializer.data)
+
+
+

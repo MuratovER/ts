@@ -9,7 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 #from .forms import UploadFileForm
-
+from cloudinary.models import CloudinaryField
 
 
 
@@ -76,6 +76,7 @@ class Profile(models.Model):
     last_name = models.CharField(max_length=100, blank=True)
     email = models.EmailField(max_length=150)
     bio = models.TextField()
+
     def __str__(self):
         return self.user.username
 
@@ -145,4 +146,7 @@ class UserAchivement(models.Model):
     def __str__(self):
         return self.achivement.name
 
+
+class Photo(models.Model): 
+    image = CloudinaryField('image')
 
