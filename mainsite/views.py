@@ -317,6 +317,9 @@ def fourth_chapters_RelationshipsintheFamily_task(request):
 def fourth_chapters_Friends_task(request):
     return  render(request, 'mainsite/tree/fourth/fourth_chapters_Friends_task.html',)
 
+def end_view(request):
+    return  render(request, 'mainsite/tree/end/end_chapter.html',)
+
 
 #Basic views end
 
