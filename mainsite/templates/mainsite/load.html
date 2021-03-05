@@ -1,0 +1,17 @@
+{% extends 'mainsite/base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+    {% load cloudinary %}
+    <h1>Обновление аватарки</h1>
+    <form method = "POST">
+      {% csrf_token %}
+      {{ form.image }}
+      <div>
+        <input type="submit" value="profile_image_upload">
+      </div>
+    </form>
+
+{% endblock %}

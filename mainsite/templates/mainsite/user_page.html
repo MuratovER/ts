@@ -12,9 +12,13 @@
       <div class="header-info-flex">
         <div class="gol_icon">
           <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' class='header-profile-img' alt="">
-          <button class='changePhoto'>
-            <img src='{% static "mainsite/images/profile/image_alt.png" %}' alt="">
-          </button>
+          
+          <a href="../user_page/image_upload/">
+            <button class='changePhoto'>
+              <img src='{% static "mainsite/images/profile/image_alt.png" %}' alt="">
+            </button>
+          </a>
+
         </div>
      
           <p class="header-info-userName">{{ user.first_name }} {{ user.last_name }}</p>
@@ -30,15 +34,6 @@
           
           
           
-          {% load cloudinary %}
-          <h1>Обновление аватарки</h1>
-          <form method = "POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.image }}
-            <div>
-              <input type="submit" value="profile_image_upload">
-            </div>
-          </form>
 
 
          

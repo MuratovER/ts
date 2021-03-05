@@ -147,6 +147,7 @@ class UserAchivement(models.Model):
         return self.achivement.name
 
 
-class Photo(models.Model): 
+class Photo(models.Model):
+    # name = models.CharField(max_length=10) 
     image = CloudinaryField('image')
 
