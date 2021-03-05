@@ -23,17 +23,20 @@
           
           {% for profile_picture in profile_picture %}
 
-            <img src="{{ profile_picture.image.url }}" alt="1">
+          <img src="{{ profile_picture.image.url }}" alt="1">
 
           {% endfor %}
-          <h1>Обновление аватарки</h1>
-          {% load cloudinary %}
           
-          <form action="post">
+          
+          
+          
+          {% load cloudinary %}
+          <h1>Обновление аватарки</h1>
+          <form method = "POST" enctype="multipart/form-data">
             {% csrf_token %}
-            {{form.image}}
+            {{ form.image }}
             <div>
-              <input type="submit" value="Upload">
+              <input type="submit" value="profile_image_upload">
             </div>
           </form>
 

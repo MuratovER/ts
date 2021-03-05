@@ -151,7 +151,7 @@ MEDIA_URL = '/media/'
 
 
 cloudinary.config( 
-  cloud_name = "topskills", 
-  api_key = "815436123641142", 
-  api_secret = "ubLhMS2DO5uYPceEsp4gO5XSa1A" 
+    cloud_name = "topskills", 
+    api_key = "815436123641142", 
+    api_secret = "ubLhMS2DO5uYPceEsp4gO5XSa1A" 
 )

@@ -334,18 +334,18 @@ def skills(request):
 
 #blog view end
 
-def profile_image_upload(request):
-
-    if request.method == 'POST':
-        profile_picture_upload_form = PhotoForm(request.POST, requset.FILES)
-        if profile_picture_upload_form.is_valid():
-            profile_picture_upload_form.save()
-        
-    return render(request, 'mainsite/user_page.html', {'profile_picture_upload_form':profile_picture_upload_form})
-
 
 @login_required
 def user_page(request):
+
+    form = PhotoForm(request.POST, request.FILES)
+    if request.method == 'POST':
+        
+        if form.is_valid():
+            form.save()
+            return redirect('user_page')
+
+    
 
     '''
     отображает на странице профиля скилы и фичи для конкретных пользователей
@@ -385,6 +385,8 @@ def user_page(request):
                                 'img' : img, 
                                 'user_affirmation_path' : user_affirmation_path, 
                                 'profile_picture' : profile_picture,
+                                'form' : form,
+                                
                             })
 
 
