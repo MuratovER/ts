@@ -1,4 +1,7 @@
 @charset "UTF-8";
+img {
+  max-width: none; }
+
 .tree--container {
   position: relative;
   width: 100%;
@@ -124,7 +127,7 @@
   background: #71420C;
   box-shadow: -10px 10px 10px rgba(148, 148, 148, 0.4);
   border-radius: 20px;
-  min-height: 760px;
+  min-height: 1000px;
   width: 13px;
   margin-top: 200px; }
 
@@ -138,11 +141,9 @@
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
-  line-height: 19px;
   text-align: center;
   color: #000000;
-  margin-right: 40px;
-  cursor: pointer; }
+  margin-right: 40px; }
 
 .tree--crown--test--link:nth-child(2n) {
   margin-left: 40px; }
@@ -161,14 +162,20 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 170px;
+  margin-bottom: 220px;
   margin-top: -250px; }
 
 .tree--crown--item-right:first-child {
   margin-bottom: 140px; }
 
+.tree--crown--item-right:nth-child(3) {
+  margin-bottom: 340px; }
+
 .tree--crown--item-left:nth-child(2) {
-  margin-bottom: 300px; }
+  margin-bottom: 350px; }
+
+.tree--crown--item-left:nth-child(4) {
+  margin-bottom: 350px; }
 
 .tree--crown--item-left {
   flex-direction: row-reverse; }
@@ -236,6 +243,9 @@
   font-size: 12px;
   line-height: 19px;
   color: #000000; }
+  .tree-crown-sphere:disabled {
+    opacity: 1;
+    background: #D3D2D2; }
 
 .tree-sphere--form {
   display: none;
@@ -302,7 +312,7 @@
 /* стилизация веток*/
 .tree--crown--item--branch-2 img {
   margin-left: -180px;
-  margin-right: 80px; }
+  margin-right: 150px; }
 
 .tree--crown--item--branch-4 img {
   margin-left: -180px;
@@ -380,9 +390,36 @@
   margin-top: -165px; }
 
 #branch-4-lesson-3 {
-  margin-top: -290px;
-  margin-left: 95px; }
+  margin-left: 155px;
+  margin-top: -290px; }
 
 #branch-4-lesson-4 {
-  margin-left: -110px;
+  margin-left: -90px;
   margin-top: -290px; }
+
+.completion {
+  position: absolute;
+  width: 130px;
+  height: 80px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+  text-align: center;
+  background: white;
+  margin-top: -50px;
+  margin-left: -60px;
+  border-radius: 10px;
+  box-shadow: -10px 10px 10px rgba(148, 148, 148, 0.4); }
+
+.completion--link {
+  position: absolute;
+  margin-top: 6px;
+  margin-left: -60px;
+  border: 3px solid #5EA2FF;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 21px  11px;
+  color: #000000; }
