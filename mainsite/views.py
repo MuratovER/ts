@@ -334,6 +334,9 @@ def skills(request):
     skills = Skill.objects.all()
     return render(request, 'mainsite/skills.html', {'skills': skills})
 
+@login_required
+def new_blog_categories(request):
+    return render(request, 'mainsite/blogs/blogs_categories.html', )
 #blog view end
 
 

@@ -87,4 +87,5 @@ urlpatterns = [
 
 
     path('introduction/introduction_chapter_spheres_life/delete/', views.sphere_deletion, name='sphere_deletion'),
+    path('blog/new_blog_categories', views.new_blog_categories, name='new_blog_categories'),
 ]
