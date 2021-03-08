@@ -336,15 +336,15 @@ def skills(request):
 
 
 def profile_image_upload(request):
-    
+    context = dict(backend_form = PhotoForm())
+
     if request.method == 'POST':
         form = PhotoForm(request.POST, request.FILES)
+        #context = {'form': form}
+        context['posted'] = form.instance
         if form.is_valid():
             form.save()
-
-    form = PhotoForm()        
-    contex = {'form': form}
-    return render(request, 'mainsite/load.html', contex)
+    return render(request, 'mainsite/load.html', context)
 
 
 @login_required
@@ -357,7 +357,7 @@ def user_page(request):
 
     user = User.objects.get(username = request.user)
     skills = UserSkill.objects.filter(user=user)
-    profile_picture = Photo.objects.all() 
+    profile_pictures = Photo.objects.all() 
 
 
 
@@ -388,7 +388,7 @@ def user_page(request):
                                 'sphere' : sphere, 
                                 'img' : img, 
                                 'user_affirmation_path' : user_affirmation_path, 
-                                'profile_picture' : profile_picture,
+                                'profile_pictures' : profile_pictures,
 
                                 
                             })

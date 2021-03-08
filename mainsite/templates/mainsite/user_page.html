@@ -1,7 +1,9 @@
 {% extends 'mainsite/base.html' %}
 
 {% block content %}
+{% load cloudinary %} 
 {% load static %}
+
 
 
 
@@ -11,7 +13,17 @@
 <div class="header-info">
       <div class="header-info-flex">
         <div class="gol_icon">
-          <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' class='header-profile-img' alt="">
+          
+
+          <!-- <img src="{{ profile_picture.image.url }}" alt="1"> -->
+          {% if profile_pictures %}
+            {% for profile_picture in profile_pictures %}
+            <img src='{{ profile_picture.image.url }}' class='header-profile-img' alt="">
+            {% endfor %}  
+          {% else %}
+            <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' class='header-profile-img' alt="">
+          {% endif %}
+          
           
           <a href="../user_page/image_upload/">
             <button class='changePhoto'>
@@ -25,11 +37,11 @@
           <p class="header-info-userId">@{{ user }}</p>
           <div id='backend__image_upload'>
           
-          {% for profile_picture in profile_picture %}
+          <!-- {% for profile_picture in profile_picture %}
 
           <img src="{{ profile_picture.image.url }}" alt="1">
-
-          {% endfor %}
+        
+          {% endfor %} -->
           
           
           

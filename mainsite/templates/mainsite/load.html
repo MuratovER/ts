@@ -6,9 +6,10 @@
 
     {% load cloudinary %}
     <h1>Обновление аватарки</h1>
-    <form method = "POST">
+    <form method = "POST" enctype="multipart/form-data">
       {% csrf_token %}
-      {{ form.image }}
+      <!-- {{ form.image }} -->
+      {{ backend_form }}
       <div>
         <input type="submit" value="profile_image_upload">
       </div>
