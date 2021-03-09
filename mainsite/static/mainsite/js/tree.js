@@ -21,7 +21,7 @@ window.onload = function() {
         sphereForm = document.querySelectorAll('.tree-sphere--form'),
         crownBranch = document.querySelectorAll('.tree--crown--item--branch'),
         crownTests = document.querySelectorAll('.tree--crown--item--test'),
-        crownLink = document.querySelectorAll('.tree--branch--lesson'),
+        clear = document.querySelector('.clear'),
        selectItemSphere = document.querySelectorAll('.tree-crown-sphere');
 
     let lessonsObj = {
@@ -83,6 +83,10 @@ window.onload = function() {
             4: "/fourth/fourth_chapters_RelationshipsintheFamily/",
         }
     }
+    clear.addEventListener('click', (event) => {
+        location.reload();
+        localStorage.clear();
+    });
 
      //подсчет кол-во уроков в теме
      const lessonCounter = (i) => {
@@ -366,4 +370,5 @@ window.onload = function() {
             })
         }
     });
+    
 };
