@@ -4,6 +4,7 @@ from .models import Post, Skill, UserSkill, Profile, Difficulty, Sphere_of_life,
 
 
 admin.site.register(Post)
+admin.site.register(Comment)
 admin.site.register(Skill)
 admin.site.register(UserSkill)
 admin.site.register(Profile)
