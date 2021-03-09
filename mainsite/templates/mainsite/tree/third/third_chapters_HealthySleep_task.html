@@ -4,41 +4,71 @@
 
 {% load static %}
 
-
-<hr id="f4ba85c5-c484-4bc9-a995-7254f36b9096"/>
-<p id="05197cc6-db63-4170-98e6-16fa0a2d4f63" class="">
-    <mark class="highlight-blue">ДОМАШНЕЕ ЗАДАНИЕ</mark>
-</p>
-<hr id="dc2ba317-80fa-47fd-916b-94e4ca35a4d0"/>
-<ul id="8c1bdfd4-c045-4439-b114-6581c909efd4" class="to-do-list">
-    <li>
-        <div class="checkbox checkbox-off"></div>
-        <span class="to-do-children-unchecked">Понаблюдайте за своим режимом сна. В течение четырех недель ведите дневник сна. Каждый день с утра записывайте, во сколько легли, уснули и во сколько проснулись. Обязательно пишите комментарий и отмечайте:</span>
-    </li>
-</ul>
-<ul id="04d0df46-ee05-4c9f-a590-8e3611784056" class="bulleted-list">
-    <li>Чем вы занимались последний час перед сном.</li>
-</ul>
-<ul id="c6a4a5a7-d64a-458a-893b-597862c0b240" class="bulleted-list">
-    <li>Как засыпали - моментально или долго ворочались, о чем думали перед сном.</li>
-</ul>
-<ul id="565d0510-a05f-4ede-be0b-c63919171a86" class="bulleted-list">
-    <li>Как спали в течение ночи, просыпались ли, мучали ли вас кошмары или спали крепко, спокойно.</li>
-</ul>
-<ul id="0bfb23a3-f4ff-4f69-95c8-57ae8b19a252" class="bulleted-list">
-    <li>Самочувствие при пробуждении, легко ли вы проснулись или вставали долго, чувствовали себя разбитым.</li>
-</ul>
-<p id="f5b9e5c4-0035-40bd-8f2f-4e9bf57c7a9f" class=""> По окончании наблюдений проанализируйте свои записи.
-    Постарайтесь найти закономерности и понять, сколько времени вам необходимо, чтобы выспаться и чувствовать
-    себя бодро. Во сколько вам нужно ложиться и вставать? Что влияет на качество вашего сна, засыпание? Есть ли
-    что-то, чего нужно избегать перед сном? Эти наблюдения помогут вам определить оптимальный режим сна и
-    ритуалы, которые обеспечат вам максимально крепкий восстанавливающий сон и легкое пробуждение.</p>
-<ul id="e4adc4df-dae5-4ac6-8d16-8c811c1bede5" class="to-do-list">
-    <li>
-        <div class="checkbox checkbox-off"></div>
-        <span class="to-do-children-unchecked">Если вы живете в режиме «совы», постепенно сдвигайте график сна к интервалу 22:00 - 6:00. Вставайте моментально и начинайте свой день энергично.</span>
-    </li>
-</ul>
-
+<div class=" w-75 mx-auto mt-5" style="font-size: 18px">
+    <header>
+        <a href="{% url 'third_chapters_HealthySleep' %}" target="_self" style="color: black; margin-right: 5em"><span
+                class="oi oi-arrow-left"></span> <strong>Назад</strong></a>
+        <span class="text-muted">
+            <a href="{% url 'tree' %}" target="_self" class="text-muted">Дерево развития</a> >
+            <a href="{% url 'third' %}" target="_self" class="text-muted">Здоровье</a> >
+            <a href="{% url 'third_chapters_HealthySleep' %}" target="_self"
+               class="text-muted">Здоровый сон</a> >
+                Домашнее задание
+        </span>
+    </header>
+    <div class="my-5 w-75 mx-auto">
+        <div class="d-flex justify-content-center">
+            <h1>ДОМАШНЕЕ ЗАДАНИЕ</h1>
+        </div>
+        <div class="d-flex flex-column justify-content-center mt-5">
+            <div class="d-flex align-items-center my-2">
+                <input type="checkbox" class="mb-4">
+                <p class="mx-5">Понаблюдайте за своим режимом сна. В течение четырех недель ведите дневник сна. Каждый
+                    день с утра записывайте, во сколько легли, уснули и во сколько проснулись. Обязательно пишите
+                    комментарий и отмечайте:
+                </p>
+            </div>
+            <div class="mx-5">
+                <ul id="04d0df46-ee05-4c9f-a590-8e3611784056" class="bulleted-list">
+                    <li>Чем вы занимались последний час перед сном.</li>
+                </ul>
+                <ul id="c6a4a5a7-d64a-458a-893b-597862c0b240" class="bulleted-list">
+                    <li>Как засыпали - моментально или долго ворочались, о чем думали перед сном.</li>
+                </ul>
+                <ul id="565d0510-a05f-4ede-be0b-c63919171a86" class="bulleted-list">
+                    <li>Как спали в течение ночи, просыпались ли, мучали ли вас кошмары или спали крепко, спокойно.</li>
+                </ul>
+                <ul id="0bfb23a3-f4ff-4f69-95c8-57ae8b19a252" class="bulleted-list">
+                    <li>Самочувствие при пробуждении, легко ли вы проснулись или вставали долго, чувствовали себя
+                        разбитым.
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center my-2">
+                <input type="checkbox" class="mb-4">
+                <p class="mx-5"> По окончании наблюдений проанализируйте свои записи.
+                    Постарайтесь найти закономерности и понять, сколько времени вам необходимо, чтобы выспаться и
+                    чувствовать
+                    себя бодро. Во сколько вам нужно ложиться и вставать? Что влияет на качество вашего сна, засыпание?
+                    Есть ли
+                    что-то, чего нужно избегать перед сном? Эти наблюдения помогут вам определить оптимальный режим сна
+                    и
+                    ритуалы, которые обеспечат вам максимально крепкий восстанавливающий сон и легкое пробуждение.</p>
+                </p>
+            </div>
+            <div class="d-flex align-items-center my-2">
+                <input type="checkbox" class="mb-4">
+                <p class="mx-5">Если вы живете в режиме «совы», постепенно сдвигайте график сна к интервалу 22:00 -
+                    6:00. Вставайте моментально и начинайте свой день энергично.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button class="header--change--btn ">
+            <a href="{% url 'tree' %}" style="color: inherit" class="h-100 w-100">Вернуться к дереву</a>
+        </button>
+    </div>
+</div>
 
 {% endblock %}

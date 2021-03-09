@@ -317,6 +317,9 @@ def fourth_chapters_RelationshipsintheFamily_task(request):
 def fourth_chapters_Friends_task(request):
     return  render(request, 'mainsite/tree/fourth/fourth_chapters_Friends_task.html',)
 
+def end_view(request):
+    return  render(request, 'mainsite/tree/end/end_chapter.html',)
+
 
 #Basic views end
 
@@ -331,6 +334,9 @@ def skills(request):
     skills = Skill.objects.all()
     return render(request, 'mainsite/skills.html', {'skills': skills})
 
+@login_required
+def new_blog_categories(request):
+    return render(request, 'mainsite/blogs/blogs_categories.html', )
 #blog view end
 
 
