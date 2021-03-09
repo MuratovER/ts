@@ -1,0 +1,9 @@
+{% extends 'mainsite/blog.html' %}
+
+{% block content %}
+    <h1>Статья</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Сохранить</button>
+    </form>
+{% endblock %}
