@@ -18,8 +18,8 @@ urlpatterns = [
     path('achivements/', views.achivement_view, name='achivements'),
     path('to_do_list/', views.to_do_list_view, name='to_do_list'),
 
-    path('blog/', views.post_new, name='post_new'),
-    path('blog/articles', views.post_list, name='post_list'),
+    path('blog/', views.post_list, name='post_list'),
+    path('blog/create/', views.post_new, name='post_new'),
     path('blog/drafts/', views.post_draft_list, name='post_draft_list'),
     path('blog/article/<int:pk>/', views.post_detail, name='post_detail'),
     path('blog/article/<int:pk>/edit/', views.post_edit, name='post_edit'),
