@@ -76,6 +76,7 @@ class Profile(models.Model):
     last_name = models.CharField(max_length=100, blank=True)
     email = models.EmailField(max_length=150)
     bio = models.TextField()
+    image = CloudinaryField('image',null=True)
 
     def __str__(self):
         return self.user.username
@@ -114,12 +115,14 @@ class User_affirmation(models.Model):
     background_id = models.PositiveSmallIntegerField(blank = True, null = True)
     color = models.CharField(max_length=6, blank=True, null=True)
     font_type = models.CharField(max_length=100, blank=True, null=True)
+    
     def __str__(self):
         return self.user.username
     class Meta:
         verbose_name_plural = 'Пользовательские аффирмации'
         verbose_name = 'Аффирмация'
         ordering = ['-user']
+
 
 
 
@@ -147,7 +150,4 @@ class UserAchivement(models.Model):
         return self.achivement.name
 
 
-class Photo(models.Model):
-    # name = models.CharField(max_length=10) 
-    image = CloudinaryField('image')
 

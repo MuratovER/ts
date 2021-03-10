@@ -16,13 +16,14 @@
           
 
           <!-- <img src="{{ profile_picture.image.url }}" alt="1"> -->
-          {% if profile_pictures %}
+          <img src="{{ user.image }}" alt="1">
+          <!-- {% if profile_pictures %}
             {% for profile_picture in profile_pictures %}
             <img src='{{ profile_picture.image.url }}' class='header-profile-img' alt="">
             {% endfor %}  
           {% else %}
             <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' class='header-profile-img' alt="">
-          {% endif %}
+          {% endif %} -->
           
           
           <a href="../user_page/image_upload/">

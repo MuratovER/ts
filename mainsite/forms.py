@@ -1,8 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Sphere_of_life, Photo
+from .models import Sphere_of_life, Profile
 from django.forms import ModelForm      
+
 
 class SignUpForm(UserCreationForm):
     #first_name = forms.CharField(max_length=100, help_text='Last Name')
@@ -33,5 +34,6 @@ class Sphere_of_life_Form(forms.ModelForm):
 
 class PhotoForm(ModelForm):
   class Meta:
-      model = Photo
-      fields = '__all__'
+      model = Profile
+      fields = ('image',)
+      

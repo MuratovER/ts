@@ -4,7 +4,7 @@ from mainsite.forms import SignUpForm, PhotoForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
-from .models import Post, Skill, UserSkill, Profile, Sphere_of_life, Achivement, UserAchivement, User_affirmation, Photo
+from .models import Post, Skill, UserSkill, Profile, Sphere_of_life, Achivement, UserAchivement, User_affirmation
 from django.utils import timezone
 from django.contrib.auth.models import User
 from .forms import Sphere_of_life_Form
@@ -337,13 +337,14 @@ def skills(request):
 
 def profile_image_upload(request):
     context = dict(backend_form = PhotoForm())
-
     if request.method == 'POST':
-        form = PhotoForm(request.POST, request.FILES)
-        #context = {'form': form}
-        context['posted'] = form.instance
-        if form.is_valid():
-            form.save()
+            form = PhotoForm(request.POST, request.FILES)
+            #context = {'form': form}
+            context['posted'] = form.instance
+            if form.is_valid():
+                form.save()
+
+            
     return render(request, 'mainsite/load.html', context)
 
 
@@ -357,7 +358,8 @@ def user_page(request):
 
     user = User.objects.get(username = request.user)
     skills = UserSkill.objects.filter(user=user)
-    profile_pictures = Photo.objects.all() 
+    
+    #profile_picture = user.i 
 
 
 
@@ -387,8 +389,7 @@ def user_page(request):
                                 'skills' : skills, 
                                 'sphere' : sphere, 
                                 'img' : img, 
-                                'user_affirmation_path' : user_affirmation_path, 
-                                'profile_pictures' : profile_pictures,
+                                'user_affirmation_path' : user_affirmation_path,
 
                                 
                             })
