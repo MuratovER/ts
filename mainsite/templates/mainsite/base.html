@@ -53,6 +53,7 @@
           {% if user.is_authenticated %}
           <a href="{% url 'home_page' %}" class="header-a">Главная</a>
           <a href="{% url 'user_page' %}" class="header-a">Профиль</a>
+          <a href="{% url 'post_list' %}" class="header-a">Блог</a>
           <a href="{% url 'tree' %}" class="header-a">Дерево развития</a>
           <a href="{% url 'tree_old' %}" class="header-a">Старое дерево развития</a>
           {% else %}

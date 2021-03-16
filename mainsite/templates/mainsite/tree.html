@@ -3,7 +3,7 @@
 {% block content %}
 
 {% load static%}
-<link rel="stylesheet" href="../../static/mainsite/css/tree/tree.css"><div class="tree--container">
+<link rel="stylesheet" href="../../static/mainsite/css/tree.css"><div class="tree--container">
 	<div class="tree--crown">
 		<div class="tree--crown--flex">
 				
@@ -48,11 +48,10 @@
 
 			<div class="tree--crown--main--line">
 				<div class='completion'>
-					<a class='completion--link' href="#">Завершение</a>
+					<a class='completion--link' href="{% url 'end' %}">Завершение</a>
 				</div>
 			</div>
-			
-
+		
 			<div class="crown--right--branches">
 				<div class="tree--crown--item tree--crown--item-right">
 					<div class="tree--crown--item-line"></div>
@@ -103,6 +102,7 @@
 		</div>
 	</div>
 	<div class="tree--root">
+		<button class='clear'>Очистить дерево</button>
 		<div class="tree--flex">
 			<img src="../../static/mainsite/images/tree/introduction--lists.png" class='tree--root--lists' alt="">
 			<div class="tree--lesson tree--root--lesson">
