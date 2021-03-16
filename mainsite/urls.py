@@ -23,6 +23,7 @@ urlpatterns = [
     path('help/', views.help_view, name='help'),
     path('skills/', views.skills, name='skills'),
     path('aboutus/', views.aboutus, name='aboutus'),
+    path('one_to_one/', views.UserProfile, name='one_to_one'),
     #Introduction
     path('introduction/', views.introduction_view, name='introduction'),
     path('introduction/introduction_chapter_lider/', views.introduction_chapter_lider, name='introduction_chapter_lider'),

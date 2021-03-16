@@ -66,7 +66,8 @@
       <div class="profile-info-container">
         <div class="profile-title-flex">
           <div class="profile-info-title">Информация</div>
-          <img src='{% static "mainsite/images/profile/edit.png" %}'  alt="">
+          <img src='{% static "mainsite/images/profile/edit.png" %}'  type="sumbit" onclick="location.href='{% url 'one_to_one' %}'"> 
+           <!--button type="sumbit" onclick="location.href='{% url 'one_to_one' %}'" class='header--change--btn headerRegister'>Регистрация</button-->
         </div>
         <div class="profile-info-line"></div>
         <div class="profile-info-grid">
@@ -78,7 +79,7 @@
             <p class="profile-info">Уровень</p>
             <p class="profile-info">Всего выполненных заданий:</p>
             <p class="profile-info">Родной город:</p>
-            <p class="profile-info">День рождения:</p>
+            <p class="profile-info">День рождения или возраст:</p>
             <!-- <p class="profile-info">Контактная информация:</p> -->
             <p class="profile-info">Образование:</p>
             <p class="profile-info">Языки:</p>
@@ -90,8 +91,8 @@
             <p class="profile-info-txt"> {{ user.date_joined }}  </p>
             <p class="profile-info-txt">1</p>
             <p class="profile-info-txt">10</p>
-            <p class="profile-info-txt">г. Казань, Россия</p>
-            <p class="profile-info-txt"> 1 января 2021г.</p>
+            <p class="profile-info-txt">{{ user.userprofile.location }}</p>
+            <p class="profile-info-txt">{{ user.userprofile.age }}</p>
             <!-- <p class="profile-info-txt">Телефон: 89826716241</p> -->
             <p class="profile-info-txt">КНИТУ КАИ им. Туполева</p>
             <p class="profile-info-txt">Татарский, Русский, Английский</p>

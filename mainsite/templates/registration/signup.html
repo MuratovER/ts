@@ -1,7 +1,7 @@
 {% extends 'mainsite/base.html' %} 
 
 {% block content %}
-<script>
+<!--script>
     invitation_code = prompt('Введите код приглашения:',)
     if (invitation_code != 'welcome2topskills')
     {
@@ -12,7 +12,7 @@
     }
     else { 
     }
-</script>
+</script-->
 <script>
   function show_hide_password(target){
   var input = document.getElementById('id_password1', 'id_password2',);
@@ -55,6 +55,8 @@
                       {{ form.password1 }}
                         <small style="color: grey">  </small>  
                     </p>
+                   
+                    {{ profile_form.as_p }}
                     <p class="tab">
                          <img class="DFL" src="../../static/mainsite/images/login_signup/Finish.jpg">
                         <label for="id_password1"> Поздравляем </label>

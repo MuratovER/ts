@@ -1,6 +1,7 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect ,get_object_or_404
 from mainsite.forms import SignUpForm
+from mainsite.forms import UserProfileForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
@@ -26,8 +27,6 @@ def home_page(request):
         return render(request, 'mainsite/home.html',)
     else:
         return render(request, 'mainsite/landing.html',)
-
-    
 
 @login_required
 def achivement_view(request):
@@ -58,11 +57,14 @@ def skills(request):
     return render(request, 'mainsite/skills.html',)
     
 def aboutus(request):
-    return render(request, 'mainsite/aboutus.html',)    
+    return render(request, 'mainsite/aboutus.html',)  
 
-def aboutus(request):
-    return render(request, 'mainsite/aboutus.html',)
+def one_to_one(request):
+    return render(request, 'mainsite/one_to_one.html',)    
+    
 
+
+# Tree part 1 
 @login_required
 def introduction_view(request):
     return  render(request, 'mainsite/tree/introduction/introduction_chapters.html',)
@@ -373,13 +375,18 @@ def user_page(request):
 
 #signup view
 def signup_view(request):
-
     '''вьюха с логикой регистрации'''
-
     form = SignUpForm(request.POST)
+   # profile_form = UserProfileForm(request.POST)
+
     if form.is_valid():
         user = form.save()
-        user.refresh_from_db()
+       # profile = profile_form.save(commit=False)
+        #profile.user = user
+
+        #profile.save()
+
+        user.refresh_from_db() 
         #user.profile.first_name = form.cleaned_data.get('first_name')
         #user.profile.last_name = form.cleaned_data.get('last_name')
         user.profile.email = form.cleaned_data.get('email')
@@ -391,7 +398,29 @@ def signup_view(request):
         return redirect('user_page')
     else:
         form = SignUpForm()
+        #profile_form = UserProfileForm()
+
     return render(request, 'registration/signup.html', {'form': form})  
+
+
+
+def UserProfile(request):
+    if request.method == "POST":
+        profile_form = UserProfileForm(request.POST)
+        
+        if profile_form.is_valid():
+            profile = profile_form.save(commit=False)
+            profile.user = user    
+            
+            user = profile.save()
+            return redirect('user_page')
+        else:  
+            profile_form = UserProfileForm()  
+    
+    return render(request, 'mainsite/one_to_one.html', {'profile_form': profile_form})   
+
+
+
 
 @login_required
 def affirmation_generator(request):

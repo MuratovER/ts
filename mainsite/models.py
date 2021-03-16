@@ -8,9 +8,22 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+
 #from .forms import UploadFileForm
 
 
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    location = models.CharField(max_length=30)
+    age = models.IntegerField()
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+        
+    def __str__(self):
+        return self.save()       
 
 
 #an extended version of the posts that help you make the post)
@@ -119,11 +132,6 @@ class User_affirmation(models.Model):
         verbose_name_plural = 'Пользовательские аффирмации'
         verbose_name = 'Аффирмация'
         ordering = ['-user']
-
-
-
-
-
 
 
 class Achivement(models.Model):

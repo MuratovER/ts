@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block content %}
+  <h2>Изменение информации о пользователе</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{ profile_form.as_p }}
+    <button type="change"> Изменить </button>
+  </form>
+  
+{% endblock %}
