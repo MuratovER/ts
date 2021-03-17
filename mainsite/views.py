@@ -336,16 +336,26 @@ def skills(request):
 
 
 def profile_image_upload(request):
-    context = dict(backend_form = PhotoForm())
+    '''
+    Функция с загрузкой изображения в облочное хранилище cloudinary и привязкой к пользователю
+    '''
+    
+    image_blank = Profile.objects.get(pk=1)
+    form = PhotoForm(instance=image_blank)
+
+    context = dict(backend_form = PhotoForm(instance=image_blank))
     if request.method == 'POST':
-            form = PhotoForm(request.POST, request.FILES)
+            # form = PhotoForm(request.POST, request.FILES)
+            image_blank = Profile.objects.get(pk=1)
+            form = PhotoForm(instance=image_blank)
             #context = {'form': form}
             context['posted'] = form.instance
+
             if form.is_valid():
                 form.save()
-
             
-    return render(request, 'mainsite/load.html', context)
+    # return request('user_page', context)   
+    return render(request, 'mainsite/user_page.html', context)
 
 
 @login_required
@@ -357,11 +367,14 @@ def user_page(request):
     '''
 
     user = User.objects.get(username = request.user)
+    
+    profile = Profile.objects.get(user= request.user)
+    
+    
+    print(profile.image)
     skills = UserSkill.objects.filter(user=user)
     
     #profile_picture = user.i 
-
-
 
     achivements = UserAchivement.objects.filter(user = user)
     
@@ -390,7 +403,7 @@ def user_page(request):
                                 'sphere' : sphere, 
                                 'img' : img, 
                                 'user_affirmation_path' : user_affirmation_path,
-
+                                'profile': profile,
                                 
                             })
 

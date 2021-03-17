@@ -70,13 +70,14 @@ class UserSkill(models.Model):
 class Profile(models.Model):
     '''
     таблица профиля с именем фамилией почтой и краткой биографией
+    а также полем image куда пользователь загружает свой аватар
     '''
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100, blank=True)
     last_name = models.CharField(max_length=100, blank=True)
-    email = models.EmailField(max_length=150)
-    bio = models.TextField()
-    image = CloudinaryField('image',null=True)
+    email = models.EmailField(max_length=150, null=True)
+    bio = models.TextField(blank=True, null=True)
+    image = CloudinaryField('image', null=True, blank=True)
 
     def __str__(self):
         return self.user.username
