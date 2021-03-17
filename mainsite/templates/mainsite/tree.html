@@ -3,7 +3,7 @@
 {% block content %}
 
 {% load static%}
-<link rel="stylesheet" href="../../static/mainsite/css/tree/tree.css"><div class="tree--container">
+<link rel="stylesheet" href="../../static/mainsite/css/tree.css"><div class="tree--container">
 	<div class="tree--crown">
 		<div class="tree--crown--flex">
 				
@@ -16,12 +16,12 @@
 					<div class="tree--crown--item-line tree--crown--item-line-left"></div>
 					<button  class="tree--crown--item--btn"></button>
 					<form action="" class='tree-sphere--form tree-sphere--form-2'>
-						<select class='tree-crown-sphere'>
-							<option class='sphere--name' disabled selected>Выберите сферу</option>
-							<option class='sphere--name' value="">Внутренний мир</option>
-							<option class='sphere--name'label='Учеба'  value="">Учеба и будущая карьера</option>
-							<option class='sphere--name' value="">Здоровье</option>
-							<option class='sphere--name' value="">Отношение</option>
+						<select class='tree-crown-sphere tree-crown-sphere-2'>
+							<option class='sphere--name sphere--name-0' disabled selected>Выберите сферу</option>
+							<option class='sphere--name sphere--name-1' value="">Внутренний мир</option>
+							<option class='sphere--name sphere--name-2'label='Учеба'  value="">Учеба и будущая карьера</option>
+							<option class='sphere--name sphere--name-3 ' value="">Здоровье</option>
+							<option class='sphere--name sphere--name-4' value="">Отношение</option>
 						</select>
 					</form>
 				</div>
@@ -35,47 +35,43 @@
 					<div class="tree--crown--item-line tree--crown--item-line-left"></div>
 					<button  class="tree--crown--item--btn"></button>
 					<form action="" class='tree-sphere--form tree-sphere--form-4'>
-						<select class='tree-crown-sphere'>
-							<option class='sphere--name' disabled selected>Выберите сферу</option>
-							<option class='sphere--name' value="">Внутренний мир</option>
-							<option class='sphere--name' label='Учеба' value="">Учеба и будущая карьера</option>
-							<option class='sphere--name' value="">Здоровье</option>
-							<option class='sphere--name' value="">Отношение</option>
+						<select class='tree-crown-sphere tree-crown-sphere-4'>
+							<option class='sphere--name sphere--name-0' disabled selected>Выберите сферу</option>
+							<option class='sphere--name sphere--name-1' value="">Внутренний мир</option>
+							<option class='sphere--name sphere--name-2' label='Учеба' value="">Учеба и будущая карьера</option>
+							<option class='sphere--name sphere--name-3' value="">Здоровье</option>
+							<option class='sphere--name sphere--name-4' value="">Отношение</option>
 						</select>
 					</form>
 				</div>
 			</div>	
 
-			<div class="tree--crown--main--line"></div>
-
+			<div class="tree--crown--main--line">
+				<div class='completion'>
+					<a class='completion--link' href="{% url 'end' %}">Завершение</a>
+				</div>
+			</div>
+		
 			<div class="crown--right--branches">
 				<div class="tree--crown--item tree--crown--item-right">
 					<div class="tree--crown--item-line"></div>
 					<button  class="tree--crown--item--btn"></button>
 					<form action="" class='tree-sphere--form tree-sphere--form-1'>
-						<select  class='tree-crown-sphere'>
-							<option class='sphere--name' disabled selected>Выберите сферу</option>
-							<option class='sphere--name' value="">Внутренний мир</option>
-							<option class='sphere--name' label='Учеба'  value="">Учеба и будущая карьера</option>
-							<option class='sphere--name' value="">Здоровье</option>
-							<option class='sphere--name' value="">Отношение</option>
+						<select  class='tree-crown-sphere tree-crown-sphere-1'>
+							<option class='sphere--name sphere--name-0' disabled selected>Выберите сферу</option>
+							<option class='sphere--name sphere--name-1' value="">Внутренний мир</option>
+							<option class='sphere--name sphere--name-2' label='Учеба'  value="">Учеба и будущая карьера</option>
+							<option class='sphere--name sphere--name-3' value="">Здоровье</option>
+							<option class='sphere--name sphere--name-4' value="">Отношение</option>
 						</select>
 					</form>
 
 					<!-- all branches-->
-					<div class="tree--crown--item--branch tree--crown--item--branch--disabled tree--crown--item--branch-1"
-					>
-						
-					</div>
-					<div  class="tree--crown--item--branch tree--crown--item--branch--disabled tree--crown--item--branch-2">
-						
-					</div>
-					<div class="tree--crown--item--branch tree--crown--item--branch--disabled tree--crown--item--branch-3">
-						
-					</div>
-					<div class="tree--crown--item--branch tree--crown--item--branch--disabled tree--crown--item--branch-4">
-						
-					</div>
+					<div class="tree--crown--item--branch tree--crown--item--branch--disabled tree--crown--item--branch-1"></div>
+					<div  class="tree--crown--item--branch tree--crown--item--branch--disabled tree--crown--item--branch-2"></div>
+					<div class="tree--crown--item--branch tree--crown--item--branch--disabled tree--crown--item--branch-3"></div>
+					<div class="tree--crown--item--branch tree--crown--item--branch--disabled tree--crown--item--branch-4"></div>
+					
 				</div>
 
 				<div class="tree--crown--item--test tree--crown--item-right test--disabled">
@@ -87,12 +83,12 @@
 					<div class="tree--crown--item-line"></div>
 					<button  class="tree--crown--item--btn"></button>
 					<form action="" class='tree-sphere--form tree-sphere--form-3'>
-						<select  class='tree-crown-sphere'>
-							<option class='sphere--name' disabled selected>Выберите сферу</option>
-							<option class='sphere--name' value="">Внутренний мир</option>
-							<option class='sphere--name' label='Учеба'  value="">Учеба и будущая карьера</option>
-							<option class='sphere--name' value="">Здоровье</option>
-							<option class='sphere--name' value="">Отношение</option>
+						<select  class='tree-crown-sphere tree-crown-sphere-3'>
+							<option class='sphere--name sphere--name-0' disabled selected>Выберите сферу</option>
+							<option class='sphere--name sphere--name-1' value="">Внутренний мир</option>
+							<option class='sphere--name sphere--name-2' label='Учеба'  value="">Учеба и будущая карьера</option>
+							<option class='sphere--name sphere--name-3' value="">Здоровье</option>
+							<option class='sphere--name sphere--name-4' value="">Отношение</option>
 						</select>
 					</form>
 				</div>	
@@ -106,6 +102,7 @@
 		</div>
 	</div>
 	<div class="tree--root">
+		<button class='clear'>Очистить дерево</button>
 		<div class="tree--flex">
 			<img src="../../static/mainsite/images/tree/introduction--lists.png" class='tree--root--lists' alt="">
 			<div class="tree--lesson tree--root--lesson">

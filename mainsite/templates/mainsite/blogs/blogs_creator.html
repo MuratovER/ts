@@ -1,0 +1,347 @@
+{% extends 'mainsite/base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="toolbar">
+    <a href="#" class="toolbar-b fas fa-bold" title="Жирный"></a>
+    <a href="#" class="toolbar-i fas fa-italic" title="Курсив"></a>
+    <a href="#" class="toolbar-u fas fa-underline" title="Подчёркнутый"></a>
+    <a href="#" class="toolbar-s fas fa-strikethrough" title="Зачёркнутый"></a>
+    <a href="#" class="toolbar-sup fas fa-superscript" title="Верхний индекс"></a>
+    <a href="#" class="toolbar-sub fas fa-subscript" title="Нижний индекс"></a>
+    <a href="#" class="toolbar-ul fas fa-list-ul" title="Маркированный список"></a>
+    <a href="#" class="toolbar-ol fas fa-list-ol" title="Нумерованный список"></a>
+    <a href="#" class="toolbar-p" title="Параграф">p</a>
+    <a href="#" class="toolbar-h1" title="Заголовок">H1</a>
+    <a href="#" class="toolbar-hr" title="Горизонтальная линия">hr</a>
+    <a href="#" class="toolbar-blockquote fas fa-quote-right" title="Цитата"></a>
+    <a href="#" class="toolbar-img far fa-image" title="Изображение"></a>
+    <a href="#" class="toolbar-a fas fa-link" title="Ссылка"></a>
+    <a href="#" class="toolbar-unlink fas fa-unlink" title="Удаление ссылки"></a>
+    <a href="#" class="toolbar-html" title="Вставить html">HTML</a>
+    <a href="#" class="toolbar-text" title="Вставить текст">Text</a>
+    <br>
+    <a href="#" class="toolbar-left fas fa-align-left" title="по левому краю"></a>
+    <a href="#" class="toolbar-center fas fa-align-center" title="по центру"></a>
+    <a href="#" class="toolbar-right fas fa-align-right" title="по правому краю"></a>
+    <a href="#" class="toolbar-justify fas fa-align-justify" title="по ширине"></a>
+    <select class="toolbar-font">
+        <option selected="selected" disabled="disabled">Шрифт</option>
+        <option value="arial">Arial</option>
+        <option value="Courier New">Courier New</option>
+        <option value="georgia">Georgia</option>
+        <option value="impact">Impact</option>
+        <option value="roboto">Tahoma</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="verdana">Verdana</option>
+    </select>
+    <select class="toolbar-size">
+        <option selected="selected" disabled="disabled">Размер</option>
+        <option value="1">10px</option>
+        <option value="2">12px</option>
+        <option value="3">14px</option>
+        <option value="4">16px</option>
+        <option value="5">18px</option>
+        <option value="6">21px</option>
+        <option value="7">26px</option>
+    </select>
+    <span>Цвет</span> <input class="toolbar-color" type="color" value="#ff0000">
+    <span>Фон</span> <input class="toolbar-bg" type="color" value="#ffff00">
+    <br>
+    <a href="#" class="toolbar-undo fas fa-undo" title="Отмена"></a>
+    <a href="#" class="toolbar-redo fas fa-redo" title="Повтор"></a>
+    <a href="#" class="toolbar-delete far fa-trash-alt" title="Удалить"></a>
+    <a href="#" class="toolbar-selectAll">Выделить всё</a>
+    <a href="#" class="toolbar-removeFormat">Очистить стили</a>
+    <a href="#" class="toolbar-cut fas fa-cut" title="Вырезать"></a>
+    <a href="#" class="toolbar-copy fas fa-copy" title="Копировать"></a>
+</div>
+
+<div class="editor" contenteditable="true"><p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</strong> Nullam molestie tellus nibh, eu finibus odio congue at. Nam facilisis orci non ultrices pretium. Maecenas sodales sed turpis sed vehicula. Duis tristique tempus mi, eget semper libero. Sed in faucibus velit. <u>Proin congue quam sed ornare elementum.</u> Maecenas vehicula ullamcorper mauris, ac auctor turpis viverra a. Donec bibendum auctor orci in maximus.</p>
+    <ul>
+        <li>Phasellus faucibus nisl id venenatis dignissim.</li>
+        <li>Ut laoreet velit sed gravida vestibulum.</li>
+        <li>Praesent et justo accumsan, pellentesque ligula sit amet, posuere justo.</li>
+    </ul>
+    <ol>
+        <li>Integer nec ullamcorper ligula, aliquet laoreet turpis.</li>
+        <li>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</li>
+        <li>Donec gravida a enim at tincidunt. Nulla urna erat, volutpat eget diam id, varius vulputate tortor. </li>
+    </ol>
+</div>
+
+<link rel="stylesheet" href="https://snipp.ru/cdn/fontawesome/5.11.2/css/all.css">
+<style type="text/css">
+    body {
+        background: #f7f7f7;
+    }
+
+    .toolbar a {
+        display: inline-block;
+        border: 1px solid #888;
+        padding: 5px 8px;
+        margin: 0 5px 10px 0;
+        color: #000;
+        border-radius: 3px;
+        font-size: 12px;
+        box-shadow: 1px 1px 2px #ddd;
+        background: #fff;
+        vertical-align: top;
+        text-decoration: none;
+    }
+    .toolbar select {
+        display: inline-block;
+        height: 28px;
+        line-height: 28px;
+        background: #fff;
+        padding: 0;
+        margin: 0 5px 10px 0;
+        color: #000;
+        box-shadow: 1px 1px 2px #ddd;
+        border-radius: 3px;
+        vertical-align: top;
+        font-size: 12px;
+    }
+    .toolbar input {
+        display: inline-block;
+        height: 28px;
+        line-height: 28px;
+        background: #fff;
+        padding: 0;
+        margin: 0 5px 10px 0;
+        color: #000;
+        box-shadow: 1px 1px 2px #ddd;
+        border-radius: 3px;
+        vertical-align: top;
+        font-size: 12px;
+    }
+    .toolbar span {
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        padding: 0;
+        margin: 0 0 10px 0;
+        color: #000;
+        vertical-align: top;
+        font-size: 12px;
+    }
+    .editor {
+        min-height: 150px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 2px;
+        box-shadow: 1px 1px 2px #ddd;
+        background: #fff;
+    }
+</style>
+
+<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    // Жирный (b)
+    $('body').on('click', '.toolbar-b', function(){
+        document.execCommand('bold', false, null);
+        return false;
+    });
+
+    // Курсив (i)
+    $('body').on('click', '.toolbar-i', function(){
+        document.execCommand('italic', false, null);
+        return false;
+    });
+
+    // Подчёркнутый текст (u)
+    $('body').on('click', '.toolbar-u', function(){
+        document.execCommand('underline', false, null);
+        return false;
+    });
+
+    // Зачёркнутый текст (strike)
+    $('body').on('click', '.toolbar-s', function(){
+        document.execCommand('strikethrough', false, null);
+        return false;
+    });
+
+    // Верхний индекс (sup)
+    $('body').on('click', '.toolbar-sup', function(){
+        document.execCommand('superscript', false, null);
+        return false;
+    });
+
+    // Нижний индекс (sub)
+    $('body').on('click', '.toolbar-sub', function(){
+        document.execCommand('subscript', false, null);
+        return false;
+    });
+
+    // Маркированный список (ul)
+    $('body').on('click', '.toolbar-ul', function(){
+        document.execCommand('insertUnorderedList', false, null);
+        return false;
+    });
+
+    // Нумерованный список (ol)
+    $('body').on('click', '.toolbar-ol', function(){
+        document.execCommand('insertOrderedList', false, null);
+        return false;
+    });
+
+    // Параграф (p)
+    $('body').on('click', '.toolbar-p', function(){
+        document.execCommand('formatBlock', false, 'p');
+        return false;
+    });
+
+    // Заголовок (h1)
+    $('body').on('click', '.toolbar-h1', function(){
+        document.execCommand('formatBlock', false, 'h1');
+        return false;
+    });
+
+    // Горизонтальная линия (hr)
+    $('body').on('click', '.toolbar-hr', function(){
+        document.execCommand('insertHorizontalRule', false, null);
+        return false;
+    });
+
+    // Цитата (blockquote)
+    $('body').on('click', '.toolbar-blockquote', function(){
+        document.execCommand('formatBlock', false, 'blockquote');
+        return false;
+    });
+
+    // Изображение (img)
+    $('body').on('click', '.toolbar-img', function(){
+        var url = prompt('Введите адрес изображения', 'https://snipp.ru/demo/526/image.jpg');
+        document.execCommand('insertImage', false, url);
+        return false;
+    });
+
+    // Ссылка (a)
+    $('body').on('click', '.toolbar-a', function(){
+        var url = prompt('Введите URL', '');
+        document.execCommand('CreateLink', false, url);
+        return false;
+    });
+
+    // Удаление ссылки
+    $('body').on('click', '.toolbar-unlink', function(){
+        document.execCommand('unlink', false, null);
+        return false;
+    });
+
+    // Вставить html
+    $('body').on('click', '.toolbar-html', function(){
+        var html = prompt('Введите HTML код', '');
+        document.execCommand('insertHTML', false, html);
+        return false;
+    });
+
+    // Вставить текст
+    $('body').on('click', '.toolbar-text', function(){
+        var text = prompt('Введите текст', '');
+        document.execCommand('insertText', false, text);
+        return false;
+    });
+
+    // Выравнивание текста по левому краю
+    $('body').on('click', '.toolbar-left', function(){
+        document.execCommand('justifyLeft', false, null);
+        return false;
+    });
+
+    // Выравнивание текста по центру
+    $('body').on('click', '.toolbar-center', function(){
+        document.execCommand('justifyCenter', false, null);
+        return false;
+    });
+
+    // Выравнивание текста по правому краю
+    $('body').on('click', '.toolbar-right', function(){
+        document.execCommand('justifyRight', false, null);
+        return false;
+    });
+
+    // Выравнивание по ширине
+    $('body').on('click', '.toolbar-justify', function(){
+        document.execCommand('justifyFull', false, null);
+        return false;
+    });
+
+    // Шрифт
+    $('body').on('input', '.toolbar-font', function(){
+        var val = $(this).val();
+        document.execCommand('styleWithCSS', false, true);
+        document.execCommand('fontName', false, val);
+        document.execCommand('styleWithCSS', false, false);
+    });
+
+    // Размер шрифта
+    $('body').on('input', '.toolbar-size', function(){
+        var val = $(this).val();
+        document.execCommand('styleWithCSS', false, true);
+        document.execCommand('fontSize', false, val);
+        document.execCommand('styleWithCSS', false, false);
+    });
+
+    // Цвет шрифта
+    $('body').on('input', '.toolbar-color', function(){
+        var val = $(this).val();
+        document.execCommand('styleWithCSS', false, true);
+        document.execCommand('foreColor', false, val);
+        document.execCommand('styleWithCSS', false, false);
+    });
+
+    // Цвет фона
+    $('body').on('input', '.toolbar-bg', function(){
+        var val = $(this).val();
+        document.execCommand('styleWithCSS', false, true);
+        document.execCommand('hiliteColor', false, val);
+        document.execCommand('styleWithCSS', false, false);
+    });
+
+    // Отмена
+    $('body').on('click', '.toolbar-undo', function(){
+        document.execCommand('undo', false, null);
+        return false;
+    });
+
+    // Повтор
+    $('body').on('click', '.toolbar-redo', function(){
+        document.execCommand('redo', false, null);
+        return false;
+    });
+
+    // Удалить
+    $('body').on('click', '.toolbar-delete', function(){
+        document.execCommand('delete', false, null);
+        return false;
+    });
+
+    // Выделить всё
+    $('body').on('click', '.toolbar-selectAll', function(){
+        document.execCommand('selectAll', false, null);
+        return false;
+    });
+
+    // Очистить стили
+    $('body').on('click', '.toolbar-removeFormat', function(){
+        document.execCommand('removeFormat', false, null);
+        return false;
+    });
+
+    // Вырезать
+    $('body').on('click', '.toolbar-cut', function(){
+        document.execCommand('cut', false, null);
+        return false;
+    });
+
+    // Копировать
+    $('body').on('click', '.toolbar-copy', function(){
+        document.execCommand('copy', false, null);
+        return false;
+    });
+</script>
+
+{% endblock %}

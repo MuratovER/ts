@@ -12,6 +12,7 @@
 <section id='profile-header'>
 <div class="header-info">
       <div class="header-info-flex">
+        <img class='header-info-bg' src='{% static "mainsite/images/profile/background-header.png" %}' alt="">
         <div class="gol_icon">
           
 
@@ -87,7 +88,11 @@
 
 <section id='profile--info'>
   <div class="profile-grid">
-    <div class="grid-col">
+    <div id='flex-col-1' class="grid-col small-col"
+      draggable='true'
+      ondragstart='onDragStart(event);'
+      ondragover='onDragOver(event);'
+      ondrop='onDrop(event);'>
       <div class="profile-info-container">
         <div class="profile-title-flex">
           <div class="profile-info-title">Информация</div>
@@ -124,7 +129,11 @@
         </div>
       </div>
     </div>
-    <div class="grid-col">
+    <div id='flex-col-2' class="grid-col large-col"
+      draggable='true'
+      ondragstart='onDragStart(event);'
+      ondragover='onDragOver(event);'
+      ondrop='onDrop(event);'>
       <div class="profile-purpose">
           <div class="profile-purposes-title-flex">
             <p class="profile-purposes-title">Моя пирамида целей</p>
@@ -166,7 +175,11 @@
         </div>
       </div>
     </div>
-    <div class="grid-col">
+    <div id='flex-col-3' class="grid-col small-col"
+      draggable='true'
+      ondragstart='onDragStart(event);'
+      ondragover='onDragOver(event);'
+      ondrop='onDrop(event);'>
       <div class="gallerry">
 
         <img src='{% static "mainsite/images/profile/3dots.png" %}' alt="" id="gallety-dots">
@@ -190,7 +203,11 @@
         <button class="gallery-more-img">Показать больше картинок</button>
       </div>
     </div>
-    <div class="grid-col">
+    <div id='flex-col-4' class="grid-col large-col"
+      draggable='true'
+      ondragstart='onDragStart(event);'
+      ondragover='onDragOver(event);'
+      ondrop='onDrop(event);'>
       <div class="skills">
         <div class="skills-header">
           <p class="skills-title">Мои навыки</p>
@@ -270,50 +287,15 @@
               </svg>
               <p class='all-precent'>Общий процент</p>
             </div>
-          </div>
-
-      <!--  Первая версия
-        <div class="skills-flex">
-          <div class="skills-col skills-col-1">
-            <p class="skill-name">Скорость выполнения работы:</p>
-            <p class="skill-name">Выносливость:</p>
-            <p class="skill-name">Выдержка:</p>
-            <p class="skill-name">Самообладание:</p>
-            <p class="skill-name">Успешность:</p>
-            <p class="skill-name">Логическое мышление:</p>
-            <p class="skill-name">Творческое мышление:</p>
-            <p class="skill-name">Хорошие оценки по учебе:</p>
-          </div>
-
-          <div class="skills-col skills-col-2">
-            <div class="skill-grey-line skill-grey-line-1"><div class="skill-blue-line skill-blue-line-1"></div></div>
-            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-2"></div></div>
-            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-3"></div></div>
-            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-4"></div></div>
-            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-5"></div></div>
-            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-6"></div></div>
-            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-7"></div></div>
-            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-8"></div></div>
-          </div>
-          <div class="skills-col skills-col-3">
-            <p class="skill-percent">23%</p>
-            <p class="skill-percent">87%</p>
-            <p class="skill-percent">100%</p>
-            <p class="skill-percent">64%</p>
-            <p class="skill-percent">37%</p>
-            <p class="skill-percent">74%</p>
-            <p class="skill-percent">87%</p>
-            <p class="skill-percent">47%</p>
-          </div>
-          <div class="skills-col">
-          
-          </div>
-      -->
-        
+          </div>      
         </div>
         </div>
       
-    <div class="grid-col">
+    <div id='flex-col-5' class="grid-col small-col"
+      draggable='true'
+      ondragstart='onDragStart(event);'
+      ondragover='onDragOver(event);'
+      ondrop='onDrop(event);'>
       <div class="friends">
         <button class="friends-3-dots" type="button">
           <img src='{% static "mainsite/images/profile/3dots.png" %}'> </img>
@@ -347,6 +329,8 @@
                 <p class="friend-name">એન્ડ્રે</p>
 
               </div>
+            </div>
+              <div class="friends-flex-col">
               <div class="friend-box">
 
                 <img src='{% static "mainsite/images/profile/1friend.png" %}' alt="" class="friend-img">
@@ -404,7 +388,11 @@
           <button class="friends-more">Показать больше друзей</button>
     </div>
   </div>
-  <div class="grid-col">
+  <div id='flex-col-6' class="grid-col large-col"
+      draggable='true'
+      ondragstart='onDragStart(event);'
+      ondragover='onDragOver(event);'
+      ondrop='onDrop(event);'>
     <div class="calendar-section">
       <div class="calendar-col calendar">
         <button class='calendar-btn'><img src='{% static "mainsite/images/profile/calendar2.png" %}' alt=""></button>
@@ -488,7 +476,11 @@
     </div>
 
     {% if user_affirmation_path %}
-    <div class="grid-col">
+    <div id='flex-col-7' class="grid-col small-col"
+      draggable='true'
+      ondragstart='onDragStart(event);'
+      ondragover='onDragOver(event);'
+      ondrop='onDrop(event);'>
       <div class="affirmation">
 
         <div class="affirmation-haedline">
@@ -521,7 +513,11 @@
     {% endif %}
 
     {% if img %}
-  <div class="grid-col">
+  <div class="grid-col large-col"
+      draggable='true'
+      ondragstart='onDragStart(event);'
+      ondragover='onDragOver(event);'
+      ondrop='onDrop(event);'>
     <div id="lifeWheelSection">
       <div id="lifeWheelHeader">
         <p id='lifeWheelHeaderTxt'>Колесо жизни</p>
@@ -586,8 +582,8 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="{% static 'mainsite/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'mainsite/js/calendar.js' %}"></script>
-
-
+<script src="{% static 'mainsite/js/profile.js' %}"></script>
+<script src="{% static 'mainsite/js/move.js' %}"></script>
 <!--FONTS-->
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">

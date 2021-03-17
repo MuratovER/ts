@@ -21,12 +21,10 @@ window.onload = function() {
         sphereForm = document.querySelectorAll('.tree-sphere--form'),
         crownBranch = document.querySelectorAll('.tree--crown--item--branch'),
         crownTests = document.querySelectorAll('.tree--crown--item--test'),
-        crownLink = document.querySelectorAll('.tree--branch--lesson'),
-        crownItemSphere = document.querySelectorAll('.tree-crown-sphere');
+        clear = document.querySelector('.clear'),
+       selectItemSphere = document.querySelectorAll('.tree-crown-sphere');
 
-    let disableSphereObj = [],
-        lessonsArr = [],
-        lessonsObj = {
+    let lessonsObj = {
         1: {
             1: "Самодисциплина",
             2: "Цели в жизни",
@@ -85,6 +83,10 @@ window.onload = function() {
             4: "/fourth/fourth_chapters_RelationshipsintheFamily/",
         }
     }
+    clear.addEventListener('click', (event) => {
+        location.reload();
+        localStorage.clear();
+    });
 
      //подсчет кол-во уроков в теме
      const lessonCounter = (i) => {
@@ -98,7 +100,7 @@ window.onload = function() {
 
     //показ нужной ветки
     const showBranch = (formItem, formIndex, sphereIndex) => {
-
+        
         let lessonCount = lessonCounter(sphereIndex);
         
         crownBranch.forEach((item, i) => {
@@ -106,7 +108,7 @@ window.onload = function() {
                 branchIndex = +branchClass[branchClass.length - 1];
             
             if(branchIndex == sphereIndex) {
-               
+                
                 formItem.insertAdjacentHTML("afterEnd", 
                 `<div class="tree--crown--item--branch  tree--crown--item--branch-${sphereIndex}">
                     <img src="../../static/mainsite/images/tree/lesson${sphereIndex}-branch.png" alt=""
@@ -145,7 +147,7 @@ window.onload = function() {
     
     //показ нужого теста
     const showTest = (formIndex, sphereIndex, status) => {
-        //status переменная от
+        //status переменная от бд о прохождении всех уроков
         if (!status) {
             return;
         }
@@ -162,163 +164,124 @@ window.onload = function() {
     }
 
     //блокировка ранее выбранных тем
-    const disableSphere = (disableObj, formNumber) => {
+    const disableSphere = (getArr) => {
         
-        if (disableObj.length == 0) {
-            return;
-        }
-        let getArr = String(JSON.parse(localStorage.getItem(formNumber)));
-
-        crownItemSphere.forEach((item, i) => {
-           
-            let option = item.querySelectorAll('.sphere--name');
+        let optionArr = getArr.slice(1,2) + getArr.slice(3,4) + getArr.slice(5,6) + getArr.slice(7,8);
+        let formArr = getArr.slice(0,1) + getArr.slice(2,3) + getArr.slice(4,5) + getArr.slice(6,7);
+        let k = 0;
+    
+        for (let formChar of formArr) {
+            k++;
             
-                option.forEach((item, i) => {
-                   //console.log(item, ++i);
-                    for (let char of disableObj) {
-                        
-                        if (char == i) {
-                            item.setAttribute('disabled', true);
+            let l = 1;
+            for (let optionChar of optionArr) {
+                if  (k == l) {
+                    let sphereSelect = document.querySelector(`.tree-crown-sphere-${+formChar}`),
+                        option = sphereSelect.querySelector(`.sphere--name-${optionChar}`);
+                    //вывод выбранной сферы развития
+                    option.setAttribute('selected', true);
+                    //блокировка сферы у других веток
+                    selectItemSphere.forEach((item, i) => {
+                        if (sphereSelect != item) {
+                            let chosenOption = item.querySelector(`.sphere--name-${optionChar}`);
+                            chosenOption.setAttribute('disabled', true);
                         }
-                    }
-                })
-
-                for (let index of getArr) {
-                    if (index == 1) {
-                        crownItemSphere[2].setAttribute('disabled', 'disabled');
-
-                    }
-                    if (index == 2) {
-                        crownItemSphere[0].setAttribute('disabled', 'disabled');
-                    }
-                    if (index == 3) {
-                        crownItemSphere[3].setAttribute('disabled', 'disabled');
-                    }
-                    if (index == 4) {
-                        crownItemSphere[1].setAttribute('disabled', 'disabled');
-                    }
-                }
-        })
-    }
-
-    //получение и вставка свойств из LocalStorage
-    const getProperty = (className, strClass) => {
-        for (let key in localStorage) {
-
-            if (localStorage.hasOwnProperty(strClass)) {
-                
-                let arr = localStorage.getItem(strClass),
-                    modifyArr  = arr.split(' ');
-                    
-                modifyArr.forEach((item) => {
-                    className.classList.add(item);
-                })
+                    })
+                } 
+                l++;
             }
-            else {
-                console.log('такого свойства нет');
-                return;
-            }
+            //блокировка всего selecta
+            if (formChar == 1) {
+                selectItemSphere[2].setAttribute('disabled', 'disabled');
+
+             }
+             if (formChar == 2) {
+                selectItemSphere[0].setAttribute('disabled', 'disabled');
+             }
+             if (formChar == 3) {
+                selectItemSphere[3].setAttribute('disabled', 'disabled');
+             }
+             if (formChar == 4) {
+                selectItemSphere[1].setAttribute('disabled', 'disabled');
+             }
         }
     }
 
     //общая функция работы с кэшом для кнопок и форм
-    const getPropertyItem = ( formNumber, elements, addClass, environment) => {
+    const getPropertyItem = ( getArr, elements, addClass, environment) => {
         
-        if (localStorage.hasOwnProperty(formNumber)) {
-            
-            let getArr = String(JSON.parse(localStorage.getItem(formNumber)));
-            
-            for (let index of getArr) {
-                elements.forEach((item, i) => {
-                    
-                    if (+index == 1) {
-                        elements[2].classList.add(addClass);
-                    }
-                    if (+index == 2) {
-                        elements[0].classList.add(addClass);
-                    }
-                    if (+index == 3) {
-                        elements[3].classList.add(addClass);
-                    }
-                    if (+index == 4) {
-                        elements[1].classList.add(addClass);
-                    }
-                    if (environment) {
-                        elements[0].style.marginRight = '40px';
-                        elements[1].style.marginRight = '40px';
-                    } 
-                })
-            }        
-        } 
+        let modifyArr = getArr.slice(0,1) + getArr.slice(2,3) + getArr.slice(4,5) + getArr.slice(6,7);
+        
+        for (let index of modifyArr) {
+            elements.forEach(() => {
+                
+                if (+index == 1) {
+                    elements[2].classList.add(addClass);
+                }
+                if (+index == 2) {
+                    elements[0].classList.add(addClass);
+                }
+                if (+index == 3) {
+                    elements[3].classList.add(addClass);
+                }
+                if (+index == 4) {
+                    elements[1].classList.add(addClass);
+                }
+                if (environment) {
+                    elements[0].style.marginRight = '40px';
+                    elements[1].style.marginRight = '40px';
+                } 
+            })
+        }        
     }
 
     //получение веток из Кэша
-    const getBranch = ( elemName) => {
+    const getBranch = (getArr) => {
+        
+        let optionArr = getArr.slice(1,2) + getArr.slice(3,4) + getArr.slice(5,6) + getArr.slice(7,8);
+        let formArr = getArr.slice(0,1) + getArr.slice(2,3) + getArr.slice(4,5) + getArr.slice(6,7);
+        let k = -1;
 
-        if (localStorage.hasOwnProperty(elemName)) {
-            
-            let getArr = String(JSON.parse(localStorage.getItem(elemName)));
-                getArr = getArr.replace(/\\+/gi,"").replace(/\"+/gi,"");
-                getArr = getArr.split(' ');
-            
-            getArr.forEach((item, i) => {
+       for (let index of optionArr) {
+    
+            crownBranch.forEach((item, i) => {
                 
-                if (isNaN(item)) {
-                    let form = document.querySelector(`.${item}`);
-                
-                    showBranch(form, getArr[++i], getArr[++i]);
-                    
-                    showTest(getArr[--i], getArr[++i], true);
+                if (Number(index)  === ++i ) {
+                    k++;
+                    let form = document.querySelector(`.tree-sphere--form-${+formArr[k]}`);        
+                    showBranch(form, formArr[k], optionArr[k]);
+                    showTest(optionArr[k], formArr[k], true);
                 }
-            })
-               
-        } 
+            }) 
+       }
     }
     
-     //render
+     //загрузка из кэша
      const render = () => {
-          
-            getProperty(rootLists, 'rootLists');
-            getProperty(crownContent, 'crownContent');
-            
-        if (localStorage.hasOwnProperty('btnArr')) {
 
-             getPropertyItem('btnArr',chooseSphereBtn, 'displayNone', false);
-                
+        if (localStorage.hasOwnProperty('crownContent')) {
+            rootLists.classList.add('displayNone');
+            crownContent.classList.add('tree--crown--flex-active');
         } else {
-            console.log('такого свойства нет');
-            return;
-        }
-        
-        if (localStorage.hasOwnProperty('sphereFormNumber')) {
-
-            getPropertyItem('sphereFormNumber', sphereForm, 'displayFlex', true);
-           
-        }  else {
             console.log('такого свойства нет');
             return;
         }
 
         if (localStorage.hasOwnProperty('branchArr')) {
-
-            getBranch('branchArr', crownItemSphere, 'none', false);
-           
+            let branchArr = String(JSON.parse(localStorage.getItem('branchArr')));
+            getPropertyItem(branchArr, chooseSphereBtn, 'displayNone', false);
+            getPropertyItem(branchArr, sphereForm, 'displayFlex', true);
+            getBranch(branchArr);
+            disableSphere(branchArr);
         }  else {
             console.log('такого свойства нет');
-            return;
-        }
-        if (localStorage.hasOwnProperty('disableFormArr')) {
-            let disableFormArr = localStorage.getItem('disableFormArr');
-            disableFormArr = disableFormArr.replace(/\\+/gi,"").replace(/\"+/gi,"");
-            //console.log(disableFormArr);
-            disableSphere(disableFormArr, 'sphereFormNumber');
         }
     }   
 
     render();
 
     //стилизация четных и нечетных форм
-    crownItemSphere.forEach((item, i) => {
+   selectItemSphere.forEach((item, i) => {
         if(item.parentElement.parentElement.matches(".tree--crown--item-left")) {
             item.style.borderRight = '20px solid #5EA2FF';
         } else {
@@ -345,12 +308,9 @@ window.onload = function() {
         
         //показ кроны
         if (target == rootLists) {
-            
             rootLists.classList.add('displayNone');
             crownContent.classList.add('tree--crown--flex-active');
-
-            localStorage.rootLists = rootLists.classList;
-            localStorage.crownContent = crownContent.classList;
+            localStorage.crownContent = 'show';
         }
         
         //показ формы выбора сферы развития
@@ -368,33 +328,7 @@ window.onload = function() {
                         elem.nextElementSibling.style.marginLeft = '40px';
                     } else  elem.nextElementSibling.style.marginRight = '40px';
 
-                    elem.nextElementSibling.classList.add('displayFlex');
-
-                    //добавление кнопок в кэш
-                    if (localStorage.hasOwnProperty('btnArr')) {
-                        let btnArr = localStorage.getItem('btnArr');
-                        btnArr = btnArr + form2Index;
-                        
-                        localStorage.btnArr = JSON.stringify(+btnArr);
-                    } else {
-                        let btnArr = + form2Index;
-                        
-                        localStorage.btnArr= JSON.stringify(btnArr);
-
-                    }
-
-                    //добавление форм в кэш
-                    if (localStorage.hasOwnProperty('sphereFormNumber')) {
-                        let sphereFormNumber = localStorage.getItem('sphereFormNumber');
-                            
-                        sphereFormNumber = sphereFormNumber + form2Index;
-                        
-                        localStorage.sphereFormNumber = JSON.stringify(+sphereFormNumber);
-                    } else {
-                        let sphereFormNumber = + form2Index;
-                        localStorage.sphereFormNumber = JSON.stringify(sphereFormNumber);
-                    }
-                 
+                    elem.nextElementSibling.classList.add('displayFlex'); 
                 }
             });
         }
@@ -414,15 +348,12 @@ window.onload = function() {
                 //добавление ветки в кэш
                 if (localStorage.hasOwnProperty('branchArr')) {
                     let branchArr = localStorage.getItem('branchArr');
-                    
-                    branchArr = branchArr + target.parentElement.classList[1] + " " + formIndex + " " + indexSelected + " ";
-
+                    branchArr = branchArr + formIndex + "" + indexSelected;
+                    branchArr= branchArr.replace(/\\+/gi,"").replace(/\"+/gi,"");
                     localStorage.branchArr = JSON.stringify(branchArr);
                 } else {
                     let branchArr;
-
-                    branchArr = target.parentElement.classList[1] + " " + formIndex + " " + indexSelected + " ";
-                    
+                    branchArr = formIndex + "" + indexSelected;
                     localStorage.branchArr = JSON.stringify(branchArr);
                 }
                 
@@ -430,28 +361,14 @@ window.onload = function() {
                  let sphereStatus = true; //состояние прохождения сферы и всех уроков
 
                  showTest(formIndex,indexSelected,sphereStatus);
-               
-                 target.setAttribute('disabled', 'disabled');
 
-                 if (localStorage.hasOwnProperty('disableFormArr')) {
-                    let disableFormArr= localStorage.getItem('disableFormArr');
-                    disableFormArr = disableFormArr.replace(/\\+/gi,"").replace(/\"+/gi,"");
-                    disableFormArr += indexSelected;
-                    disableFormArr = disableFormArr.replace(/\\+/gi,"").replace(/\"+/gi,"");
-                    localStorage.disableFormArr = JSON.stringify(disableFormArr);
+                 //вызов функции блокировки выбранной сферы
+                 let branchArr = String(JSON.parse(localStorage.getItem('branchArr')));
+                 disableSphere(branchArr);
 
-                    disableSphere(disableFormArr);
-                } else {
-                    let disableFormArr = '';
-
-                    disableFormArr += indexSelected;
-                    
-                    localStorage.disableFormArr = JSON.stringify(disableFormArr);
-
-                    disableFormArr = disableFormArr.replace(/\\+/gi,"").replace(/\"+/gi,"");
-                    disableSphere(disableFormArr);
-                }                 
+                 target.setAttribute('disabled', 'disabled');                
             })
         }
     });
+    
 };

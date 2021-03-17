@@ -17,7 +17,18 @@ urlpatterns = [
     path('user_page/', views.user_page, name='user_page'), 
     path('achivements/', views.achivement_view, name='achivements'),
     path('to_do_list/', views.to_do_list_view, name='to_do_list'),
-    path('blog/', views.post_list, name='blog'),
+
+    path('blog/', views.post_list, name='post_list'),
+    path('blog/create/', views.post_new, name='post_new'),
+    path('blog/drafts/', views.post_draft_list, name='post_draft_list'),
+    path('blog/article/<int:pk>/', views.post_detail, name='post_detail'),
+    path('blog/article/<int:pk>/edit/', views.post_edit, name='post_edit'),
+    path('blog/article/<pk>/publish/', views.post_publish, name='post_publish'),
+    path('blog/article/<pk>/remove/', views.post_remove, name='post_remove'),
+    path('blog/article/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
+    path('blog/comment/<int:pk>/approve/', views.comment_approve, name='comment_approve'),
+    path('blog/comment/<int:pk>/remove/', views.comment_remove, name='comment_remove'),
+
     path('tree/', views.tree_view, name='tree'),
     path('tree_old/', views.tree_old, name='tree_old'),
     path('help/', views.help_view, name='help'),
@@ -79,6 +90,8 @@ urlpatterns = [
     path('fourth/fourth_chapters_Conflicts_task/', views.fourth_chapters_Conflicts_task, name='fourth_chapters_Conflicts_task'),
     path('fourth/fourth_chapters_RelationshipsintheFamily_task/', views.fourth_chapters_RelationshipsintheFamily_task, name='fourth_chapters_RelationshipsintheFamily_task'),
     path('fourth/fourth_chapters_Friends_task/', views.fourth_chapters_Friends_task, name='fourth_chapters_Friends_task'),
+    #End
+    path('end/', views.end_view, name='end'),
     #API
     #re_path(r'^api/get_todolist/(?P<user_id>[\w.@+-]+)/$', views.api_get_todolist),
     path('api/get_todolist/', views.api_get_todolist),
@@ -86,6 +99,7 @@ urlpatterns = [
 
     path('introduction/introduction_chapter_spheres_life/delete/', views.sphere_deletion, name='sphere_deletion'),
     path('user_page/image_upload/', views.profile_image_upload, name='profile_image_upload'),
-
-
+    path('blog/new_blog_categories', views.new_blog_categories, name='new_blog_categories'),
+    path('blog/new_blog', views.new_blog, name='new_blog'),
+    path('blog/new_blog_articles', views.new_blog_articles, name='new_blog_articles'),
 ]

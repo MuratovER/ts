@@ -1,0 +1,132 @@
+{% extends 'mainsite/base.html' %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="../../../static/mainsite/css/blog/style.css">
+<header>
+    <a href="{% url 'user_page' %}" target="_self" style="color: black; margin-right: 5em"><span
+            class="oi oi-arrow-left"></span> <strong>Назад</strong></a>
+    <span class="text-muted">
+				Статьи
+        </span>
+</header>
+<div class="justify-content-center d-flex" style="max-width: 100em; margin: 0 auto; ">
+
+    <div class="justify-content-center d-flex w-100" style="margin: 15em 0;">
+        <div class="row w-75">
+            <div class="col-sm-5 card">
+                <div class="w-100 h-100 content-front">
+                    <div class="blog-card-date">
+                        03 марта 2021
+                    </div>
+                    <div class="blog-card-menu">
+                        <a href="#">...</a>
+                    </div>
+                    <div class="d-flex flex-column align-items-center justify-content-center text-center w-75 mx-auto h-100">
+                        <h1 class="blog-card-name w-100 mb-4 pb-2">Введение</h1>
+                        <div>Твои первые шаги на пути к успеху и высоким достижениям</div>
+                        <div class="d-flex flex-row justify-content-between w-50 mt-5">
+                            <div>
+                                <svg class="mr-1" width="14" height="15" viewBox="0 0 14 15" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M7.78273 0.772201L8.38068 1.97641H12.5331C12.9899 1.97641 13.3636 2.35014 13.3636 2.80691V9.45085C13.3636 9.90762 12.9899 10.2813 12.5331 10.2813H8.05679C7.74951 10.2813 7.45883 10.1069 7.31765 9.82457L6.7197 8.62035H2.56723V13.6033C2.56723 14.0601 2.19351 14.4338 1.73674 14.4338C1.27997 14.4338 0.90625 14.0601 0.90625 13.6033V1.14592C0.90625 0.689151 1.27997 0.31543 1.73674 0.31543H7.03528C7.35087 0.31543 7.64154 0.489833 7.78273 0.772201ZM8.38068 8.62035H11.7027V3.6374H7.55019L6.7197 1.97641H2.56723V6.95937H7.55019L8.38068 8.62035Z"
+                                          fill="#569EFF"/>
+                                </svg>
+                                2 статьи
+                            </div>
+                            <div>
+                                <svg class="mr-1" width="15" height="17" viewBox="0 0 15 17" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.22695 3.46804C3.56365 3.46804 0.583008 6.44868 0.583008 10.112C0.583008 13.7753 3.56365 16.7559 7.22695 16.7559C10.8902 16.7559 13.8709 13.7753 13.8709 10.112C13.8709 6.44868 10.8902 3.46804 7.22695 3.46804ZM7.22695 15.0949C4.47885 15.0949 2.24399 12.8601 2.24399 10.112C2.24399 7.36388 4.47885 5.12902 7.22695 5.12902C9.97505 5.12902 12.2099 7.36388 12.2099 10.112C12.2099 12.8601 9.97505 15.0949 7.22695 15.0949Z"
+                                          fill="#569EFF"/>
+                                    <path d="M6.39645 6.79001H8.05744V10.9425H6.39645V6.79001ZM4.73547 0.976562H9.71842V2.63755H4.73547V0.976562Z"
+                                          fill="#569EFF"/>
+                                    <path d="M13.2835 5.71615L11.6228 4.05539L12.7973 2.88091L14.458 4.54168L13.2835 5.71615Z"
+                                          fill="#569EFF"/>
+                                </svg>
+                                2.5 часа
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-back w-100 h-100">
+                    <div class="blog-card-date">
+                        03 марта 2021
+                    </div>
+                    <div class="blog-card-menu">
+                        <a href="#">...</a>
+                    </div>
+                    <div class="w-75 h-75 d-flex flex-column mx-auto justify-content-center">
+                        <p class="mb-4">Кто такой лидер?</p>
+                        <p>Сферы жизни</p>
+                    </div>
+                    <div class="w-100 d-flex justify-content-center">
+                        <a class="header--change--btn" href="{% url 'new_blog_articles' %}">
+                            Перейти
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col my-5"></div>
+            <div class="col-sm-5  card">
+                <div class="w-100 h-100 d-flex flex-column align-items-center justify-content-center text-center content-front">
+                    <h1>Name</h1>
+                    <hr class="w-75">
+                    <div>Some information</div>
+                </div>
+                <div class="content-back w-100 h-100">
+
+                </div>
+            </div>
+            <div class="w-100" style="margin-top: 8rem"></div>
+            <div class="col-sm-5  card">
+                <div class="w-100 h-100 d-flex flex-column align-items-center justify-content-center text-center content-front">
+                    <h1>Name</h1>
+                    <hr class="w-75">
+                    <div>Some information</div>
+                </div>
+                <div class="content-back w-100 h-100">
+
+                </div>
+            </div>
+            <div class="col my-5"></div>
+            <div class="col-sm-5  card">
+                <div class="w-100 h-100 d-flex flex-column align-items-center justify-content-center text-center content-front">
+                    <h1>Name</h1>
+                    <hr class="w-75">
+                    <div>Some information</div>
+                </div>
+                <div class="content-back w-100 h-100">
+
+                </div>
+            </div>
+            <div class="w-100" style="margin-top: 8rem"></div>
+            <div class="col-sm-5  card">
+                <div class="w-100 h-100 d-flex flex-column align-items-center justify-content-center text-center content-front">
+                    <h1>Name</h1>
+                    <hr class="w-75">
+                    <div>Some information</div>
+                </div>
+                <div class="content-back w-100 h-100">
+                </div>
+            </div>
+            <div class="col my-5"></div>
+            <div class="col-sm-5  card">
+                <div class="w-100 h-100 d-flex flex-column align-items-center justify-content-center text-center content-front">
+                    <h1>Name</h1>
+                    <hr class="w-75">
+                    <div>Some information</div>
+                </div>
+                <div class="content-back w-100 h-100">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src='../../../static/mainsite/js/blog/script.js'></script>
+
+{% endblock %}

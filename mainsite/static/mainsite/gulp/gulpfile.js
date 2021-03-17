@@ -1,4 +1,4 @@
-gitconst gulp = require('gulp');
+const gulp = require('gulp');
 const	sass = require('gulp-sass');
 const	sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
@@ -12,7 +12,7 @@ gulp.task('sass-compile', function(){
 		overrideBrowserlist: ["last 10 version"],
 		cascade: true
 	}))
-	.pipe(gulp.dest('../css/tree'))
+	.pipe(gulp.dest('../css'))
 })
 
 gulp.task('watch', function() {
