@@ -434,10 +434,10 @@ def profile_image_upload(request):
     Функция с загрузкой изображения в облочное хранилище cloudinary и привязкой к пользователю
     '''
 
-    context = dict(backend_form = PhotoForm(instance=image_blank))
+    context = dict(backend_form = PhotoForm())
     if request.method == 'POST':
             # form = PhotoForm(request.POST, request.FILES)
-            image_blank = Profile.objects.get(pk=1)
+            image_blank = Profile.objects.get(user = request.user)
             form = PhotoForm(instance=image_blank)
             #context = {'form': form}
             context['posted'] = form.instance
