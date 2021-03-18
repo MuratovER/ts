@@ -437,7 +437,7 @@ def profile_image_upload(request):
     context = dict(backend_form = PhotoForm())
     if request.method == 'POST':
             # form = PhotoForm(request.POST, request.FILES)
-            image_blank = Profile.objects.get(user = request.user)
+            user = Profile.objects.get(user = request.user)
             form = PhotoForm(instance=image_blank)
             #context = {'form': form}
             context['posted'] = form.instance
