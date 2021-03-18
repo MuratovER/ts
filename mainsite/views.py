@@ -433,9 +433,6 @@ def profile_image_upload(request):
     '''
     Функция с загрузкой изображения в облочное хранилище cloudinary и привязкой к пользователю
     '''
-    
-    image_blank = Profile.objects.get(pk=1)
-    form = PhotoForm(instance=image_blank)
 
     context = dict(backend_form = PhotoForm(instance=image_blank))
     if request.method == 'POST':
@@ -464,8 +461,6 @@ def user_page(request):
     
     profile = Profile.objects.get(user= request.user)
     
-    
-    print(profile.image)
     skills = UserSkill.objects.filter(user=user)
     
     #profile_picture = user.i 
