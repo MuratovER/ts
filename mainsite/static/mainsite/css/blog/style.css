@@ -1,7 +1,5 @@
 .instruments-panel {
     border-top: 0.35px solid #ACACAC;
-    max-width: 1920px;
-    margin: 0 auto;
 }
 
 .tool-panel {
@@ -62,9 +60,8 @@
     padding-left: 5px;
 }
 
-
 .img-header {
-    margin: 4em 0;
+    margin: 4em 0 0;
     height: 23em;
     background: #FBFBFC;
     border: 4px dashed #E6E7F0;
@@ -86,6 +83,9 @@
     font-size: 12px;
     line-height: 14px;
     color: #737A83;
+}
+
+.editor {
 }
 
 .placeholded[placeholder]:empty:before {

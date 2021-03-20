@@ -204,6 +204,7 @@ $('body').on('click', '.toolbar-copy', function(){
 
 $('body').on('focusout', '.editor', function() {
     var element = $(this);
+    console.log(element);
     if (!element.text().replace(' ', '').length) {
         element.empty();
     }
