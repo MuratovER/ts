@@ -413,16 +413,6 @@ def skills(request):
     return render(request, 'mainsite/skills.html', {'skills': skills})
 
 @login_required
-def new_blog_categories(request):
-    return render(request, 'mainsite/blogs/blogs_categories.html', )
-
-@login_required
-def new_blog_articles(request):
-    return render(request, 'mainsite/blogs/blogs_articles.html', )
-
-
-
-@login_required
 def new_blog(request):
     return render(request, 'mainsite/blogs/blogs_creator.html', )
 #blog view end
