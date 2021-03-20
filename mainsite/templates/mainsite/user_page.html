@@ -21,7 +21,7 @@
 
           {% if profile.image %}
           <div class="header-profile-img">
-            {% cloudinary profile.image format="jpg" width=223 height=223 crop="fill"  %}
+            <img src='{{ profile.image.url }}' class='header-profile-img' alt="profile-avatar">
           </div>
           
 
