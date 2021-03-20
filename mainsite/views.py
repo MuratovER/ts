@@ -430,23 +430,19 @@ def new_blog(request):
 
 
 def profile_image_upload(request):
-    '''
-    Функция с загрузкой изображения в облочное хранилище cloudinary и привязкой к пользователю
-    '''
+        '''
+        Функция с загрузкой изображения в облочное хранилище cloudinary и привязкой к пользователю
+        '''
 
     context = dict(backend_form = PhotoForm())
     if request.method == 'POST':
-            # form = PhotoForm(request.POST, request.FILES)
-            user = Profile.objects.get(user = request.user)
-            form = PhotoForm(instance=image_blank)
-            #context = {'form': form}
-            context['posted'] = form.instance
+        form = PhotoForm(request.POST, request.FILES)
+        #context = {'form': form}
+        context['posted'] = form.instance
+        if form.is_valid():
+            form.save()
+    return render(request, 'mainsite/load.html', context)
 
-            if form.is_valid():
-                form.save()
-            
-    # return request('user_page', context)   
-    return render(request, 'mainsite/user_page.html', context)
 
 
 @login_required
