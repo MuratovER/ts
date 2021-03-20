@@ -85,22 +85,11 @@
     color: #737A83;
 }
 
-.editor {
-}
-
-.placeholded[placeholder]:empty:before {
+.editor-non[placeholder]:empty:before {
     content: attr(placeholder);
-    color: #555;
+    color: #9DA2AB;
 }
-.placeholded[placeholder]:empty:focus:before {
-    content: '';
-}
-
-.editor[placeholder]:empty:before {
-    content: attr(placeholder);
-    color: #555;
-}
-.editor[placeholder]:empty:focus:before {
+.editor-non[placeholder]:empty:focus:before {
     content: '';
 }
 

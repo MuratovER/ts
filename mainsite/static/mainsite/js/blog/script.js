@@ -202,10 +202,9 @@ $('body').on('click', '.toolbar-copy', function(){
     return false;
 });
 
-$('body').on('focusout', '.editor', function() {
+$('.editor-non').on('focusout', function () {
     var element = $(this);
-    console.log(element);
     if (!element.text().replace(' ', '').length) {
         element.empty();
     }
-});
+})
