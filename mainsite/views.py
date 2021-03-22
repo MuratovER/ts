@@ -16,6 +16,7 @@ from django.shortcuts import redirect
 from django.utils.timezone import make_aware
 from django.http import JsonResponse
 from django.template import RequestContext
+from django.http import HttpResponseRedirect
 
 #Basic views begin
 #отправляет расположение разметки страницы в файл url
@@ -408,19 +409,21 @@ def post_draft_list(request):
     return render(request, 'mainsite/post_draft_list.html', {'posts': posts})
 
 @login_required
+def add_like(request, pk):
+    if pk in request.COOKIES:
+        return HttpResponseRedirect('/blog')
+    else:
+        article = get_object_or_404(Post, pk=pk)
+        article.likes += 1
+        article.save()
+        response = HttpResponseRedirect('/blog')
+        response.set_cookie(f"{pk}", 'test')
+        return response
+
+@login_required
 def skills(request):
     skills = Skill.objects.all()
     return render(request, 'mainsite/skills.html', {'skills': skills})
-
-@login_required
-def new_blog_categories(request):
-    return render(request, 'mainsite/blogs/blogs_categories.html', )
-
-@login_required
-def new_blog_articles(request):
-    return render(request, 'mainsite/blogs/blogs_articles.html', )
-
-
 
 @login_required
 def new_blog(request):
