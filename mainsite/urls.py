@@ -26,6 +26,7 @@ urlpatterns = [
     path('blog/article/<pk>/publish/', views.post_publish, name='post_publish'),
     path('blog/article/<pk>/remove/', views.post_remove, name='post_remove'),
     path('blog/article/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
+    path('blog/article/<int:pk>/like/', views.add_like, name='add_like'),
     path('blog/comment/<int:pk>/approve/', views.comment_approve, name='comment_approve'),
     path('blog/comment/<int:pk>/remove/', views.comment_remove, name='comment_remove'),
 

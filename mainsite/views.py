@@ -16,6 +16,7 @@ from django.shortcuts import redirect
 from django.utils.timezone import make_aware
 from django.http import JsonResponse
 from django.template import RequestContext
+from django.http import HttpResponseRedirect
 
 #Basic views begin
 #отправляет расположение разметки страницы в файл url
@@ -406,6 +407,18 @@ def comment_remove(request, pk):
 def post_draft_list(request):
     posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
     return render(request, 'mainsite/post_draft_list.html', {'posts': posts})
+
+@login_required
+def add_like(request, pk):
+    if pk in request.COOKIES:
+        return HttpResponseRedirect('/blog')
+    else:
+        article = get_object_or_404(Post, pk=pk)
+        article.likes += 1
+        article.save()
+        response = HttpResponseRedirect('/blog')
+        response.set_cookie(f"{pk}", 'test')
+        return response
 
 @login_required
 def skills(request):
