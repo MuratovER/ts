@@ -441,7 +441,7 @@ def profile_image_upload(request):
         context['posted'] = form.instance
         if form.is_valid():
             form.save()
-    return render(request, 'mainsite/load.html', context)
+    return render(request, 'mainsite/image_upload.html', context)
 
 
 
