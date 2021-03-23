@@ -1,6 +1,7 @@
 {% extends 'mainsite/base.html' %}
 
 {% block content %}
+<title>Блог</title>
     <div class="page-header">
         {% if user.is_authenticated %}
             <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
