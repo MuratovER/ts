@@ -4,7 +4,7 @@ from mainsite.forms import SignUpForm, PhotoForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
-from .models import Post, Skill, UserSkill, Profile, Sphere_of_life, Achivement, UserAchivement, User_affirmation, Comment, 
+from .models import Post, Skill, UserSkill, Profile, Sphere_of_life, Achivement, UserAchivement, User_affirmation, Comment 
 from django.utils import timezone
 from django.contrib.auth.models import User
 from .forms import Sphere_of_life_Form, PostForm, CommentForm
@@ -430,18 +430,20 @@ def new_blog(request):
 
 
 def profile_image_upload(request):
-        '''
+    '''
         Функция с загрузкой изображения в облочное хранилище cloudinary и привязкой к пользователю
-        '''
-
+    '''
     context = dict(backend_form = PhotoForm())
     if request.method == 'POST':
-        form = PhotoForm(request.POST, request.FILES)
+        # form = PhotoForm(request.POST, request.FILES)
         #context = {'form': form}
+        user = Profile.objects.get(user = request.user)
+        form = PhotoForm(instance=user)
         context['posted'] = form.instance
         if form.is_valid():
             form.save()
-            return redirect('user_page')
+        return redirect('user_page')
+            
     return render(request, 'mainsite/image_upload.html', context)
 
 
