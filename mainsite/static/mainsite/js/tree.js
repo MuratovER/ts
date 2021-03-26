@@ -43,8 +43,8 @@ window.onload = function() {
         3: { // Здоровье
             1: "Урок 2: Прaвильное питание",
             2: "Урок 1: Здоровый сон",
-            3: "Урок 3: Движение и закаливание",
-            4: "Урок 4: “Ладим” со стрессом",
+            3: "Урок 4: “Ладим” со стрессом",
+            4: "Урок 3: Движение и закаливание",
         },
         4: { // Отношения
             1: "Урок 2: Конфликты",
@@ -73,8 +73,8 @@ window.onload = function() {
         3: {
             1: "/third/third_chapters_GoodNutrition/",
             2: "/third/third_chapters_HealthySleep/",
-            3: "/third/third_chapters_MovementandHardening/",
-            4: "/third/third_chapters_LadieswithStress/",
+            3: "/third/third_chapters_LadieswithStress/",
+            4: "/third/third_chapters_MovementandHardening/",
         },
         4: {
             1: "/fourth/fourth_chapters_Conflicts/",
