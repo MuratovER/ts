@@ -1,6 +1,7 @@
-{% extends 'mainsite/blog.html' %}
+{% extends 'mainsite/base.html' %}
 
 {% block content %}
+<title>Блог</title>
     <h1>Новый комментарий</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}

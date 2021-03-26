@@ -1,6 +1,7 @@
 {% extends 'mainsite/base.html' %}
 
 {% block content %}
+<title>Блог</title>
     <div class="page-header">
         {% if user.is_authenticated %}
             <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
@@ -15,6 +16,7 @@
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
             <a href="{% url 'post_detail' pk=post.pk %}">Комментарии: {{ post.approved_comments.count }}</a>
+            <a href="{% url 'add_like' pk=post.pk %}">Лайки: {{ post.likes }}</a>
         </div>
     {% endfor %}
 {% endblock content %}
