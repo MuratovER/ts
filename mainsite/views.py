@@ -438,7 +438,7 @@ def profile_image_upload(request):
         # form = PhotoForm(request.POST, request.FILES)
         #context = {'form': form}
         user = Profile.objects.get(user = request.user)
-        form = PhotoForm(instance=user)
+        form = PhotoForm(request.POST, request.FILES, instance=user)
         context['posted'] = form.instance
         if form.is_valid():
             form.save()
