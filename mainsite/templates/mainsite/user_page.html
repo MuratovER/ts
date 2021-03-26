@@ -1,7 +1,10 @@
 {% extends 'mainsite/base.html' %}
 
 {% block content %}
+{% load cloudinary %} 
 {% load static %}
+
+
 
 
 <title>Профиль</title>
@@ -11,14 +14,36 @@
       <div class="header-info-flex">
         <img class='header-info-bg' src='{% static "mainsite/images/profile/background-header.png" %}' alt="">
         <div class="gol_icon">
-          <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' class='header-profile-img' alt="">
-          <button class='changePhoto'>
-            <img src='{% static "mainsite/images/profile/image_alt.png" %}' alt="">
-          </button>
+          
+
+          
+          
+
+          {% if profile.image %}
+          <div class="header-profile-img">
+            <img src='{{ profile.image.url }}' class='header-profile-img' alt="profile-avatar">
+          </div>
+          
+
+            
+          {% else %}
+            <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' class='header-profile-img' alt="profile-avatar">
+          {% endif %}
+          
+          
+          <a href="../user_page/image_upload/">
+            <button class='changePhoto'>
+              <img src='{% static "mainsite/images/profile/image_alt.png" %}' alt="">
+            </button>
+          </a>
+
         </div>
      
-          <p class="header-info-userName">{{ user.first_name }} {{ user.last_name }}</p>
-          <p class="header-info-userId">@{{ user }}</p>
+          <p class="header-info-userName">{{ profile.first_name }} {{ profile.last_name }}</p>
+          <p class="header-info-userId">@{{ profile }}</p>
+          <div id='backend__image_upload'>
+                 
+          </div>  
           <p class="header-info-user-quote">Вдохновение — это такая гостья, которая не любит посещать ленивых. <br>
             Пётр Ильич Чайковский русский композитор 
           </p>

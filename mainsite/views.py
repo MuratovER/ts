@@ -1,11 +1,10 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect ,get_object_or_404
-from mainsite.forms import SignUpForm
+from mainsite.forms import SignUpForm, PhotoForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
-from .models import Post, Comment, Skill, UserSkill, Profile, Sphere_of_life, User_affirmation
-from .models import Post, Comment, Skill, UserSkill, Profile, Sphere_of_life, Achivement, UserAchivement
+from .models import Post, Skill, UserSkill, Profile, Sphere_of_life, Achivement, UserAchivement, User_affirmation, Comment 
 from django.utils import timezone
 from django.contrib.auth.models import User
 from .forms import Sphere_of_life_Form, PostForm, CommentForm
@@ -16,7 +15,9 @@ from django.shortcuts import redirect
 from django.utils.timezone import make_aware
 from django.http import JsonResponse
 from django.template import RequestContext
+from cloudinary.forms import cl_init_js_callbacks      
 from django.http import HttpResponseRedirect
+
 
 #Basic views begin
 #отправляет расположение разметки страницы в файл url
@@ -431,17 +432,43 @@ def new_blog(request):
 #blog view end
 
 
+def profile_image_upload(request):
+    '''
+        Функция с загрузкой изображения в облочное хранилище cloudinary и привязкой к пользователю
+    '''
+    context = dict(backend_form = PhotoForm())
+    if request.method == 'POST':
+        # form = PhotoForm(request.POST, request.FILES)
+        #context = {'form': form}
+        user = Profile.objects.get(user = request.user)
+        form = PhotoForm(request.POST, request.FILES, instance=user)
+        context['posted'] = form.instance
+        if form.is_valid():
+            form.save()
+        return redirect('user_page')
+            
+    return render(request, 'mainsite/image_upload.html', context)
+
+
+
 @login_required
 def user_page(request):
+
 
     '''
     отображает на странице профиля скилы и фичи для конкретных пользователей
     '''
 
     user = User.objects.get(username = request.user)
+    
+    profile = Profile.objects.get(user= request.user)
+    
     skills = UserSkill.objects.filter(user=user)
+    
+    #profile_picture = user.i 
 
     achivements = UserAchivement.objects.filter(user = user)
+    
     
 
     sphere = None
@@ -460,7 +487,16 @@ def user_page(request):
         user_text = user_obj.text
         bg_id = user_obj.background_id
         user_affirmation_path = get_affirmation_image.get_image(user_obj)
-    return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills, 'sphere' : sphere, 'img': img, 'user_affirmation_path': user_affirmation_path})
+    return render(request, 'mainsite/user_page.html', 
+                            {
+                                'user' : user, 
+                                'skills' : skills, 
+                                'sphere' : sphere, 
+                                'img' : img, 
+                                'user_affirmation_path' : user_affirmation_path,
+                                'profile': profile,
+                                
+                            })
 
 
 
@@ -530,3 +566,6 @@ def api_get_todolist(request):
             return JsonResponse({"error": "not exist"})
         serializer = TodoListSerializer(spheres, many = True)
         return Response(serializer.data)
+
+
+
