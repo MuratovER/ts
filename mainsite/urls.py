@@ -99,4 +99,5 @@ urlpatterns = [
 	path('user_page/image_upload/', views.profile_image_upload, name='profile_image_upload'),
 	# path('blog/new_blog_categories', views.new_blog_categories, name='new_blog_categories'),
 	path('blog/new_blog', views.new_blog, name='new_blog')
+
 ]
