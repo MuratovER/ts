@@ -19,13 +19,10 @@
           
           
 
-          {% if profile.image %}
+          {% if profile.image != null %}
           <div class="header-profile-img">
             <img src='{{ profile.image.url }}' class='header-profile-img' alt="profile-avatar">
           </div>
-          
-
-            
           {% else %}
             <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' class='header-profile-img' alt="profile-avatar">
           {% endif %}
