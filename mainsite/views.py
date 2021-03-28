@@ -353,6 +353,8 @@ def post_draft_list(request):
 @login_required
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    post.views += 1
+    post.save()
     return render(request, 'mainsite/post_detail.html', {'post': post})
 
 @login_required
@@ -413,9 +415,9 @@ def add_like(request, pk):
     if pk in request.COOKIES:
         return HttpResponseRedirect('/blog')
     else:
-        article = get_object_or_404(Post, pk=pk)
-        article.likes += 1
-        article.save()
+        post = get_object_or_404(Post, pk=pk)
+        post.likes += 1
+        post.save()
         response = HttpResponseRedirect('/blog')
         response.set_cookie(f"{pk}", 'test')
         return response
