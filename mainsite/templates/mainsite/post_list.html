@@ -15,7 +15,8 @@
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
-            <a href="{% url 'post_detail' pk=post.pk %}">Комментарии: {{ post.approved_comments.count }}</a>
+            <a>Просмотры: {{ post.views }}</a>
+            <br><a href="{% url 'post_detail' pk=post.pk %}">Комментарии: {{ post.approved_comments.count }}</a></br>
             <a href="{% url 'add_like' pk=post.pk %}">Лайки: {{ post.likes }}</a>
         </div>
         <hr>
