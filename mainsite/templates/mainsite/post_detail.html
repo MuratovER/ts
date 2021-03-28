@@ -5,10 +5,10 @@
 <div class="post">
     {% if post.published_date %}
         <div class="date">
-            {{ post.published_date }}
+            Опубликовано: {{ post.published_date }}
         </div>
     {% else %}
-            <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Опубликовать</a>
+        <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Опубликовать</a>
     {% endif %}
     {% if user.is_authenticated %}
         <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>

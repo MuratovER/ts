@@ -15,13 +15,11 @@ from cloudinary.models import CloudinaryField
 
 #an extended version of the posts that help you make the post)
 class Post(models.Model):
-    '''
-    создает таблицу с параметрами автора заголовка текста датой создания и датой публикации
-    '''
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
     likes = models.IntegerField(default='0')
+    views = models.IntegerField(default='0')
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 

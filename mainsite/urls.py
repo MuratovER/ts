@@ -19,8 +19,8 @@ urlpatterns = [
 	path('to_do_list/', views.to_do_list_view, name='to_do_list'),
 
 	path('blog/', views.post_list, name='post_list'),
-	path('blog/create/', views.post_new, name='post_new'),
 	path('blog/drafts/', views.post_draft_list, name='post_draft_list'),
+	path('blog/article/new/', views.post_new, name='post_new'),
 	path('blog/article/<int:pk>/', views.post_detail, name='post_detail'),
 	path('blog/article/<int:pk>/edit/', views.post_edit, name='post_edit'),
 	path('blog/article/<pk>/publish/', views.post_publish, name='post_publish'),
