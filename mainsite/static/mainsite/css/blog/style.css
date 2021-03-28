@@ -1,5 +1,6 @@
 .instruments-panel {
     border-top: 0.35px solid #ACACAC;
+    user-select: none;
 }
 
 .tool-panel {
@@ -11,10 +12,18 @@
 
 .instrument {
     margin-right: 1rem;
+    user-select: none;
 }
 
 .instrument:hover {
     text-decoration: none;
+}
+
+.activated {
+    background: #DCDEE0;
+    border-radius: 0.5rem;
+    padding: 1rem 0.3rem 0.3rem 0.5rem;
+    margin: 0 0.7rem 0 -0.5rem;
 }
 
 .instrument-categor {
@@ -74,6 +83,7 @@
     font-size: 20px;
     line-height: 23px;
     color: #9DA3AB;
+    user-select: none;
 }
 
 .placeholder-img-s {
@@ -83,6 +93,7 @@
     font-size: 12px;
     line-height: 14px;
     color: #737A83;
+    user-select: none;
 }
 
 .editor-non[placeholder]:empty:before {
