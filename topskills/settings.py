@@ -23,7 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'lrdxap=5ty@6s%!qny5xiidm4jje^czh^a*z8$4m#4)@%57xp8'
+SECRET_KEY_API = os.getenv('SECRET_KEY')
+SECRET_KEY = 'SECRET_KEY_API'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -150,8 +151,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 
 
+#Сохраняем api из переменных окружения в локальные переменные
+CLOUDINARY_NAME = os.getenv('CLOUDINARY_NAME') 
+CLOUDINARY_API_KEY = os.getenv('CLOUDINARY_API_KEY')
+CLOUDINARY_API_SECRET = os.getenv('CLOUDINARY_API_SECRET')
+
+
 cloudinary.config( 
-    cloud_name = "topskills", 
-    api_key = "815436123641142", 
-    api_secret = "ubLhMS2DO5uYPceEsp4gO5XSa1A" 
+    cloud_name = 'CLOUDINARY_NAME', 
+    api_key = 'CLOUDINARY_API_KEY', 
+    api_secret = 'CLOUDINARY_API_SECRET' 
 )
+
+print(CLOUDINARY_NAME)
