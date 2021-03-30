@@ -1,0 +1,573 @@
+*
+    margin: 0
+    padding: 0
+    font-size: 14px
+button, a, input
+    border: none
+    background: none
+    &:focus
+        outline: none
+    &:hover
+        cursor: pointer
+#header
+    border-bottom: 1px solid grey
+.header--flex
+    width: 1400px
+    margin: 0 auto
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+.header--item
+    padding: 35px 0px 35px
+.header--logo
+    display: flex
+    flex-direction: row
+    align-items: center
+    p
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1em;
+        line-height: 1em;
+        letter-spacing: 0.2px;
+        color: #000000;
+.header--logo-img
+    margin-right: 0.4em
+.header--item-nav
+    width: 640px
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+.header--link
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.3em;
+    line-height: 1.5em;
+    /* identical to box height */
+    color: #000000;
+    text-decoration: none
+    transition: text-decoration 1s
+    &:hover
+        text-decoration: underline
+.header-menu
+    &:hover    
+        cursor: pointer
+.registration
+    background: #FDFDFD;
+    height: 100vh - 11vh
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+.registration--block
+    width: 430px
+    min-height: 560px
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: center
+    box-shadow: 0px 6.84211px 27.3684px rgba(0, 0, 0, 0.05);
+    border-radius: 20.5263px; 
+    & form
+        display: flex
+        flex-direction: column
+        align-items: center
+.registration--title
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.9em;
+    line-height: 2empx;
+    /* identical to box height */
+    color: #000000;
+    margin-top: 2.3em
+    margin-bottom: 2em
+.registration-input
+    margin: 0px 0px 2.5em
+    height: 40px
+    width: 320px
+    border-radius: 20px
+    border: 0.22807px solid #B6B6B6;  
+    transition: 0.5s
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1em;
+    /* identical to box height */
+    padding-left: 1.5em
+    &:focus
+        outline: none
+        border: 0.8px solid #000000;
+    &::placeholder
+        color: #969595;
+    &:last-child
+        margin-bottom: 2.1em
+.signIn
+    width: 342px
+    padding: 1em 0px 1em
+    background: #F5F5F5;
+    border: 0.22807px solid #B6B6B6;  
+    border-radius: 42.193px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em
+    line-height: 1em
+    /* identical to box height */
+    color: #848484;
+    &:focus
+        background: black
+        color: white
+        outline: none
+.password--input-wrapper
+    position: relative
+.show--password
+    position: absolute
+    right: 30px
+    top: 10px
+    background: none
+    border: none
+    &:focus
+        outline: none
+.linkToRegistration
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.8em;
+    line-height: 1em;
+    /* identical to box height */
+    color: #3865DB;
+    margin-bottom: 30px
+
+/* 
+    Habbits info section
+#mainWindow
+    display: flex
+    flex-direction: row
+.habbits--info
+    width: 331px
+    height: 100vh - 11vh
+    background: #FDFDFD
+    padding-left: 37px
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    gap: 20px
+.habbits--info-btn
+    font-family: Roboto
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.2em;
+    line-height: 20px;
+    color: #000000;
+    background: none
+    border: none
+    padding: 2.1em 0em 3.5em
+    display: flex
+    flex-direction: row
+    text-decoration: none
+    img
+        margin-right:  1em
+    &:focus
+        outline: none
+.habbits--header-titlee
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.2em;
+    line-height: 1.4em;
+    color: #000000;
+.habbits--list-title
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1em;
+    color: #000000;
+    margin-bottom: 1.4em
+    img
+        margin-left: 0.9em
+    &:hover
+        cursor: pointer
+.habbit--type
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1em;
+    letter-spacing: 0.2px;
+    color: #383838;
+    width: 280px
+    margin-bottom: 1.5em
+    list-style-type: none
+    span
+        float: right
+.habbit--group
+    width: 280px
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1em;
+    letter-spacing: 0.2px;
+    margin-bottom: 1.5em
+    list-style-type: none
+    img 
+        float: left
+        margin-right: 0.3em
+    span
+        float: right
+.habbits--statistics
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1em;
+    line-height: 1em;
+    letter-spacing: 0.2px;
+    color: #000000;
+    text-decoration: none  
+.exit
+    margin-top: 1.4em
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1em;
+    /* identical to box height */
+    color: #3A3A3A;
+    text-decoration: none
+    display: flex
+    flex-direction: row
+    align-items: center
+.displayNone
+    display: none
+.disabledStyle
+    background: #434343
+    cursor: default
+.checkHabbits--container
+    align-self: flex-end
+    width: 970px
+    position: relative
+    margin: 82px 280px
+.habbitsDate
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold
+    font-size: 1.4em;
+    line-height: 1.4em;
+    /* identical to box height */
+    color: #000000;
+.habbitsCheck--calendar
+    display: flex
+    font-display: row
+    justify-content: space-around
+    margin-top: 2.7em
+    position: relative
+.habbitsCheck--day
+    display: flex
+    flex-direction: column
+    align-items: center
+.day-number
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1em;
+    color: #000000;
+.day-vertical-line
+    border: 1px solid #383838;
+    transform: rotate(90deg);
+    width: 20px
+    margin-top: 1.4em
+.habbitsCheck--calendar-horizontalLine
+    border: 1px solid #383838;
+    width: 970px
+    position: absolute
+    top: 35px
+.currentDay
+    border: 3px solid #383838;
+    width: 70px
+    position: absolute
+    top: 33px
+.habbits--check-list
+    margin-top: 4.6em
+    display: flex
+    flex-direction: column
+.habbits--check-list-headline
+    display: flex
+    flex-direction: row
+    align-items: center
+    padding-bottom: 20px
+    border-bottom: 0.35px solid #000000;
+.allHabbitsBtn
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2em;
+    line-height: 1.3em;
+    /* identical to box height */
+    color: #383838;
+    img
+        padding-left: 10px
+.addHabbit
+    position: absolute
+    right: 0
+    &:hover
+        cursor: pointer
+.habbit--check-item
+    display: flex
+    flex-direction: row
+    align-items: center
+    gap: 30px
+    padding: 25px 0px 25px
+    border-bottom: 0.35px solid #000000;
+.checkedHabbit
+    color: #999999
+    text-decoration: line-through
+.habbit--info-btn, .habbit--delete
+    position: absolute
+    right: 20px
+    &:hover
+        cursor: pointer
+.habbit--info-btn
+    right: 70px
+
+/*
+    add Habbit
+#addHabbit
+    margin: 0
+    padding-top: 0
+    background-color: #434343
+    width: 100%
+    height: 100vh - 10.4vh
+    display: flex
+    justify-content: center
+#infoHabbit
+    background-color: #434343
+    width: 100%
+    height: 100vh - 10.4vh
+.add--habbit--section
+    position: relative
+    margin: auto auto
+    border-radius: 10px;
+    width: 660px
+    height: 460px
+    background: white
+.add--title
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5em
+    line-height: .19em
+    /* identical to box height */
+    color: #000000;
+    padding: 1.5em 0em 2.8em 
+.add--habbit--headline
+    display: flex
+    flex-direction: row
+    padding-bottom: 0.7em
+    border-bottom: 0.35px solid #7A7A7A;
+.add--habbit-title
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1em;
+    color: #383838;
+    border: none
+    width: 450px
+    height: 25px
+.add--habbit-group
+    position: absolute
+    right: 80px
+.add--habbit-container
+    width: 525px
+    margin: 0 auto
+    //margin: 62px 67px 0px 63px
+.add--habbit-descrption
+    margin-top: 21px
+    width: 96%
+    padding: 10px 10px
+    &::placeholder
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1em;
+        line-height: 1em;
+        color: #686767;
+    &:focus
+        outline: none
+.add--habbit-btn
+    position: absolute
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #848484;
+    width: 660px
+    background: #F5F5F5
+    text-align: center
+    padding: 17px 0px 17px 0px 
+    border-bottom-left-radius: 10px
+    border-bottom-right-radius: 10px
+    bottom: 0
+    img
+        padding-right: 10px
+
+.close--btn
+    position: absolute
+    right: 30px
+    top: 30px
+/*
+    habbit info section
+.select--habbit--info
+    position: absolute
+    z-index: 1
+    left: 35%
+    top: 25%
+    border-radius: 10px;
+    width: 660px
+    min-height: 300px
+    background: white
+.habbit--info-container
+    width: 525px
+    margin: 52px 67px 0px 63px
+    display: flex
+    flex-direction: column
+    background: white
+.habbit--info-group
+    position: relative
+    border: 0.5px solid #D3D3D3;
+    box-sizing: border-box;
+    border-radius: 3px;
+    min-width: 70px
+    max-width: 140px
+    display: flex
+    flex-direction: row
+    height: 17px
+.habbit--info-group-title
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.9em;
+    line-height: 0.9em;
+    color: #FF4337;
+    padding: 2px 0px 3px 7px
+.habbit--info-group-logo
+    position: absolute
+    right: 5px 
+    border-left: 0.5px solid #D3D3D3;
+    padding-left: 10px
+    height: 16px
+.habbit--info-title
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.4em;
+    line-height: 1.5em;
+    /* identical to box height */
+    color: #383838;
+    margin: 15px 0px 15px
+.habbit--info-description-txt
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 194.19%;
+    /* or 21px */
+    color: #383838;
+.habbit--info-edit
+    position: absolute
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #848484;
+    width: 625px
+    text-align: center
+    background: #F5F5F5
+    padding: 17px 
+    border-bottom-left-radius: 10px
+    border-bottom-right-radius: 10px
+    bottom: 0
+    img
+        padding-right: 10px
+
+/* statistics
+.statistics--container
+    position: relative
+    width: 970px
+    margin: 0 auto
+.statistics--title
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5em;
+    line-height: 1.5em;
+    color: #000000;
+    padding: 2.8em 0px 2em 0px
+.statistics--config 
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4em;
+    line-height: 1.4em;
+    color: #383838;
+    border: none
+    margin-right: 71px
+    &:focus
+        outline: none
+        cursor: pointer
+.show--statistics
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4em;
+    line-height: 1.4em;
+    color: #383838;
+    text-decoration:  underline
+#chart_div
+    margin: 0 auto; 
+    width: 1200px; 
+    height: 500px;
+.statistics--text-title
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4em;
+    line-height: 1.4em;
+    color: #383838;
+    width: 100%
+    padding-bottom: 1em
+    border-bottom: 0.35px solid #000000;
+.statistics--text-habbit-name
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4em;
+    line-height: 1.5em;
+    color: #383838;
+    padding: 1.2em 0em 0.8em 0em
+.statistics--text-habbit-count
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4em;
+    line-height: 189.69%;
+    /* identical to box height, or 38px */
+    color: #000000;
+.statistics--text-habbit
+    display: flex
+    flex-direction: row
+    align-items: center
+    border-bottom:  0.35px solid #000000;
+.statistics--text-habbit-count
+    position: absolute
+    right: 0
+#statistics
+    display: flex
+    flex-direction: row

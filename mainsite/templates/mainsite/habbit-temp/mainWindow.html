@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habbits Tracker</title>
+  <link rel="stylesheet" href="../../../static/mainsite/css/dist/habbit.css">
+  <script src='../../../static/mainsite/js/dist/habbit-main.js' defer></script>
+</head>
+<body>
+  <header id='header'>
+    <div class="header--flex">
+      <div class="header--item">
+        <div class="header--logo">
+          <img src="../../../static/mainsite/images/dist/habbit/bulb.png" class='header--logo-img'alt="">
+          <p>Track</p>
+        </div>
+      </div>
+      <div class="header--item ">
+        <nav class='header--item-nav'>
+          <a href="" class="header--link">Что такое трекер?</a>
+          <a href="" class="header--link">Вопрос-ответ</a>
+          <a href="" class="header--link">Разработчикам</a>
+        </nav>
+      </div>
+      <div class="header--item">
+        <img src="../../../static/mainsite/images/dist/habbit/menu.png" class='header-menu' alt="">
+      </div>
+    </div>
+  </header>
+  <section id='mainWindow' class='something' >
+    <div class="habbits--info">
+      <a  href='mainWindow.html' class="habbits--info-btn" >
+        <img src="../../../static/mainsite/images/dist/habbit/calendar-next.png" alt="">
+        <p>Треккер привычек</p>
+      </a>
+      <button class='habbits--list-title habbits--type-list-title' >Мои привычки <img src="../../../static/mainsite/images/dist/habbit/chevron_down.png" alt=""></button>
+      <ul  class="habbits--type-list displayNone">
+        <li class="habbit--type">Все привычки<span class='habbit--count'>1</span></li>
+        <li class="habbit--type">Избранное <span class='habbit--count'>2</span></li>
+        <li class="habbit--type">Выполненные привычки<span class='habbit--type-count'>3</span></li>
+      </ul>
+      <button class='habbits--list-title habbits--type-list-title'>Мои Группы <img src="../../../static/mainsite/images/dist/habbit/chevron_down.png" alt=""></button>
+      <ul class="habbits--group-lists displayNone">
+          <li class="habbit--group">
+            <img src="../../../static/mainsite/images/dist/habbit/GroupLogo.png" alt="">
+            Работа
+            <span class='habbit--group-count'>1</span>
+          </li>
+          <li class="habbit--group">
+            <img src="../../../static/mainsite/images/dist/habbit/GroupLogo.png"  alt="">
+            Учеба
+            <span class='habbit--group-count'>1</span>
+          </li>
+          <li class="habbit--group"> 
+            <img src="../../../static/mainsite/images/dist/habbit/GroupLogo.png"  alt="">
+            Саморазвитие
+            <span class='habbit--group-count'>1</span>
+          </li>
+      </ul>
+      <a href="statistics.html" class="habbits--statistics">Моя статистика</a>
+      <a href="authorization.html" class='exit'><img src="../../../static/mainsite/images/dist/habbit/exit.png" alt="">Выйти из приложения</a>
+    </div>
+    <div class="checkHabbits">
+      <div class="checkHabbits--container">
+        <p class="habbitsDate">19 March, Пн</p>
+        <div class="habbitsCheck--calendar">
+          <div class="habbitsCheck--day">
+            <p class="day-number">19 <span class="day-name">Пн</span></p>
+            <div class="day-vertical-line"></div>
+            <div class="currentDay"></div>
+          </div>
+          <div class="habbitsCheck--day">
+            <p class="day-number">20 <span class="day-name">Вт</span></p>
+            <div class="day-vertical-line"></div>
+          </div>
+          <div class="habbitsCheck--day">
+            <p class="day-number">21 <span class="day-name">Ср</span></p>
+            <div class="day-vertical-line"></div>
+          </div>
+          <div class="habbitsCheck--day">
+            <p class="day-number">22 <span class="day-name">Чт</span></p>
+            <div class="day-vertical-line"></div>
+          </div>
+          <div class="habbitsCheck--day">
+            <p class="day-number">23 <span class="day-name">Пт</span></p>
+            <div class="day-vertical-line"></div>
+          </div>
+          <div class="habbitsCheck--day">
+            <p class="day-number">24<span class="day-name">Сб</span></p>
+            <div class="day-vertical-line"></div>
+          </div>
+          <div class="habbitsCheck--day">
+            <p class="day-number">25 <span class="day-name">Вс</span></p>
+            <div class="day-vertical-line"></div>
+          </div>
+          <div class="habbitsCheck--calendar-horizontalLine"></div>
+        </div>
+        <div class="habbits--check-list">
+          <div class="habbits--check-list-headline">
+            <button class="allHabbitsBtn">Все привычки<img src="../../../static/mainsite/images/dist/habbit/chevron_down.png" alt=""></button>
+            <a class='addHabbit' href='addHabbit.html'><img src="../../../static/mainsite/images/dist/habbit/add.png" alt=""></a>
+          </div>
+          <div class="allHabbitsList displayNone">
+            <div class="habbit--check-item">
+              <input type="checkbox" name="" class='check--habbit' id="">
+              <p class='habbit--title'>За 30 дней выучить татарский язык</p>
+              <a href='habbitInfo.html' class='habbit--info-btn'><img src="../../../static/mainsite/images/dist/habbit/info.png" alt=""></a>
+              <button class='habbit--delete'><img src="../../../static/mainsite/images/dist/habbit/trash.png" alt=""></button>
+            </div>
+            <div class="habbit--check-item">
+              <input type="checkbox" name="" class='check--habbit' id="">
+              <p class='habbit--title'>За 29 дней выучить татарский язык</p>
+              <a href='habbitInfo.html' class='habbit--info-btn'><img src="../../../static/mainsite/images/dist/habbit/info.png" alt=""></a>
+              <button class='habbit--delete'><img src="../../../static/mainsite/images/dist/habbit/trash.png" alt=""></button>
+            </div>
+            <div class="habbit--check-item">
+              <input type="checkbox" name="" class='check--habbit' id="">
+              <p class='habbit--title'>За 28 дней выучить татарский язык</p>
+              <a href='habbitInfo.html' class='habbit--info-btn'><img src="../../../static/mainsite/images/dist/habbit/info.png" alt=""></a>
+              <button class='habbit--delete'><img src="../../../static/mainsite/images/dist/habbit/trash.png" alt=""></button>
+            </div>
+            <div class="habbit--check-item">
+              <input type="checkbox" name="" class='check--habbit' id="">
+              <p class='habbit--title'>За 27 дней выучить татарский язык</p>
+              <a href='habbitInfo.html' class='habbit--info-btn'><img src="../../../static/mainsite/images/dist/habbit/info.png" alt=""></a>
+              <button class='habbit--delete'><img src="../../../static/mainsite/images/dist/habbit/trash.png" alt=""></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</body>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</html>
