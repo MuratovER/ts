@@ -28,8 +28,12 @@ def home_page(request):
     if request.user.is_authenticated:
         return render(request, 'mainsite/home.html',)
     else:
-        return render(request, 'mainsite/landing.html',)
+        if request.user_agent.is_mobile:
+            return render(request, 'mainsite/mobile/index.html',)
+        else:    
+            return render(request, 'mainsite/landing.html',)
 
+ 
     
 
 @login_required

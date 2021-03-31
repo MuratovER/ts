@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'quiz',
     'multichoice', 
     'true_false', 
-    'essay'
+    'essay',
+    'django_user_agents',
 ]
 
 MIDDLEWARE = [
@@ -62,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_user_agents.middleware.UserAgentMiddleware',
 ]
 
 ROOT_URLCONF = 'topskills.urls'
@@ -163,4 +165,7 @@ cloudinary.config(
     api_secret = 'CLOUDINARY_API_SECRET' 
 )
 
-print(CLOUDINARY_NAME)
+
+# Name of cache backend to cache user agents. If it not specified default
+# cache alias will be used. Set to `None` to disable caching.
+USER_AGENTS_CACHE = 'default'
