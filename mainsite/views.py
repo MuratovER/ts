@@ -29,7 +29,7 @@ def home_page(request):
         return render(request, 'mainsite/home.html',)
     else:
         if request.user_agent.is_mobile:
-            return render(request, 'mainsite/mobile/index.html',)
+            return render(request, 'mainsite/mobile/landing.html',)
         else:    
             return render(request, 'mainsite/landing.html',)
 
