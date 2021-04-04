@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('mainsite', '0027_auto_20210309_1710'),
+        ('mainsite', '0026_auto_20210309_1709'),
     ]
 
     operations = [
@@ -20,10 +20,5 @@ class Migration(migrations.Migration):
             model_name='profile',
             name='email',
             field=models.EmailField(max_length=150, null=True),
-        ),
-        migrations.AlterField(
-            model_name='profile',
-            name='image',
-            field=cloudinary.models.CloudinaryField(blank=True, max_length=255, null=True, verbose_name='image'),
         ),
     ]
