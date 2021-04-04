@@ -94,7 +94,7 @@ class Profile(models.Model):
     last_name = models.CharField(max_length=100, blank=True)
     email = models.EmailField(max_length=150, null=True)
     bio = models.TextField(blank=True, null=True)
-    image = CloudinaryField('image', null=True, blank=True)
+    image = CloudinaryField('image', null=True, blank=True, default = None)
 
     def __str__(self):
         return self.user.username
@@ -140,12 +140,6 @@ class User_affirmation(models.Model):
         verbose_name_plural = 'Пользовательские аффирмации'
         verbose_name = 'Аффирмация'
         ordering = ['-user']
-
-
-
-
-
-
 
 
 class Achivement(models.Model):
