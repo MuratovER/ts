@@ -1825,3 +1825,10 @@ color: #011128;
         opacity: 1;
 }
 
+.Conteiner {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  font-size: 1.5em;
+  background: #aaa;
+  }
