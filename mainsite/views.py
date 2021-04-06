@@ -7,7 +7,7 @@ from django.template import RequestContext
 from .models import Post, Skill, UserSkill, Profile, Sphere_of_life, Achivement, UserAchivement, User_affirmation, Comment 
 from django.utils import timezone
 from django.contrib.auth.models import User
-from .forms import Sphere_of_life_Form, PostForm, CommentForm, UserUpdateForm, ProfileUpdateForm
+from .forms import Sphere_of_life_Form, PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
 from .useful_lib import WheelOfLife, get_affirmation_image
 import datetime
@@ -573,25 +573,4 @@ def api_get_todolist(request):
         return Response(serializer.data)
 
 
-
-# views for update info about user
-@login_required
-def profile_settings(request):
-    if request.method == 'POST':
-        u_form = UserUpdateForm(request.POST, instance=request.user)
-        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
-        if u_form.is_valid()and p_form.is_valid():
-            u_form.save()
-            p_form.save()
-            #messages.success(request, f"Your info has been changed!")
-            return redirect('profile_settings')    
-    else:
-        u_form = UserUpdateForm(instance=request.user)
-        p_form = ProfileUpdateForm(request.POST, instance=request.user.profile)
-   
-    context = {
-        'u_form': u_form,
-        'p_form': p_form
-    }
-    return render(request, 'registration/profile_settings.html', context)
 
