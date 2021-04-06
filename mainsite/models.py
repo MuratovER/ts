@@ -10,6 +10,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 #from .forms import UploadFileForm
 from cloudinary.models import CloudinaryField
+from PIL import Image
 
 
 
@@ -95,9 +96,17 @@ class Profile(models.Model):
     email = models.EmailField(max_length=150, null=True)
     bio = models.TextField(blank=True, null=True)
     image = CloudinaryField('image', null=True, blank=True, default = None)
-
+    image = models.ImageField(default ='default.jpg', upload_to='blah')
     def __str__(self):
         return self.user.username
+    def save(self):
+        super().save()
+        image = Image.open(self.image.path)
+        if image.height>300 or image.width>300 :
+            output_size = (300,300)
+            image.thumbnail(output_size)
+            image.save(self.image.path)
+
 
 
 @receiver(post_save, sender=User)

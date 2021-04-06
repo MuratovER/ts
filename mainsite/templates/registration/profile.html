@@ -1,0 +1,29 @@
+{% extends 'mainsite/base.html' %} 
+
+{% block content %}
+{% load static %}
+
+
+<div class="Conteiner">
+  <div class="login-tables">
+      <form id="regForm" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+      
+                   
+          <div> 
+            {{ u_form }}
+          </div>
+          <br>
+          <div>
+             {{ p_form }}
+          </div>   
+
+              
+  
+        <button class="dws_submit" type="submit">Update</button> 
+      </form>
+   </div> 
+ </div>
+
+ {% endblock %} 
+
