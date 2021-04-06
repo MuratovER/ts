@@ -17,7 +17,8 @@ urlpatterns = [
 	path('user_page/', views.user_page, name='user_page'), 
 	path('achivements/', views.achivement_view, name='achivements'),
 	path('to_do_list/', views.to_do_list_view, name='to_do_list'),
-
+	path('profile_settings/', views.profile_settings, name='profile_settings'),
+	
 	path('blog/', views.post_list, name='post_list'),
 	path('blog/drafts/', views.post_draft_list, name='post_draft_list'),
 	path('blog/article/new/', views.post_new, name='post_new'),
