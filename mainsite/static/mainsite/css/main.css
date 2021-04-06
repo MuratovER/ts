@@ -1825,10 +1825,3 @@ color: #011128;
         opacity: 1;
 }
 
-.conteiner_profile_settings {
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  font-size: 1.5em;
-  background: #aaa;
-  }

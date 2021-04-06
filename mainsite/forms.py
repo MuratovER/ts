@@ -49,17 +49,3 @@ class PhotoForm(ModelForm):
       model = Profile
       fields = ('image',)
       
-# this form for update information about user
-class UserUpdateForm(forms.ModelForm):
-    email = forms.EmailField(max_length=150, help_text='Email')
-    first_name = forms.CharField(max_length=100, help_text='Last Name')
-    last_name = forms.CharField(max_length=100, help_text='Last Name')
-
-    class Meta:
-        model = User
-        fields = ('username','email', 'first_name', 'last_name')
-
-class ProfileUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = ['image']
