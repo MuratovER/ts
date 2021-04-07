@@ -97,17 +97,17 @@ class Profile(models.Model):
     image = CloudinaryField('image', null=True, blank=True, default = None)
     image = models.ImageField(default ='default.jpg', upload_to='image_of_user') # сохраняется в папке media 
    
-    def __str__(self):
-        return self.user.username
-    def save(self):
-        super().save()
-        image = Image.open(self.image.path)
-        if image.height>300 or image.width>300 :
-            output_size = (300,300)
-            image.thumbnail(output_size)
-            image.save(self.image.path)
-    def __str__(self):
-        return self.user.username
+#     def __str__(self):
+#         return self.user.username
+#     def save(self):
+#         super().save()
+#         image = Image.open(self.image.path)
+#         if image.height>300 or image.width>300 :
+#             output_size = (300,300)
+#             image.thumbnail(output_size)
+#             image.save(self.image.path)
+#     def __str__(self):
+#         return self.user.username
 
 
 @receiver(post_save, sender=User)
