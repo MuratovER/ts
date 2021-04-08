@@ -379,8 +379,7 @@ def post_edit(request, pk):
 def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.publish()
-    return redirect('post_detail', pk=pk)
-
+    return redirect('post_list')
 
 @login_required
 def post_remove(request, pk):
@@ -397,25 +396,25 @@ def add_comment_to_post(request, pk):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('post_list')
     else:
         form = CommentForm()
     return render(request, 'mainsite/add_comment_to_post.html', {'form': form})
 
 @login_required
 def comment_approve(request, pk):
-    comment = get_object_or_404(Comment, pk=pk)
+    comment = get_object_or_404(Comment, pk=Comment.pk)
     comment.approve()
-    return redirect('post_detail', pk=comment.post.pk)
+    return redirect('post_list')
 
 @login_required
 def comment_remove(request, pk):
-    comment = get_object_or_404(Comment, pk=pk)
+    comment = get_object_or_404(Comment, pk=Comment.pk)
     comment.delete()
-    return redirect('post_detail', pk=comment.post.pk)
+    return redirect('post_list')
 
 @login_required
-def add_like(request, pk):
+def add_post_like(request, pk):
     if pk in request.COOKIES:
         return HttpResponseRedirect('/blog')
     else:

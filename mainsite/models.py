@@ -40,6 +40,7 @@ class Comment(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
+    likes = models.IntegerField(default='0')
 
     def approve(self):
         self.approved_comment = True
