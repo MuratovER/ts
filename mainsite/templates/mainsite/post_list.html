@@ -33,7 +33,6 @@
                     </div>
                     <strong>{{ comment.author }}</strong>
                     <p>{{ comment.text|linebreaks }}</p>
-                    <a href="{% url 'add_comm_like' pk=post.pk %}">Лайки: {{ comment.likes }}</a>
                 </div>
                 {% endif %}
             {% empty %}

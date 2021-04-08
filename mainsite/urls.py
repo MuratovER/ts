@@ -30,7 +30,6 @@ urlpatterns = [
 	path('blog/article/<int:pk>/like/', views.add_post_like, name='add_post_like'),
 	path('blog/comment/<int:pk>/approve/', views.comment_approve, name='comment_approve'),
 	path('blog/comment/<int:pk>/remove/', views.comment_remove, name='comment_remove'),
-	path('blog/comment/<int:pk>/like/', views.add_comm_like, name='add_comm_like'),
 
 	path('tree/', views.tree_view, name='tree'),
 	path('tree_old/', views.tree_old, name='tree_old'),
