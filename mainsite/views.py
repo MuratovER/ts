@@ -406,22 +406,34 @@ def add_comment_to_post(request, pk):
 def comment_approve(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.approve()
-    return redirect('post_detail', pk=comment.post.pk)
+    return redirect('post_list', pk=comment.post.pk)
 
 @login_required
 def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
-    return redirect('post_detail', pk=comment.post.pk)
+    return redirect('post_list', pk=comment.post.pk)
 
 @login_required
-def add_like(request, pk):
+def add_post_like(request, pk):
     if pk in request.COOKIES:
         return HttpResponseRedirect('/blog')
     else:
         post = get_object_or_404(Post, pk=pk)
         post.likes += 1
         post.save()
+        response = HttpResponseRedirect('/blog')
+        response.set_cookie(f"{pk}", 'test')
+        return response
+
+@login_required
+def add_comm_like(request, pk):
+    if pk in request.COOKIES:
+        return HttpResponseRedirect('/blog')
+    else:
+        comm = get_object_or_404(Comment, pk=pk)
+        comm.likes += 1
+        comm.save()
         response = HttpResponseRedirect('/blog')
         response.set_cookie(f"{pk}", 'test')
         return response
