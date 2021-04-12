@@ -1574,7 +1574,7 @@ blockquote {
   box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.1);
   border-radius: 50px;
 }  
-input[type="text"], input[type="password"]{
+ input[type="password"]{
   width:441px;
   height:44px;
   font-size: 18px;
