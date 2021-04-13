@@ -81,121 +81,130 @@
 
 
 <style>
+.textofname {
+  text-align: left;
+  width: 318px;
+  height: 38px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: #4D4D4D;
+}
+#nextBtn {
+  width: 384px;
+  height: 69px;
+  background: #5DA1FB;
+  border-radius: 7px;
+}
+label {
+  width: 350px;
+  height: 50px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 41px;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+}
+* {
+  box-sizing: border-box;
+}
 
-    .textofname {
-     text-align: left;
-    width: 318px;
-    height: 38px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 18px;
-    text-align: center;
-    letter-spacing: 0.03em;
-    color: #4D4D4D;
-        }
-    #nextBtn {
-     width: 384px;
-    height: 69px;
-    background: #5DA1FB;
-            border-radius: 7px;
-        }
-        label {
-            width: 350px;
-            height: 50px;
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 30px;
-            line-height: 41px;
-            text-align: center;
-            letter-spacing: 0.03em;
-        }
+body {
+  background-color: #f1f1f1;
+}
 
-
-        }
-            * {
-              box-sizing: border-box;
-            }
-
-            body {
-              background-color: #f1f1f1;
-            }
-
-            #regForm {
-              background-color: #ffffff;
+#regForm {
+  background-color: #ffffff;
              /* margin: 100px auto; */
-              font-family: Raleway;
-              padding: 40px;
+  font-family: Raleway;
+  padding: 40px;
              /* width: 70%; */
-              min-width: 300px;
-            }
+  min-width: 300px;
+}
 
-            h1 {
-              text-align: center;  
-            }
+h1 {
+  text-align: center;  
+}
 
-            input {
-              padding: 10px;
-              width: 100%;
-              font-size: 17px;
-              font-family: Raleway;
-              border: 1px solid #aaaaaa;
-            }
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
 
             /* Mark input boxes that gets an error on validation: */
-            input.invalid {
-              background-color: #ffdddd;
-            }
+input.invalid {
+  background-color: #ffdddd;
+}
 
             /* Hide all steps by default: */
-            .tab {
-              display: none;
-            }
+.tab {
+  display: none;
+}
 
-            button {
-              background-color: #4CAF50;
-              color: #ffffff;
-              border: none;
-              padding: 10px 20px;
-              font-size: 17px;
-              font-family: Raleway;
-              cursor: pointer;
-            }
+button {
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
 
-            button:hover {
-              opacity: 0.8;
-            }
+button:hover {
+  opacity: 0.8;
+}
 
-            #prevBtn {
-              width: 384px;
-              height: 69px;
-              background: #5DA1FB;
-              border-radius: 7px;
-              margin-top: 20px;
-            }
+#prevBtn {
+  width: 384px;
+  height: 69px;
+  background: #5DA1FB;
+  border-radius: 7px;
+  margin-top: 20px;
+}
 
             /* Make circles that indicate the steps of the form: */
-            .step {
-              height: 10px;
-              width: 10px;
-              margin: 0 2px;
-              background-color: #E5E5E5;
-              border: none;  
-              border-radius: 50%;
-              display: inline-block;
-              opacity: 0.5;
-            }
+.step {
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #E5E5E5;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
 
-            .step.active {
-              opacity: 1;
-            }
+.step.active {
+  opacity: 1;
+}
 
             /* Mark the steps that are finished and valid: */
-            .step.finish {
-              background-color: #000000;
-            }
+.step.finish {
+ background-color: #000000;
+ }
+
+input[type="text"], input[type="password"]{
+  width:441px;
+  height:44px;
+  font-size: 18px;
+  margin-bottom: 25px;
+  padding-left: 40px; 
+  border: 2px solid #5EA2FF;
+  box-sizing: border-box;
+  border-radius: 7px;
+
+}
 </style>
 
 <script>
