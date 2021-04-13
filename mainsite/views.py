@@ -67,9 +67,6 @@ def skills(request):
 def aboutus(request):
     return render(request, 'mainsite/aboutus.html',)    
 
-def aboutus(request):
-    return render(request, 'mainsite/aboutus.html',)
-
 @login_required
 def introduction_view(request):
     return  render(request, 'mainsite/tree/introduction/introduction_chapters.html',)
@@ -456,24 +453,20 @@ def profile_image_upload(request):
 
 
 @login_required
-def user_page(request):
+def user_page(request, username):
 
 
     '''
     отображает на странице профиля скилы и фичи для конкретных пользователей
     '''
+   
 
     user = User.objects.get(username = request.user)
-    
     profile = Profile.objects.get(user= request.user)
     
     skills = UserSkill.objects.filter(user=user)
-    
-    #profile_picture = user.i 
 
     achivements = UserAchivement.objects.filter(user = user)
-    
-    
 
     sphere = None
     if Sphere_of_life.objects.filter(user=request.user).exists():
@@ -491,6 +484,7 @@ def user_page(request):
         user_text = user_obj.text
         bg_id = user_obj.background_id
         user_affirmation_path = get_affirmation_image.get_image(user_obj)
+
     return render(request, 'mainsite/user_page.html', 
                             {
                                 'user' : user, 
@@ -499,6 +493,7 @@ def user_page(request):
                                 'img' : img, 
                                 'user_affirmation_path' : user_affirmation_path,
                                 'profile': profile,
+                                
                                 
                             })
 
