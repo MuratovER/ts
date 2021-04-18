@@ -394,6 +394,7 @@ def add_comment_to_post(request, pk):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
+            comment.author = request.user
             comment.post = post
             comment.save()
             return redirect('post_list')
@@ -403,27 +404,35 @@ def add_comment_to_post(request, pk):
 
 @login_required
 def comment_approve(request, pk):
-    comment = get_object_or_404(Comment, pk=Comment.pk)
+    comment = get_object_or_404(Comment, pk=pk)
     comment.approve()
     return redirect('post_list')
 
 @login_required
 def comment_remove(request, pk):
-    comment = get_object_or_404(Comment, pk=Comment.pk)
+    comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
     return redirect('post_list')
 
-@login_required
+'''@login_required
 def add_post_like(request, pk):
     if pk in request.COOKIES:
-        return HttpResponseRedirect('/blog')
+        return redirect('post_list')
     else:
         post = get_object_or_404(Post, pk=pk)
         post.likes += 1
         post.save()
-        response = HttpResponseRedirect('/blog')
-        response.set_cookie(f"{pk}", 'test')
-        return response
+        return redirect('post_list')'''
+
+@login_required
+def add_like(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if post.user_likes == False:
+        post.likes += 1
+        post.save()
+        return redirect('post_list')
+    else:
+        return redirect('post_list')
 
 @login_required
 def skills(request):
