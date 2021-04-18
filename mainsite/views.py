@@ -414,17 +414,25 @@ def comment_remove(request, pk):
     comment.delete()
     return redirect('post_list')
 
-@login_required
+'''@login_required
 def add_post_like(request, pk):
     if pk in request.COOKIES:
-        return HttpResponseRedirect('/blog')
+        return redirect('post_list')
     else:
         post = get_object_or_404(Post, pk=pk)
         post.likes += 1
         post.save()
-        response = HttpResponseRedirect('/blog')
-        response.set_cookie(f"{pk}", 'test')
-        return response
+        return redirect('post_list')'''
+
+@login_required
+def add_like(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if post.user_likes == False:
+        post.likes += 1
+        post.save()
+        return redirect('post_list')
+    else:
+        return redirect('post_list')
 
 @login_required
 def skills(request):

@@ -19,6 +19,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
     likes = models.IntegerField(default='0')
+    user_likes = models.BooleanField(default=False)
     views = models.IntegerField(default='0')
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
