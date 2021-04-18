@@ -36,11 +36,10 @@ class Post(models.Model):
 # created comments for your articles
 class Comment(models.Model):
     post = models.ForeignKey('mainsite.Post', on_delete=models.CASCADE, related_name='comments')
-    author = models.CharField(max_length=200)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
-    likes = models.IntegerField(default='0')
 
     def approve(self):
         self.approved_comment = True
