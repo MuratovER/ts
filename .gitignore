@@ -14,4 +14,4 @@ topskills/settings.py
 .idea
 .vscode
 *~
-settings.py
+setenv.sh

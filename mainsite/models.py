@@ -9,18 +9,17 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 #from .forms import UploadFileForm
-
+from cloudinary.models import CloudinaryField
 
 
 
 #an extended version of the posts that help you make the post)
 class Post(models.Model):
-    '''
-    создает таблицу с параметрами автора заголовка текста датой создания и датой публикации
-    '''
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
+    likes = models.IntegerField(default='0')
+    views = models.IntegerField(default='0')
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
@@ -28,8 +27,27 @@ class Post(models.Model):
         self.published_date = timezone.now()
         self.save()
 
+    def approved_comments(self):
+        return self.comments.filter(approved_comment=True)
+
     def __str__(self):
         return self.title
+
+# created comments for your articles
+class Comment(models.Model):
+    post = models.ForeignKey('mainsite.Post', on_delete=models.CASCADE, related_name='comments')
+    author = models.CharField(max_length=200)
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
+    approved_comment = models.BooleanField(default=False)
+    likes = models.IntegerField(default='0')
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def __str__(self):
+        return self.text
 
 #difficulty logic with level and reavrd tabs
 class Difficulty(models.Model):
@@ -70,14 +88,27 @@ class UserSkill(models.Model):
 class Profile(models.Model):
     '''
     таблица профиля с именем фамилией почтой и краткой биографией
+    а также полем image куда пользователь загружает свой аватар
     '''
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100, blank=True)
     last_name = models.CharField(max_length=100, blank=True)
-    email = models.EmailField(max_length=150)
-    bio = models.TextField()
-    def __str__(self):
-        return self.user.username
+    email = models.EmailField(max_length=150, null=True)
+    bio = models.TextField(blank=True, null=True)
+    image = CloudinaryField('image', null=True, blank=True, default = None)
+#    image = models.ImageField(default ='default.jpg', upload_to='image_of_user') # сохраняется в папке media 
+   
+#     def __str__(self):
+#         return self.user.username
+#     def save(self):
+#         super().save()
+#         image = Image.open(self.image.path)
+#         if image.height>300 or image.width>300 :
+#             output_size = (300,300)
+#             image.thumbnail(output_size)
+#             image.save(self.image.path)
+#     def __str__(self):
+#         return self.user.username
 
 
 @receiver(post_save, sender=User)
@@ -113,17 +144,13 @@ class User_affirmation(models.Model):
     background_id = models.PositiveSmallIntegerField(blank = True, null = True)
     color = models.CharField(max_length=6, blank=True, null=True)
     font_type = models.CharField(max_length=100, blank=True, null=True)
+    
     def __str__(self):
         return self.user.username
     class Meta:
         verbose_name_plural = 'Пользовательские аффирмации'
         verbose_name = 'Аффирмация'
         ordering = ['-user']
-
-
-
-
-
 
 
 class Achivement(models.Model):
@@ -144,5 +171,6 @@ class UserAchivement(models.Model):
     
     def __str__(self):
         return self.achivement.name
+
 
 

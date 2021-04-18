@@ -8,6 +8,8 @@
 
 {% load static %}
 
+<title>Вход</title>
+
 <script>
   function show_hide_password(target){
   var input = document.getElementById('id_password');
@@ -20,7 +22,20 @@
   }
   return false;
 }
-</script>    
+</script>   
+<style>
+  input[type="text"]{
+  width:441px;
+  height:44px;
+  font-size: 18px;
+  margin-bottom: 25px;
+  padding-left: 40px; 
+  border: 2px solid #5EA2FF;
+  box-sizing: border-box;
+  border-radius: 7px;
+
+}
+</style> 
 <div class="conteiner">
    <div class="login-tables"> 
         <img class="DFL" src="../../static/mainsite/images/login_signup/sign_in.jpg">
@@ -29,11 +44,14 @@
                 <table class="login-form" class="DSS">
                     <h1 class="lws">Приветствуем тебя!</h1>
                         <div> 
-                          <img class="login-form::before" style="width: 30px; position: absolute;font-size: 30px;padding: 10px 0 0 7px; color: #2c536c;" src="{% static "mainsite/person.svg" %}" alt="2">{{ form.username }}
+                          <img class="login-form::before" style="width: 30px; position: absolute;font-size: 30px;padding: 10px 0 0 7px; color: #2c536c;" src="{% static "mainsite/person.svg" %}" alt="2">
+                          <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username"  placeholder="Никнейм">
+   <!--                {{ form.username }}   -->
                         </div>
                         <div>
                           <img class="login-form::before" style="width: 30px;position: absolute;font-size: 30px;padding: 10px 0 0 7px;color: #2c536c;" src="{% static "mainsite/lock.svg" %}" alt="2">
-                          <img href="#" class="password-control" onclick="return show_hide_password(this);"></img>{{ form.password }}
+                          <img href="#" class="password-control" onclick="return show_hide_password(this);"></img>
+                          {{ form.password }}
                         </div> 
                 </table>               
     <div class="dws">
