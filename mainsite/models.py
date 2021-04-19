@@ -97,7 +97,8 @@ class Profile(models.Model):
     bio = models.TextField(blank=True, null=True)
     image = CloudinaryField('image', null=True, blank=True, default = None)
     image = models.ImageField(default ='default.jpg', upload_to='image_of_user') # сохраняется в папке media 
-   
+    slug = models.SlugField(blank=True, null=True)
+    
 #     def __str__(self):
 #         return self.user.username
 #     def save(self):

@@ -17,6 +17,7 @@ from django.http import JsonResponse
 from django.template import RequestContext
 from cloudinary.forms import cl_init_js_callbacks      
 from django.http import HttpResponseRedirect
+from django.views.generic.detail import DetailView
 
 
 #Basic views begin
@@ -454,18 +455,13 @@ def profile_image_upload(request):
 
 @login_required
 def user_page(request, username):
-
-
     '''
     отображает на странице профиля скилы и фичи для конкретных пользователей
     '''
-   
 
     user = User.objects.get(username = request.user)
     profile = Profile.objects.get(user= request.user)
-    
     skills = UserSkill.objects.filter(user=user)
-
     achivements = UserAchivement.objects.filter(user = user)
 
     sphere = None
@@ -493,7 +489,6 @@ def user_page(request, username):
                                 'img' : img, 
                                 'user_affirmation_path' : user_affirmation_path,
                                 'profile': profile,
-                                
                                 
                             })
 
