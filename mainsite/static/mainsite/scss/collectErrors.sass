@@ -1,0 +1,150 @@
+*
+    margin: 0
+    padding: 0
+button, a
+    &:hover
+        cursor: pointer
+.error-wrapper
+    position: absolute
+    width: 100% 
+    height: 100%
+    background: #262626;
+    z-index: 1;
+    overflow-y: hidden
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+.collectErrors--block
+    position: absolute
+    bottom: 0
+    background: #fff
+    width: 100%
+    height: max-content
+    display: flex
+    flex-direction: column
+    align-items: center
+    border-top-left-radius: 20px
+    border-top-right-radius: 20px
+    mpadding-bottom: 23px
+.collectErrors--container
+    position: relative
+    width: 667px
+.collectErrors--header
+    padding-top: 37px
+    text-align: center
+    font-family: Roboto;
+    font-style: normal;
+    /* or 55px */
+    color: #000000;
+.collectErrors--title
+    font-size: 2em;
+    line-height: 2em;
+.collectErrors--close-btn
+    position: absolute
+    right: 42px
+    top: -50px
+    background: none
+    border: none
+    &:hover
+        cursor: pointer
+.collectErrors--hint
+    margin-top: 6px
+    text-align: center
+    font-size: 1em;
+    line-height: 1.8em;
+.collectErrors--errorInfo
+    margin-top: 43px
+    display: flex
+    flex-direction: column
+    align-items: center
+    text-align: center
+.errorInfo--title
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.4em;
+    line-height: 1.5em;
+    /* identical to box height */
+    color: #000000;
+.error--textarea
+    padding: 14px 0 14px 0 
+    margin-top: 32px
+    width: 666px
+    display: block;
+    min-height: 52px
+    max-height: 132px
+    font-size: 1em;
+    line-height: 1.4em;
+    color: #383838;
+    border: none
+    border-top: 0.35px solid #7A7A7A;
+    border-bottom: 0.35px solid #7A7A7A;
+    resize: none
+.dropError--info
+    margin-top: 21px
+    width: 667px
+    height: 86px
+    background: #FBFBFC;
+    border: 2.5px dashed #E8E9F1;
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: flex
+    flex-direction: column
+    justify-content: center
+.dropError--title
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.3em;
+    line-height: 1.4em
+    /* identical to box height */
+    color: #8D9198;
+.dropError--txt
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    /* identical to box height */
+    color: #737A83
+.collectErrors--btnBlock
+    margin-top: 21px
+    border: 0.32px solid #999999;
+    width: 100%
+    display: flex
+    flex-direction: row
+    margin-bottom: 23px
+    padding: 9px
+    
+.send--error
+    width: 50%
+    text-align: center
+    border: none
+    border-right: 0.32px solid #999999;
+    background: none
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1em;
+    line-height: 1em;
+    color: #383838;
+    img
+        padding-right: 10px
+    &:focus
+        outline: none
+.close--error
+    text-align: center
+    border: none
+    background: none
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1em;
+    line-height: 1em;
+    color: #383838;
+    width: 50%
+    img
+        padding-right: 10px
+    &:focus
+        outline: none
