@@ -153,19 +153,23 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 
 
-#Сохраняем api из переменных окружения в локальные переменные
-CLOUDINARY_NAME = os.getenv('CLOUDINARY_NAME') 
-CLOUDINARY_API_KEY = os.getenv('CLOUDINARY_API_KEY')
-CLOUDINARY_API_SECRET = os.getenv('CLOUDINARY_API_SECRET')
+# #Сохраняем api из переменных окружения в локальные переменные
+# CLOUDINARY_NAME = os.getenv('CLOUDINARY_NAME') 
+# CLOUDINARY_API_KEY = os.getenv('CLOUDINARY_API_KEY')
+# CLOUDINARY_API_SECRET = os.getenv('CLOUDINARY_API_SECRET')
 
+
+# cloudinary.config( 
+#     cloud_name = 'CLOUDINARY_NAME', 
+#     api_key = 'CLOUDINARY_API_KEY', 
+#     api_secret = 'CLOUDINARY_API_SECRET' 
+# )
 
 cloudinary.config( 
-    cloud_name = 'CLOUDINARY_NAME', 
-    api_key = 'CLOUDINARY_API_KEY', 
-    api_secret = 'CLOUDINARY_API_SECRET' 
+    cloud_name = str(os.getenv('CLOUDINARY_NAME')), 
+    api_key = str(os.getenv('CLOUDINARY_API_KEY')), 
+    api_secret = str(os.getenv('CLOUDINARY_API_SECRET')) 
 )
-
-
 
 
 # Name of cache backend to cache user agents. If it not specified default
