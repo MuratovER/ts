@@ -14,15 +14,13 @@
       <div class="header-info-flex">
         <img class='header-info-bg' src='{% static "mainsite/images/profile/background-header.png" %}' alt="">
         <div class="gol_icon">
-          {% if profile.image %}
-            <div class="header-profile-img">
-            {% cloudinary profile.image format="jpg" width=223 height=223 crop="fill"  %}
-            </div>         
-            {% else %}
-              <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' class='header-profile-img' alt="">
-            {% endif %}
-          
-          
+        {% if profile.image != null %}
+              <div class="header-profile-img">
+                  <img src='{{ profile.image.url }}' class='header-profile-img' alt="profile-avatar">
+              </div>
+        {% else %}
+            <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' class='header-profile-img' alt="profile-avatar">
+        {% endif %}
           <a href="../user_page/image_upload/">
             <button class='changePhoto'>
               <img src='{% static "mainsite/images/profile/image_alt.png" %}' alt="">
