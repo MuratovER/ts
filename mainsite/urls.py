@@ -14,8 +14,11 @@ urlpatterns = [
 	path('', views.home_page, name='home_page'),
 	path('accounts/login/', views.LoginView.as_view(), name='login'),
 	path('signup/', views.signup_view, name='signup'),
+	# path('user_page/', views.user_page, name='user_page'),
+
+    path('<slug:slug>', views.user_page, name='user_page'), # new
 	# path('<slug>', user_page, name='user_page'),
-	path('<slug:slug>', user_page, name='user_page'),
+	# path('<slug:slug>', user_page, name='user_page'),
 	# re_path(r'^user_page/(?P<username>\w+)/$', views.user_page, name='user_page'),
 
 	path('achivements/', views.achivement_view, name='achivements'),

@@ -452,9 +452,17 @@ def profile_image_upload(request):
     return render(request, 'mainsite/image_upload.html', context)
 
 
+# class ArticleListView(ListView):
+#     model = Article
+#     template_name = 'article_list.html'
+
+
+# class ArticleDetailView(DetailView):
+#     model = Article
+#     template_name = 'article_detail.html'
 
 @login_required
-def user_page(request, username):
+def user_page(request):
     '''
     отображает на странице профиля скилы и фичи для конкретных пользователей
     '''

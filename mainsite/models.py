@@ -10,7 +10,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 #from .forms import UploadFileForm
 from cloudinary.models import CloudinaryField
-
+from django.urls import reverse
 
 
 #an extended version of the posts that help you make the post)
@@ -96,21 +96,14 @@ class Profile(models.Model):
     email = models.EmailField(max_length=150, null=True)
     bio = models.TextField(blank=True, null=True)
     image = CloudinaryField('image', null=True, blank=True, default = None)
-    image = models.ImageField(default ='default.jpg', upload_to='image_of_user') # сохраняется в папке media 
-    slug = models.SlugField(blank=True, null=True)
-    
-#     def __str__(self):
-#         return self.user.username
-#     def save(self):
-#         super().save()
-#         image = Image.open(self.image.path)
-#         if image.height>300 or image.width>300 :
-#             output_size = (300,300)
-#             image.thumbnail(output_size)
-#             image.save(self.image.path)
-#     def __str__(self):
-#         return self.user.username
+    slug = models.SlugField(null=True)
 
+    def __str__(self):
+        return self.user.username
+
+    def get_absolute_url(self):
+        return reverse('user_page', kwargs={'slug': self.slug})
+    
 
 @receiver(post_save, sender=User)
 def update_profile_signal(sender, instance, created, **kwargs):
