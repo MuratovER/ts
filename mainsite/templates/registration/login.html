@@ -9,8 +9,7 @@
 {% load static %}
 
 <title>Вход</title>
-
-<script>
+<!--script>
   function show_hide_password(target){
   var input = document.getElementById('id_password');
   if (input.getAttribute('type') == 'password') {
@@ -21,52 +20,58 @@
     input.setAttribute('type', 'password');
   }
   return false;
-}
-</script>   
+  } 
+</script-->   
 <style>
-  input[type="text"]{
-  width:441px;
-  height:44px;
-  font-size: 18px;
-  margin-bottom: 25px;
-  padding-left: 40px; 
-  border: 2px solid #5EA2FF;
-  box-sizing: border-box;
-  border-radius: 7px;
-
+*{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
-</style> 
-<div class="conteiner">
-   <div class="login-tables"> 
-        <img class="DFL" src="../../static/mainsite/images/login_signup/sign_in.jpg">
-            <form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-                <table class="login-form" class="DSS">
-                    <h1 class="lws">Приветствуем тебя!</h1>
-                        <div> 
-                          <img class="login-form::before" style="width: 30px; position: absolute;font-size: 30px;padding: 10px 0 0 7px; color: #2c536c;" src="{% static "mainsite/person.svg" %}" alt="2">
-                          <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username"  placeholder="Никнейм">
-   <!--                {{ form.username }}   -->
-                        </div>
-                        <div>
-                          <img class="login-form::before" style="width: 30px;position: absolute;font-size: 30px;padding: 10px 0 0 7px;color: #2c536c;" src="{% static "mainsite/lock.svg" %}" alt="2">
-                          <img href="#" class="password-control" onclick="return show_hide_password(this);"></img>
-                          {{ form.password }}
-                        </div> 
-                </table>               
-    <div class="dws">
-        <label class="" for="" tabindex="25">   
-            <input class="DMT" type="checkbox" name="saveauth" checked="checked">&nbsp;Запомнить меня</label>
-        <a href="/" class="DRT"> Я забыл пароль </a>
-    </div>
-        <input class="dws_submit" type="submit" value="Вход" />
-    <div class="dws">
-       <strong> <a> Впервые тут?</a> </strong>
-        <a class="DLT" href="/signup/" >Регистрация</a>
-    </div>
-        </form>
+body{
+  width: 100%; 
+  height: 100vh; 
+  background-image: url(../../static/mainsite/images/registration/BackgroudOfLogin.jpg); 
+  background-size: cover;
+  background-position: center; 
+  position: relative; 
+  overflow: hidden;
+}
+</style>
+
+    <div class="login-form-conteiner"> 
+      <img class="DFL" src="../../static/mainsite/images/login_signup/sign_in.jpg">
+        <form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+
+          <table class="login-form" class="DSS">
+            <h1 class="login-form-text"> Приветствуем тебя! </h1>
+              
+              <p> Введите свой логин и почту</p>
+
+              <div> 
+                <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username"  placeholder="Введите свой логин">
+                <!-- {{ form.username }} -->
+              </div>
+
+              <div>
+                <img href="#" class="password-control" onclick="return show_hide_password(this);"></img>
+                <input type="password" name="password" autocomplete="current-password" required="" id="id_password" placeholder="Введите свой пароль">
+              </div> 
+
+          </table> 
+
+          <div class="dws">
+            <strong> <a> Впервые тут?</a> </strong>
+
+            <a class="DLT" href="/signup/" >Регистрация</a>
+          </div>
+          <div class="dws">
+            <label class="" for="" tabindex="25">   
+            <a href="/" class="login-table-text"> Забыли пароль </a>
+          </div>
+          <input class="login-form-submit" type="submit" value="Вход" />
+
+        </form>  
   </div>  
-</div>
-
-
 {% endblock %}

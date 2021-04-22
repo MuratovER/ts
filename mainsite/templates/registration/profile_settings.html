@@ -7,7 +7,7 @@
   {% csrf_token %}
   <div class="profile-grid">
     <div id="flex-col-1" class="grid-col small-col" draggable="true" ondragstart="onDragStart(event);" ondragover="onDragOver(event);" ondrop="onDrop(event);">
-      <div class="profile-info-container" style="height:1500px;">
+      <div class="profile-info-container" style="height:500px;">
         <div class="profile-title-flex">
           <div class="profile-info-title">Личная информация</div>
         </div>
@@ -38,6 +38,7 @@
             </p>
           </div>
         </div>
+        <!--
         <div class="profile-title-flex">
           <div class="profile-info-title">Безопасность</div>
         </div>
@@ -103,9 +104,12 @@
             <p class="profile-info-txt"> 12 мая 2020 г. 15:57  </p>
           </div>
         </div>
-        {{ p_form }}
+        {{ p_form }} -->
+        <div style="text-align: center;">
+          <br><br><br>
+          <button class="dws_submit" type="submit">Обновить</button> 
+        </div>
       </div>
-      <button class="dws_submit" type="submit">Update</button> 
     </div>
 
  
