@@ -1,92 +1,90 @@
 {% extends 'mainsite/base.html' %}
 
 {% block content %}
-{% load cloudinary %} 
+{% load cloudinary %}
 {% load static %}
 
 
 
 
 <title>Профиль</title>
-
 <section id='profile-header'>
-<div class="header-info">
-      <div class="header-info-flex">
-        <img class='header-info-bg' src='{% static "mainsite/images/profile/background-header.png" %}' alt="">
-        <div class="gol_icon">
+  <div class="header-info">
+    <div class="header-info-flex">
+      <img class='header-info-bg' src='{% static "mainsite/images/profile/background-header.png" %}' alt="">
+      <div class="gol_icon">
         {% if profile.image != null %}
-              <div class="header-profile-img">
-                  <img src='{{ profile.image.url }}' class='header-profile-img' alt="profile-avatar">
-              </div>
-        {% else %}
-            <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' class='header-profile-img' alt="profile-avatar">
-        {% endif %}
-          <a href="../user_page/image_upload/">
-            <button class='changePhoto'>
-              <img src='{% static "mainsite/images/profile/image_alt.png" %}' alt="">
-            </button>
-          </a>
-
+        <div class="header-profile-img">
+          <img src='{{ profile.image.url }}' class='header-profile-img' alt="profile-avatar">
         </div>
-     
-          <p class="header-info-userName">{{ user.first_name }} {{ user.last_name }}</p>
-          <p class="header-info-userId">@{{ user.username }}</p>
-          <div id='backend__image_upload'>
-                 
-          </div>  
-          <p class="header-info-user-quote">Вдохновение — это такая гостья, которая не любит посещать ленивых. <br>
-            Пётр Ильич Чайковский русский композитор 
-          </p>
+        {% else %}
+        <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' class='header-profile-img'
+          alt="profile-avatar">
+        {% endif %}
+        <a href="../user_page/image_upload/">
+          <button class='changePhoto'>
+            <img src='{% static "mainsite/images/profile/image_alt.png" %}' alt="">
+          </button>
+        </a>
+
       </div>
 
-  <div class="profile-buttons">
-    <button class='profile-btn profile-btn-message'>
-      <img src='{% static "mainsite/images/profile/mail.png" %}' alt="">
-    </button>
-    <div class="hint hint--message">
-      <p class="hint--txt">Сообщение</p>
-    </div>
-    <button class='profile-btn profile-btn-calendar'>
-      <img src='{% static "mainsite/images/profile/calendar.png" %}' alt="">
-    </button>
-    <div class="hint hint--callendar">
-      <p class="hint--txt hint--txt--calendar">Календарь</p>
-    </div>
-    <button class='profile-btn profile-btn-setting'>
-      <img src='{% static "mainsite/images/profile/settings.png" %}' alt="" onclick="location.href='{% url 'profile_settings' %}'"> 
-    </button>
-    <div class="hint hint--settings">
-      <p class="hint--txt hint--txt--settings">Настройки</p>
+      <p class="header-info-userName">{{ user.first_name }} {{ user.last_name }}</p>
+      <p class="header-info-userId">@{{ user.username }}</p>
+      <div id='backend__image_upload'>
+
+      </div>
+      <p class="header-info-user-quote">Вдохновение — это такая гостья, которая не любит посещать ленивых. <br>
+        Пётр Ильич Чайковский русский композитор
+      </p>
     </div>
 
-    <button class='profile-btn profile-btn-statics'>
-      <img src='{% static "mainsite/images/profile/bar_chart.png" %}' alt="">
+    <div class="profile-buttons">
+      <button class='profile-btn profile-btn-message'>
+        <img src='{% static "mainsite/images/profile/mail.png" %}' alt="">
+      </button>
+      <div class="hint hint--message">
+        <p class="hint--txt">Сообщение</p>
+      </div>
+      <button class='profile-btn profile-btn-calendar'>
+        <img src='{% static "mainsite/images/profile/calendar.png" %}' alt="">
+      </button>
+      <div class="hint hint--callendar">
+        <p class="hint--txt hint--txt--calendar">Календарь</p>
+      </div>
+      <button class='profile-btn profile-btn-setting'>
+        <img src='{% static "mainsite/images/profile/settings.png" %}' alt=""
+          onclick="location.href='{% url 'profile_settings' %}'">
+      </button>
+      <div class="hint hint--settings">
+        <p class="hint--txt hint--txt--settings">Настройки</p>
+      </div>
 
-    
-  </button>
-    <div class="hint hint--statics">
-      <p class="hint--txt hint--txt--statics">Настройки</p>
+      <button class='profile-btn profile-btn-statics'>
+        <img src='{% static "mainsite/images/profile/bar_chart.png" %}' alt="">
+
+
+      </button>
+      <div class="hint hint--statics">
+        <p class="hint--txt hint--txt--statics">Настройки</p>
+      </div>
+      <button class='profile-btn'>
+        <img src='{% static "mainsite/images/profile/arrow_down.png" %}' alt="">
+      </button>
     </div>
-    <button class='profile-btn'>
-      <img src='{% static "mainsite/images/profile/arrow_down.png" %}' alt="">
-    </button>
   </div>
-</div>
-</div>
+  </div>
 
 </section>
 
 <section id='profile--info'>
   <div class="profile-grid">
-    <div id='flex-col-1' class="grid-col small-col"
-      draggable='true'
-      ondragstart='onDragStart(event);'
-      ondragover='onDragOver(event);'
-      ondrop='onDrop(event);'>
+    <div id='flex-col-1' class="grid-col small-col" draggable='true' ondragstart='onDragStart(event);'
+      ondragover='onDragOver(event);' ondrop='onDrop(event);'>
       <div class="profile-info-container">
         <div class="profile-title-flex">
           <div class="profile-info-title">Информация</div>
-          <img src='{% static "mainsite/images/profile/edit.png" %}'  alt="">
+          <img src='{% static "mainsite/images/profile/edit.png" %}' alt="">
         </div>
         <div class="profile-info-line"></div>
         <div class="profile-info-grid">
@@ -107,7 +105,7 @@
             <!-- <p class="profile-info-txt">999k</p>
             <p class="profile-info-txt">999k</p> -->
             <p class="profile-info-txt"> {{ user.email }} </p>
-            <p class="profile-info-txt"> {{ user.date_joined }}  </p>
+            <p class="profile-info-txt"> {{ user.date_joined }} </p>
             <p class="profile-info-txt">1</p>
             <p class="profile-info-txt">10</p>
             <p class="profile-info-txt">г. Казань, Россия</p>
@@ -119,24 +117,21 @@
         </div>
       </div>
     </div>
-    <div id='flex-col-2' class="grid-col large-col"
-      draggable='true'
-      ondragstart='onDragStart(event);'
-      ondragover='onDragOver(event);'
-      ondrop='onDrop(event);'>
+    <div id='flex-col-2' class="grid-col large-col" draggable='true' ondragstart='onDragStart(event);'
+      ondragover='onDragOver(event);' ondrop='onDrop(event);'>
       <div class="profile-purpose">
-          <div class="profile-purposes-title-flex">
-            <p class="profile-purposes-title">Моя пирамида целей</p>
-            <img src='{% static "mainsite/images/profile/copy.png" %}' class='purposes-copy'class= alt="">
-          </div>
+        <div class="profile-purposes-title-flex">
+          <p class="profile-purposes-title">Моя пирамида целей</p>
+          <img src='{% static "mainsite/images/profile/copy.png" %}' class='purposes-copy' class=alt="">
+        </div>
         <div class="profile-purposes-pyramid">
-          <img src='{% static "mainsite/images/profile/pyramid-lines.png" %}' class='pyramid-lines'alt=""> 
+          <img src='{% static "mainsite/images/profile/pyramid-lines.png" %}' class='pyramid-lines' alt="">
           <div class="pyramid-col">
-          <button class='pyramid-btn pyramid-btn-1-child'>
-            <img src='{% static "mainsite/images/profile/pyramid-btn.png" %}' alt="">
-            <p class='pyramid-btn-txt'>Счастье</p>
-          </button>
-          
+            <button class='pyramid-btn pyramid-btn-1-child'>
+              <img src='{% static "mainsite/images/profile/pyramid-btn.png" %}' alt="">
+              <p class='pyramid-btn-txt'>Счастье</p>
+            </button>
+
           </div>
           <div class="pyramid-col">
             <button class='pyramid-btn pyramid-btn-3-child'>
@@ -165,11 +160,8 @@
         </div>
       </div>
     </div>
-    <div id='flex-col-3' class="grid-col small-col"
-      draggable='true'
-      ondragstart='onDragStart(event);'
-      ondragover='onDragOver(event);'
-      ondrop='onDrop(event);'>
+    <div id='flex-col-3' class="grid-col small-col" draggable='true' ondragstart='onDragStart(event);'
+      ondragover='onDragOver(event);' ondrop='onDrop(event);'>
       <div class="gallerry">
 
         <img src='{% static "mainsite/images/profile/3dots.png" %}' alt="" id="gallety-dots">
@@ -178,26 +170,23 @@
         <div class="gallery-grid">
           <div class="gallery-col">
             <img src='{% static "mainsite/images/profile/gallery 1 col 1.png" %}' alt="">
-            <img src='{% static "mainsite/images/profile/gallery 1 col 2.png" %}' class='gallery1'alt="">
-            <img src='{% static "mainsite/images/profile/gallery 1 col 23.png" %}' class='gallery1'alt="">
+            <img src='{% static "mainsite/images/profile/gallery 1 col 2.png" %}' class='gallery1' alt="">
+            <img src='{% static "mainsite/images/profile/gallery 1 col 23.png" %}' class='gallery1' alt="">
           </div>
           <div class="gallery-col">
             <img src='{% static "mainsite/images/profile/gallery 2 col 1.png" %}' alt="">
-            <img src='{% static "mainsite/images/profile/gallery 2 col 2.png" %}' class='gallery2'alt="">
+            <img src='{% static "mainsite/images/profile/gallery 2 col 2.png" %}' class='gallery2' alt="">
           </div>
           <div class="gallery-col">
             <img src='{% static "mainsite/images/profile/gallery 3 col 1.png" %}' alt="">
-            <img src='{% static "mainsite/images/profile/gallery 3 col 2.png" %}' class='gallery3'alt="">
+            <img src='{% static "mainsite/images/profile/gallery 3 col 2.png" %}' class='gallery3' alt="">
           </div>
         </div>
         <button class="gallery-more-img">Показать больше картинок</button>
       </div>
     </div>
-    <div id='flex-col-4' class="grid-col large-col"
-      draggable='true'
-      ondragstart='onDragStart(event);'
-      ondragover='onDragOver(event);'
-      ondrop='onDrop(event);'>
+    <div id='flex-col-4' class="grid-col large-col" draggable='true' ondragstart='onDragStart(event);'
+      ondragover='onDragOver(event);' ondrop='onDrop(event);'>
       <div class="skills">
         <div class="skills-header">
           <p class="skills-title">Мои навыки</p>
@@ -212,121 +201,101 @@
             <img src='{% static "mainsite/images/profile/copy.png" %}' alt="">
           </button>
         </div>
-        
+
         <div class="skills-flex row">
           <div class="skills-col skills-col-1">
             <p class="skill-name">Скорость выполнения работы:</p>
-            <div class="skill-grey-line skill-grey-line-1"><div class="skill-blue-line skill-blue-line-1"></div></div>
+            <div class="skill-grey-line skill-grey-line-1">
+              <div class="skill-blue-line skill-blue-line-1"></div>
+            </div>
             <p class="skill-percent">23%</p>
           </div>
-        <div class="skills-col ">
-          <p class="skill-name">Выносливость:</p>
-          <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-2"></div></div>
-          <p class="skill-percent">87%</p>
+          <div class="skills-col ">
+            <p class="skill-name">Выносливость:</p>
+            <div class="skill-grey-line">
+              <div class="skill-blue-line skill-blue-line-2"></div>
+            </div>
+            <p class="skill-percent">87%</p>
           </div>
           <div class="skills-col ">
             <p class="skill-name">Выдержка:</p>
-            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-3"></div></div>
+            <div class="skill-grey-line">
+              <div class="skill-blue-line skill-blue-line-3"></div>
+            </div>
             <p class="skill-percent">100%</p>
           </div>
           <div class="skills-col ">
             <p class="skill-name">Самообладание:</p>
-            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-4"></div></div>
+            <div class="skill-grey-line">
+              <div class="skill-blue-line skill-blue-line-4"></div>
+            </div>
             <p class="skill-percent">64%</p>
           </div>
           <div class="skills-col ">
             <p class="skill-name">Успешность:</p>
-            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-5"></div></div>
+            <div class="skill-grey-line">
+              <div class="skill-blue-line skill-blue-line-5"></div>
+            </div>
             <p class="skill-percent">37%</p>
 
           </div>
           <div class="skills-col ">
             <p class="skill-name">Логическое мышление:</p>
-            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-6"></div></div>
+            <div class="skill-grey-line">
+              <div class="skill-blue-line skill-blue-line-6"></div>
+            </div>
             <p class="skill-percent">74%</p>
           </div>
           <div class="skills-col ">
             <p class="skill-name">Творческое мышление:</p>
-            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-7"></div></div>
+            <div class="skill-grey-line">
+              <div class="skill-blue-line skill-blue-line-7"></div>
+            </div>
             <p class="skill-percent">87%</p>
-            
+
           </div>
           <div class="skills-col ">
             <p class="skill-name">Хорошие оценки по учебе:</p>
-            <div class="skill-grey-line"><div class="skill-blue-line skill-blue-line-8"></div></div>
+            <div class="skill-grey-line">
+              <div class="skill-blue-line skill-blue-line-8"></div>
+            </div>
             <p class="skill-percent">47%</p>
           </div>
-        
-        
-          
-            <div class="skills-diagram">
-              <svg viewBox="0 0 36 36" class="circular-chart blue">   
-                <path class="circle-bg"
-                  d="M18 2.0845
+
+
+
+          <div class="skills-diagram">
+            <svg viewBox="0 0 36 36" class="circular-chart blue">
+              <path class="circle-bg" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831"
-                />
-                <path class="circle"
-                  stroke-dasharray="75, 100"
-                  d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="circle" stroke-dasharray="75, 100" d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831"
-                />
-                <text x="18" y="20.35" class="percentage">75%</text>
-                
-              </svg>
-              <p class='all-precent'>Общий процент</p>
-            </div>
-          </div>      
+                    a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <text x="18" y="20.35" class="percentage">75%</text>
+
+            </svg>
+            <p class='all-precent'>Общий процент</p>
+          </div>
         </div>
-        </div>
-      
-    <div id='flex-col-5' class="grid-col small-col"
-      draggable='true'
-      ondragstart='onDragStart(event);'
-      ondragover='onDragOver(event);'
-      ondrop='onDrop(event);'>
+      </div>
+    </div>
+
+    <div id='flex-col-5' class="grid-col small-col" draggable='true' ondragstart='onDragStart(event);'
+      ondragover='onDragOver(event);' ondrop='onDrop(event);'>
       <div class="friends">
         <button class="friends-3-dots" type="button">
           <img src='{% static "mainsite/images/profile/3dots.png" %}'> </img>
         </button>
-          <p class='friends-title'>Мои друзья 27</p>
-          <div class="friends-flex">
-            <div class="friends-flex-col">
+        <p class='friends-title'>Мои друзья 27</p>
+        <div class="friends-flex">
+          <div class="friends-flex-col">
 
-              <div class="friend-box">
-                <img src='{% static "mainsite/images/profile/1friend.png" %}' alt="" class="friend-img">
-                <p class="friend-name">Максим</p>
-              </div>
-              <div class="friend-box">
-                <img src='{% static "mainsite/images/profile/2friend.png" %}' alt="" class="friend-img">
-                <p class="friend-name">Алеша</p>
-              </div>
-              <div class="friend-box">
-                <img src='{% static "mainsite/images/profile/3friend.png" %}' alt="" class="friend-img">
-                <p class="friend-name">Fenua</p>
-              </div>
-              <div class="friend-box">
-                <img src='{% static "mainsite/images/profile/4friend.png" %}' alt="" class="friend-img">
-                <p class="friend-name">Andry</p>
-              </div>
-              <div class="friend-box">
-                <img src='{% static "mainsite/images/profile/5friend.png" %}' alt="" class="friend-img">
-                <p class="friend-name">Костян</p>
-              </div>
-              <div class="friend-box">
-                <img src='{% static "mainsite/images/profile/6friend.png" %}' alt="" class="friend-img">
-                <p class="friend-name">એન્ડ્રે</p>
-
-              </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/images/profile/1friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Максим</p>
             </div>
-              <div class="friends-flex-col">
-              <div class="friend-box">
-
-                <img src='{% static "mainsite/images/profile/1friend.png" %}' alt="" class="friend-img">
-                <p class="friend-name">Максим</p>
-              </div>
-              <div class="friend-box">
+            <div class="friend-box">
               <img src='{% static "mainsite/images/profile/2friend.png" %}' alt="" class="friend-img">
               <p class="friend-name">Алеша</p>
             </div>
@@ -345,71 +314,108 @@
             <div class="friend-box">
               <img src='{% static "mainsite/images/profile/6friend.png" %}' alt="" class="friend-img">
               <p class="friend-name">એન્ડ્રે</p>
-            </div>
-            </div>  
-            <div class="friends-flex-col">
-              <div class="friend-box">
-                <img src='{% static "mainsite/images/profile/1friend.png" %}' alt="" class="friend-img">
-                <p class="friend-name">Максим</p>
-              </div>
-              <div class="friend-box">
-              <img src='{% static "mainsite/images/profile/2friend.png" %}' alt="" class="friend-img">
-              <p class="friend-name">Алеша</p>
-            </div>
-            <div class="friend-box">
-              <img src='{% static "mainsite/images/profile/3friend.png" %}' alt="" class="friend-img">
-              <p class="friend-name">Fenua</p>
-            </div>
-            <div class="friend-box">
-              <img src='{% static "mainsite/images/profile/4friend.png" %}' alt="" class="friend-img">
-              <p class="friend-name">Andry</p>
-            </div>
-            <div class="friend-box">
-              <img src='{% static "mainsite/images/profile/5friend.png" %}' alt="" class="friend-img">
-              <p class="friend-name">Костян</p>
-            </div>
-            <div class="friend-box">
-              <img src='{% static "mainsite/images/profile/6friend.png" %}' alt="" class="friend-img">
-              <p class="friend-name">એન્ડ્રે</p>
-            </div>
 
-            </div>  
+            </div>
           </div>
-          <button class="friends-more">Показать больше друзей</button>
-    </div>
-  </div>
-  <div id='flex-col-6' class="grid-col large-col"
-      draggable='true'
-      ondragstart='onDragStart(event);'
-      ondragover='onDragOver(event);'
-      ondrop='onDrop(event);'>
-    <div class="calendar-section">
-      <div class="calendar-col calendar">
-        <button class='calendar-btn'><img src='{% static "mainsite/images/profile/calendar2.png" %}' alt=""></button>
-        <table id="calendar2">
-          <thead>
-            <tr><td><button class='calendar-arrow prev-arrow'><img src='{% static "mainsite/images/profile/prev-arrow.png" %}' alt="">
-            </button><td class='month' colspan="5"><td>
-              <button class='calendar-arrow  next-arrow'><img src='{% static "mainsite/images/profile/next-arrow.png" %}' alt=""></button>
-            <tr class='weekDay'><td>Пн<td>Вт<td>Ср<td>Чт<td>Пт<td>Сб<td>Вс
-          <tbody>
-        </table>
-      </div>
-      <div class="calendar-col">
-        <div class="calendar-case-headline">
-          <p class="case-title">Дела на этот день</p>
-          <button class="case-plus"><img src='{% static "mainsite/images/profile/plus.png" %}' alt=""></button>
+          <div class="friends-flex-col">
+            <div class="friend-box">
+
+              <img src='{% static "mainsite/images/profile/1friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Максим</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/images/profile/2friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Алеша</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/images/profile/3friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Fenua</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/images/profile/4friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Andry</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/images/profile/5friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Костян</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/images/profile/6friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">એન્ડ્રે</p>
+            </div>
+          </div>
+          <div class="friends-flex-col">
+            <div class="friend-box">
+              <img src='{% static "mainsite/images/profile/1friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Максим</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/images/profile/2friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Алеша</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/images/profile/3friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Fenua</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/images/profile/4friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Andry</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/images/profile/5friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">Костян</p>
+            </div>
+            <div class="friend-box">
+              <img src='{% static "mainsite/images/profile/6friend.png" %}' alt="" class="friend-img">
+              <p class="friend-name">એન્ડ્રે</p>
+            </div>
+
+          </div>
         </div>
-        <div class="calendar-case-flex">
-          <div class="calendar-case-col">
-            
-            <div class="calendar-case-box">
-              <p class="case-time">8:00</p>
-              <p class="case-txt">Закончить первый урок</p>
-              <input type="checkbox" class='checkCase' >
-            </div>
+        <button class="friends-more">Показать больше друзей</button>
+      </div>
+    </div>
+    <div id='flex-col-6' class="grid-col large-col" draggable='true' ondragstart='onDragStart(event);'
+      ondragover='onDragOver(event);' ondrop='onDrop(event);'>
+      <div class="calendar-section">
+        <div class="calendar-col calendar">
+          <button class='calendar-btn'><img src='{% static "mainsite/images/profile/calendar2.png" %}' alt=""></button>
+          <table id="calendar2">
+            <thead>
+              <tr>
+                <td><button class='calendar-arrow prev-arrow'><img
+                      src='{% static "mainsite/images/profile/prev-arrow.png" %}' alt="">
+                  </button>
+                <td class='month' colspan="5">
+                <td>
+                  <button class='calendar-arrow  next-arrow'><img
+                      src='{% static "mainsite/images/profile/next-arrow.png" %}' alt=""></button>
+              <tr class='weekDay'>
+                <td>Пн
+                <td>Вт
+                <td>Ср
+                <td>Чт
+                <td>Пт
+                <td>Сб
+                <td>Вс
+            <tbody>
+          </table>
+        </div>
+        <div class="calendar-col">
+          <div class="calendar-case-headline">
+            <p class="case-title">Дела на этот день</p>
+            <button class="case-plus"><img src='{% static "mainsite/images/profile/plus.png" %}' alt=""></button>
+          </div>
+          <div class="calendar-case-flex">
+            <div class="calendar-case-col">
 
-            <!-- <div class="calendar-case-box">
+              <div class="calendar-case-box">
+                <p class="case-time">8:00</p>
+                <p class="case-txt">Закончить первый урок</p>
+                <input type="checkbox" class='checkCase'>
+              </div>
+
+              <!-- <div class="calendar-case-box">
               <p class="case-time">8:00</p>
               <p class="case-txt">Пройти 15 км пешком по горным хребтам Альп</p>
               <input type="checkbox" class='checkCase' >
@@ -429,15 +435,15 @@
               <p class="case-txt">Закончить первый урок</p>
               <input type="checkbox" class='checkCase' >
             </div> -->
-          </div>
-          <div class="calendar-case-col">
-            
-            <div class="calendar-case-box">
-              <p class="case-time">17:00</p>
-              <p class="case-txt">Пройти 15 км пешком по горным хребтам Альп</p>
-              <input type="checkbox" class='checkCase' >
             </div>
-            <!-- <div class="calendar-case-box">
+            <div class="calendar-case-col">
+
+              <div class="calendar-case-box">
+                <p class="case-time">17:00</p>
+                <p class="case-txt">Пройти 15 км пешком по горным хребтам Альп</p>
+                <input type="checkbox" class='checkCase'>
+              </div>
+              <!-- <div class="calendar-case-box">
               <p class="case-time">8:00</p>
               <p class="case-txt">Пройти 15 км пешком по горным хребтам Альп</p>
               <input type="checkbox" class='checkCase' >
@@ -457,33 +463,32 @@
               <p class="case-txt">Пройти 15 км пешком по горным хребтам Альп</p>
               <input type="checkbox" class='checkCase' >
             </div> -->
-          </div>
+            </div>
 
           </div>
-          <button class="calendar-farther"><p >Дальше</p></button>
+          <button class="calendar-farther">
+            <p>Дальше</p>
+          </button>
         </div>
       </div>
     </div>
 
     {% if user_affirmation_path %}
-    <div id='flex-col-7' class="grid-col small-col"
-      draggable='true'
-      ondragstart='onDragStart(event);'
-      ondragover='onDragOver(event);'
-      ondrop='onDrop(event);'>
+    <div id='flex-col-7' class="grid-col small-col" draggable='true' ondragstart='onDragStart(event);'
+      ondragover='onDragOver(event);' ondrop='onDrop(event);'>
       <div class="affirmation">
 
         <div class="affirmation-haedline">
           <p class="affirmation-title">Мои аффирмации</p>
           <button class='affirmation-copy'><img src='{% static "mainsite/images/profile/copy.png" %}' alt=""></button>
         </div>
-        
+
         <div class="affirmation-col affirmation-1">
           <!-- <p class="affirmation-col-title">Не забыть взять с собой студик</p> -->
           <!-- <p class="affirmation-col-txt">Сегодня важная встреча, поэтому нужно взять с собой все необходимое и не забыть взять с собой студик, чтобы меня смогли впустить в институт</p> -->
-          
+
           <img src="../static/mainsite/images/affirmations/{{ user_affirmation_path }}">
-          
+
         </div>
 
         <!-- <div class="affirmation-col affirmation-2">
@@ -495,7 +500,8 @@
         </div> -->
 
         <div class="affirmation-col">
-          <button class="affirmation-plus" type="sumbit" onclick="location.href='{% url 'affirmation_generator' %}'" class='header--change--btn headerRegister'>Изменить аффирмацию</button>
+          <button class="affirmation-plus" type="sumbit" onclick="location.href='{% url 'affirmation_generator' %}'"
+            class='header--change--btn headerRegister'>Изменить аффирмацию</button>
         </div>
 
       </div>
@@ -503,25 +509,22 @@
     {% endif %}
 
     {% if img %}
-  <div class="grid-col large-col"
-      draggable='true'
-      ondragstart='onDragStart(event);'
-      ondragover='onDragOver(event);'
+    <div class="grid-col large-col" draggable='true' ondragstart='onDragStart(event);' ondragover='onDragOver(event);'
       ondrop='onDrop(event);'>
-    <div id="lifeWheelSection">
-      <div id="lifeWheelHeader">
-        <p id='lifeWheelHeaderTxt'>Колесо жизни</p>
-        <button class='lifeWheelBtn lifeWheelReverseBtn'>
-          <img src='{% static "mainsite/images/profile/reverse.png" %}' alt="">
-        </button>
-        <button class='lifeWheelBtn lifeWheelCopyBtn'>
-          <img src='{% static "mainsite/images/profile/copy.png" %}' alt="">
-        </button>
-      </div>
+      <div id="lifeWheelSection">
+        <div id="lifeWheelHeader">
+          <p id='lifeWheelHeaderTxt'>Колесо жизни</p>
+          <button class='lifeWheelBtn lifeWheelReverseBtn'>
+            <img src='{% static "mainsite/images/profile/reverse.png" %}' alt="">
+          </button>
+          <button class='lifeWheelBtn lifeWheelCopyBtn'>
+            <img src='{% static "mainsite/images/profile/copy.png" %}' alt="">
+          </button>
+        </div>
 
-      
-      <div id="lifeWheelInfo">
-        <div class="lifeWheelCoef">
+
+        <div id="lifeWheelInfo">
+          <div class="lifeWheelCoef">
             <div class="coef-col">
               <p class='coefTxt'>Коэффициент отношений:</p>
               <p class='coefPoint'>{{ sphere.relationships}}</p>
@@ -540,15 +543,15 @@
             </div>
             <div class="coef-col">
               <p class='coefTxt'>Последнее обновление:</p>
-              <p class='coefPoint'>   03.02.2021</p>
+              <p class='coefPoint'> 03.02.2021</p>
             </div>
-        </div>
+          </div>
 
-        <div id="lifeWheelChar">
-          
+          <div id="lifeWheelChar">
+
             <img src="../static/mainsite/images/wheeloflife/png/{{ img }}.png">
-          
-          
+
+
             <!-- <p class='ten horizontalLeftTen'>10</p>
             <div class="horizontalLine"></div>
             <p class='ten horizontaRightlTen'>10</p>
@@ -558,18 +561,19 @@
             <div class="verticalLine"></div>
             <p class='ten verticalBotTen'>10</p> -->
 
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  {% endif %}
+    {% endif %}
 
-</div>
-  
+  </div>
+
 </section>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="{% static 'mainsite/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'mainsite/js/calendar.js' %}"></script>
 <script src="{% static 'mainsite/js/profile.js' %}"></script>
