@@ -37,41 +37,93 @@ body{
   position: relative; 
   overflow: hidden;
 }
+section{
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header{
+  display: none;
+}
+footer{
+  display: none;
+}
+.login-form-conteiner {
+  width: 500px;
+  background-color: white;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center
+}
+  
+.login-form-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 40px;
+}
+
+.login-table-text {
+  color: black;
+  font-family: Roboto;
+  font-style: normal;
+}
+
+.login-form-submit {
+  margin: 50px; font-size: 25px;
+  color: #8D8D8D;
+  width: 370px;
+  height: 55px;
+  border-style: ridge;
+  background: white;
+  border-radius: 30px;
+}
 </style>
+<div>
+<section style="width: 50%; height: 50vh;">
+  <div>
+    <div style="padding: 0 500px 50px 0;">
+      <a href="/" target="_self" style="color: white; margin-right: 5em"><span class="oi oi-arrow-left"></span> <strong>Назад</strong></a>
+    </div>
+  <div class="login-form-conteiner"> 
+    <img class="DFL" src="../../static/mainsite/images/login_signup/sign_in.jpg">
+      <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
 
-    <div class="login-form-conteiner"> 
-      <img class="DFL" src="../../static/mainsite/images/login_signup/sign_in.jpg">
-        <form method="post" action="{% url 'login' %}">
-          {% csrf_token %}
+        <table class="login-form" class="DSS">
+          <h1 class="login-form-text"> Приветствуем тебя! </h1>
+            
+            <p> Введите свой логин и почту</p>
+            
+            <div> 
+              <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username"  placeholder="Введите свой логин">
+              <!-- {{ form.username }} -->
+            </div>
 
-          <table class="login-form" class="DSS">
-            <h1 class="login-form-text"> Приветствуем тебя! </h1>
-              
-              <p> Введите свой логин и почту</p>
+            <div>
+              <img href="#" class="password-control" onclick="return show_hide_password(this);"></img>
+              <input type="password" name="password" autocomplete="current-password" required="" id="id_password" placeholder="Введите свой пароль">
+            </div> 
 
-              <div> 
-                <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username"  placeholder="Введите свой логин">
-                <!-- {{ form.username }} -->
-              </div>
+        </table> 
 
-              <div>
-                <img href="#" class="password-control" onclick="return show_hide_password(this);"></img>
-                <input type="password" name="password" autocomplete="current-password" required="" id="id_password" placeholder="Введите свой пароль">
-              </div> 
+        <div class="dws">
+          <strong> <a> Впервые тут?</a> </strong>
 
-          </table> 
+          <a class="DLT" href="/signup/" >Регистрация</a>
+        </div>
+        <div class="dws">
+          <label class="" for="" tabindex="25">   
+          <a href="/" class="login-table-text"> Забыли пароль </a>
+        </div>
+        <input class="login-form-submit" type="submit" value="Вход" />
 
-          <div class="dws">
-            <strong> <a> Впервые тут?</a> </strong>
-
-            <a class="DLT" href="/signup/" >Регистрация</a>
-          </div>
-          <div class="dws">
-            <label class="" for="" tabindex="25">   
-            <a href="/" class="login-table-text"> Забыли пароль </a>
-          </div>
-          <input class="login-form-submit" type="submit" value="Вход" />
-
-        </form>  
-  </div>  
+      </form>  
+  </div>
+  </div>
+</section>  
+</div>  
 {% endblock %}
