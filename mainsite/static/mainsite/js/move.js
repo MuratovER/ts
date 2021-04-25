@@ -13,7 +13,7 @@ const  flexCol = document.querySelectorAll('.grid-col');
 flexCol.forEach((item) => {
     item.addEventListener('click', () => {
         let halfHeight = item.clientHeight/2; 
-        console.log(item.getBoundingClientRect().top) ;
+        //console.log(item.getBoundingClientRect().top) ;
     });
 })
 //функция отрабатывающая при старте перемещение

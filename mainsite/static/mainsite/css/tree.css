@@ -424,6 +424,9 @@ img {
   padding: 21px  11px;
   color: #000000; }
 
+.tree--help-row {
+  position: relative; }
+
 .clear {
   position: absolute;
   margin: 50px 50px;
@@ -434,3 +437,7 @@ img {
   border: none;
   border-radius: 40px;
   color: white; }
+
+.tree--help-clear {
+  position: absolute;
+  margin: 60px 270px; }
