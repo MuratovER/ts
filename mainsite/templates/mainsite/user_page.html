@@ -25,7 +25,28 @@
           <button class='changePhoto'>
             <img src='{% static "mainsite/images/profile/image_alt.png" %}' alt="">
           </button>
+
+        </div>
+          <div class="profile--help-flex-row">
+            <p class="header-info-userName">{{ user.first_name }} {{ user.last_name }}</p>
+            <div class="profile--help-block">
+              <button class='profile--help-btn'>
+                <img src='{% static "mainsite/images/profile/help_circle_outline.png" %}' alt="">
+              </button>
+            <div class="profile--help-info ">
+              <h1 class="profile--help-title">Ваше имя в профиле</h1>
+              <p class="profile--help-txt">Небольшой комментарий, рассказывающий о вашей замечательной привычке, цели который вы хотите достичь, например, научится считать на немецком языке, двигаясь верхов на лошади вблиз Альписких гор холодным зимним утром? Ну а что? Хотите сказать что это слишком? Ну да ладно, вы уж сами тут разберетесь, ну если что мысль вам понятна.</p>
+            </div>
+          </div>
+          </div>
+
+
+          <p class="header-info-userId">@{{ user }}</p>
+          <p class="header-info-user-quote">Вдохновение — это такая гостья, которая не любит посещать ленивых. <br>
+            Пётр Ильич Чайковский русский композитор 
+          </p>
         </a>
+
 
       </div>
 
@@ -84,7 +105,18 @@
       <div class="profile-info-container">
         <div class="profile-title-flex">
           <div class="profile-info-title">Информация</div>
-          <img src='{% static "mainsite/images/profile/edit.png" %}' alt="">
+
+          <img src='{% static "mainsite/images/profile/edit.png" %}'  alt="">
+          <div class="profile--help-block">
+            <button class='profile--help-btn'>
+              <img src='{% static "mainsite/images/profile/help_circle_outline.png" %}'' alt="">
+            </button>
+            <div class="profile--help-info ">
+              <h1 class="profile--help-title">Информация о профиле</h1>
+              <p class="profile--help-txt">Информация о вас, которую можо заполнить в....</p>
+            </div>
+          </div>
+
         </div>
         <div class="profile-info-line"></div>
         <div class="profile-info-grid">
@@ -120,10 +152,21 @@
     <div id='flex-col-2' class="grid-col large-col" draggable='true' ondragstart='onDragStart(event);'
       ondragover='onDragOver(event);' ondrop='onDrop(event);'>
       <div class="profile-purpose">
-        <div class="profile-purposes-title-flex">
-          <p class="profile-purposes-title">Моя пирамида целей</p>
-          <img src='{% static "mainsite/images/profile/copy.png" %}' class='purposes-copy' class=alt="">
-        </div>
+
+          <div class="profile-purposes-title-flex">
+            <p class="profile-purposes-title">Моя пирамида целей</p>
+            <div class="profile--help-block">
+              <button class='profile--help-btn'>
+                <img src='{% static "mainsite/images/profile/help_circle_outline.png" %}'' alt="">
+              </button>
+              <div class="profile--help-info ">
+                <h1 class="profile--help-title">Пирамида целей</h1>
+                <p class="profile--help-txt">Информация об этом блоке</p>
+              </div>
+            </div>
+            <img src='{% static "mainsite/images/profile/copy.png" %}' class='purposes-copy'class= alt="">
+          </div>
+=
         <div class="profile-purposes-pyramid">
           <img src='{% static "mainsite/images/profile/pyramid-lines.png" %}' class='pyramid-lines' alt="">
           <div class="pyramid-col">
@@ -164,9 +207,19 @@
       ondragover='onDragOver(event);' ondrop='onDrop(event);'>
       <div class="gallerry">
 
-        <img src='{% static "mainsite/images/profile/3dots.png" %}' alt="" id="gallety-dots">
+        <img src='{% static "mainsite/images/profile/3dots.png" %}' alt="" id="gallery-dots">
+        <div class="profile--help-row">
         <p class="gallery-title">Моя галлерея: 12 фото</p>
-
+        <div class="profile--help-block">
+          <button class='profile--help-btn'>
+            <img src='{% static "mainsite/images/profile/help_circle_outline.png" %}' alt="">
+          </button>
+          <div class="profile--help-info ">
+            <h1 class="profile--help-title">Галерея</h1>
+            <p class="profile--help-txt">Информация об этом блоке</p>
+          </div>
+        </div>
+        </div>
         <div class="gallery-grid">
           <div class="gallery-col">
             <img src='{% static "mainsite/images/profile/gallery 1 col 1.png" %}' alt="">
@@ -190,6 +243,15 @@
       <div class="skills">
         <div class="skills-header">
           <p class="skills-title">Мои навыки</p>
+          <div class="profile--help-block">
+            <button class='profile--help-btn'>
+              <img src='{% static "mainsite/images/profile/help_circle_outline.png" %}'' alt="">
+            </button>
+            <div class="profile--help-info ">
+              <h1 class="profile--help-title">Навыки</h1>
+              <p class="profile--help-txt">Информация о блоке</p>
+            </div>
+          </div>
           <div class="skills-menu">
             <button class="skills-section">Учеба<div class="line"></div></button>
             <button class="skills-section">Общие<div class="line"></div></button>
@@ -284,12 +346,26 @@
     <div id='flex-col-5' class="grid-col small-col" draggable='true' ondragstart='onDragStart(event);'
       ondragover='onDragOver(event);' ondrop='onDrop(event);'>
       <div class="friends">
-        <button class="friends-3-dots" type="button">
-          <img src='{% static "mainsite/images/profile/3dots.png" %}'> </img>
-        </button>
-        <p class='friends-title'>Мои друзья 27</p>
-        <div class="friends-flex">
-          <div class="friends-flex-col">
+
+
+        <div class="profile--help-row">
+          <p class='friends-title'>Мои друзья 27</p>
+          <div class="profile--help-block">
+            <button class='profile--help-btn'>
+              <img src='{% static "mainsite/images/profile/help_circle_outline.png" %}' alt="">
+            </button>
+            <div class="profile--help-info ">
+              <h1 class="profile--help-title">Друзья</h1>
+              <p class="profile--help-txt">Информация о блоке</p>
+            </div>
+          </div>
+          <button class="friends-3-dots" type="button">
+            <img src='{% static "mainsite/images/profile/3dots.png" %}'> </img>
+          </button>
+        </div>
+
+          <div class="friends-flex">
+            <div class="friends-flex-col">
 
             <div class="friend-box">
               <img src='{% static "mainsite/images/profile/1friend.png" %}' alt="" class="friend-img">
@@ -480,6 +556,15 @@
 
         <div class="affirmation-haedline">
           <p class="affirmation-title">Мои аффирмации</p>
+          <div class="profile--help-block">
+            <button class='profile--help-btn'>
+              <img src='{% static "mainsite/images/profile/help_circle_outline.png" %}' alt="">
+            </button>
+            <div class="profile--help-info ">
+              <h1 class="profile--help-title">Аффирмации</h1>
+              <p class="profile--help-txt">Информация о блоке</p>
+            </div>
+          </div>
           <button class='affirmation-copy'><img src='{% static "mainsite/images/profile/copy.png" %}' alt=""></button>
         </div>
 
@@ -511,16 +596,27 @@
     {% if img %}
     <div class="grid-col large-col" draggable='true' ondragstart='onDragStart(event);' ondragover='onDragOver(event);'
       ondrop='onDrop(event);'>
-      <div id="lifeWheelSection">
-        <div id="lifeWheelHeader">
-          <p id='lifeWheelHeaderTxt'>Колесо жизни</p>
-          <button class='lifeWheelBtn lifeWheelReverseBtn'>
-            <img src='{% static "mainsite/images/profile/reverse.png" %}' alt="">
+
+    <div id="lifeWheelSection">
+      <div id="lifeWheelHeader">
+        <p id='lifeWheelHeaderTxt'>Колесо жизни</p>
+        <div class="profile--help-block">
+          <button class='profile--help-btn'>
+            <img src='{% static "mainsite/images/profile/help_circle_outline.png" %}'' alt="">
           </button>
-          <button class='lifeWheelBtn lifeWheelCopyBtn'>
-            <img src='{% static "mainsite/images/profile/copy.png" %}' alt="">
-          </button>
+          <div class="profile--help-info ">
+            <h1 class="profile--help-title">Колесо жизни</h1>
+            <p class="profile--help-txt">Информация об этом блоке,</p>
+          </div>
         </div>
+        <button class='lifeWheelBtn lifeWheelReverseBtn'>
+          <img src='{% static "mainsite/images/profile/reverse.png" %}' alt="">
+        </button>
+        <button class='lifeWheelBtn lifeWheelCopyBtn'>
+          <img src='{% static "mainsite/images/profile/copy.png" %}' alt="">
+        </button>
+      </div>
+
 
 
         <div id="lifeWheelInfo">
@@ -576,8 +672,9 @@
   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="{% static 'mainsite/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'mainsite/js/calendar.js' %}"></script>
-<script src="{% static 'mainsite/js/profile.js' %}"></script>
+<script src="{% static 'mainsite/js/showHelpBlock.js' %}"></script>
 <script src="{% static 'mainsite/js/move.js' %}"></script>
+
 <!--FONTS-->
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
