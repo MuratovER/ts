@@ -1,20 +1,23 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect ,get_object_or_404
-from mainsite.forms import SignUpForm
+from mainsite.forms import SignUpForm, PhotoForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
-from .models import Post, Skill, UserSkill, Profile, Sphere_of_life, User_affirmation
-from .models import Post, Skill, UserSkill, Profile, Sphere_of_life, Achivement, UserAchivement
+from .models import Post, Skill, UserSkill, Profile, Sphere_of_life, Achivement, UserAchivement, User_affirmation, Comment 
 from django.utils import timezone
 from django.contrib.auth.models import User
-from .forms import Sphere_of_life_Form
+from .forms import Sphere_of_life_Form, PostForm, CommentForm, UserUpdateForm
 from django.contrib.auth.decorators import login_required
 from .useful_lib import WheelOfLife, get_affirmation_image
 import datetime
+from django.shortcuts import redirect
 from django.utils.timezone import make_aware
 from django.http import JsonResponse
 from django.template import RequestContext
+from cloudinary.forms import cl_init_js_callbacks      
+from django.http import HttpResponseRedirect
+
 
 #Basic views begin
 #отправляет расположение разметки страницы в файл url
@@ -25,8 +28,12 @@ def home_page(request):
     if request.user.is_authenticated:
         return render(request, 'mainsite/home.html',)
     else:
-        return render(request, 'mainsite/landing.html',)
+        if request.user_agent.is_mobile:
+            return render(request, 'mainsite/mobile/landing.html',)
+        else:    
+            return render(request, 'mainsite/landing.html',)
 
+ 
     
 
 @login_required
@@ -325,9 +332,107 @@ def end_view(request):
 
 #blog view begin
 @login_required
+def post_new(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = PostForm()
+    return render(request, 'mainsite/post_edit.html', {'form': form})
+
+@login_required
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'mainsite/blog.html', {'posts': posts})
+    return render(request, 'mainsite/post_list.html', {'posts': posts})
+
+@login_required
+def post_draft_list(request):
+    posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
+    return render(request, 'mainsite/post_draft_list.html', {'posts': posts})
+
+@login_required
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.views += 1
+    post.save()
+    return render(request, 'mainsite/post_detail.html', {'post': post})
+
+@login_required
+def post_edit(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'mainsite/post_edit.html', {'form': form})
+
+@login_required
+def post_publish(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.publish()
+    return redirect('post_list')
+
+@login_required
+def post_remove(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return redirect('post_list')
+
+@login_required
+def add_comment_to_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.author = request.user
+            comment.post = post
+            comment.save()
+            return redirect('post_list')
+    else:
+        form = CommentForm()
+    return render(request, 'mainsite/add_comment_to_post.html', {'form': form})
+
+@login_required
+def comment_approve(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.approve()
+    return redirect('post_list')
+
+@login_required
+def comment_remove(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.delete()
+    return redirect('post_list')
+
+'''@login_required
+def add_post_like(request, pk):
+    if pk in request.COOKIES:
+        return redirect('post_list')
+    else:
+        post = get_object_or_404(Post, pk=pk)
+        post.likes += 1
+        post.save()
+        return redirect('post_list')'''
+
+@login_required
+def add_like(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if post.user_likes == False:
+        post.likes += 1
+        post.save()
+        return redirect('post_list')
+    else:
+        return redirect('post_list')
 
 @login_required
 def skills(request):
@@ -335,22 +440,48 @@ def skills(request):
     return render(request, 'mainsite/skills.html', {'skills': skills})
 
 @login_required
-def new_blog_categories(request):
-    return render(request, 'mainsite/blogs/blogs_categories.html', )
+def new_blog(request):
+    return render(request, 'mainsite/blogs/blogs_creator.html', )
 #blog view end
+
+
+def profile_image_upload(request):
+    '''
+        Функция с загрузкой изображения в облочное хранилище cloudinary и привязкой к пользователю
+    '''
+    context = dict(backend_form = PhotoForm())
+    if request.method == 'POST':
+        # form = PhotoForm(request.POST, request.FILES)
+        #context = {'form': form}
+        user = Profile.objects.get(user = request.user)
+        form = PhotoForm(request.POST, request.FILES, instance=user)
+        context['posted'] = form.instance
+        if form.is_valid():
+            form.save()
+        return redirect('user_page')
+            
+    return render(request, 'mainsite/image_upload.html', context)
+
 
 
 @login_required
 def user_page(request):
+
 
     '''
     отображает на странице профиля скилы и фичи для конкретных пользователей
     '''
 
     user = User.objects.get(username = request.user)
+    
+    profile = Profile.objects.get(user= request.user)
+    
     skills = UserSkill.objects.filter(user=user)
+    
+    #profile_picture = user.i 
 
     achivements = UserAchivement.objects.filter(user = user)
+    
     
 
     sphere = None
@@ -369,7 +500,16 @@ def user_page(request):
         user_text = user_obj.text
         bg_id = user_obj.background_id
         user_affirmation_path = get_affirmation_image.get_image(user_obj)
-    return render(request, 'mainsite/user_page.html', {'user' : user, 'skills' : skills, 'sphere' : sphere, 'img': img, 'user_affirmation_path': user_affirmation_path})
+    return render(request, 'mainsite/user_page.html', 
+                            {
+                                'user' : user, 
+                                'skills' : skills, 
+                                'sphere' : sphere, 
+                                'img' : img, 
+                                'user_affirmation_path' : user_affirmation_path,
+                                'profile': profile,
+                                
+                            })
 
 
 
@@ -439,3 +579,25 @@ def api_get_todolist(request):
             return JsonResponse({"error": "not exist"})
         serializer = TodoListSerializer(spheres, many = True)
         return Response(serializer.data)
+
+# views for update info about user
+@login_required
+def profile_settings(request):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+       # p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        if u_form.is_valid(): #and p_form.is_valid():
+            u_form.save()
+            #p_form.save()
+            #messages.success(request, f"Your info has been changed!")
+            return redirect('profile_settings')    
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+       # p_form = ProfileUpdateForm(request.POST, instance=request.user.profile)
+   
+    context = {
+        'u_form': u_form,
+        #'p_form': p_form
+    }
+    return render(request, 'registration/profile_settings.html', context)
+

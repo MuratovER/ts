@@ -1,7 +1,7 @@
 /* Landing main.css================= */
 body {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+   box-sizing: border-box;
 }
 /*new header*/
 .header--container { 
@@ -1574,17 +1574,15 @@ blockquote {
   box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.1);
   border-radius: 50px;
 }  
-input[type="text"], input[type="password"]{
-  width:441px;
-  height:44px;
-  font-size: 18px;
-  margin-bottom: 25px;
-  padding-left: 40px; 
-  border: 2px solid #5EA2FF;
+input[type=text],[type=password],[type=email] {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
   box-sizing: border-box;
-  border-radius: 7px;
-
+  border: none;
+  border-bottom: 2px solid #C6C6C6;
 }
+
 .login-table img {
   width: 120px;
   height: 120px;
@@ -1652,7 +1650,7 @@ color: #011128;
   font-style: normal;
 }
 .DFL{
-  padding-top: 50px;
+  padding-top: 10px;
 }
 .DMT {
   margin-top: 0px !important;
@@ -1683,6 +1681,7 @@ color: #011128;
   padding: 10px 0 0 7px;
   color: #2c536c;
 }
+/*
 .popup {
 
   display: none;
@@ -1697,7 +1696,7 @@ color: #011128;
   background-color: rgba(0, 0, 0, 0.4);
 
 }
-
+*/
 .close {
   color: #aaa;
   font-size: 28px;
@@ -1713,7 +1712,7 @@ color: #011128;
   cursor: pointer;
 
 }
-
+/*
 .popup_header {
   background-color: #5c82b8;
   color: white;
@@ -1758,12 +1757,12 @@ color: #011128;
 
   }
 
-}
+} */
 .password-control {
   width: 30px;
   height: 30px;
-  margin-top: 5px;
-  margin-left: 350px;
+  margin-top: 20px;
+  margin-left: 325px;
   position: absolute;
   display: inline-block;
   background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
@@ -1825,3 +1824,10 @@ color: #011128;
         opacity: 1;
 }
 
+.conteiner_profile_settings {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  font-size: 1.5em;
+  background: #aaa;
+  }

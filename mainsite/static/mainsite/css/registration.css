@@ -1,0 +1,33 @@
+.login-form-conteiner {
+    width: 524px;
+    height: 900px;
+    margin: 97px 698px 833px 300px;
+    text-align: center;
+    background: #FFFFFF;
+    mix-blend-.mode: normal;
+    box-shadow: 0px 0px 30px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+  
+.login-form-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+  }
+
+.login-table-text {
+    color: black;
+    font-family: Roboto;
+    font-style: normal;
+  }
+
+.login-form-submit {
+    margin: 50px; font-size: 25px;
+    color: #8D8D8D;
+    width: 370px;
+    height: 55px;
+    border-style: ridge;
+    background: #fcf8e3;
+    border-radius: 30px;
+  }

@@ -1,0 +1,14 @@
+{% extends 'mainsite/base.html' %}
+
+{% block content %}
+<title>Блог</title>
+    {% for post in posts %}
+        <div class="post">
+            <p class="date">Создано: {{ post.created_date }}</p>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <h4>Автор: {{ post.author }}</h4>
+            <p>{{ post.text|truncatechars:200 }}</p>
+        </div>
+        <hr>
+    {% endfor %}
+{% endblock %}

@@ -36,7 +36,15 @@
       
 
       <!-- <title>TopSkills</title> -->
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGYMW002HM"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
+        gtag('config', 'G-HGYMW002HM');
+      </script>
   </head>
 
   <body>
@@ -45,7 +53,7 @@
         <div class="header--flex">  
           <div class="header--logo">   
             <img src="../../static/mainsite/images/base/Logo.png" alt="">
-            <a href="{% url 'logout' %}" class="name">TopSkills</a>
+            <a href="{% url 'home_page' %}" class="name">TopSkills</a>
           </div>
 
 
@@ -53,6 +61,7 @@
           {% if user.is_authenticated %}
           <a href="{% url 'home_page' %}" class="header-a">Главная</a>
           <a href="{% url 'user_page' %}" class="header-a">Профиль</a>
+          <a href="{% url 'post_list' %}" class="header-a">Блог</a>
           <a href="{% url 'tree' %}" class="header-a">Дерево развития</a>
           <a href="{% url 'tree_old' %}" class="header-a">Старое дерево развития</a>
           {% else %}
