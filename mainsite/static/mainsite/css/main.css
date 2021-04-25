@@ -1681,6 +1681,7 @@ color: #011128;
   padding: 10px 0 0 7px;
   color: #2c536c;
 }
+/*
 .popup {
 
   display: none;
@@ -1695,7 +1696,7 @@ color: #011128;
   background-color: rgba(0, 0, 0, 0.4);
 
 }
-
+*/
 .close {
   color: #aaa;
   font-size: 28px;
@@ -1711,7 +1712,7 @@ color: #011128;
   cursor: pointer;
 
 }
-
+/*
 .popup_header {
   background-color: #5c82b8;
   color: white;
@@ -1756,7 +1757,7 @@ color: #011128;
 
   }
 
-}
+} */
 .password-control {
   width: 30px;
   height: 30px;

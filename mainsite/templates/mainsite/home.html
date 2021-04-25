@@ -3,147 +3,124 @@
 {% block content %}
 {% load static %}
 
+
 <title>TopSkills</title>
 
+<div class="popup" id="popup-1">
+  <div class="overlay"></div>
+
+  <div class="content container" style="border-radius: 30px;">
+
+    <div class="close-btn" onclick="togglePopup()">&times;</div>
+
+    <form id="Form1">
+
+      <a>
+        <img src='{% static "/img/images_for_pop-up/first cart.jpg" %}'>
+      </a>
+
+      <p class="popup-text">Кликни сюда и переходи в свой профиль, где отражается твоя личная
+        информация, пирамида целей, галерея и много других интересных фишек.</p>
+
+      <div class="btn-box">
+        <button type="button" id="Next1"> далее </button>
+      </div>
+
+    </form>
+
+    <form id="Form2" style="display: grid; grid-template-columns: auto; grid-template-rows: auto 100px;">
+
+      <a class="popup-form-image" style="margin-left: 40%;">
+        <img src="/static/mainsite/images/profile/image_alt.png" style="justify-content: center;
+          align-items: center;
+          padding: 40%;">
+      </a>
+      <p class="popup-text">Поменяй фотографию здесь.</p>
+
+      <div class="btn-box">
+        <button type="button" id="Back1">назад</button>
+        <button type="button" id="Next2">далее</button>
+      </div>
+
+    </form>
+
+    <form id="Form3">
+
+      <p class="popup-text"> 💡После прохождения 2 урока тебе станет доступна возможность создавать аффирмации.</p>
+
+      <p class="popup-text"> 💡Колесо жизни, которое будет меняться по мере прохождения четвертей.</p>
+
+      <p class="popup-text"> «Колесо жизни» будет меняться по мере прохождения четвертей.</p>
+
+      <p class="popup-text"> 💡Здесь ты можешь добавить фото.</p>
+
+      <div class="btn-box">
+        <button type="button" id="Back2"> назад </button>
+        <button type="button" id="Next3"> далее </button>
+      </div>
+
+    </form>
+
+    <form id="Form4">
+
+      <a class="popup-form-image" style="border-radius: 100%;">
+        <img src='{% static "/img/images_for_pop-up/fourth card.jpg" %}'>
+      </a>
+
+      <p class="popup-text">Нажми на «росточек».</p>
+
+      <div class="btn-box">
+        <button type="button" id="Back3"> назад </button>
+        <button type="submit" onclick="togglePopup()"> конец </button>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<a onclick="togglePopup()" target="_blank" style="cursor: pointer;">
+
+  <svg class="octicon octicon-question" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+    <path fill-rule="evenodd"
+      d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm9 3a1 1 0 11-2 0 1 1 0 012 0zM6.92 6.085c.081-.16.19-.299.34-.398.145-.097.371-.187.74-.187.28 0 .553.087.738.225A.613.613 0 019 6.25c0 .177-.04.264-.077.318a.956.956 0 01-.277.245c-.076.051-.158.1-.258.161l-.007.004a7.728 7.728 0 00-.313.195 2.416 2.416 0 00-.692.661.75.75 0 001.248.832.956.956 0 01.276-.245 6.3 6.3 0 01.26-.16l.006-.004c.093-.057.204-.123.313-.195.222-.149.487-.355.692-.662.214-.32.329-.702.329-1.15 0-.76-.36-1.348-.863-1.725A2.76 2.76 0 008 4c-.631 0-1.155.16-1.572.438-.413.276-.68.638-.849.977a.75.75 0 101.342.67z">
+    </path>
+  </svg>
+
+</a>
+
 <section id='header-slogan'>
-        <div class="header-slider" style="margin-top: 40px;">
-            <div class="header--slider--item slider--4item">
-                <div class="header--container">
-                    <p class="home--header--slogan--title">Скоро новое обновление дизайна TopSkills Beta 2.0  </p>
-                </div>
-            </div>
-            <div class="header--slider--item slider--5item">
-                <div class="header--container">
-                    <p class="home--header--slogan--title">Скоро наша телефонная версия TopSkills Beta 3.0 </p>
-                </div>
-            </div>
-            <div class="header--slider--item slider--6item">
-                <div class="header--container">
-                    <p class="center--slogan--title">Скоро только на нашей платформе IconImages <br> Beta 1.0</p>
-                </div>
-            </div>
-            <!--
-            <div class="header--slider--btns">
-                <button class="header--slider--btn header--slider--prev">
-                    <img src="../../static/mainsite/images/landing/prev--arrow.png" alt="">
-                </button>
-                <button class="header--slider--btn header--slider--next">
-                    <img src="../../static/mainsite/images/landing/next--arrow.png" alt="">
-                </button>
-            </div>
-        -->
-        </div>
-    </section>
-<!--section id='mainPage'>
-  
-</section>
+  <div class="header-slider" style="margin-top: 40px;">
+    <div class="header--slider--item slider--4item">
+      <div class="header--container">
+        <p class="home--header--slogan--title">Скоро новое обновление дизайна TopSkills Beta 2.0 </p>
+      </div>
+    </div>
+    <div class="header--slider--item slider--5item">
+      <div class="header--container">
+        <p class="home--header--slogan--title">Скоро наша телефонная версия TopSkills Beta 3.0 </p>
+      </div>
+    </div>
+    <div class="header--slider--item slider--6item">
+      <div class="header--container">
+        <p class="center--slogan--title">Скоро только на нашей платформе IconImages <br> Beta 1.0</p>
+      </div>
+    </div>
 
-  <img  class="aboutFirstSemirical" src='{% static "../static/mainsite/images/home/semerical.png" %}' alt=""></div>
-<section id='aboutProject'>
-  <div class="aboutFirstEllipse"></div>
-  <img class="aboutIntersect" src='{% static "../static/mainsite/images/home/Intersect.png" %}'></img>
-  <div class="aboutFlex">
-    <div class="aboutCol aboutColTxt">
-      <p class="aboutTitle">Кто мы и что делаем?</p>
-      <p class="aboutTxt">Весь проект создается по книге Гильмутдинова А.Х 
-        и  Гильмутдиновой А.А “Уроки лидерства: Курс личносного развития”. 
-        Мы команда специалистов в разных областях, наша задача направлять людей
-        на важные дела, помогая им в трудной ситуации и поддерживая их на всем пути.
-        Сейчас мы занимаемся геймификацией этой книги в удобной для пользователей
-        среде.
-      </p>
-      <button class='aboutArrow'><img src='{% static "../static/mainsite/images/home/short_down.png" %}' alt=""></button>
-    </div>
-    <div class="aboutCol">
-      <img class='aboutBook'src='{% static "../static/mainsite/images/home/book.png" %}' alt="">
-    </div>
   </div>
-  <div class="aboutSecondEllipse"></div>
-  <div class="aboutFirstRingBg"></div>
-  <div class="aboutFirstRing"></div>
-</section>
-<img  class="orangeBlurRectangle" src='{% static "../static/mainsite/images/home/orange-Rectangle-blur.png" %}' alt="">
-<img src='{% static "../static/mainsite/images/home/semerical.png" %}'  class="aboutSecondSemirical" alt="">
 
-<section id='whyWe'>
-  <div class="whyFlex">
-    <div class="whyCol">
-      <p class="whyTitle">Почему 
-        именно мы ?</p>
-        <p class="whyTxt">Все просто! Наша команда старается помогать людям, которые сбились
-          с колеи жизни, кому нужна мотивация творить чудеса. 
-          Нам не важны препятствия и невзгоды, нам нужны победы!
-           и только победы!Мы ценим наших друзей и помогаем им во всем!</p>
-    </div>
-    <div class="whyCol">
-      <img class='girl'src='{% static "../static/mainsite/images/home/girl.png" %}' alt="">
-    </div>
-  </div>
-  <img class="whyTriangle" src='{% static "../static/mainsite/images/home/yellow-blur-Polygon-.png" %}'></img>
 </section>
-<section id='forWho'>
-  
-  <img class="forLeftIntersect" src='{% static "../static/mainsite/images/home/leftIntersect.png" %}'></img>
-  <img class="forMiddleSmallIntersect" src='{% static "../static/mainsite/images/home/middleIntersect.png" %}'></img>
-  <img class="forMiddleBigIntersect" src='{% static "../static/mainsite/images/home/middleBigIntersect.png" %}'></img>
-  
- 
-  <p class="forTitle">Для кого это?</p>
-  <div class="forGrid">
-    <div class="forCol">
-      <div class="forColWhiteBg">
-        <img src='{% static "../static/mainsite/images/home/forFirstIcon.png" %}' alt="" class="forColIcon">
-        <p class="forColTxt">Для людей, которые не определились <br>
-          в жизни и хотят изменить все <br>
-          в своей жизни, наладить отношения<br>
-          в обществе, выбрать профессию<br>
-          и тд.</p>
-      </div>
-      
-    </div>
-    <div class="forCol">
-      <div class="forColWhiteBg">
-        <img src='{% static "../static/mainsite/images/home/forSecondIcon.png" %}' alt="" class="forColSecondIcon">
-        <p class="forColTxt">Для тех, кому надоела рутинная жизнь
-          и повседневные заботы. <br>    Кто хочет измениться в жизни <br>
-          и стать тем, кем мечтал стать <br>
-          всю жизнь!</p>
-      </div>
-      
-    </div>
-    <div class="forCol">
-      <div class="forColWhiteBg">
-        <img src='{% static "../static/mainsite/images/home/forThirdIcon.png" %}' alt="" class="forColThirdIcon">
-        <p class="forColTxt">Для тех, кому надоела рутинная жизнь
-          и повседневные заботы.<br>  Кто хочет измениться в жизни<br>
-          и стать тем, кем мечтал стать <br>
-          всю жизнь!</p>
-      </div>
-      
-    </div>
-  </div>
-  <img class='rocketLine' src='{% static "../static/mainsite/images/home/rocketLine.png" %}' alt="">
-  <img  class='rocket'src='{% static "../static/mainsite/images/home/rocket.png" %}' alt="">
-</section>
-<section id='question'>
-  <div class="questionFlex">
-    <div class="questionCol">
-      <p class="questionTitle">Есть вопросы?</p>
-      <p class="questionTxt">Не стесняйся задавать нам свои вопросы,
-        и наш сотрудник,Барсик обязательно ответит 
-        на ваши вопросы.</p>
-        <button class='questionBtn'>Задать вопрос</button>
-    </div>
-    <div class="questionCol">
-      <img src='{% static "../static/mainsite/images/home/catGroup.png" %}' class='cat' alt="">
-    </div>
-  </div>
-</section-->
 
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'mainsite/css/pop-up.css' %}">
+<link rel="stylesheet" href="{% static 'mainsite/css/steps.css' %}">
 
 <script src="{% static 'mainsite/js/landingScripts/jquery.min.js' %}"></script>
 <script src="{% static 'mainsite/js/landingScripts/slick.min.js' %}"></script>
 <script src="{% static 'mainsite/js/landingScripts/slider.js' %}"></script>
+<script src="{% static 'mainsite/js/pop-up.js' %}"></script>
+<script src="{% static 'mainsite/js/registration/steps_function.js' %}"></script>
+<script src="{% static 'mainsite/js/steps.js' %}"></script>
 {% endblock %}
