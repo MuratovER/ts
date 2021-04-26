@@ -9,6 +9,7 @@
         {% endif %}
     </div>
     {% for post in posts %}
+        {% if post.author == request.user %}
         <div class="post">
             <div class="date">
                 Опубликовано: {{ post.published_date }}
@@ -42,5 +43,6 @@
             {% endfor %}
         </div>
         <hr>
+        {% endif %}
     {% endfor %}
 {% endblock content %}

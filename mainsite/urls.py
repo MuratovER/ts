@@ -20,6 +20,7 @@ urlpatterns = [
 	path('profile_settings/', views.profile_settings, name='profile_settings'),
 	
 	path('blog/', views.post_list, name='post_list'),
+	path('blog/my', views.post_list_my, name='post_list_my'),
 	path('blog/drafts/', views.post_draft_list, name='post_draft_list'),
 	path('blog/article/new/', views.post_new, name='post_new'),
 	path('blog/article/<int:pk>/', views.post_detail, name='post_detail'),

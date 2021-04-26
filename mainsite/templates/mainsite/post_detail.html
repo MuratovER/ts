@@ -2,6 +2,7 @@
 
 {% block content %}
 <title>Блог</title>
+<hr>
 <div class="post">
     {% if post.published_date %}
         <div class="date">
@@ -10,7 +11,7 @@
     {% else %}
         <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Опубликовать</a>
     {% endif %}
-    {% if user.is_authenticated %}
+    {% if post.author == request.user %}
         <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
     {% endif %}
