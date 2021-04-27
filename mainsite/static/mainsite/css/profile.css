@@ -149,7 +149,7 @@
 .profile-buttons {
   position: absolute;
   right: 20%;
-  top: 239px;
+  margin-top: -27px;
   background: #FFFFFF;
   border: 0.5px solid #757575;
   box-sizing: border-box;
@@ -1170,7 +1170,8 @@
 
 .active--help-block {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  z-index: 0; }
 
 .profile--help-info-hedaer {
   display: flex;
