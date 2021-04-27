@@ -1,5 +1,9 @@
 * {
-  outline: none !important; }
+  outline: none !important;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0; }
 
 .header-menu {
   width: 90%;
@@ -128,7 +132,8 @@
   line-height: 23px;
   text-align: center;
   letter-spacing: 0.03em;
-  color: #000000; }
+  color: #000000;
+  margin-top: 5px; }
 
 .header-info-user-quote {
   font-family: 'Roboto';
@@ -1164,7 +1169,16 @@
   display: none; }
 
 .active--help-block {
-  display: block; }
+  display: flex;
+  flex-direction: column; }
+
+.profile--help-info-hedaer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+.profile--help-info-close {
+  margin-top: -30px; }
 
 .profile--help-title {
   font-weight: bold;
@@ -1177,6 +1191,53 @@
   font-weight: normal;
   font-size: 0.9em;
   line-height: 2em; }
+
+/*feedback and error hint */
+.feedback--error--block {
+  bottom: 50px;
+  right: 100px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 220px; }
+
+.feedback--error-links {
+  height: 100px;
+  background: #fff;
+  box-shadow: 0px 0px 19px 1px rgba(0, 0, 0, 0.25);
+  min-height: 50px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 15px;
+  display: none; }
+
+.feedback--error-btn {
+  font-size: 40px;
+  border: none;
+  background: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  background: #fff;
+  box-shadow: 0px 0px 19px 1px rgba(0, 0, 0, 0.25);
+  align-self: flex-end; }
+
+.feedback--error-link-item {
+  font-family: 'Roboto';
+  border: 1px solid black;
+  background: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 10px; }
+
+.activeFlex {
+  display: flex; }
 
 @media only screen and (min-width: 1080px) and (max-width: 1800px) {
   .profile-grid {

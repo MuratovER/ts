@@ -10,7 +10,7 @@ button:hover, a:hover {
   cursor: pointer; }
 
 .wrapper {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   background: rgba(9, 9, 9, 0.53);
