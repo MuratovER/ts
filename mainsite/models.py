@@ -96,7 +96,6 @@ class Profile(models.Model):
     email = models.EmailField(max_length=150, null=True)
     bio = models.TextField(blank=True, null=True)
     image = CloudinaryField('image', null=True, blank=True, default = None)
-    slug = models.SlugField(null=True)
 
     def __str__(self):
         return self.user.username

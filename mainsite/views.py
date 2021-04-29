@@ -462,16 +462,15 @@ def profile_image_upload(request):
 #     template_name = 'article_detail.html'
 
 @login_required
-def user_page(request):
+def user_page(request, username):
     '''
     отображает на странице профиля скилы и фичи для конкретных пользователей
     '''
-
     user = User.objects.get(username = request.user)
     profile = Profile.objects.get(user= request.user)
     skills = UserSkill.objects.filter(user=user)
     achivements = UserAchivement.objects.filter(user = user)
-
+    
     sphere = None
     if Sphere_of_life.objects.filter(user=request.user).exists():
         sphere = Sphere_of_life.objects.get(user=request.user)

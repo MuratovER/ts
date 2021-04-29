@@ -60,7 +60,7 @@
         <nav class='menu'>
           {% if user.is_authenticated %}
           <a href="{% url 'home_page' %}" class="header-a">Главная</a>
-          <a href="{% url 'user_page' %}" class="header-a">Профиль</a>
+          <a href="{% url 'user_page' username=user.username %}" class="header-a">Профиль</a>
           <a href="{% url 'post_list' %}" class="header-a">Блог</a>
           <a href="{% url 'tree' %}" class="header-a">Дерево развития</a>
           <a href="{% url 'tree_old' %}" class="header-a">Старое дерево развития</a>
@@ -74,12 +74,7 @@
         <div class="header--btns">
           {% if user.is_authenticated %}
             <button type="sumbit" onclick="location.href='{% url 'logout' %}'" class='header--change--btn headerExit'>Выход</button>
-            <!--
-            <button type="sumbit" onclick="location.href='{% url 'tree' %}'" class='headerBtn headerBtnMenu'></button>
-            -->
-            <!-- <button type="sybmit" class='header--btn header--btn-search'></button>
-            <button type="sybmit" class='header--btn header--btn-notification'></button>
-            <button type="sumbit" onclick="location.href='{% url 'user_page' %}'" class='header--btn header--btn-user'></button> -->
+
           {% else %}
             <button type="sumbit" onclick="location.href='{% url 'login' %}'" class='header--change--btn headerEnter'>Войти</button>
             <button type="sumbit" onclick="location.href='{% url 'signup' %}'" class='header--change--btn headerRegister'>Регистрация</button>
@@ -89,75 +84,6 @@
         </div>
       </div>
     
-
-
-      <!-- Old code -->
-
-      <!-- 
-        <div class="logo">
-            <a href="/">
-            <img src="https://media.discordapp.net/attachments/698260986880065546/744777298011619378/2.jpg" style="width: 60;" alt="Topskills">
-                <span style="color: #f6d4d2; font-size: 25px; font-weight: 550;">
-                TopSkills
-                </span>
-            </a>    
-        </div>
-
-
-        {% if user.is_authenticated %}
-        <ul class="nav-ul">
-            <li class="left-li"> <button type="button" class="btn btn-secondary"><a href="{% url 'home_page' %}" class="top-menu"><span class="glyphicon glyphicon-home"></span>Главная</a></button></li>
-            <li class="left-li"><button type="button" class="btn btn-secondary"><a href="{% url 'user_page' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span>Профиль</a></button></li>
-            <li></li>
-            <li class="right-li"><button type="button" class="btn btn-secondary"><a href="{% url 'tree' %}" class="top-menu"><span class="glyphicon glyphicon-comment"></span>Древо развития</a></button></li>
-            <li class="right-li"><button type="button" class="btn btn-secondary"><a href="{% url 'skills' %}" class="top-menu"><span class="glyphicon glyphicon-star"></span>Навыки</a></button></li>
-            <li class="right-li"><button type="button" class="btn btn-secondary"><a href="{% url 'achivements' %}" class="top-menu"><span class="glyphicon glyphicon-star"></span>Достижения</a></button></li>
-            <li class="right-li"><button type="button" class="btn btn-secondary">Привет {{ user.username }} <a href="{% url 'logout' %}">Выход</a></button></li>
-        </ul>
-         <div class="btn-group " role="group" aria-label="Basic example">
-       </div>
-        {% endif %}
-      </nav>
-    
-
-        <div class="page-header">
-            {% if user.is_authenticated %}
-            <div class="activated">
-            </div>
-            {% else %}
-            <div class="item1">
-                <div>
-                    <img src="https://cdn.discordapp.com/attachments/650954813550624778/659785442111127582/lis-lisa-doroga-les-iolki-gory-zakat-rassvet-nebo-zvezdy.jpg"  alt="Your Future" width="100%" height="600">
-                </div> 
-            </div> 
-             <div class="item2"> 
-            <div clas="main-page-n-login" style="padding: 50% 55px; width: 100%;">
-                <form method="post" action="/accounts/login/" class="login-tables">
-                        {% csrf_token %}
-                        <table>
-                        <tbody><tr class="login">
-                            <td><label for="id_username">Логин:</label></td>
-                            <td><input type="text" name="username" autofocus="" required="" id="id_username"></td>
-                        </tr>
-                        <tr class="password">
-                            <td><label for="id_password">Пароль:</label></td>
-                            <td><input type="password" name="password" required="" id="id_password"></td>
-                        </tr>
-                    </tbody></table>
-                        <input  type="submit" class="button1" value="Вход" >
-                        <input type="hidden" name="next" value="">
-                </form>
-                {% if form.errors %}
-
-                <p>Your username and password didn't match. Please try again.</p>
-                {% endif %} -->
-
-            <!-- Переход в Регистрацию 
-
-                    <a href="{% url 'signup' %}" class="button2"> Регистрация </a>
-                {% endif %}
-            </div> -->
-
     </header>
 
         <!-- </div>
