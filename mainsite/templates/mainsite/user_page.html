@@ -15,10 +15,6 @@
         <img class='header-info-bg' src='{% static "mainsite/images/profile/background-header.png" %}' alt="">
         <div class="gol_icon">
           
-
-          
-          
-
           {% if profile.image != null %}
           <div class="header-profile-img">
             <img src='{{ profile.image.url }}' class='header-profile-img' alt="profile-avatar">
@@ -27,7 +23,6 @@
             <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' class='header-profile-img' alt="profile-avatar">
           {% endif %}
           
-          
           <a href="../user_page/image_upload/">
             <button class='changePhoto'>
               <img src='{% static "mainsite/images/profile/image_alt.png" %}' alt="">
@@ -35,11 +30,9 @@
           </a>
 
         </div>
-     
           <p class="header-info-userName">{{ profile.first_name }} {{ profile.last_name }}</p>
           <p class="header-info-userId">@{{ profile }}</p>
-          <div id='backend__image_upload'>
-                 
+          <div id='backend__image_upload'>    
           </div>  
           <p class="header-info-user-quote">Вдохновение — это такая гостья, которая не любит посещать ленивых. <br>
             Пётр Ильич Чайковский русский композитор 
