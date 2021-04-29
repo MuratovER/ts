@@ -1,4 +1,10 @@
 $blockBg: #ffffff
+*
+  outline: none !important
+  background: none
+  border: none
+  margin: 0
+  padding: 0
 .header-menu
   width: 90%
   display: -webkit-box
@@ -139,7 +145,7 @@ $blockBg: #ffffff
   font-weight: bolder
   font-size: 35px
   line-height: 41px
-
+  margin: 0
   /* identical to box height
   text-align: center
   letter-spacing: 0.03em
@@ -153,7 +159,7 @@ $blockBg: #ffffff
   text-align: center
   letter-spacing: 0.03em
   color: #000000
-
+  margin-top: 5px
 .header-info-user-quote
   font-family: 'Roboto'
   font-style: normal
@@ -455,11 +461,12 @@ $blockBg: #ffffff
   height: 605px
   border-radius: 21px
   position: relative
-
-#gallety-dots
+  padding-left: 59px
+  padding-top: 62px
+#gallery-dots
   float: right
   margin-right: 42px
-  margin-top: 37px
+  margin-top: 17px
 
 .gallery-title
   font-family: 'Roboto'
@@ -467,12 +474,11 @@ $blockBg: #ffffff
   font-weight: bolder
   font-size: 25px
   line-height: 29px
-
+  margin: 0
   /* identical to box height
   letter-spacing: 0.03em
   color: #000000
-  margin-left: 59px
-  padding-top: 62px
+
 
 .gallery-grid
   display: -ms-grid
@@ -480,7 +486,7 @@ $blockBg: #ffffff
   -ms-grid-columns: 18% 18% 45%
   grid-template-columns: 18% 18% 45%
   gap: 9px
-  padding-left: 62px
+  padding-left: 24px
   padding-top: 33.38px
 
 .gallery1
@@ -671,7 +677,7 @@ $blockBg: #ffffff
   position: relative
   background: #E7EBF7
   border-radius: 3px
-  z-index: 5
+  z-index: 0
   margin-top: 25px
 
 .skill-blue-line
@@ -755,13 +761,11 @@ $blockBg: #ffffff
   height: 605px
   border-radius: 21px
   position: relative
-
+  padding: 69px 0px  0px 75px
 .friends-3-dots
   border: none
   background: none
-  position: absolute
-  right: 42px
-  padding-top: 46px
+
 
 .friends-title
   font-family: 'Roboto'
@@ -774,8 +778,8 @@ $blockBg: #ffffff
   margin-bottom: 57px
   letter-spacing: 0.03em
   color: #000000
-  padding-top: 69px
-  padding-left: 45px
+  margin: 0
+
 
 .friends-flex
   display: -webkit-box
@@ -1060,7 +1064,7 @@ $blockBg: #ffffff
   border-radius: 21px
 
 .affirmation-haedline
-  margin-top: 42px
+  padding: 22px
   position: relative
   display: -webkit-box
   display: -ms-flexbox
@@ -1069,14 +1073,14 @@ $blockBg: #ffffff
   -webkit-box-direction: normal
   -ms-flex-direction: row
   flex-direction: row
-
+  align-items: center
 .affirmation-title
   font-family: 'Roboto'
   font-style: normal
   font-weight: bold
   font-size: 33px
   line-height: 170.69%
-
+  margin: 0
   /* or 56px
   text-align: justify
   color: #000000
@@ -1084,10 +1088,9 @@ $blockBg: #ffffff
 .affirmation-copy
   &:focus
     outline: none
-
   position: absolute
   right: -102px
-  margin-top: 10px
+
   background: none
   border: none
   cursor: pointer
@@ -1196,6 +1199,7 @@ $blockBg: #ffffff
   -webkit-box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.08)
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.08)
   border-radius: 21px 21px 0px 0px
+  padding: 34px 42px 19px 42px
 
 #lifeWheelHeaderTxt
   font-family: 'Roboto'
@@ -1204,10 +1208,7 @@ $blockBg: #ffffff
   font-size: 25px
   line-height: 29px
   color: #000000
-  margin-top: 34px
-  margin-left: 42px
-  margin-bottom: 19px
-
+  margin: 0
 .lifeWheelBtn
   &:hover, &:focus
     cursor: pointer
@@ -1328,7 +1329,103 @@ $blockBg: #ffffff
   position: absolute
   margin-left: 330px
   margin-top: 185px
+.profile--help-flex-row
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+.profile--help-row
+  display: flex
+  flex-direction: row
+  align-items: center
 
+  margin-bottom: 24px
+.profile--help-block
+  position: relative
+  margin-left: 16px
+  margin-right: 16px
+  outline: none
+.profile--help-btn
+  background: none
+  border: none
+  cursor: pointer
+  outline: none
+.profile--help-info
+  z-index: 1
+  font-family: Roboto;
+  font-style: normal;
+  color: #383838;
+  position: absolute
+  min-width: 419px
+  background: #FFFFFF;
+  box-shadow: 0px 0px 27px rgba(0, 0, 0, 0.07);
+  border-radius: 6.39695px;
+  padding: 30px 25px 30px 25px
+  margin-left: 30px
+  display: none
+.active--help-block
+  display: flex
+  flex-direction: column
+.profile--help-info-hedaer
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+.profile--help-info-close
+  margin-top: -30px
+.profile--help-title
+  font-weight: bold
+  font-size: 1.2em;
+  line-height: 1.3em;
+  margin: 0
+  /* identical to box height */
+.profile--help-txt
+  font-weight: normal;
+  font-size: 0.9em;
+  line-height: 2em;
+
+/*feedback and error hint
+.feedback--error--block 
+  bottom: 50px;
+  right: 100px;
+  position: fixed
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  min-width: 220px
+.feedback--error-links 
+  height: 100px
+  background: #fff;
+  box-shadow: 0px 0px 19px 1px rgba(0, 0, 0, 0.25);
+  min-height: 50px;
+  width: max-content;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+  border-radius: 15px
+  display: none
+.feedback--error-btn 
+  font-size: 40px
+  border: none;
+  background: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px
+  background: #fff;
+  box-shadow: 0px 0px 19px 1px rgba(0, 0, 0, 0.25);
+  align-self: flex-end
+
+.feedback--error-link-item
+  font-family: 'Roboto'
+  border: 1px solid black
+  background: none
+  cursor: pointer
+  padding: 5px
+  border-radius: 10px
+.activeFlex
+  display: flex
+.profile--help-info-close
+  
 @media only screen and (min-width: 1080px) and (max-width: 1800px) 
     .profile-grid
         width: 1000px

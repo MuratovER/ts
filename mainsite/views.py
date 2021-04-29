@@ -7,7 +7,7 @@ from django.template import RequestContext
 from .models import Post, Skill, UserSkill, Profile, Sphere_of_life, Achivement, UserAchivement, User_affirmation, Comment 
 from django.utils import timezone
 from django.contrib.auth.models import User
-from .forms import Sphere_of_life_Form, PostForm, CommentForm, UserUpdateForm, ProfileUpdateForm
+from .forms import Sphere_of_life_Form, PostForm, CommentForm, UserUpdateForm
 from django.contrib.auth.decorators import login_required
 from .useful_lib import WheelOfLife, get_affirmation_image
 import datetime
@@ -348,6 +348,12 @@ def post_list(request):
     return render(request, 'mainsite/post_list.html', {'posts': posts})
 
 @login_required
+def post_list_my(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'mainsite/post_list_my.html', {'posts': posts})
+
+
+@login_required
 def post_draft_list(request):
     posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
     return render(request, 'mainsite/post_draft_list.html', {'posts': posts})
@@ -362,15 +368,18 @@ def post_detail(request, pk):
 @login_required
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.save()
-            return redirect('post_detail', pk=post.pk)
+    if request.user == post.author:
+        if request.method == "POST":
+            form = PostForm(request.POST, instance=post)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.author = request.user
+                post.save()
+                return redirect('post_detail', pk=post.pk)
+        else:
+            form = PostForm(instance=post)
     else:
-        form = PostForm(instance=post)
+        return redirect('post_detail', pk=post.pk)
     return render(request, 'mainsite/post_edit.html', {'form': form})
 
 @login_required
@@ -392,6 +401,7 @@ def add_comment_to_post(request, pk):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
+            comment.author = request.user
             comment.post = post
             comment.save()
             return redirect('post_list')
@@ -401,27 +411,35 @@ def add_comment_to_post(request, pk):
 
 @login_required
 def comment_approve(request, pk):
-    comment = get_object_or_404(Comment, pk=Comment.pk)
+    comment = get_object_or_404(Comment, pk=pk)
     comment.approve()
     return redirect('post_list')
 
 @login_required
 def comment_remove(request, pk):
-    comment = get_object_or_404(Comment, pk=Comment.pk)
+    comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
     return redirect('post_list')
 
-@login_required
+'''@login_required
 def add_post_like(request, pk):
     if pk in request.COOKIES:
-        return HttpResponseRedirect('/blog')
+        return redirect('post_list')
     else:
         post = get_object_or_404(Post, pk=pk)
         post.likes += 1
         post.save()
-        response = HttpResponseRedirect('/blog')
-        response.set_cookie(f"{pk}", 'test')
-        return response
+        return redirect('post_list')'''
+
+@login_required
+def add_like(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if post.user_likes == False:
+        post.likes += 1
+        post.save()
+        return redirect('post_list')
+    else:
+        return redirect('post_list')
 
 @login_required
 def skills(request):
@@ -573,19 +591,19 @@ def api_get_todolist(request):
 def profile_settings(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
-        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
-        if u_form.is_valid()and p_form.is_valid():
+       # p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        if u_form.is_valid(): #and p_form.is_valid():
             u_form.save()
-            p_form.save()
+            #p_form.save()
             #messages.success(request, f"Your info has been changed!")
             return redirect('profile_settings')    
     else:
         u_form = UserUpdateForm(instance=request.user)
-        p_form = ProfileUpdateForm(request.POST, instance=request.user.profile)
+       # p_form = ProfileUpdateForm(request.POST, instance=request.user.profile)
    
     context = {
         'u_form': u_form,
-        'p_form': p_form
+        #'p_form': p_form
     }
     return render(request, 'registration/profile_settings.html', context)
 

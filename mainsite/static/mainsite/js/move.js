@@ -6,16 +6,19 @@ TODO
 
 правильное перемещение левых блоков вправо вверх для этого нужно
 найти центр элемента
+
 */
 // первый вариант с событиями HTML5 
 
 const  flexCol = document.querySelectorAll('.grid-col');
+/*
 flexCol.forEach((item) => {
     item.addEventListener('click', () => {
         let halfHeight = item.clientHeight/2; 
-        console.log(item.getBoundingClientRect().top) ;
+        //console.log(item.getBoundingClientRect().top) ;
     });
 })
+*/
 //функция отрабатывающая при старте перемещение
 function onDragStart(event) {
 //console.log(event);

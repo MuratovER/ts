@@ -3,27 +3,118 @@
 {% block content %}
 {% load static %}
 
-
-<div class="conteiner_profile_settings">
-  <div class="login-tables">
-      <form id="regForm" method="POST" enctype="multipart/form-data">
-          {% csrf_token %}
-      
-                   
-          <div> 
-            {{ u_form }}
+ <form id="profile--info" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="profile-grid">
+    <div id="flex-col-1" class="grid-col small-col" draggable="true" ondragstart="onDragStart(event);" ondragover="onDragOver(event);" ondrop="onDrop(event);">
+      <div class="profile-info-container" style="height:500px;">
+        <div class="profile-title-flex">
+          <div class="profile-info-title">Личная информация</div>
+        </div>
+        <div class="profile-info-line"></div>
+        <div class="profile-info-grid">
+          <div class="profile-info-box">
+            <p class="profile-info">Никнейм:</p>
+            <p class="profile-info">Почта:</p>
+            <p class="profile-info">Фамилия:</p>
+            <p class="profile-info">Имя:</p>
+            <p class="profile-info">Языки:</p>
           </div>
-          <br>
-          <div>
-             {{ p_form }}
-          </div>   
-
+          <div class="profile-info-box profile-info-txt-box">
+            <p class="profile-info-txt"> 
+              {{ u_form.username }}    
+            </p>
+            <p class="profile-info-txt"> 
+              {{ u_form.email }}       
+            </p>
+            <p class="profile-info-txt">
+              {{ u_form.first_name }}   
+            </p>
+            <p class="profile-info-txt">
+              {{ u_form.last_name }}    
+            </p>
+            <p class="profile-info-txt">русский, английский        
               
-  
-        <button class="dws_submit" type="submit">Update</button> 
-      </form>
-   </div> 
- </div>
+            </p>
+          </div>
+        </div>
+        <!--
+        <div class="profile-title-flex">
+          <div class="profile-info-title">Безопасность</div>
+        </div>
+        <div class="profile-info-line"></div>
+        <div class="profile-info-grid">
+          <div class="profile-info-box">
+            <p class="profile-info">Подписчиков:</p>
+            <p class="profile-info">Друзья:</p>
+            <p class="profile-info">Дата регистрации:</p>
+            <p class="profile-info">Уровень:</p>
+            <p class="profile-info">Всего выполненных задач:</p>
+            <p class="profile-info">Настройки профиля:</p>
+            <p class="profile-info">Электронная почта:</p>
+            <p class="profile-info">Язык:</p>
+          </div>
+          <div class="profile-info-box profile-info-txt-box">
+            <p class="profile-info-txt">
+               <label class="switch">
+                  <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </p>
+            <p class="profile-info-txt">
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+              </label>
+            </p>
+            <p class="profile-info-txt">
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+              </label>
+            </p>
+            <p class="profile-info-txt">
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span> 
+              </label>
+            </p>
+            <p class="profile-info-txt">
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+              </label>
+            </p>
+            <p class="profile-info-txt"> 1 января 2021г.</p>
+            <p class="profile-info-txt">Телефон: 89826716241</p>
+            <p class="profile-info-txt">КНИТУ КАИ им. Туполева</p>
+            <p class="profile-info-txt">Татарский, Русский, Английский</p>
+          </div>
+        </div>
+        <div class="profile-title-flex">
+          <div class="profile-info-title">Персонализация</div>
+        </div>
+        <div class="profile-info-line"></div>
+        <div class="profile-info-grid">
+          <div class="profile-info-box">
+            <p class="profile-info">Подписчиков:</p>
+          </div>
+          <div class="profile-info-box profile-info-txt-box">
+            <p class="profile-info-txt"> sssssssssssssssssss
+            <p class="profile-info-txt"> 12 мая 2020 г. 15:57  </p>
+          </div>
+        </div>
+        {{ p_form }} -->
+        <div style="text-align: center;">
+          <br><br><br>
+          <button class="dws_submit" type="submit">Обновить</button> 
+        </div>
+      </div>
+    </div>
 
+ 
+</div>
+
+</form>
  {% endblock %} 
 

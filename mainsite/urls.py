@@ -19,6 +19,7 @@ urlpatterns = [
 	path('to_do_list/', views.to_do_list_view, name='to_do_list'),
 	path('profile_settings/', views.profile_settings, name='profile_settings'),
 	path('blog/', views.post_list, name='post_list'),
+	path('blog/my', views.post_list_my, name='post_list_my'),
 	path('blog/drafts/', views.post_draft_list, name='post_draft_list'),
 	path('blog/article/new/', views.post_new, name='post_new'),
 	path('blog/article/<int:pk>/', views.post_detail, name='post_detail'),
@@ -26,7 +27,7 @@ urlpatterns = [
 	path('blog/article/<pk>/publish/', views.post_publish, name='post_publish'),
 	path('blog/article/<pk>/remove/', views.post_remove, name='post_remove'),
 	path('blog/article/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
-	path('blog/article/<int:pk>/like/', views.add_post_like, name='add_post_like'),
+	path('blog/article/<int:pk>/like/', views.add_like, name='add_like'),
 	path('blog/comment/<int:pk>/approve/', views.comment_approve, name='comment_approve'),
 	path('blog/comment/<int:pk>/remove/', views.comment_remove, name='comment_remove'),
 

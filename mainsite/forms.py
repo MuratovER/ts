@@ -25,7 +25,7 @@ class CommentForm(forms.ModelForm):
 
     class Meta:
         model = Comment
-        fields = ('author', 'text',)
+        fields = ('text',)
 
 #This form for upload ico
 class UploadFileForm(forms.Form):
@@ -59,7 +59,7 @@ class UserUpdateForm(forms.ModelForm):
         model = User
         fields = ('username','email', 'first_name', 'last_name')
 
-class ProfileUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = ['image']      
+#class ProfileUpdateForm(forms.ModelForm):
+    #class Meta:
+       # model = Profile
+       # fields = ['image']      
