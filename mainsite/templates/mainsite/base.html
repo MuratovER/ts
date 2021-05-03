@@ -14,6 +14,8 @@
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
       <script src='{% static "mainsite/js/bootstrap.min.js" %}'></script>
+      <script src="../../static/mainsite/js/showHelpBlock.js" defer></script>
+      
 
       <!-- Style sheets -->
       <link rel="shortcut icon"   type="image/x-icon"  href="{% static '/mainsite/images/base/favicon.ico' %}"/>
@@ -23,6 +25,8 @@
       <link rel="stylesheet" href="{% static 'mainsite/css/bootstrap.css' %}">
       <link rel="stylesheet" href="{% static 'mainsite/css/landing.css' %}">
       <link rel="stylesheet" href="{% static 'mainsite/css/aboutUs.css' %}">
+      <link rel="stylesheet" href="{% static 'mainsite/css/evaluation.css' %}">
+      <link rel="stylesheet" href="{% static 'mainsite/css/collectErrors.css' %}">
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
@@ -160,6 +164,8 @@
 
     </header>
 
+   
+    
         <!-- </div>
         <div class="content-container" style="width: 100%;">
             <div class="row">
@@ -172,6 +178,14 @@
                 <!-- </div>
             </div>
         </div> -->
+        <div class="feedback--error--block">
+          <div class="feedback--error-links ">
+            <div class="feedback--error-title">Меню</div>
+            <button id='set--feedback-btn' class='feedback--error-link-item'><img src="../../static/mainsite/images/profile/flag.png" alt=""><p>Нашли ошибку</p> </button>
+            <button id='set--bug-btn'class='feedback--error-link-item'><img src="../../static/mainsite/images/profile/heart.png" alt=""><p>Оцените нас</p> </button>
+          </div> 
+            <button class='feedback--error-btn'><img src="../../static/mainsite/images/profile/question.png" alt=""></button>
+        </div>
 
     <footer id='footer'>
       <div class="footer--container">
@@ -240,6 +254,6 @@
       </div>
 
       </footer>
-
+      
   </body>
 </html>

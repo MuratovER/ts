@@ -2,7 +2,10 @@
 
 //подсказки о блоках
 const hintBtn = document.querySelectorAll('.profile--help-btn'),
-      closeHintBtn = document.querySelectorAll('.profile--help-info-close')
+      closeHintBtn = document.querySelectorAll('.profile--help-info-close'), 
+    helpBtn = document.querySelector('.feedback--error-btn'),
+    setFeedbackBtn = document.getElementById('set--feedback-btn'),
+    setBugBtn = document.getElementById('set--bug-btn');
 
 
     closeHintBtn.forEach(elem => {
@@ -11,24 +14,23 @@ const hintBtn = document.querySelectorAll('.profile--help-btn'),
         })
     });
 
-    hintBtn.forEach(btn => {
+    hintBtn.forEach(btn => {    
         btn.addEventListener('click', (event) => {
             
             event.currentTarget.nextElementSibling.classList.toggle('active--help-block');
         })
     })
 
-//показ блока отзыва и сбора багов
-const helpBtn = document.querySelector('.feedback--error-btn'),
-      setFeedbackBtn = document.getElementById('set--feedback-btn'),
-      setBugBtn = document.getElementById('set--bug-btn');
+
     
 helpBtn.addEventListener('click', (event)=> {
+    console.log(event.currentTarget);
     setFeedbackBtn.parentElement.classList.toggle('activeFlex');
 })
 
 
 setFeedbackBtn.addEventListener('click', (event) => {
+    console.log(event.currentTarget);
     setFeedbackBtn.parentElement.classList.toggle('activeFlex');
     document.body.insertAdjacentHTML('afterBegin', 
     `<div class="wrapper">
@@ -126,7 +128,7 @@ const showFeedback = () => {
         evaluationHintClose = evaluationHintBlock.querySelector('.evaluation--close-btn');
 
        
-        
+
     sendBtn.addEventListener('click', () => {
         evaluationBlock.style.display = 'none';
         evaluationHintBlock.style.display = 'flex';
