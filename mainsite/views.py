@@ -474,8 +474,6 @@ def profile_image_upload(request):
 
 @login_required
 def user_page(request):
-
-
     '''
     отображает на странице профиля скилы и фичи для конкретных пользователей
     '''
@@ -508,7 +506,7 @@ def user_page(request):
         user_text = user_obj.text
         bg_id = user_obj.background_id
         user_affirmation_path = get_affirmation_image.get_image(user_obj)
-    return render(request, 'mainsite/user_page.html', 
+    return render(request, 'mainsite/profile.html',
                             {
                                 'user' : user, 
                                 'skills' : skills, 
