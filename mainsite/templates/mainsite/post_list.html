@@ -37,12 +37,14 @@
                     {% if profile.image != null %}
                         <div class="header-profile-img">
                             <img src='{{ profile.image.url }}' width="50px" height="50px" alt="profile-avatar">
+                            <strong>{{ comment.author }}</strong>
+                            <p>{{ comment.text|linebreaks }}</p>
                         </div>
                     {% else %}
-                        <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' width="50px" height="50px" alt="profile-avatar">
+                    <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' width="50px" height="50px" alt="profile-avatar">
+                        <strong>{{ comment.author }}</strong>
+                        <p>{{ comment.text|linebreaks }}</p>
                     {% endif %}
-                    <strong>{{ comment.author }}</strong>
-                    <p>{{ comment.text|linebreaks }}</p>
                 </div>
                 {% endif %}
             {% empty %}
