@@ -347,15 +347,13 @@ def post_new(request):
 
 @login_required
 def post_list(request):
-    profile = Profile.objects.get(user=request.user)
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'mainsite/post_list.html', {'posts': posts, 'profile': profile})
+    return render(request, 'mainsite/post_list.html', {'posts': posts})
 
 @login_required
 def post_list_my(request):
-    profile = Profile.objects.get(user=request.user)
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'mainsite/post_list_my.html', {'posts': posts, 'profile': profile})
+    return render(request, 'mainsite/post_list_my.html', {'posts': posts})
 
 
 @login_required
@@ -365,10 +363,11 @@ def post_draft_list(request):
 
 @login_required
 def post_detail(request, pk):
+    profile = Profile.objects.get(user=request.user)
     post = get_object_or_404(Post, pk=pk)
     post.views += 1
     post.save()
-    return render(request, 'mainsite/post_detail.html', {'post': post})
+    return render(request, 'mainsite/post_detail.html', {'post': post, 'profile': profile})
 
 @login_required
 def post_edit(request, pk):
@@ -402,6 +401,7 @@ def post_remove(request, pk):
 @login_required
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    profile = Profile.objects.get(user=request.user)
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -409,10 +409,10 @@ def add_comment_to_post(request, pk):
             comment.author = request.user
             comment.post = post
             comment.save()
-            return redirect('post_list')
+            return redirect('post_detail', pk=post.pk)
     else:
         form = CommentForm()
-    return render(request, 'mainsite/add_comment_to_post.html', {'form': form})
+    return render(request, 'mainsite/add_comment_to_post.html', {'form': form, 'post': post, 'profile': profile})
 
 @login_required
 def comment_approve(request, pk):
