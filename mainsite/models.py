@@ -96,11 +96,14 @@ class Profile(models.Model):
     email = models.EmailField(max_length=150, null=True)
     bio = models.TextField(blank=True, null=True)
     image = CloudinaryField('image', null=True, blank=True, default = None)
-    default_image = CloudinaryResource('https://res.cloudinary.com/topskills/image/upload/v1619703737/Profile-photo_kxb4u2.png')
-
 
     def __str__(self):
         return self.user.username
+
+    def save(self):
+        if image == None:
+            image = CloudinaryResource('https://res.cloudinary.com/topskills/image/upload/v1619703737/Profile-photo_kxb4u2.png')
+            self.save()
 
 
 
