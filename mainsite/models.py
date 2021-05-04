@@ -100,9 +100,6 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-    def get_absolute_url(self):
-        return reverse('user_page', kwargs={'slug': self.slug})
-    
 
 @receiver(post_save, sender=User)
 def update_profile_signal(sender, instance, created, **kwargs):
