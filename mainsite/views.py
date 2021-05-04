@@ -608,5 +608,5 @@ def profile_settings(request):
         'u_form': u_form,
         #'p_form': p_form
     }
-    return render(request, 'registration/profile_settings.html', context)
+    return render(request, 'mainsite/profile_settings.html', context)
 
