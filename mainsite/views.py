@@ -17,6 +17,7 @@ from django.http import JsonResponse
 from django.template import RequestContext
 from cloudinary.forms import cl_init_js_callbacks      
 from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 
 
 #Basic views begin
@@ -423,25 +424,21 @@ def comment_remove(request, pk):
     comment.delete()
     return redirect('post_list')
 
-'''@login_required
-def add_post_like(request, pk):
-    if pk in request.COOKIES:
-        return redirect('post_list')
-    else:
-        post = get_object_or_404(Post, pk=pk)
-        post.likes += 1
-        post.save()
-        return redirect('post_list')'''
-
 @login_required
 def add_like(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    if post.user_likes == False:
-        post.likes += 1
-        post.save()
+    response = HttpResponse()
+    if request.COOKIES.get(f'{pk}') != None:
         return redirect('post_list')
+
     else:
-        return redirect('post_list')
+        if post.user_likes == False:
+            post.likes += 1
+            response.set_cookie(f'{pk}', 'liked')
+            post.save()
+            return response
+        else:
+            return redirect('post_list')
 
 @login_required
 def skills(request):
