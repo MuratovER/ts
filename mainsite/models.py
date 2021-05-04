@@ -101,7 +101,7 @@ class Profile(models.Model):
         return self.user.username
 
     def save(self):
-        if image == None:
+        if self.image == None:
             image = CloudinaryResource('https://res.cloudinary.com/topskills/image/upload/v1619703737/Profile-photo_kxb4u2.png')
             self.save()
 
