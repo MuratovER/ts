@@ -15,15 +15,11 @@
       <img class='header-info-bg' src='{% static "mainsite/images/profile/background-header.png" %}' alt="">
       <div class="gol_icon">
 
-        {% if profile.image != null %}
+
         <div class="header-profile-img">
           <img src='{{ profile.image.url }}' class='header-profile-img' alt="profile-avatar">
         </div>
-        {% else %}
-        <div class="header-profile-img">
-          <img src='{{ profile.default_image.url }}' class='header-profile-img' alt="profile-avatar">
-        </div>
-        {% endif %}
+
 
         <a href="../user_page/image_upload/">
           <button class='changePhoto'>
