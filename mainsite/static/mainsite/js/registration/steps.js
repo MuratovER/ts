@@ -1,3 +1,4 @@
+/*
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
@@ -70,3 +71,48 @@ function fixStepIndicator(n) {
   //... and adds the "active" class to the current step:
   x[n].className += " active";
 }
+
+*/
+
+  var Form1 = document.getElementById("Form1");
+  var Form2 = document.getElementById("Form2");
+  var Form3 = document.getElementById("Form3");
+  var Form4 = document.getElementById("Form4");
+
+  var Next1 = document.getElementById("Next1");
+  var Next2 = document.getElementById("Next2");
+  var Next3 = document.getElementById("Next3");
+
+  var Back1 = document.getElementById("Back1");
+  var Back2 = document.getElementById("Back2");
+  var Back3 = document.getElementById("Back3");
+
+  Next1.onclick = function() {
+    Form1.style.left = "-800px";
+    Form2.style.left = "40px";
+  }
+
+  Back1.onclick = function() {
+    Form1.style.left = "40px";
+    Form2.style.left = "800px";
+  }
+
+  Next2.onclick = function() {
+    Form2.style.left = "-800px";
+    Form3.style.left = "40px";
+  }
+
+  Back2.onclick = function() {
+    Form2.style.left = "40px";
+    Form3.style.left = "800px";
+  }
+
+  Next3.onclick = function() {
+    Form3.style.left = "-800px";
+    Form4.style.left = "40px";
+  }
+
+  Back3.onclick = function() {
+    Form3.style.left = "40px";
+    Form4.style.left = "800px";
+  }
