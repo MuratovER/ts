@@ -347,18 +347,18 @@ def post_new(request):
 
 @login_required
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'mainsite/post_list.html', {'posts': posts})
 
 @login_required
 def post_list_my(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'mainsite/post_list_my.html', {'posts': posts})
 
 
 @login_required
 def post_draft_list(request):
-    posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
+    posts = Post.objects.filter(published_date__isnull=True).order_by('-created_date')
     return render(request, 'mainsite/post_draft_list.html', {'posts': posts})
 
 @login_required
@@ -474,8 +474,6 @@ def profile_image_upload(request):
 
 @login_required
 def user_page(request):
-
-
     '''
     отображает на странице профиля скилы и фичи для конкретных пользователей
     '''
@@ -508,7 +506,7 @@ def user_page(request):
         user_text = user_obj.text
         bg_id = user_obj.background_id
         user_affirmation_path = get_affirmation_image.get_image(user_obj)
-    return render(request, 'mainsite/user_page.html', 
+    return render(request, 'mainsite/profile.html',
                             {
                                 'user' : user, 
                                 'skills' : skills, 
@@ -607,5 +605,5 @@ def profile_settings(request):
         'u_form': u_form,
         #'p_form': p_form
     }
-    return render(request, 'registration/profile_settings.html', context)
+    return render(request, 'mainsite/profile_settings.html', context)
 
