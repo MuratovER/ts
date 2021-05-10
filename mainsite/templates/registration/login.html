@@ -21,7 +21,8 @@
   }
   return false;
   } 
-</script-->   
+</script-->  
+ 
 <style>
 *{
   margin: 0;
@@ -81,6 +82,16 @@ footer{
   background: white;
   border-radius: 30px;
 }
+
+input[type="text"]:focus {
+	border-bottom: 2px solid #3751FF;
+}
+input[type="email"]:focus {
+	border-bottom: 2px solid #3751FF;
+}
+input[type="password"]:focus {
+	border-bottom: 2px solid #3751FF;
+}
 </style>
 <div>
 <section style="width: 50%; height: 50vh;">
@@ -115,15 +126,17 @@ footer{
 
           <a class="DLT" href="/signup/" >Регистрация</a>
         </div>
-        <div class="dws">
+        <!--div class="dws">
           <label class="" for="" tabindex="25">   
           <a href="/" class="login-table-text"> Забыли пароль </a>
-        </div>
+        </div-->
         <input class="login-form-submit" type="submit" value="Вход" />
 
       </form>  
   </div>
   </div>
-</section>  
+</section>
+  
 </div>  
+
 {% endblock %}
