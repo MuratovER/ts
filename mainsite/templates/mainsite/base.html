@@ -65,7 +65,7 @@
         <nav class='menu'>
           {% if user.is_authenticated %}
           <a href="{% url 'home_page' %}" class="header-a">Главная</a>
-          <a href="{% url 'user_page' %}" class="header-a">Профиль</a>
+          <a href="{% url 'user_page' username=user.username %}" class="header-a">Профиль</a>
           <a href="{% url 'post_list' %}" class="header-a">Блог</a>
           <a href="{% url 'tree' %}" class="header-a">Дерево развития</a>
           <a href="{% url 'tree_old' %}" class="header-a">Старое дерево развития</a>
@@ -79,12 +79,6 @@
         <div class="header--btns">
           {% if user.is_authenticated %}
             <button type="sumbit" onclick="location.href='{% url 'logout' %}'" class='header--change--btn headerExit'>Выход</button>
-            <!--
-            <button type="sumbit" onclick="location.href='{% url 'tree' %}'" class='headerBtn headerBtnMenu'></button>
-            -->
-            <!-- <button type="sybmit" class='header--btn header--btn-search'></button>
-            <button type="sybmit" class='header--btn header--btn-notification'></button>
-            <button type="sumbit" onclick="location.href='{% url 'user_page' %}'" class='header--btn header--btn-user'></button> -->
           {% else %}
             <button type="sumbit" onclick="location.href='{% url 'login' %}'" class='header--change--btn headerEnter'>Войти</button>
             <button type="sumbit" onclick="location.href='{% url 'signup' %}'" class='header--change--btn headerRegister'>Регистрация</button>
@@ -112,7 +106,6 @@
         {% if user.is_authenticated %}
         <ul class="nav-ul">
             <li class="left-li"> <button type="button" class="btn btn-secondary"><a href="{% url 'home_page' %}" class="top-menu"><span class="glyphicon glyphicon-home"></span>Главная</a></button></li>
-            <li class="left-li"><button type="button" class="btn btn-secondary"><a href="{% url 'user_page' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span>Профиль</a></button></li>
             <li></li>
             <li class="right-li"><button type="button" class="btn btn-secondary"><a href="{% url 'tree' %}" class="top-menu"><span class="glyphicon glyphicon-comment"></span>Древо развития</a></button></li>
             <li class="right-li"><button type="button" class="btn btn-secondary"><a href="{% url 'skills' %}" class="top-menu"><span class="glyphicon glyphicon-star"></span>Навыки</a></button></li>

@@ -10,7 +10,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 #from .forms import UploadFileForm
 from cloudinary.models import CloudinaryField
-
+from django.urls import reverse
 
 
 #an extended version of the posts that help you make the post)

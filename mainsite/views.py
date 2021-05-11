@@ -18,7 +18,7 @@ from django.template import RequestContext
 from cloudinary.forms import cl_init_js_callbacks      
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
-
+from django.views.generic.detail import DetailView
 
 #Basic views begin
 #отправляет расположение разметки страницы в файл url
@@ -473,7 +473,7 @@ def profile_image_upload(request):
 
 
 @login_required
-def user_page(request):
+def user_page(request, username):
     '''
     отображает на странице профиля скилы и фичи для конкретных пользователей
     '''
