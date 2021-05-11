@@ -4,7 +4,7 @@ from django.contrib.auth import views
 from . import views
 from django.shortcuts import render
 from django.conf.urls import include, url
-
+from mainsite.views import user_page
 
 
 
@@ -14,7 +14,7 @@ urlpatterns = [
 	path('', views.home_page, name='home_page'),
 	path('accounts/login/', views.LoginView.as_view(), name='login'),
 	path('signup/', views.signup_view, name='signup'),
-	path('user_page/', views.user_page, name='user_page'), 
+	path('user/<slug:username>/', views.user_page, name='user_page'),
 	path('achivements/', views.achivement_view, name='achivements'),
 	path('to_do_list/', views.to_do_list_view, name='to_do_list'),
 	path('profile_settings/', views.profile_settings, name='profile_settings'),
