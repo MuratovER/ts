@@ -317,151 +317,144 @@ footer{
 
 </div>
 
-<div class="content container">
+  <div class="content container">
+    {% csrf_token %}
+    <form id="Form1" method="POST">
 
-  <form id="Form1">
+      <div class="form-group">
 
-    <div class="form-group">
+        <img class="DFL" src="../../static/mainsite/images/registration/pincode.jpg">
 
-      <img class="DFL" src="../../static/mainsite/images/registration/pincode.jpg">
+        <label class="DFL" style="font-size: 25px; text-align: center;" for="id_username">
+          Введите код приглашения
+        </label>
 
-      <label class="DFL" style="font-size: 25px; text-align: center;" for="id_username">
-        Введите код приглашения
-      </label>
+        <p class="DFL">
+          Для входа в нашу систему требуется код, он необходим, для тестирования нашего проекта
+        </p>
 
-      <p class="DFL">
-        Для входа в нашу систему требуется код, он необходим, для тестирования нашего проекта
-      </p>
+        <br> 
 
-      <br> 
-
-      <div class="pincode">
-        <input type="number">
-        <input type="number">
-        <input type="number">
-        <input type="number">
-        <input type="number">
-        <input type="number">
-        <input type="hidden" name="pincode">
+        <input type="text" name=" invitation_code" id=" invitation_code">
+        
       </div>
+      <div class="btn-box">
+
+        <button type="button" id="Next1" > далее </button>
       
-    </div>
-    <div class="btn-box">
-
-      <button type="button" id="Next1" > далее </button>
-     
-    </div>
+      </div>
 
 
-  </form>
+    </form>
 
-  <form id="Form2">
+    <form id="Form2" method="POST">
 
-    <div class="form-group">
+      <div class="form-group">
 
-      <img class="DFL" src="../../static/mainsite/images/login_signup/part(1).jpg">
+        <img class="DFL" src="../../static/mainsite/images/login_signup/part(1).jpg">
 
-      <label class="DFL" style="font-size: 25px; text-align: center;" for="id_username">
-        Придумайте себе новый логин:
-      </label>
+        <label class="DFL" style="font-size: 25px; text-align: center;" for="id_username">
+          Придумайте себе новый логин:
+        </label>
 
-      <p class="DFL">
-        Чтобы другие могли вас узнать
-      Ваши друзья смогут вас найти по этому логину
-      </p>
+        <p class="DFL">
+          Чтобы другие могли вас узнать
+        Ваши друзья смогут вас найти по этому логину
+        </p>
 
-      <br> 
+        <br> 
 
-      <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username" placeholder="Введите логин">
-      <small style="color: grey"> </small>
+        <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username" placeholder="Введите логин">
+        <small style="color: grey"> </small>
 
-    </div> 
+      </div> 
 
-    <div class="btn-box">
+      <div class="btn-box">
 
-      <button type="button" id="Back1">назад</button>
-      <button type="button" id="Next2" > далее </button>
+        <button type="button" id="Back1">назад</button>
+        <button type="button" id="Next2" > далее </button>
 
-    </div>
+      </div>
 
-  </form>
+    </form>
 
-  <form id="Form3" style="display: grid; grid-template-columns: auto; grid-template-rows: auto 100px;">
+    <form id="Form3" style="display: grid; grid-template-columns: auto; grid-template-rows: auto 100px;" method="POST">
 
-    <div class="form-group">
+      <div class="form-group">
 
-      <img class="DFL" src="../../static/mainsite/images/login_signup/part(2).jpg">
+        <img class="DFL" src="../../static/mainsite/images/login_signup/part(2).jpg">
 
-      <label class="DFL" for="id_email" style="font-size: 25px; text-align: center;" >Введи свою почту</label> 
+        <label class="DFL" for="id_email" style="font-size: 25px; text-align: center;" >Введи свою почту</label> 
 
-      <p class="DFL">Чтобы ты смог узнавать о последних новостях проекта</p> 
-      <br> 
+        <p class="DFL">Чтобы ты смог узнавать о последних новостях проекта</p> 
+        <br> 
 
-      <input type="email" name="email" maxlength="150" required="" id="id_email" placeholder="Введите почту">
+        <input type="email" name="email" maxlength="150" required="" id="id_email" placeholder="Введите почту">
 
-      <small style="color: grey">  </small>  
+        <small style="color: grey">  </small>  
 
-    </div>
+      </div>
 
-    <div class="btn-box">
+      <div class="btn-box">
 
-      <button type="button" id="Back2">назад</button>
-      <button type="button" id="Next3">далее</button>
+        <button type="button" id="Back2">назад</button>
+        <button type="button" id="Next3">далее</button>
 
-    </div>
+      </div>
 
-  </form>
+    </form>
 
+    
+    <form id="Form4" method="POST">
+
+      <div class="form-group">
+
+        <img class="DFL" src="../../static/mainsite/images/login_signup/part(3).jpg">
+
+        <label for="id_password1" class="DFL" style="font-size: 25px; text-align: center;">Введи свой пароль</label>
+
+        <p class="DFL">Чтобы обезопасить свой аккаунт</p> 
+        <br>
+
+        <img href="#" class="password-control" onclick="return show_hide_password(this);"></img>
+
+        <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1" placeholder="Введите пароль">
+
+        <small style="color: grey">  </small> 
+
+      </div>
+
+      <div class="btn-box">
+
+        <button type="button" id="Back3"> назад </button>
+        <button type="button" id="Next4">далее</button>
+
+      </div>
+
+    </form>
+
+    <form id="Form5" method="POST">
+
+      <div class="form-group">
+
+        <img class="DFL" src="../../static/mainsite/images/login_signup/Finish.jpg">
+
+        <label for="id_password1" style="font-size: 25px; text-align: center;" class="DFL"> Поздравляем </label>
+
+      </div>
+
+      <div class="btn-box">
+
+        <button type="button" id="Back4"> назад </button>
+        <button type="button submit" class="submit-btn">Закончить</button>
+
+      </div>
+
+    </form> 
+
+  </div>
   
-  <form id="Form4">
-
-    <div class="form-group">
-
-      <img class="DFL" src="../../static/mainsite/images/login_signup/part(3).jpg">
-
-      <label for="id_password1" class="DFL" style="font-size: 25px; text-align: center;">Введи свой пароль</label>
-
-      <p class="DFL">Чтобы обезопасить свой аккаунт</p> 
-      <br>
-
-      <img href="#" class="password-control" onclick="return show_hide_password(this);"></img>
-
-      <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1" placeholder="Введите пароль">
-
-      <small style="color: grey">  </small> 
-
-    </div>
-
-    <div class="btn-box">
-
-      <button type="button" id="Back3"> назад </button>
-      <button type="button" id="Next4"> далее </button>
-
-    </div>
-
-  </form>
-
-  <form id="Form5">
-
-    <div class="form-group">
-
-      <img class="DFL" src="../../static/mainsite/images/login_signup/Finish.jpg">
-
-      <label for="id_password1" style="font-size: 25px; text-align: center;" class="DFL"> Поздравляем </label>
-
-    </div>
-
-    <div class="btn-box">
-
-      <button type="button" id="Back4"> назад </button>
-      <button type="button submit" class="submit-btn">Закончить</button>
-
-    </div>
-
-  </form>
-
-</div>
-
+<!----------------------------------------------------------------
 <style>
 .pincode { 
 	text-align: center;
@@ -526,26 +519,19 @@ $('input').keyup(function(e){
 	$wrap.find('input[type="hidden"]').val(fullval);
 });
 </script>
+---------------------------------------------------------------->
 
+<script>
 
-<!--script>
-if  ($wrap.find('input[type="number"]') != "316006" {
-  
-  invitation_code = prompt('Введите код приглашения:',)
-    if (invitation_code != 'welcome2topskills')
-    {
-      //alert('helow');
-      while (invitation_code != 'welcome2topskills'){
-          invitation_code = prompt('Введите код приглашения:')  
-        }
-    }
+if (invitation_code != 'welcome2topskills')
+  {
+     
+  }
 else { 
     }
-  }
-}
-else {}
-  
-</script--->
+
+</script>
+
 <link rel="stylesheet" href="{% static 'mainsite/css/step.css' %}">
 <script src='{% static "mainsite/js/registration/steps.js" %}'></script>
 

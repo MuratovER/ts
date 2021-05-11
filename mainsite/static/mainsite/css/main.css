@@ -2,6 +2,7 @@
 body {
   -webkit-box-sizing: border-box;
    box-sizing: border-box;
+   overflow: auto;
 }
 /*new header*/
 .header--container { 

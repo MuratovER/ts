@@ -16,7 +16,7 @@
   var Back4 = document.getElementById("Back4");
 
 
-   Next1.onclick = function() {
+  Next1.onclick = function() {
     Form1.style.left = "-800px";
     Form2.style.left = "40px";
  
