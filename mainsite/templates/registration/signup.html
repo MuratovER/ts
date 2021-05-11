@@ -318,9 +318,9 @@ footer{
 </div>
 
   <div class="content container">
-    {% csrf_token %}
-    <form id="Form1" method="POST">
-
+    
+    <form id="Form1">
+      {% csrf_token %}
       <div class="form-group">
 
         <img class="DFL" src="../../static/mainsite/images/registration/pincode.jpg">
@@ -347,8 +347,8 @@ footer{
 
     </form>
 
-    <form id="Form2" method="POST">
-
+    <form id="Form2">
+      {% csrf_token %}
       <div class="form-group">
 
         <img class="DFL" src="../../static/mainsite/images/login_signup/part(1).jpg">
@@ -378,8 +378,8 @@ footer{
 
     </form>
 
-    <form id="Form3" style="display: grid; grid-template-columns: auto; grid-template-rows: auto 100px;" method="POST">
-
+    <form id="Form3" style="display: grid; grid-template-columns: auto; grid-template-rows: auto 100px;">
+      {% csrf_token %}
       <div class="form-group">
 
         <img class="DFL" src="../../static/mainsite/images/login_signup/part(2).jpg">
@@ -405,8 +405,8 @@ footer{
     </form>
 
     
-    <form id="Form4" method="POST">
-
+    <form id="Form4">
+      {% csrf_token %}
       <div class="form-group">
 
         <img class="DFL" src="../../static/mainsite/images/login_signup/part(3).jpg">
@@ -427,14 +427,14 @@ footer{
       <div class="btn-box">
 
         <button type="button" id="Back3"> назад </button>
-        <button type="button" id="Next4">далее</button>
+        <button type="button submit" class="submit-btn">Закончить</button>
 
       </div>
 
     </form>
 
-    <form id="Form5" method="POST">
-
+    <form id="Form5">
+      {% csrf_token %}
       <div class="form-group">
 
         <img class="DFL" src="../../static/mainsite/images/login_signup/Finish.jpg">
