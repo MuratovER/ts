@@ -3,7 +3,7 @@
 {% block content %}
 {% load cloudinary %}
 {% load static %}
-
+<script src='../../static/mainsite/js/showHelpBlock.js' defer></script>
 <link rel="stylesheet" href="../../static/mainsite/css/profile.css">
 <link rel="stylesheet" href="../../static/mainsite/css/evaluation.css">
 <link rel="stylesheet" href="../../static/mainsite/css/collectErrors.css">
@@ -164,13 +164,12 @@
                   <h1 class="profile--help-title">Пирамида целей</h1>
                   <button class="profile--help-info-close"><img src='{% static "mainsite/images/evaluation/close.png" %}' alt=""></button>
                 </div>
-                
-                <p class="profile--help-txt">Информация об этом блоке</p>
+                <p class="profile--help-txt">Информация о вас, которую можо заполнить в....</p>
               </div>
             </div>
             <img src='{% static "mainsite/images/profile/copy.png" %}' class='purposes-copy'class= alt="">
           </div>
-=
+
         <div class="profile-purposes-pyramid">
           <img src='{% static "mainsite/images/profile/pyramid-lines.png" %}' class='pyramid-lines' alt="">
           <div class="pyramid-col">
@@ -686,21 +685,15 @@
     {% endif %}
 
   </div>
-  <div class="feedback--error--block">
-    <div class="feedback--error-links "> 
-      <button id='set--feedback-btn' class='feedback--error-link-item'>Оставить отзыв</button>
-      <button id='set--bug-btn'class='feedback--error-link-item'>Сообщить об ошибке</button>
-    </div> 
-      <button class='feedback--error-btn'>?</button>
-    </div>
+  
 </section>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="{% static 'mainsite/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'mainsite/js/calendar.js' %}"></script>
-<script src="{% static 'mainsite/js/showHelpBlock.js' %}" ></script>
 <script src="{% static 'mainsite/js/move.js' %}"></script>
 
 

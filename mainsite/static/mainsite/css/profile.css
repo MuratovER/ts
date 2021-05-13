@@ -149,7 +149,7 @@
 .profile-buttons {
   position: absolute;
   right: 20%;
-  top: 239px;
+  margin-top: -27px;
   background: #FFFFFF;
   border: 0.5px solid #757575;
   box-sizing: border-box;
@@ -1142,11 +1142,22 @@
   align-items: center;
   margin-bottom: 24px; }
 
+.grey-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: black; }
+
 .profile--help-block {
   position: relative;
   margin-left: 16px;
   margin-right: 16px;
-  outline: none; }
+  outline: none;
+  z-index: 3; }
 
 .profile--help-btn {
   background: none;
@@ -1170,7 +1181,8 @@
 
 .active--help-block {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  z-index: 0; }
 
 .profile--help-info-hedaer {
   display: flex;
@@ -1202,15 +1214,29 @@
   justify-content: space-between;
   min-width: 220px; }
 
+.activeBlock {
+  display: block; }
+
+.activeFlex {
+  display: flex; }
+
+.feedback--error-title {
+  padding: 5px;
+  border-bottom: 0.32px solid #B1B1B1;
+  margin-bottom: 18px; }
+
 .feedback--error-links {
-  height: 100px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
   background: #fff;
   box-shadow: 0px 0px 19px 1px rgba(0, 0, 0, 0.25);
   min-height: 50px;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  padding: 10px;
+  min-width: 171px;
+  padding: 12px 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1229,12 +1255,15 @@
   align-self: flex-end; }
 
 .feedback--error-link-item {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
   font-family: 'Roboto';
-  border: 1px solid black;
   background: none;
   cursor: pointer;
-  padding: 5px;
-  border-radius: 10px; }
+  padding: 5px; }
+  .feedback--error-link-item p {
+    margin-left: 15px; }
 
 .activeFlex {
   display: flex; }
@@ -1251,16 +1280,3 @@
     width: 720px;
     position: relative;
     margin: 0 auto; } }
-
-  
-
-/*  profile-settings */    
-
-.settings-input > input[type=text], [type=password], [type=email] { {
-
-    padding: 0;
-    margin: 0;
-    /* box-sizing: border-box; */
-    /* border: none; */
-    border-bottom: 2px solid #C6C6C6;
-}
