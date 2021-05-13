@@ -17,7 +17,8 @@ from django.http import JsonResponse
 from django.template import RequestContext
 from cloudinary.forms import cl_init_js_callbacks      
 from django.http import HttpResponseRedirect
-
+from django.http import HttpResponse
+from django.views.generic.detail import DetailView
 
 #Basic views begin
 #отправляет расположение разметки страницы в файл url
@@ -362,10 +363,11 @@ def post_draft_list(request):
 
 @login_required
 def post_detail(request, pk):
+    profile = Profile.objects.get(user=request.user)
     post = get_object_or_404(Post, pk=pk)
     post.views += 1
     post.save()
-    return render(request, 'mainsite/post_detail.html', {'post': post})
+    return render(request, 'mainsite/post_detail.html', {'post': post, 'profile': profile})
 
 @login_required
 def post_edit(request, pk):
@@ -399,6 +401,7 @@ def post_remove(request, pk):
 @login_required
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    profile = Profile.objects.get(user=request.user)
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -406,10 +409,10 @@ def add_comment_to_post(request, pk):
             comment.author = request.user
             comment.post = post
             comment.save()
-            return redirect('post_list')
+            return redirect('post_detail', pk=post.pk)
     else:
         form = CommentForm()
-    return render(request, 'mainsite/add_comment_to_post.html', {'form': form})
+    return render(request, 'mainsite/add_comment_to_post.html', {'form': form, 'post': post, 'profile': profile})
 
 @login_required
 def comment_approve(request, pk):
@@ -423,25 +426,21 @@ def comment_remove(request, pk):
     comment.delete()
     return redirect('post_list')
 
-'''@login_required
-def add_post_like(request, pk):
-    if pk in request.COOKIES:
-        return redirect('post_list')
-    else:
-        post = get_object_or_404(Post, pk=pk)
-        post.likes += 1
-        post.save()
-        return redirect('post_list')'''
-
 @login_required
 def add_like(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    if post.user_likes == False:
-        post.likes += 1
-        post.save()
+    response = HttpResponse()
+    if request.COOKIES.get(f'{pk}') != None:
         return redirect('post_list')
+
     else:
-        return redirect('post_list')
+        if post.user_likes == False:
+            post.likes += 1
+            response.set_cookie(f'{pk}', 'liked')
+            post.save()
+            return response
+        else:
+            return redirect('post_list')
 
 @login_required
 def skills(request):
@@ -474,9 +473,7 @@ def profile_image_upload(request):
 
 
 @login_required
-def user_page(request):
-
-
+def user_page(request, username):
     '''
     отображает на странице профиля скилы и фичи для конкретных пользователей
     '''
@@ -509,7 +506,7 @@ def user_page(request):
         user_text = user_obj.text
         bg_id = user_obj.background_id
         user_affirmation_path = get_affirmation_image.get_image(user_obj)
-    return render(request, 'mainsite/user_page.html', 
+    return render(request, 'mainsite/profile.html',
                             {
                                 'user' : user, 
                                 'skills' : skills, 
@@ -608,5 +605,5 @@ def profile_settings(request):
         'u_form': u_form,
         #'p_form': p_form
     }
-    return render(request, 'registration/profile_settings.html', context)
+    return render(request, 'mainsite/profile_settings.html', context)
 

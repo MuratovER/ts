@@ -1,10 +1,58 @@
 {% extends 'mainsite/base.html' %}
+{% load static %}
+{% load cloudinary %}
 
 {% block content %}
 <title>Блог</title>
+<hr />
+<div class="post">
+    {% if post.published_date %}
+        <div class="date">Опубликовано: {{ post.published_date }}</div>
+    {% else %}
+        <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Опубликовать</a>
+    {% endif %}
+
+    {% if post.author == request.user %}
+        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+    {% endif %}
+    <h1>{{ post.title }}</h1>
+    <h4>Автор: {{ post.author }}</h4>
+    <p>{{ post.text|linebreaksbr }}</p>
+    <p></p>
     <h1>Новый комментарий</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
+    <form method="POST" class="post-form">
+        {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Отправить</button>
     </form>
+    {% for comment in post.comments.all %}
+        <p></p>
+        {% if user.is_authenticated or comment.approved_comment %}
+            <div class="comment">
+                <div class="date">
+                    {{ comment.created_date }}
+                    {% if not comment.approved_comment %}
+                        <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                        <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+                    {% endif %}
+                </div>
+                {% if profile.image != null %}
+                    <div class="header-profile-img">
+                        <img src="{{ profile.image.url }}" width="50px" height="50px" alt="profile-avatar" />
+                        <strong>{{ comment.author }}</strong>
+                        <p>{{ comment.text|linebreaks }}</p>
+                    </div>
+                {% else %}
+                    <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' width="50px" height="50px" alt="profile-avatar" />
+                    <strong>{{ comment.author }}</strong>
+                    <p>{{ comment.text|linebreaks }}</p>
+                {% endif %}
+            </div>
+        {% endif %}
+        {% empty %}
+        <p></p>
+        <p>Здесь пока никаких комментариев :(</p>
+    {% endfor %}
+</div>
 {% endblock %}

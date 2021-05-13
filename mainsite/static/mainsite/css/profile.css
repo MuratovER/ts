@@ -1279,3 +1279,16 @@
     width: 720px;
     position: relative;
     margin: 0 auto; } }
+
+  
+
+/*  profile-settings */    
+
+.settings-input > input[type=text], [type=password], [type=email] { {
+
+    padding: 0;
+    margin: 0;
+    /* box-sizing: border-box; */
+    /* border: none; */
+    border-bottom: 2px solid #C6C6C6;
+}

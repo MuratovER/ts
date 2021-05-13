@@ -1,9 +1,19 @@
-{% extends 'mainsite/base.html' %} {% block content %} {% if form.errors %}
+{% extends 'mainsite/base.html' %} {% block content %} 
 
-
-<p>Your username and password didn't match. Please try again.</p>
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
 {% endif %}
-
 
 
 {% load static %}
@@ -21,7 +31,8 @@
   }
   return false;
   } 
-</script-->   
+</script-->  
+ 
 <style>
 *{
   margin: 0;
@@ -81,49 +92,61 @@ footer{
   background: white;
   border-radius: 30px;
 }
+
+input[type="text"]:focus {
+	border-bottom: 2px solid #3751FF;
+}
+input[type="email"]:focus {
+	border-bottom: 2px solid #3751FF;
+}
+input[type="password"]:focus {
+	border-bottom: 2px solid #3751FF;
+}
 </style>
 <div>
-<section style="width: 50%; height: 50vh;">
-  <div>
-    <div style="padding: 0 500px 50px 0;">
-      <a href="/" target="_self" style="color: white; margin-right: 5em"><span class="oi oi-arrow-left"></span> <strong>Назад</strong></a>
+    
+  <section style="width: 50%; height: 50vh;">
+    <div>
+      <div style="padding: 0 500px 50px 0;">
+        <a href="/" target="_self" style="color: white; margin-right: 5em"><span class="oi oi-arrow-left"></span> <strong>Назад</strong></a>
+      </div>
+    <div class="login-form-conteiner"> 
+      <img class="DFL" src="../../static/mainsite/images/login_signup/sign_in.jpg">
+        <form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+
+          <table class="login-form" class="DSS">
+            <h1 class="login-form-text"> Приветствуем тебя! </h1>
+              
+              <p> Введите свой логин и почту</p>
+              
+              <div> 
+                <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username"  placeholder="Введите свой логин">
+                <!-- {{ form.username }} -->
+              </div>
+
+              <div>
+                <img href="#" class="password-control" onclick="return show_hide_password(this);"></img>
+                <input type="password" name="password" autocomplete="current-password" required="" id="id_password" placeholder="Введите свой пароль">
+              </div> 
+
+          </table> 
+
+          <div class="dws">
+            <strong> <a> Впервые тут?</a> </strong>
+
+            <a class="DLT" href="/signup/" >Регистрация</a>
+          </div>
+          <!--div class="dws">
+            <label class="" for="" tabindex="25">   
+            <a href="/" class="login-table-text"> Забыли пароль </a>
+          </div-->
+          <input class="login-form-submit" type="submit" value="Вход" />
+
+        </form>  
     </div>
-  <div class="login-form-conteiner"> 
-    <img class="DFL" src="../../static/mainsite/images/login_signup/sign_in.jpg">
-      <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-
-        <table class="login-form" class="DSS">
-          <h1 class="login-form-text"> Приветствуем тебя! </h1>
-            
-            <p> Введите свой логин и почту</p>
-            
-            <div> 
-              <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username"  placeholder="Введите свой логин">
-              <!-- {{ form.username }} -->
-            </div>
-
-            <div>
-              <img href="#" class="password-control" onclick="return show_hide_password(this);"></img>
-              <input type="password" name="password" autocomplete="current-password" required="" id="id_password" placeholder="Введите свой пароль">
-            </div> 
-
-        </table> 
-
-        <div class="dws">
-          <strong> <a> Впервые тут?</a> </strong>
-
-          <a class="DLT" href="/signup/" >Регистрация</a>
-        </div>
-        <div class="dws">
-          <label class="" for="" tabindex="25">   
-          <a href="/" class="login-table-text"> Забыли пароль </a>
-        </div>
-        <input class="login-form-submit" type="submit" value="Вход" />
-
-      </form>  
-  </div>
-  </div>
-</section>  
+    </div>
+  </section>
 </div>  
+
 {% endblock %}

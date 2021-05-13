@@ -2,74 +2,10 @@
 
 {% block content %}
 
+{%  load static %}
 <title>Регистрация</title>
 
-<script>
-    invitation_code = prompt('Введите код приглашения:',)
-    if (invitation_code != 'welcome2topskills')
-    {
-      //alert('helow');
-      while (invitation_code != 'welcome2topskills'){
-          invitation_code = prompt('Введите код приглашения:')  
-        }
-    }
-    else { 
-    }
-</script>
-
-<!--------------------------------------------------------------------
-  
-{% load static %}
-
-
-
-<div class="conteiner">
-   <div class="login-tables"> 
-      <form id="regForm" method="post">
-                <div style="text-align:center;margin-top:26px; border-image-width: 50px; ">
-                    <span class="step active"></span>
-                    <span class="step"></span>
-                    <span class="step"> </span>
-                 {% csrf_token %}   
-                    <p class="tab" style="display: block;">
-                      <img class="DFL" src="../../static/mainsite/images/login_signup/part(1).jpg">
-                        <label for="id_username">Имя пользователя:</label><br> {{ form.username }}
-                        <small style="color: grey">  </small>  
-                    </p>
-                
-                    <p class="tab">
-                      <img class="DFL" src="../../static/mainsite/images/login_signup/part(2).jpg">
-                        <label for="id_email">Email:</label><br> {{ form.email }} 
-                        <small style="color: grey">  </small>  
-                    </p>
-                
-                    <p class="tab">
-                       <img class="DFL" src="../../static/mainsite/images/login_signup/part(3).jpg">
-                        <label for="id_password1">Пароль:</label><br><img href="#" class="password-control" onclick="return show_hide_password(this);"></img>
-                      {{ form.password1 }}
-                        <small style="color: grey">  </small>  
-                    </p>
-                    <p class="tab">
-                         <img class="DFL" src="../../static/mainsite/images/login_signup/Finish.jpg">
-                        <label for="id_password1"> Поздравляем </label>
-                    </p>
-                    <p class="tab">
-                        {{ field.label_tag }}<br> {{ field }} {% if field.help_text %}
-                        <small style="color: grey">  </small> {% endif %} {% for error in field.errors %}
-                        <p style="color: red">{{ error }}</p>
-                        {% endfor %}
-                    </p>
-                     </div>
-                <div class="next">
-                    <button type="button submit" id="nextBtn" onclick="nextPrev(1)">Дальше</button>
-                </div>
-                    <button type="button submit" id="prevBtn" onclick="nextPrev(-1)" style="display:none;">Назад</button>
-        </form>
-    </div>
-</div>
- 
-
-
+<!----
 <style>
 .textofname {
   text-align: left;
@@ -198,7 +134,7 @@ input[type="text"], input[type="password"]{
 </style>
 -----old--version--of--registation--------------------------------------------------->
 
-<style>
+<!--style>
 *{
   margin: 0;
   padding: 0;
@@ -368,153 +304,237 @@ footer{
   </section>
 
 <!--------new--JS--for--change--steps-->
-<script>
-const steps = Array.from(document.querySelectorAll('form .step'));
-const nextBtn = document.querySelectorAll('form .next-btn');
-const prevBtn = document.querySelectorAll('form .previous-btn');
-const form = document.querySelector('form' );
-
-nextBtn.forEach(button => {
-  button.addEventListener('click', () => {
-    changeStep('next');
-  })
-});
-prevBtn.forEach( button => {
-  button.addEventListener('click', () => {
-    changeStep('prev');
-  })
-})
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const inputs = [];
-  form.querySelectorAll('input').forEach(input => {
-    const { name, value } = input;
-    inputs.push({name , value})
-  });
-  console.log(inputs)
-  form.reset();
-  let index = 0;
-  const active = document.querySelector('.active');
-  index = steps.indexOf(active);
-  steps[index].classList.remove('active');
-  steps[0].classList.add('active');
-})
 
 
-function changeStep(btn){
-  let index = 0;
-  const active = document.querySelector('.active');
-  index = steps.indexOf(active);
-  steps[index].classList.remove('active');
-  if(btn === 'next'){
-    index++;
-  }else if(btn === 'prev'){
-    index --;
-  }
-  steps[index].classList.add('active');
-}
-</script>
+<div style="padding: 0 500px 150px 100px; position: absolute;">
+  
+  <a href="/" target="_self" style="color: white; margin-right: 5em">
+    <span class="oi oi-arrow-left">
 
-<!-----Show--hide--password----------->
-<script>
-  function show_hide_password(target){
-  var input = document.getElementById('id_password1', 'id_password2',);
-  if (input.getAttribute('type') == 'password') {
-    target.classList.add('view');
-    input.setAttribute('type', 'text');
-  } else {
-    target.classList.remove('view');
-    input.setAttribute('type', 'password');
-  }
-  return false;
-}
-</script>
+    </span> 
+    <strong>Назад</strong>
+  </a>
 
-<!-------old--version--change--steps---------------------------------------------------------
-<script>
-  var currentTab = 0; // Current tab is set to be the first tab (0)
-  showTab(currentTab); // Display the crurrent tab
-
-  function showTab(n) {
-    // This function will display the specified tab of the form...
-    var x = document.getElementsByClassName("tab");
-    x[n].style.display = "block";
-    //... and fix the Previous/Next buttons:
-    if (n == 0) {
-      document.getElementById("prevBtn").style.display = "none";
-    } else if ( n == 3) {
-      document.getElementById("prevBtn").style.display = "none";
-    }
-     else {
-      document.getElementById("prevBtn").style.display = "inline";
-    }
-    if (n == (x.length - 1)) {
-      document.getElementById("nextBtn").innerHTML = "Зарегистрироваться";
-
-    } else if ( n == 3) {
-      document.getElementById("nextBtn").innerHTML = "Закончить";  
-    } else {
-      document.getElementById("nextBtn").innerHTML = "Далее";
-    }
-
-    //... and run a function that will display the correct step indicator:
-    fixStepIndicator(n)
-  }
-
-  function nextPrev(n) {
-    // This function will figure out which tab to display
-    var x = document.getElementsByClassName("tab");
-    // Exit the function if any field in the current tab is invalid:
-    if (n == 1 && !validateForm()) return false;
-    // Hide the current tab:
-    x[currentTab].style.display = "none";
-    // Increase or decrease the current tab by 1:
-    currentTab = currentTab + n;
-    // if you have reached the end of the form...
-    if (currentTab >= x.length) {
-      // ... the form gets submitted:
-      document.getElementById("regForm").submit();
-      return false;
-    }
-    // Otherwise, display the correct tab:
-    showTab(currentTab);
-  }
-
-  function validateForm() {
-    // This function deals with validation of the form fields
-    var x, y, i, valid = true;
-    x = document.getElementsByClassName("tab");
-    y = x[currentTab].getElementsByTagName("input");
-    // A loop that checks every input field in the current tab:
-    for (i = 0; i < y.length; i++) {
-      // If a field is empty...
-      if (y[i].value == "") {
-        // add an "invalid" class to the field:
-        y[i].className += " invalid";
-        // and set the current valid status to false
-        valid = false;
-      }
-    }
-    // If the valid status is true, mark the step as finished and valid:
-    if (valid) {
-      document.getElementsByClassName("step")[currentTab].className += " finish";
-    }
-    return valid; // return the valid status
-  }
-
-  function fixStepIndicator(n) {
-    // This function removes the "active" class of all steps...
-    var i, x = document.getElementsByClassName("step");
-    for (i = 0; i < x.length; i++) {
-      x[i].className = x[i].className.replace(" active", "");
-    }
-    //... and adds the "active" class on the current step:
-    x[n].className += " active";
-  }
-</script>
--------------------------------------------------------------------------------->
 </div>
+
+  <div class="content container">
+    
+    <form id="Form1">
+      {% csrf_token %}
+      <div class="form-group">
+
+        <img class="DFL" src="../../static/mainsite/images/registration/pincode.jpg">
+
+        <label class="DFL" style="font-size: 25px; text-align: center;" for="id_username">
+          Введите код приглашения
+        </label>
+
+        <p class="DFL">
+          Для входа в нашу систему требуется код, он необходим, для тестирования нашего проекта
+        </p>
+
+        <br> 
+
+        <input type="text" name=" invitation_code" id=" invitation_code">
+        
+      </div>
+      <div class="btn-box">
+
+        <button type="button" id="Next1" > далее </button>
+      
+      </div>
+
+
+    </form>
+
+    <form id="Form2">
+      {% csrf_token %}
+      <div class="form-group">
+
+        <img class="DFL" src="../../static/mainsite/images/login_signup/part(1).jpg">
+
+        <label class="DFL" style="font-size: 25px; text-align: center;" for="id_username">
+          Придумайте себе новый логин:
+        </label>
+
+        <p class="DFL">
+          Чтобы другие могли вас узнать
+        Ваши друзья смогут вас найти по этому логину
+        </p>
+
+        <br> 
+
+        <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username" placeholder="Введите логин">
+        <small style="color: grey"> </small>
+
+      </div> 
+
+      <div class="btn-box">
+
+        <button type="button" id="Back1">назад</button>
+        <button type="button" id="Next2" > далее </button>
+
+      </div>
+
+    </form>
+
+    <form id="Form3" style="display: grid; grid-template-columns: auto; grid-template-rows: auto 100px;">
+      {% csrf_token %}
+      <div class="form-group">
+
+        <img class="DFL" src="../../static/mainsite/images/login_signup/part(2).jpg">
+
+        <label class="DFL" for="id_email" style="font-size: 25px; text-align: center;" >Введи свою почту</label> 
+
+        <p class="DFL">Чтобы ты смог узнавать о последних новостях проекта</p> 
+        <br> 
+
+        <input type="email" name="email" maxlength="150" required="" id="id_email" placeholder="Введите почту">
+
+        <small style="color: grey">  </small>  
+
+      </div>
+
+      <div class="btn-box">
+
+        <button type="button" id="Back2">назад</button>
+        <button type="button" id="Next3">далее</button>
+
+      </div>
+
+    </form>
+
+    
+    <form id="Form4">
+      {% csrf_token %}
+      <div class="form-group">
+
+        <img class="DFL" src="../../static/mainsite/images/login_signup/part(3).jpg">
+
+        <label for="id_password1" class="DFL" style="font-size: 25px; text-align: center;">Введи свой пароль</label>
+
+        <p class="DFL">Чтобы обезопасить свой аккаунт</p> 
+        <br>
+
+        <img href="#" class="password-control" onclick="return show_hide_password(this);"></img>
+
+        <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1" placeholder="Введите пароль">
+
+        <small style="color: grey">  </small> 
+
+      </div>
+
+      <div class="btn-box">
+
+        <button type="button" id="Back3"> назад </button>
+        <button type="button submit" class="submit-btn">Закончить</button>
+
+      </div>
+
+    </form>
+
+    <form id="Form5">
+      {% csrf_token %}
+      <div class="form-group">
+
+        <img class="DFL" src="../../static/mainsite/images/login_signup/Finish.jpg">
+
+        <label for="id_password1" style="font-size: 25px; text-align: center;" class="DFL"> Поздравляем </label>
+
+      </div>
+
+      <div class="btn-box">
+
+        <button type="button" id="Back4"> назад </button>
+        <button type="button submit" class="submit-btn">Закончить</button>
+
+      </div>
+
+    </form> 
+
+  </div>
+  
+<!----------------------------------------------------------------
+<style>
+.pincode { 
+	text-align: center;
+/*	padding: 20px 0;*/
+}
+.pincode input[type="number"] {
+	display: inline-block;
+	width: 100px;
+	height: 70px;
+	line-height: 50px;
+	text-align: center;
+	border: 2px solid #5a5a5a;
+	color: #000;
+	padding: 16px 0px;
+	margin: 0 10px;
+	font-size: 50px;
+	font-weight: 700;
+	outline: none;
+	background-color: #fff;
+	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	appearance: textfield;
+	box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+.pincode input[type="number"]::-webkit-outer-spin-button,
+.pincode input[type="number"]::-webkit-inner-spin-button {
+	display: none;
+}
+
+.pincode input[type="number"]:focus {
+	border: 2px solid #1dd216;
+}
+</style>
+
+<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+
+
+<script>
+$('input').keydown(function(e){
+	$(this).val('');
+});
+
+$('input').keyup(function(e){
+	var $wrap = $(this).closest('.pincode');
+	var $inputs = $wrap.find('input[type="number"]');	
+	var val = $(this).val();
+	
+	// Ввод только цифр
+	if(val == val.replace(/[0-9]/, '')) {
+		$(this).val('');
+		return false;
+	}
+	
+	// Передача фокуса следующему innput
+	$inputs.eq($inputs.index(this) + 1).focus();
+
+	// Заполнение input hidden
+	var fullval = '';
+	$inputs.each(function(){
+		fullval = fullval + (parseInt($(this).val()) || '0');
+	});
+	$wrap.find('input[type="hidden"]').val(fullval);
+});
+</script>
+---------------------------------------------------------------->
+
+<script>
+
+if (invitation_code != 'welcome2topskills')
+  {
+     
+  }
+else { 
+    }
+
+</script>
+
+<link rel="stylesheet" href="{% static 'mainsite/css/step.css' %}">
+<script src='{% static "mainsite/js/registration/steps.js" %}'></script>
+
 
 
 {% endblock %} 

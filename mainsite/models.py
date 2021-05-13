@@ -10,7 +10,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 #from .forms import UploadFileForm
 from cloudinary.models import CloudinaryField
-
+from django.urls import reverse
 
 
 #an extended version of the posts that help you make the post)
@@ -96,10 +96,8 @@ class Profile(models.Model):
     email = models.EmailField(max_length=150, null=True)
     bio = models.TextField(blank=True, null=True)
     image = CloudinaryField('image', null=True, blank=True, default = None)
-#    image = models.ImageField(default ='default.jpg', upload_to='image_of_user') # сохраняется в папке media 
-   
-#     def __str__(self):
-#         return self.user.username
+#   image = models.ImageField(default ='default.jpg', upload_to='image_of_user') # сохраняется в папке media 
+
 #     def save(self):
 #         super().save()
 #         image = Image.open(self.image.path)
@@ -107,8 +105,9 @@ class Profile(models.Model):
 #             output_size = (300,300)
 #             image.thumbnail(output_size)
 #             image.save(self.image.path)
-#     def __str__(self):
-#         return self.user.username
+
+    def __str__(self):
+        return self.user.username
 
 
 @receiver(post_save, sender=User)
