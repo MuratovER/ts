@@ -528,19 +528,26 @@ def signup_view(request):
     form = SignUpForm(request.POST)
     if form.is_valid():
         user = form.save()
+        username = request.POST['username']
+        password = request.POST['password1']
         user.refresh_from_db()
-        #user.profile.first_name = form.cleaned_data.get('first_name')
-        #user.profile.last_name = form.cleaned_data.get('last_name')
+        user.username = user.username.lower()
         user.profile.email = form.cleaned_data.get('email')
         user.save()
-        username = form.cleaned_data.get('username')
-        password = form.cleaned_data.get('password1')
-        user = authenticate(username=username, password=password)
-        login(request, user)
-        return redirect('user_page')
+        logining(request, username, password)
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})  
+
+
+def logining(request, username, password):
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return redirect('user_page')
+    else:
+        return redirect('user_page')
+
 
 @login_required
 def affirmation_generator(request):
