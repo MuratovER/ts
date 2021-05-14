@@ -347,18 +347,18 @@ def post_new(request):
 
 @login_required
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'mainsite/post_list.html', {'posts': posts})
 
 @login_required
 def post_list_my(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'mainsite/post_list_my.html', {'posts': posts})
 
 
 @login_required
 def post_draft_list(request):
-    posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
+    posts = Post.objects.filter(published_date__isnull=True).order_by('-created_date')
     return render(request, 'mainsite/post_draft_list.html', {'posts': posts})
 
 @login_required
