@@ -91,6 +91,7 @@ class Profile(models.Model):
     а также полем image куда пользователь загружает свой аватар
     '''
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    slug = models.SlugField(null=True, blank=True)
     first_name = models.CharField(max_length=100, blank=True)
     last_name = models.CharField(max_length=100, blank=True)
     email = models.EmailField(max_length=150, null=True)

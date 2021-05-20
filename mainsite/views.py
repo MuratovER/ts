@@ -11,6 +11,7 @@ from .forms import Sphere_of_life_Form, PostForm, CommentForm, UserUpdateForm
 from django.contrib.auth.decorators import login_required
 from .useful_lib import WheelOfLife, get_affirmation_image
 import datetime
+import environ
 from django.shortcuts import redirect
 from django.utils.timezone import make_aware
 from django.http import JsonResponse
@@ -19,6 +20,7 @@ from cloudinary.forms import cl_init_js_callbacks
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.views.generic.detail import DetailView
+from django.utils.text import slugify
 
 #Basic views begin
 #отправляет расположение разметки страницы в файл url
@@ -527,13 +529,20 @@ def signup_view(request):
 
     form = SignUpForm(request.POST)
     if form.is_valid():
+        env = environ.Env(
+            DEBUG=(bool, True)
+        )
+        environ.Env.read_env('./.env')
+
         user = form.save()
         username = request.POST['username']
         password = request.POST['password1']
         user.refresh_from_db()
         user.username = user.username.lower()
         user.profile.email = form.cleaned_data.get('email')
+        user.slug = slugify(''.join(eval(env('ALPHABET')).get(w, w) for w in user.username))
         user.save()
+
         logining(request, username, password)
     else:
         form = SignUpForm()
