@@ -49,6 +49,23 @@ class Comment(models.Model):
     def __str__(self):
         return self.text
 
+class Introduction_chapter_lider(models.Model):
+    likes = models.IntegerField(default='0')
+    user_likes = models.BooleanField(default=False)
+    views = models.IntegerField(default='0')
+
+    def __str__(self):
+        return str(self.likes)
+
+
+class Introduction_chapter_spheres_life(models.Model):
+    likes = models.IntegerField(default='0')
+    user_likes = models.BooleanField(default=False)
+    views = models.IntegerField(default='0')
+
+    def __str__(self):
+        return str(self.likes)
+
 #difficulty logic with level and reavrd tabs
 class Difficulty(models.Model):
     '''
