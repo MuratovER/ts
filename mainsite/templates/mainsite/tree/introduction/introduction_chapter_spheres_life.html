@@ -252,6 +252,39 @@
                 появится в твоем профиле.
             </p>
         </div>
+        <p></p>
+        <a class="btn btn-default" href="{% url 'add_comment_spheres_life' %}">Добавить комментарий</a>
+        {% for comment in tree.comments.all %}
+        <p></p>
+        {% if user.is_authenticated or comment.approved_comment %}
+        <div class="comment">
+            <div class="date">
+                {{ comment.created_date }}
+                {% if not comment.approved_comment %}
+                <a class="btn btn-default" href="{% url 'comment_spheres_life_remove' pk=comment.pk %}"><span
+                        class="glyphicon glyphicon-remove"></span></a>
+                <a class="btn btn-default" href="{% url 'comment_spheres_life_approve' pk=comment.pk %}"><span
+                        class="glyphicon glyphicon-ok"></span></a>
+                {% endif %}
+            </div>
+            {% if profile.image != null %}
+            <div class="header-profile-img">
+                <img src='{{ profile.image.url }}' width="50px" height="50px" alt="profile-avatar">
+                <strong>{{ comment.author }}</strong>
+                <p>{{ comment.text|linebreaks }}</p>
+            </div>
+            {% else %}
+            <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' width="50px" height="50px" alt="profile-avatar">
+            <strong>{{ comment.author }}</strong>
+            <p>{{ comment.text|linebreaks }}</p>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% empty %}
+        <p></p>
+        <p>Здесь пока никаких комментариев :(</p>
+        {% endfor %}
+
         <span style="border-bottom: 3px solid blue" class="pb-4">
             <a href="{% url 'introduction_chapter_spheres_life_task' %}" class="d-inline-flex text-decoration-none">
                 <h3 style="color: black;">Перейти к домашнему заданию</h3>
@@ -315,38 +348,6 @@
     </script>
 
 </article>
-<p></p>
-<a class="btn btn-default" href="{% url 'add_comment_spheres_life' %}">Добавить комментарий</a>
-{% for comment in tree.comments.all %}
-<p></p>
-{% if user.is_authenticated or comment.approved_comment %}
-<div class="comment">
-    <div class="date">
-        {{ comment.created_date }}
-        {% if not comment.approved_comment %}
-        <a class="btn btn-default" href="{% url 'comment_spheres_life_remove' pk=comment.pk %}"><span
-                class="glyphicon glyphicon-remove"></span></a>
-        <a class="btn btn-default" href="{% url 'comment_spheres_life_approve' pk=comment.pk %}"><span
-                class="glyphicon glyphicon-ok"></span></a>
-        {% endif %}
-    </div>
-    {% if profile.image != null %}
-    <div class="header-profile-img">
-        <img src='{{ profile.image.url }}' width="50px" height="50px" alt="profile-avatar">
-        <strong>{{ comment.author }}</strong>
-        <p>{{ comment.text|linebreaks }}</p>
-    </div>
-    {% else %}
-    <img src='{% static "mainsite/images/profile/Profile-photo.png" %}' width="50px" height="50px" alt="profile-avatar">
-    <strong>{{ comment.author }}</strong>
-    <p>{{ comment.text|linebreaks }}</p>
-    {% endif %}
-</div>
-{% endif %}
-{% empty %}
-<p></p>
-<p>Здесь пока никаких комментариев :(</p>
-{% endfor %}
 
 
 {% endblock %}
