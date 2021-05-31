@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Introduction_chapter_lider, Introduction_chapter_spheres_life, Skill, UserSkill, Profile, Difficulty, Sphere_of_life, Achivement, UserAchivement, User_affirmation, Comment
+from .models import Post, Introduction_chapter_lider, Introduction_chapter_spheres_life, Skill, UserSkill, Profile, Difficulty, Sphere_of_life, Achivement, UserAchivement, User_affirmation, Comment, Comment_spheres_life, Comment_lider
 
 
 @admin.register(Profile)
@@ -15,6 +15,9 @@ class Introduction_chapter_liderAdmin(admin.ModelAdmin):
 class Introduction_chapter_spheres_lifeAdmin(admin.ModelAdmin):
     list_display = ('likes', 'views',)
 
+
+admin.site.register(Comment_spheres_life)
+admin.site.register(Comment_lider)
 admin.site.register(Post)
 admin.site.register(Comment)
 admin.site.register(Skill)

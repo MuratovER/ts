@@ -54,8 +54,25 @@ class Introduction_chapter_lider(models.Model):
     user_likes = models.BooleanField(default=False)
     views = models.IntegerField(default='0')
 
+    def approved_comments(self):
+        return self.comments.filter(approved_comment=True)
+
     def __str__(self):
         return str(self.likes)
+
+class Comment_lider(models.Model):
+    post = models.ForeignKey('mainsite.Introduction_chapter_lider', on_delete=models.CASCADE, related_name='comments_lider')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
+    approved_comment = models.BooleanField(default=False)
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def __str__(self):
+        return self.text
 
 
 class Introduction_chapter_spheres_life(models.Model):
@@ -63,8 +80,26 @@ class Introduction_chapter_spheres_life(models.Model):
     user_likes = models.BooleanField(default=False)
     views = models.IntegerField(default='0')
 
+    def approved_comments(self):
+        return self.comments.filter(approved_comment=True)
+
     def __str__(self):
         return str(self.likes)
+
+class Comment_spheres_life(models.Model):
+    post = models.ForeignKey('mainsite.Introduction_chapter_spheres_life', on_delete=models.CASCADE, related_name='comments_spheres_life')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
+    approved_comment = models.BooleanField(default=False)
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def __str__(self):
+        return self.text
+
 
 #difficulty logic with level and reavrd tabs
 class Difficulty(models.Model):
