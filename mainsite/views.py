@@ -4,7 +4,7 @@ from mainsite.forms import SignUpForm, PhotoForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
-from .models import Post, Introduction_chapter_lider, Introduction_chapter_spheres_life, Skill, UserSkill, Profile, Sphere_of_life, Achivement, UserAchivement, User_affirmation, Comment 
+from .models import Post, Introduction_chapter_lider, Introduction_chapter_spheres_life, Skill, UserSkill, Profile, Sphere_of_life, Achivement, UserAchivement, User_affirmation, Comment, Comment_lider, Comment_spheres_life 
 from django.utils import timezone
 from django.contrib.auth.models import User
 from .forms import Sphere_of_life_Form, PostForm, CommentForm, UserUpdateForm
@@ -467,6 +467,23 @@ def introduction_chapter_lider_like(request):
             return redirect('introduction_chapter_lider')
 
 @login_required
+def add_comment_lider(request, pk):
+    pass
+
+@login_required
+def comment_lider_approve(request, pk):
+    comment = get_object_or_404(Comment_lider, pk=pk)
+    comment.approve()
+    return redirect('introduction_chapter_lider')
+
+@login_required
+def comment_lider_remove(request, pk):
+    comment = get_object_or_404(Comment_lider, pk=pk)
+    comment.delete()
+    return redirect('introduction_chapter_lider')
+
+
+@login_required
 def introduction_chapter_spheres_life_like(request):
     tree = get_object_or_404(Introduction_chapter_spheres_life)
     response = HttpResponse()
@@ -481,6 +498,22 @@ def introduction_chapter_spheres_life_like(request):
             return response
         else:
             return redirect('introduction_chapter_spheres_life')
+
+@login_required
+def add_comment_spheres_life(request, pk):
+    pass
+
+@login_required
+def comment_spheres_life_approve(request, pk):
+    comment = get_object_or_404(Comment_spheres_life, pk=pk)
+    comment.approve()
+    return redirect('introduction_chapter_spheres_life')
+
+@login_required
+def comment_spheres_life_remove(request, pk):
+    comment = get_object_or_404(Comment_spheres_life, pk=pk)
+    comment.delete()
+    return redirect('introduction_chapter_spheres_life')
 
 
 @login_required

@@ -40,13 +40,21 @@ urlpatterns = [
 	#Introduction
 	path('introduction/', views.introduction_view, name='introduction'),
 	path('introduction/introduction_chapter_lider/', views.introduction_chapter_lider, name='introduction_chapter_lider'),
+	path('introduction/introduction_chapter_lider_task/', views.introduction_chapter_lider_task, name='introduction_chapter_lider_task'),
+	path('introduction/introduction_chapter_lider/like/', views.introduction_chapter_lider_like, name='introduction_chapter_lider_like'),
+	path('introduction/introduction_chapter_lider/comment/', views.add_comment_lider, name='add_comment_lider'),
+	path('introduction/introduction_chapter_lider/comment/approve', views.comment_lider_approve, name='comment_lider_approve'),
+	path('introduction/introduction_chapter_lider/comment/remove', views.comment_lider_remove, name='comment_lider_remove'),
+
 	path('introduction/introduction_chapter_pritch/', views.introduction_chapter_pritch, name='introduction_chapter_pritch'),
 	path('introduction/introduction_chapter_koliso/', views.introduction_chapter_koliso, name='introduction_chapter_koliso'),
+
 	path('introduction/introduction_chapter_spheres_life/', views.introduction_chapter_spheres_life, name='introduction_chapter_spheres_life'),
-	path('introduction/introduction_chapter_lider_task/', views.introduction_chapter_lider_task, name='introduction_chapter_lider_task'),
 	path('introduction/introduction_chapter_spheres_life_task/', views.introduction_chapter_spheres_life_task, name='introduction_chapter_spheres_life_task'),
-	path('introduction/introduction_chapter_lider/like/', views.introduction_chapter_lider_like, name='introduction_chapter_lider_like'),
 	path('introduction/introduction_chapter_spheres_life/like/', views.introduction_chapter_spheres_life_like, name='introduction_chapter_spheres_life_like'),
+	path('introduction/introduction_chapter_spheres_life/comment/', views.add_comment_spheres_life, name='add_comment_spheres_life'),
+	path('introduction/introduction_chapter_spheres_life/comment/approve', views.comment_spheres_life_approve, name='comment_spheres_life_approve'),
+	path('introduction/introduction_chapter_spheres_life/comment/remove', views.comment_spheres_life_remove, name='comment_spheres_life_remove'),
 
 	#First
 	path('first/', views.first_view, name='first'),
