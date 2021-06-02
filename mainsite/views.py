@@ -4,13 +4,14 @@ from mainsite.forms import SignUpForm, PhotoForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import UserCreationForm
 from django.template import RequestContext
-from .models import Post, Skill, UserSkill, Profile, Sphere_of_life, Achivement, UserAchivement, User_affirmation, Comment 
+from .models import Post, Introduction_chapter_lider, Introduction_chapter_spheres_life, Skill, UserSkill, Profile, Sphere_of_life, Achivement, UserAchivement, User_affirmation, Comment 
 from django.utils import timezone
 from django.contrib.auth.models import User
 from .forms import Sphere_of_life_Form, PostForm, CommentForm, UserUpdateForm
 from django.contrib.auth.decorators import login_required
 from .useful_lib import WheelOfLife, get_affirmation_image
 import datetime
+import environ
 from django.shortcuts import redirect
 from django.utils.timezone import make_aware
 from django.http import JsonResponse
@@ -19,6 +20,7 @@ from cloudinary.forms import cl_init_js_callbacks
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.views.generic.detail import DetailView
+from django.utils.text import slugify
 
 #Basic views begin
 #отправляет расположение разметки страницы в файл url
@@ -77,7 +79,10 @@ def introduction_view(request):
 
 @login_required
 def introduction_chapter_lider(request):
-    return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider.html',)
+    tree = get_object_or_404(Introduction_chapter_lider)
+    tree.views += 1
+    tree.save()
+    return  render(request, 'mainsite/tree/introduction/introduction_chapter_lider.html', {'tree': tree})
 
 
 def introduction_chapter_pritch(request):
@@ -126,7 +131,10 @@ def introduction_chapter_spheres_life(request):
     # except:
     #     pass
 
-    #if sphere != None:  
+    #if sphere != None: 
+    tree = get_object_or_404(Introduction_chapter_spheres_life)
+    tree.views += 1
+    tree.save() 
     if Sphere_of_life.objects.filter(user=request.user).exists():  
         # if already exist - edit existing
         sphere = Sphere_of_life.objects.get(user=request.user)
@@ -137,7 +145,6 @@ def introduction_chapter_spheres_life(request):
                 sphere.save()
         else:
             form = Sphere_of_life_Form(request.POST, instance=sphere)
-            
             # if form.is_valid():
             #     sphere = form.save(commit=False)
             #     sphere.save()
@@ -148,7 +155,7 @@ def introduction_chapter_spheres_life(request):
         WheelOfLife_vars = Sphere_of_life.objects.get(user=request.user)
         img = WheelOfLife.getImageSkills([WheelOfLife_vars.inside_world, WheelOfLife_vars.career, WheelOfLife_vars.health, WheelOfLife_vars.relationships  ])
 
-        return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html', {'form': form, 'img': img})
+        return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html', {'form': form, 'img': img, 'tree': tree})
 
     else:
         # if not exist - create new
@@ -166,7 +173,7 @@ def introduction_chapter_spheres_life(request):
                 WheelOfLife_vars = Sphere_of_life.objects.get(user=request.user)
                 img = WheelOfLife.getImageSkills([WheelOfLife_vars.inside_world, WheelOfLife_vars.career, WheelOfLife_vars.health, WheelOfLife_vars.relationships])
 
-                return render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html', {'form': form, 'img': img})
+                return render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html', {'form': form, 'img': img, 'tree': tree})
                
         else:
             form = Sphere_of_life_Form()
@@ -178,7 +185,7 @@ def introduction_chapter_spheres_life(request):
         # WheelOfLife_vars = Sphere_of_life.objects.get(user=request.user)
         # img = WheelOfLife.getImageSkills([WheelOfLife_vars.inside_world, WheelOfLife_vars.career, WheelOfLife_vars.health, WheelOfLife_vars.relationships])
 
-        return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html', {'form': form})
+        return  render(request, 'mainsite/tree/introduction/introduction_chapter_spheres_life.html', {'form': form, 'tree': tree})
     
 
 
@@ -442,6 +449,40 @@ def add_like(request, pk):
         else:
             return redirect('post_list')
 
+
+@login_required
+def introduction_chapter_lider_like(request):
+    tree = get_object_or_404(Introduction_chapter_lider)
+    response = HttpResponse()
+    if request.COOKIES.get('lider_like') != None:
+        return redirect('introduction_chapter_lider')
+
+    else:
+        if tree.user_likes == False:
+            tree.likes += 1
+            response.set_cookie('lider_like', 'liked')
+            tree.save()
+            return response
+        else:
+            return redirect('introduction_chapter_lider')
+
+@login_required
+def introduction_chapter_spheres_life_like(request):
+    tree = get_object_or_404(Introduction_chapter_spheres_life)
+    response = HttpResponse()
+    if request.COOKIES.get('spheres_life_like') != None:
+        return redirect('introduction_chapter_spheres_life')
+
+    else:
+        if tree.user_likes == False:
+            tree.likes += 1
+            response.set_cookie('spheres_life_like', 'liked')
+            tree.save()
+            return response
+        else:
+            return redirect('introduction_chapter_spheres_life')
+
+
 @login_required
 def skills(request):
     skills = Skill.objects.all()
@@ -527,20 +568,34 @@ def signup_view(request):
 
     form = SignUpForm(request.POST)
     if form.is_valid():
+        env = environ.Env(
+            DEBUG=(bool, True)
+        )
+        environ.Env.read_env('./.env')
+
         user = form.save()
+        username = request.POST['username']
+        password = request.POST['password1']
         user.refresh_from_db()
-        #user.profile.first_name = form.cleaned_data.get('first_name')
-        #user.profile.last_name = form.cleaned_data.get('last_name')
+        user.username = user.username.lower()
         user.profile.email = form.cleaned_data.get('email')
+        user.slug = slugify(''.join(eval(env('ALPHABET')).get(w, w) for w in user.username))
         user.save()
-        username = form.cleaned_data.get('username')
-        password = form.cleaned_data.get('password1')
-        user = authenticate(username=username, password=password)
-        login(request, user)
-        return redirect('user_page')
+
+        logining(request, username, password)
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})  
+
+
+def logining(request, username, password):
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return redirect('user_page')
+    else:
+        return redirect('user_page')
+
 
 @login_required
 def affirmation_generator(request):

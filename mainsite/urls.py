@@ -45,6 +45,9 @@ urlpatterns = [
 	path('introduction/introduction_chapter_spheres_life/', views.introduction_chapter_spheres_life, name='introduction_chapter_spheres_life'),
 	path('introduction/introduction_chapter_lider_task/', views.introduction_chapter_lider_task, name='introduction_chapter_lider_task'),
 	path('introduction/introduction_chapter_spheres_life_task/', views.introduction_chapter_spheres_life_task, name='introduction_chapter_spheres_life_task'),
+	path('introduction/introduction_chapter_lider/like/', views.introduction_chapter_lider_like, name='introduction_chapter_lider_like'),
+	path('introduction/introduction_chapter_spheres_life/like/', views.introduction_chapter_spheres_life_like, name='introduction_chapter_spheres_life_like'),
+
 	#First
 	path('first/', views.first_view, name='first'),
 	path('first/first_chapters_what_is_it/', views.first_chapters_what_is_it, name='first_chapters_what_is_it'),
@@ -56,7 +59,7 @@ urlpatterns = [
 	path('first/first_chapters_self_discipline/', views.first_chapters_self_discipline, name='first_chapters_self_discipline'),
 	path('first/first_chapters_self_discipline_list/', views.first_chapters_self_discipline_list, name='first_chapters_self_discipline_list'),
 	path('first/first_chapters_aims_in_life/', views.first_chapters_aims_in_life, name='first_chapters_aims_in_life'),
-	path('first/first_chapters_self_aims_in_life_list/', views.first_chapters_self_aims_in_life_list, name='first_chapters_self_aims_in_life_list'),
+	path('first/first_chapters_self_aims_in_life_list/', views.first_chapters_self_aims_in_life_list, name='first_chapters_self_aims_in_life_list'),	
 	#Second
 	path('second/', views.second_view, name='second'),
 	path('second/second_chapters_AimofLearning/', views.second_chapters_AimofLearning, name='second_chapters_AimofLearning'),
