@@ -1,4 +1,4 @@
-﻿appdirs==1.4.4
+appdirs==1.4.4
 asgiref==3.3.1
 astroid==2.5
 auditlog3==1.0.1
@@ -10,7 +10,7 @@ contextlib2==0.6.0.post1
 cycler==0.10.0
 distlib==0.3.1
 dj-database-url==0.5.0
-Django==3.1.13
+Django==3.1.14
 django-cloudinary-storage==0.3.0
 django-cors-headers==3.5.0
 django-cors-middleware==1.5.0
