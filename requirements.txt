@@ -2,7 +2,7 @@ appdirs==1.4.4
 asgiref==3.3.1
 astroid==2.5
 auditlog3==1.0.1
-certifi==2019.11.28
+certifi==2022.12.7
 chardet==3.0.4
 cloudinary==1.24.0
 colorama==0.4.3
