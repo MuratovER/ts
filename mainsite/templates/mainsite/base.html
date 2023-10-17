@@ -4,57 +4,107 @@
 <html lang="ru">
 
   <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Adaptability -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,rink-to-fit=no ">
+    <!--SEO-->
+    <!--Brief description of the page-->
+    <meta name="discription" content="Наш проект про самый сложный и важный процесс — личностное развитие.
+    Саморазвитие — это огромный шаг к улучшению самого себя. И мы рады, что ты на него решился. И решил сделать это вместе с нами.
+    Приготовься! Наш ждет увлекательный, но не простой путь.Это платформа для изучения основных методов личностного развития.
+    Современный мир требует цифровых решений для передачи информации. Сегодня наиболее популярными форматами являются онлайн-ресурсы, как Coursera, YouTube и Instagram. Мы хотим не отставать от трендов.
+    В основе проекта — книга “Уроки лидерства” А.Х. Гильмутдинова и А.А. Гильмутдиновой. Мы перенесли ее в доступный виртуальный формат с удобным интерфейсом и дополнили интерактивными сервисами. Все это в единой форме поможет каждому выстроить грамотную траекторию саморазвития.">
+    <!--Key words on page-->
+    <meta name="keywords" content=" личностное развитие, шаг к улучшению самого себя, Саморазвитие, личностного развития, Уроки лидерства, онлайн-ресурсы">
+    <!--Managing search engine access to the page -->
+    <!--Preventing the page from being indexed in its entirety-->
+    <meta name="robots" content="none">
+    <!--Author of the platform-->
+    <meta name="Author" content="TopSkillsGroup">
+    <!--Copyright-->
+    <meta name="Copyright" content="TopSkillsGroup">
+    <!--author's address -->
+    <meta name="Address" content="KAI, discort, TelegramOfAzat">
 
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--redirect (reload) the page-->
+    <!--the delay in seconds; -->
+    <!--<meta http-equiv="refresh" content="10; url=/"-->   
 
-      <!-- Optional JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-      <script src='{% static "mainsite/js/bootstrap.min.js" %}'></script>
-      <!-- script for showing help block-->
-      <script src="../../static/mainsite/js/showHelpBlock.js" defer></script>
+    <!--website localisation for the Russian-language website RU-->
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="article">
+
+    <!--Title for websites(Twitter)-->
+    <meta property="og:title" content="TopSkills Начни меняться сейчас!">
+    <!--Page description-->
+    <meta property="og:description" content="Саморазвитие — это огромный шаг к улучшению самого себя. ">
+    <!--link to the image to be published in the entry-->
+    <meta property="og:image" content="https://topskills.herokuapp.com/static/mainsite/images/landing/manWithVr.png">
+    <!--link to current page-->
+    <meta property="og:url" content="https://topskills.herokuapp.com">
+    <!--website name-->
+    <meta property="og:site_name" content="TopSkills">
+    
+    
+		<!-- Map type, default is twitter-->
+		<meta name="twitter:card" content="TopSkills">
+		<!-- Author's name/login -->
+		<meta name="twitter:site" content="Autor">
+		<!--Title of the page -->
+		<meta name="twitter:title" content="TopSkills">
+		<!--Page description -->
+		<meta name="twitter:description" content="Саморазвитие — это огромный шаг к улучшению самого себя. ">
+		<!-- link to current page -->
+		<meta name="twitter:image" content="https://topskills.herokuapp.com/static/mainsite/images/landing/manWithVr.png">
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src='{% static "mainsite/js/bootstrap.min.js" %}'></script>
+    <!-- script for showing help block-->
+    <script src="../../static/mainsite/js/showHelpBlock.js" defer></script>
       
 
-      <!-- script for showing password-->
-      <script src='{% static "mainsite/js/registration/show_hide_password.min.js" %}'></script>
-      <script src="{% static 'mainsite/js/registration/show_hide_password.js' %}"></script>
-      <script src='{% static "mainsite/js/registration/steps.js" %}'></script>
+    <!-- script for showing password-->
+    <script src='{% static "mainsite/js/registration/show_hide_password.min.js" %}'></script>
+    <script src="{% static 'mainsite/js/registration/show_hide_password.js' %}"></script>
+    <script src='{% static "mainsite/js/registration/steps.js" %}'></script>
 
-      <!-- Style sheets -->
-      <link rel="shortcut icon"   type="image/x-icon"  href="{% static '/mainsite/images/base/favicon.ico' %}"/>
-      <link rel="stylesheet" href="{% static 'mainsite/css/registration.css' %}">
-      <link rel="stylesheet" href="{% static 'mainsite/css/main.css' %}">
-      <link rel="stylesheet" href="{% static 'mainsite/css/profile.css' %}">
-      <link rel="stylesheet" href="{% static 'mainsite/css/bootstrap.css' %}">
-      <link rel="stylesheet" href="{% static 'mainsite/css/landing.css' %}">
-      <link rel="stylesheet" href="{% static 'mainsite/css/aboutUs.css' %}">
-      <link rel="stylesheet" href="{% static 'mainsite/css/evaluation.css' %}">
-      <link rel="stylesheet" href="{% static 'mainsite/css/collectErrors.css' %}">
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <!-- Style sheets -->
+    <link rel="shortcut icon"   type="image/x-icon"  href="{% static '/mainsite/images/base/favicon.ico' %}"/>
+    <link rel="stylesheet" href="{% static 'mainsite/css/registration.css' %}">
+    <link rel="stylesheet" href="{% static 'mainsite/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'mainsite/css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'mainsite/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'mainsite/css/landing.css' %}">
+    <link rel="stylesheet" href="{% static 'mainsite/css/aboutUs.css' %}">
+    <link rel="stylesheet" href="{% static 'mainsite/css/evaluation.css' %}">
+    <link rel="stylesheet" href="{% static 'mainsite/css/collectErrors.css' %}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
 
-      <!--FONTS-->
-      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">      
-      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="{% static 'mainsite/css/open-iconic-bootstrap.css' %}">
+    <!--FONTS-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">      
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'mainsite/css/open-iconic-bootstrap.css' %}">  
       
 
-      <!-- <title>TopSkills</title> -->
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGYMW002HM"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <!-- <title>TopSkills</title> -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGYMW002HM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-        gtag('config', 'G-HGYMW002HM');
-      </script>
+      gtag('config', 'G-HGYMW002HM'); 
+    </script> 
   </head>
 
   <body>
@@ -83,100 +133,20 @@
        
         <div class="header--btns">
           {% if user.is_authenticated %}
-            <button type="sumbit" onclick="location.href='{% url 'logout' %}'" class='header--change--btn headerExit'>Выход</button>
+             <button type="sumbit" onclick="location.href='{% url 'logout' %}'" class='header--change--btn headerExit'>Выход</button>
           {% else %}
-            <button type="sumbit" onclick="location.href='{% url 'login' %}'" class='header--change--btn headerEnter'>Войти</button>
-            <button type="sumbit" onclick="location.href='{% url 'signup' %}'" class='header--change--btn headerRegister'>Регистрация</button>
+          <button type="sumbit" onclick="location.href='{% url 'login' %}'" class='header--change--btn headerEnter'>Войти</button>
+          <button type="sumbit" onclick="location.href='{% url 'signup'%}'" class='header--change--btn headerRegister'>Регистрация</button>
           {% endif %}
 
         </div>
         </div>
       </div>
-    
-
-
-      <!-- Old code -->
-
-      <!-- 
-        <div class="logo">
-            <a href="/">
-            <img src="https://media.discordapp.net/attachments/698260986880065546/744777298011619378/2.jpg" style="width: 60;" alt="Topskills">
-                <span style="color: #f6d4d2; font-size: 25px; font-weight: 550;">
-                TopSkills
-                </span>
-            </a>    
-        </div>
-
-
-        {% if user.is_authenticated %}
-        <ul class="nav-ul">
-            <li class="left-li"> <button type="button" class="btn btn-secondary"><a href="{% url 'home_page' %}" class="top-menu"><span class="glyphicon glyphicon-home"></span>Главная</a></button></li>
-            <li></li>
-            <li class="right-li"><button type="button" class="btn btn-secondary"><a href="{% url 'tree' %}" class="top-menu"><span class="glyphicon glyphicon-comment"></span>Древо развития</a></button></li>
-            <li class="right-li"><button type="button" class="btn btn-secondary"><a href="{% url 'skills' %}" class="top-menu"><span class="glyphicon glyphicon-star"></span>Навыки</a></button></li>
-            <li class="right-li"><button type="button" class="btn btn-secondary"><a href="{% url 'achivements' %}" class="top-menu"><span class="glyphicon glyphicon-star"></span>Достижения</a></button></li>
-            <li class="right-li"><button type="button" class="btn btn-secondary">Привет {{ user.username }} <a href="{% url 'logout' %}">Выход</a></button></li>
-        </ul>
-         <div class="btn-group " role="group" aria-label="Basic example">
-       </div>
-        {% endif %}
-      </nav>
-    
-
-        <div class="page-header">
-            {% if user.is_authenticated %}
-            <div class="activated">
-            </div>
-            {% else %}
-            <div class="item1">
-                <div>
-                    <img src="https://cdn.discordapp.com/attachments/650954813550624778/659785442111127582/lis-lisa-doroga-les-iolki-gory-zakat-rassvet-nebo-zvezdy.jpg"  alt="Your Future" width="100%" height="600">
-                </div> 
-            </div> 
-             <div class="item2"> 
-            <div clas="main-page-n-login" style="padding: 50% 55px; width: 100%;">
-                <form method="post" action="/accounts/login/" class="login-tables">
-                        {% csrf_token %}
-                        <table>
-                        <tbody><tr class="login">
-                            <td><label for="id_username">Логин:</label></td>
-                            <td><input type="text" name="username" autofocus="" required="" id="id_username"></td>
-                        </tr>
-                        <tr class="password">
-                            <td><label for="id_password">Пароль:</label></td>
-                            <td><input type="password" name="password" required="" id="id_password"></td>
-                        </tr>
-                    </tbody></table>
-                        <input  type="submit" class="button1" value="Вход" >
-                        <input type="hidden" name="next" value="">
-                </form>
-                {% if form.errors %}
-
-                <p>Your username and password didn't match. Please try again.</p>
-                {% endif %} -->
-
-            <!-- Переход в Регистрацию 
-
-                    <a href="{% url 'signup' %}" class="button2"> Регистрация </a>
-                {% endif %}
-            </div> -->
 
     </header>
-
-   
-    
-        <!-- </div>
-        <div class="content-container" style="width: 100%;">
-            <div class="row">
-                <div class="col-md-8" style="padding: 0 55px; width: 100%;"> -->
-
-                    {% block content %}
+          {% block content %}
                         <!-- Try to delete invisible column-->
-                    {% endblock %}
-  
-                <!-- </div>
-            </div>
-        </div> -->
+          {% endblock %}         
         <div class="feedback--error--block">
           <div class="feedback--error-links ">
             <div class="feedback--error-title">Меню</div>
